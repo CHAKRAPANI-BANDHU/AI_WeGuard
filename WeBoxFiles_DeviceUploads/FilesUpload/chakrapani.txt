@@ -1,0 +1,78 @@
+RESUME
+
+
+
+Name:  B.Chakrapani
+Mobile No: 9701678513.
+E-mail: chakrapani078@gmail.com.
+
+CAREER OBJECTIVE
+
+To work in a highly motivated environment where i can utilize my skills to the best of my abilities in order to meet the organizational goals with continuous learning and updated knowledge.
+
+ACADEMIC QUALIFICATION
+
+Degree	College/Institute	University/Board	Year	Percentage
+M.Tech/ME
+CSE	Marri Laxman Reddy Institute Of Technology And Management	JNTUH
+	2018
+	66%
+BE/B Tech
+IT	Joginpally BR Engineering College	JNTUH	2016	
+65%
+MPC	S.M.Ali’s Shanthinikethan Junior College	Board of Intermediate       Education	2012	64%
+SSC	New Brilliant High School	Board Of Secondary Education	2010	74%
+
+TECHNICAL SKILLS
+
+?	Manual Testing, Test Automation and Appium.
+?	Programming Languages: Core Java, HTML & CSS, and SQL.
+
+COURSE AND TRAINING
+?	Completed Training on Software Testing like Manual Testing and Test Automation using Selenium-Java, Sikuli, Web services Testing (Groovy), Frameworks and Appium.
+?	Real Time Project Experience.
+
+PERSONAL SKILLS
+
+?	Ability to work under pressure.
+?	Try to complete the work what I start.
+?	Adaptive to any environment.
+?	Positive attitude and Hardworking nature.
+?	Good Leadership ability.
+
+
+WORK EXPERIENCE
+
+Wenable Technologies Private Limited                                                      DOJ: 18-February-2019
+
+Role                    :   QA Engineer 
+Responsibilities :   
+
+?	Good knowledge in JIRA tool
+?	Understanding requirement and then identifying scenarios, preparing test scenarios and execution
+?	Expertise in bug tracking and reporting
+?	Extensive working experience in Functional Testing, System Testing, Integration Testing, Regression Testing, and Retesting   
+?	Performing test case review process.
+?	API Testing using Postman
+?	Validating data in the back end database using Robo 3T tool.   
+EXTRACURRICULAR ACTIVITIES AND ACHIEVEMENTS
+?	Participated in “Linux Workshop” during 10th-11th October, 2014 at Joginpally BR Engineering College, Hyderabad. 
+?	Participated in Paper Presentation on Dynamic Detection of social events and topics for Automatic Generation of Social Event Storyboards in IJCSEITR conducted by BVRITH on 10th & 11th January 2019.
+?	Actively participated in Telangana Information Technology Association (TITA) and National Digital Literacy Mission (NDLM) programs.
+PERSONAL PROFILE
+
+Name		                 :    B.Chakrapani
+Fathers Name                 :    B.Narsimha
+Permanent Address       :    H.No:3-3-40, Yerraboda (V), Hyderguda (Post), Attapur, Rajendranagar (M), R.R.District, Hyderabad, Telangana.500048
+Date of Birth                   :    18- DECEMBER-1994
+Gender	                  :    Male
+Language Known            :    English, Hindi, Telugu, Kannada
+Hobbies                             :   Playing Cricket, Carrom, Kabbadi, Watching movies, Reading Books.
+DECLARATION
+
+
+I hereby certify that above information given is true to the best of my knowledge and I bear the responsibility for the correctness of the above mentioned particulars.
+
+
+Date: 										             Signature
+Place:  Hyderabad 	 							         (B.Chakrapani)

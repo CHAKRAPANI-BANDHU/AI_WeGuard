@@ -1,0 +1,6 @@
+USERNAME = 'userName'
+PASSWORD = 'password'
+ENTITY = 'entity'
+ENTITIES = 'entities'
+ACCOUNTID = 'accountId'
+POLICYID = 'policyId'
