@@ -530,7 +530,11 @@ def test_tc_1110_PUT_PolicyLevel_Notifications_Geofence(url):
         for mongoId in Generalpayload.Geofence_MongoDB_IDs:
             apiUrl = globalvariables.BaseURL + PUTGeofences(mongoId)
             Headers = {'Authorization': 'Bearer {}'.format(globalvariables.bearerToken)}
-            res = requests.put(url=apiUrl, headers=Headers, json=Generalpayload.PUTGeofence, timeout=globalvariables.timeout)
+            PUTGeofence = {
+                "emailList": [Generalpayload.random_gmail_address],
+                "enabled": Generalpayload.enabled_value
+            }
+            res = requests.put(url=apiUrl, headers=Headers, json=PUTGeofence, timeout=globalvariables.timeout)
             curl_str1 = Utils.getCurlEquivalent(res)
             if res.status_code == 200:
                 print(curl_str1)
@@ -634,7 +638,8 @@ def test_tc_1112_DELETE_PolicyLevel_Geofence_Notifications(url):
                       "\n" + "Request Method: " + res.request.method +
                       "\n" + "Status Code: " + str(res.status_code) +
                       "\n" + "Response: " + str(res.content) + "\n")
-                print("\n---------------------------- DELETE method to delete policy level geofence notifications ---------------------------\n")
+                print(
+                    "\n--------------------------- DELETE method to delete policy level geofence notifications ---------------------------\n")
             elif res.status_code == 400:
                 print("\n" + "400 Bad Request!")
             elif res.status_code == 404:

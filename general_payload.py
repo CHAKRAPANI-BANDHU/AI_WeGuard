@@ -347,8 +347,3 @@ DeleteGeofenceNotificationsPayload = {
     "id": random_id,
     "policyId": random_policy_id
 }
-
-PUTGeofence = {
-    "emailList": [random_gmail_address],
-    "enabled": enabled_value
-}
