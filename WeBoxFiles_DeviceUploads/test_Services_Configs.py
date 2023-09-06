@@ -2,15 +2,14 @@
 # import requests
 # import pytest
 # import globalvariables as globalvars
-# import WeGuardlogger as WeGuard
+# import Logs as WeGuard
 # import Executor as Execute
 # import WeBoxpayloadinfo as payload
 # import test_GETutils as utils
 #
 #
 # def url_formatter3(policyId):
-#     url3 = "enterprise/rest/weguard-v2/webox/config/{policyId}".format(policyId=policyId)
-#     return url3
+#     return "enterprise/rest/weguard-v2/webox/config/{policyId}".format(policyId=policyId)
 #
 #
 # undosave = 'enterprise/rest/weguard-v2/fcmUpdate'
@@ -44,7 +43,7 @@
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n\n--------------------------- Undo and Save is passed ---------------------------")
+#             print("\n\n--------------------------- Undo and Save is passed ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -83,35 +82,35 @@
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
-#          url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n\n--------------------------- Android Policy configs ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             url3 = url_formatter3(policyId)
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             res = requests.get(url=apiUrl, headers=Headers, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print("\n\n--------------------------- Android Policy configs ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #             WeGuard.logger.error("Exception : " + str(e))
 #             now2 = datetime.now()
@@ -136,37 +135,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledallowdownload.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledallowdownload, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Allow Download is Disabled ---------------------------")
-#         elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
-#                 # Add your assertions or actions for 400 Bad Request response here
-#                 assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
-#                 # Add your assertions or actions for 404 Not Found response here
-#                 assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
-#                 # Add your assertions or actions for 500 Internal Server Error response here
-#                 assert False, "Received 500 response"
-#         else:
-#                 print("Request did not succeed! Status code:", res.status_code)
-#                 assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledallowdownload.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledallowdownload, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Allow Download is Disabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                     print("\n" + "400 Bad Request!")
+#                     # Add your assertions or actions for 400 Bad Request response here
+#                     assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                     print("\n" + "500 Result not found!")
+#                     # Add your assertions or actions for 404 Not Found response here
+#                     assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                     print("\n" + "500 Internal Server Error!")
+#                     # Add your assertions or actions for 500 Internal Server Error response here
+#                     assert False, "Received 500 response"
+#             else:
+#                     print("Request did not succeed! Status code:", res.status_code)
+#                     assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #                 WeGuard.logger.error("Exception : " + str(e))
 #                 now2 = datetime.now()
@@ -193,37 +192,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledallowfileview.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledallowfileview, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Allow File View is disabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledallowfileview.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledallowfileview, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Allow File View is disabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #             WeGuard.logger.error("Exception : " + str(e))
 #             now2 = datetime.now()
@@ -250,36 +249,36 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledopenwith.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledopenwith, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#           # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledopenwith.txt", "r")
+#           # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledopenwith, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                print("\n" + "200 The request was a success!")
+#                print("\n" + "Header: " + str(res.headers) +
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n\n--------------------------- Open With is disabled---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#                print("\n\n--------------------------- Open With is disabled---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #             WeGuard.logger.error("Exception : " + str(e))
 #             now2 = datetime.now()
@@ -305,42 +304,41 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledshowlinks.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledshowlinks, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n\n--------------------------- Show Links is disabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledshowlinks.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledshowlinks, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print("\n\n--------------------------- Show Links is disabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Show Links is not disabled ---------------------------\n\n")
+#         WeGuard.logger.error("\n\n--------------------------- Show Links is not disabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -360,37 +358,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/noWeBoxConfigs.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.noWeBoxConfigs, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Allow Download, Allow file view, Open with, Show links are disabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/noWeBoxConfigs.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.noWeBoxConfigs, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Allow Download, Allow file view, Open with, Show links are disabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -417,37 +415,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledallowdownload.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledallowdownload, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Allow Download is enabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledallowdownload.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledallowdownload, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Allow Download is enabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #             WeGuard.logger.error("Exception : " + str(e))
 #             now2 = datetime.now()
@@ -475,38 +473,38 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledfileview.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledfileview, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         now1 = datetime.now()
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Allow File View is enabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledfileview.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledfileview, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             now1 = datetime.now()
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Allow File View is enabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -533,36 +531,36 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledopenwith.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledopenwith, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n\n--------------------------- Open With is enabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledopenwith.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledopenwith, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print("\n\n--------------------------- Open With is enabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -588,36 +586,36 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledshowlinks.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledshowlinks, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n\n--------------------------- Show Links is enabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledshowlinks.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledshowlinks, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print("\n\n--------------------------- Show Links is enabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -644,37 +642,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledservicetypes.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledservicetypes, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Service Types are disabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledservicetypes.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledservicetypes, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Service Types are disabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -701,37 +699,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledservicetypes.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledservicetypes, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Service Types are enabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledservicetypes.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledservicetypes, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Service Types are enabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -758,37 +756,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledweboxpasscode.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledweboxpasscode, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- WeBox Passcode is disabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/disabledweboxpasscode.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.disabledweboxpasscode, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- WeBox Passcode is disabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -815,37 +813,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledweboxpasscode.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledweboxpasscode, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- WeBox Passcode is enabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enabledweboxpasscode.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledweboxpasscode, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- WeBox Passcode is enabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -872,38 +870,38 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enablegdrivedropbox.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledgoogledrivedropbox,
-#                             timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Google Drive and Dropbox are enabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enablegdrivedropbox.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledgoogledrivedropbox,
+#                                 timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Google Drive and Dropbox are enabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -930,38 +928,38 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enableds3sdcard.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledAmzazonS3SDcard,
-#                             timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Amazon S3 and SD Card are enabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/enableds3sdcard.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.enabledAmzazonS3SDcard,
+#                                 timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Amazon S3 and SD Card are enabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -988,37 +986,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/AddingSDCardFolder.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.AddingSDCardFolder, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Created SD card folder successfully ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/AddingSDCardFolder.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.AddingSDCardFolder, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Created SD card folder successfully ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -1045,38 +1043,38 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/AddingGoogleDrivefolder.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.AddingGoogleDrivefolder,
-#                             timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Created Google Drive folder successfully ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/AddingGoogleDrivefolder.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.AddingGoogleDrivefolder,
+#                                 timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Created Google Drive folder successfully ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -1103,37 +1101,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/AddingAmazonS3folder.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.AddingAmazonS3folder, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Created Amazon S3 folder successfully ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/AddingAmazonS3folder.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.AddingAmazonS3folder, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Created Amazon S3 folder successfully ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -1160,37 +1158,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/AddingDropboxfolder.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.AddingDropboxfolder, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Created Dropbox folder successfully ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/AddingDropboxfolder.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.AddingDropboxfolder, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Created Dropbox folder successfully ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -1217,38 +1215,38 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/DisabledSDcardAmazonS3.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.DisabledSDcardAmazonS3,
-#                             timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- SD card and Amazon S3 are disabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/DisabledSDcardAmazonS3.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.DisabledSDcardAmazonS3,
+#                                 timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- SD card and Amazon S3 are disabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -1275,38 +1273,38 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/DisabledGoogleDriveDropbox.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.DisabledGoogleDriveDropbox,
-#                             timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Google Drive and Dropbox are disabled ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/DisabledGoogleDriveDropbox.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.DisabledGoogleDriveDropbox,
+#                                 timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Google Drive and Dropbox are disabled ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -1333,37 +1331,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/AddingSDCardFolder.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.AddingSDCardFolder, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Created SD card folder successfully ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/AddingSDCardFolder.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.AddingSDCardFolder, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Created SD card folder successfully ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -1389,38 +1387,38 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/DeletingGoogleDriveFolder.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.DeletingGoogleDriveFolder,
-#                             timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Deleted Google Drive folder successfully ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/DeletingGoogleDriveFolder.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.DeletingGoogleDriveFolder,
+#                                 timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Deleted Google Drive folder successfully ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #             WeGuard.logger.error("Exception : " + str(e))
 #             now2 = datetime.now()
@@ -1447,37 +1445,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/DeletingSDCardFolder.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.DeletingSDCardFolder, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Deleted SD Card folder successfully ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/DeletingSDCardFolder.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.DeletingSDCardFolder, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Deleted SD Card folder successfully ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #             WeGuard.logger.error("Exception : " + str(e))
 #             now2 = datetime.now()
@@ -1504,37 +1502,37 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #             url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
-#         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/DeletingDropboxFolder.txt", "r")
-#         # req = json.loads(file1.read())
-#         res = requests.post(url=apiUrl, headers=Headers, json=payload.DeletingDropboxFolder, timeout=globalvars.timeout)
-#         curl_str1 = utils.getCurlEquivalent(res)
-#         print(curl_str1)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Deleted Dropbox folder successfully ---------------------------")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             apiUrl = globalvars.BaseURL + url3
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/DeletingDropboxFolder.txt", "r")
+#             # req = json.loads(file1.read())
+#             res = requests.post(url=apiUrl, headers=Headers, json=payload.DeletingDropboxFolder, timeout=globalvars.timeout)
+#             curl_str1 = utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     "\n\n--------------------------- Deleted Dropbox folder successfully ---------------------------\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "500 Result not found!")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -1561,7 +1559,7 @@
 #     try:
 #         for policyId in globalvars.Android_profile_ids:
 #          url3 = url_formatter3(policyId)
-#         apiUrl = globalvars.BaseURL + url3
+#         apiUrl = globalvars.BaseURL + url_formatter3
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
 #         # file1 = open("zAuditLogsWeBoxLogout/Payloadinfo/Weboxfiles.txt", "r")
 #         # req = json.loads(file1.read())
@@ -1575,7 +1573,7 @@
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n\n--------------------------- WeBox Files POST API ---------------------------")
+#             print("\n\n--------------------------- WeBox Files POST API ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!")
 #             # Add your assertions or actions for 400 Bad Request response here

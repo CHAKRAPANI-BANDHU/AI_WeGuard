@@ -126,7 +126,7 @@ SharedFolderconfigwithoutSign = {
 }
 
 AddingAmazonS3folder = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 853,
     "policyId": globalvar.Android_profile_ids,
@@ -162,7 +162,7 @@ AddingAmazonS3folder = {
 }
 
 AddingDropboxfolder = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 853,
     "policyId": globalvar.Android_profile_ids,
@@ -226,7 +226,7 @@ AddingDropboxfolder = {
 }
 
 AddingGoogleDrivefolder = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 853,
     "policyId": globalvar.Android_profile_ids,
@@ -340,7 +340,7 @@ AddingGoogleDrivefolder = {
     }
 }
 AddingSDCardFolder = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 852,
     "policyId": globalvar.Android_profile_ids,
@@ -504,7 +504,7 @@ configwithsignpolicygroupfolders = {
     "uploadSizeLimit": "5000000"
 }
 DeletingDropboxFolder = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 865,
     "policyId": globalvar.Android_profile_ids,
@@ -619,7 +619,7 @@ DeletingDropboxFolder = {
     }
 }
 DeletingGoogleDriveFolder = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 865,
     "policyId": globalvar.Android_profile_ids,
@@ -723,7 +723,7 @@ DeletingGoogleDriveFolder = {
     }
 }
 DeletingSDCardFolder = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 853,
     "policyId": globalvar.Android_profile_ids,
@@ -849,7 +849,7 @@ DeletingSDCardFolder = {
     }
 }
 disabledallowdownload = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 310,
     "allowDownload": False,
@@ -881,7 +881,7 @@ disabledallowdownload = {
     }
 }
 disabledallowfileview = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -914,7 +914,7 @@ disabledallowfileview = {
     }
 }
 DisabledGoogleDriveDropbox = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 853,
     "policyId": globalvar.Android_profile_ids,
@@ -947,7 +947,7 @@ DisabledGoogleDriveDropbox = {
     }
 }
 disabledopenwith = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -980,7 +980,7 @@ disabledopenwith = {
     }
 }
 DisabledSDcardAmazonS3 = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 853,
     "policyId": globalvar.Android_profile_ids,
@@ -1013,7 +1013,7 @@ DisabledSDcardAmazonS3 = {
     }
 }
 disabledservicetypes = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1046,7 +1046,7 @@ disabledservicetypes = {
     }
 }
 disabledshowlinks = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1079,7 +1079,7 @@ disabledshowlinks = {
     }
 }
 disabledweboxpasscode = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1112,7 +1112,7 @@ disabledweboxpasscode = {
     }
 }
 enabledallowdownload = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1145,7 +1145,7 @@ enabledallowdownload = {
     }
 }
 enabledfileview = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1178,7 +1178,7 @@ enabledfileview = {
     }
 }
 enabledopenwith = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1211,7 +1211,7 @@ enabledopenwith = {
     }
 }
 enabledAmzazonS3SDcard = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1244,7 +1244,7 @@ enabledAmzazonS3SDcard = {
     }
 }
 enabledservicetypes = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1277,7 +1277,7 @@ enabledservicetypes = {
     }
 }
 enabledshowlinks = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1310,7 +1310,7 @@ enabledshowlinks = {
     }
 }
 enabledweboxpasscode = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1343,7 +1343,7 @@ enabledweboxpasscode = {
     }
 }
 enabledgoogledrivedropbox = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 13,
     "policyId": globalvar.Android_profile_ids,
@@ -1377,7 +1377,7 @@ enabledgoogledrivedropbox = {
 }
 
 noWeBoxConfigs = {
-    "id": "64cc93d57fa1a20102b8de2e",
+    "id": None,
     "deleted": False,
     "version": 310,
     "policyId": globalvar.Android_profile_ids,
@@ -1459,5 +1459,4 @@ pdf = [{"uploadId": None, "imageFileName": "WeBox_Img_1614175174747.jpg",
         "policyId": globalvar.Android_profile_ids, "filePath": "Chakrapani AE/WeBox_Img_1615467544017.jpg",
         "folderName": "Chakrapani AE", "sharedFolder": True, "imageFileSize": 2543834, "singnatureFileSize": 0,
         "comment": "", "imageCreatedTime": 1615467549331}]
-zip = [
-    "https://qa-cache.weguard.io/0NTFI/CTRC-AA5WU/mobile/sYTjdJu7r65DFH4sfZ_56U9fwFUux7ubYvPebp=bTuK=qDAtyfhU8u7qdiSz--G6/WeBox_Img_1615457010085.jpg"]
+Zip = ["https://qa-cache.weguard.io/0NTFI/CTRC-AA5WU/mobile/sYTjdJu7r65DFH4sfZ_56U9fwFUux7ubYvPebp=bTuK=qDAtyfhU8u7qdiSz--G6/WeBox_Img_1615457010085.jpg"]

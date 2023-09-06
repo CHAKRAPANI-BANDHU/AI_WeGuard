@@ -5,7 +5,7 @@ import pytest
 import requests
 
 import Executor as Execute
-import WeGuardlogger as WeGuard
+import Logs as WeGuard
 import globalvariables as globalvar
 import jsonnames
 import general_payload as requestdata
@@ -17,8 +17,9 @@ event_Login = "enterprise/rest/weguard/logs/events"
 
 
 @pytest.mark.parametrize('url', [""])
-@pytest.mark.skipif(Execute.test_tc_0001_AccountAdmin_login == 0, reason="Enterprise is compulsory")
+@pytest.mark.skipif(Execute.test_tc_0001_Login == 0, reason="Enterprise is compulsory")
 @pytest.mark.positivetest
+@pytest.mark.login
 @pytest.mark.negativetest
 @pytest.mark.usualtest
 @pytest.mark.raretest
@@ -79,7 +80,7 @@ def test_tc_0001_Login(url):
 
 @pytest.mark.parametrize('url', [""])
 @pytest.mark.positivetest
-@pytest.mark.devicespage
+@pytest.mark.login
 @pytest.mark.sanitytest
 @pytest.mark.regressiontest
 @pytest.mark.usualtest
@@ -125,6 +126,7 @@ def test_tc_0002_Login_Event(url):
 
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_tc_000003_AccountAdmin_Invalid_email == 0, reason="test is skipped")
+# @pytest.mark.login
 # @pytest.mark.negativetest
 # @pytest.mark.run(order=10003)
 # def test_tc_000002_InvalidEmail(url):
@@ -172,6 +174,7 @@ def test_tc_0002_Login_Event(url):
 #
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_tc_000004_AccountAdmin_Invalid_password == 0, reason="test is skipped")
+# @pytest.mark.login
 # @pytest.mark.usualtest
 # @pytest.mark.negativetest
 # @pytest.mark.run(order=10004)

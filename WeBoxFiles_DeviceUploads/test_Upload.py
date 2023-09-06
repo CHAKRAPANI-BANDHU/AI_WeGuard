@@ -3,13 +3,13 @@
 #                                                                                              userName=userName, ac=ac,
 #                                                                                              pac=pac)
 #     return url2
-
-def url_formatter(name, userName, ac, fileName):
-    uploader = "uploader/upload/file/v2?name={name}&userName={userName}&ac={ac}&chunkNumber=1&totalChunks=1&fileName={fileName}".format(
-        name=name, userName=userName,
-        ac=ac, fileName=fileName, )
-    return uploader
-
+#
+# def url_formatter(name, userName, ac, fileName):
+#     uploader = "uploader/upload/file/v2?name={name}&userName={userName}&ac={ac}&chunkNumber=1&totalChunks=1&fileName={fileName}".format(
+#         name=name, userName=userName,
+#         ac=ac, fileName=fileName, )
+#     return uploader
+#
 # # Upload SVG file in WeBox
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_tc_001_WeBox_SVGUpload == 0,

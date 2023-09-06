@@ -4,7 +4,7 @@ import pytest
 import requests
 
 import Executor as Execute
-import WeGuardlogger as WeGuard
+import Logs as WeGuard
 import globalvariables as Globalinfo
 import test_GETutils as Utils
 
@@ -16,9 +16,9 @@ def url_formatter(page, size):
 
 
 @pytest.mark.parametrize('url', [""])
-@pytest.mark.skipif(Execute.test_tc_1000_Policy_All == 0, reason="test skipped")
+@pytest.mark.skipif(Execute.test_tc_0003_Policy_All == 0, reason="test skipped")
 @pytest.mark.usualtest
-@pytest.mark.devicespage
+@pytest.mark.policygroups
 @pytest.mark.sanitytest
 @pytest.mark.regressiontest
 @pytest.mark.positivetest
@@ -47,13 +47,12 @@ def test_tc_001_Policy_ALL_10000(url):
             print("\n" + "200 The request was a success!" + "\n")
             curl_str1 = Utils.getCurlEquivalent(res)
             print(curl_str1)
-            print(
-                "\n" + "Header: " + str(res.headers) +
+            print("\n" + "Header: " + str(res.headers) +
                 "\n" + "Request URL: " + apiUrl +
                 "\n" + "Request Method: " + res.request.method +
                 "\n" + "Status Code: " + str(res.status_code) +
                 "\n" + "Response: " + str(res.content) + "\n\n")
-            print(res.content)
+            # print(res.content)
             json_resp = res.json()
             # Store profiles based on platform and type
             for profile in json_resp.get('list', []):

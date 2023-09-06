@@ -2,6 +2,7 @@ import os
 import time
 from datetime import datetime, timedelta
 
+# Environment Variables
 global userName
 userName = ''
 global password
@@ -11,14 +12,12 @@ BaseURL = ''
 global loglevel
 loglevel = 0
 
+# Pagination
 page_1 = 1
 page_100 = 100
 page_500 = 500
 page_1000 = 1000
 page_50000 = 50000
-
-Android_groupId = ""
-ios_groupid = ""
 
 if os.environ.get('WEGUARD_USER') is not None:
     userName = os.getenv('WEGUARD_USER')
@@ -33,7 +32,6 @@ if os.environ.get('LOG_LEVEL') is not None:
     loglevel = int(os.environ['LOG_LEVEL'])
 
 log_file = "WeGuard" + format(time.strftime("_%d-%m-%Y_%H:%M:%S")) + ".log"
-# WeGuard(log_file, loglevel)
 
 timeout = 180
 bearerToken = ""
@@ -45,9 +43,9 @@ accountId = ""
 companyName = ""
 name = ""
 enterpriseId = ""
-getAlertId = ""
 
-AcknowledgeAlertsIDs = ''
+
+UnacknowledgeAlertsIDs = []
 
 # Policy Groups Information of Android, iOS and Windows from common policy
 # After clicking on policy groups on left navigation bar
@@ -106,17 +104,14 @@ presentday_timestamp = int(presentday.timestamp() * 1000)
 # Calculate the start of yesterday
 yesterday_start = (presentday - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
 yesterday_start_timestamp = int(yesterday_start.timestamp() * 1000)
-print("\n" + "Yesterday Start Timestamp:", yesterday_start_timestamp)
 isoyesterday_start_timestamp = datetime.utcfromtimestamp(yesterday_start_timestamp / 1000).strftime(
     '%Y-%m-%dT%H:%M:%S.000Z')
 
 # Calculate the end of yesterday
 yesterday_end = (presentday - timedelta(days=1)).replace(hour=23, minute=59, second=59, microsecond=999999)
 yesterday_end_timestamp = int(yesterday_end.timestamp() * 1000)
-print("\n" + "Yesterday End Timestamp:", yesterday_end_timestamp)
 isoyesterday_end_timestamp = datetime.utcfromtimestamp(yesterday_end_timestamp / 1000).strftime(
     '%Y-%m-%dT%H:%M:%S.000Z')
-print("\n" + "ISO Yesterday End Timestamp: " + isoyesterday_end_timestamp)
 
 # Get Yesterday
 yesterday = presentday.replace(hour=23, minute=59, second=59) - timedelta(1)

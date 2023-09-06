@@ -2,7 +2,7 @@
 # import requests
 # from datetime import datetime
 # import globalvariables as var
-# import WeGuardlogger as WeGuard
+# import Logs as WeGuard
 # import Executor as Execute
 # import test_GETutils as Utils
 # import payloads as information
@@ -10,14 +10,14 @@
 # LogoutURL = 'enterprise/rest/weguard/logs/events'
 #
 # @pytest.mark.parametrize('url', [""])
-# @pytest.mark.skipif(Execute.test_tc_100000_AccountAdmin_Logout == 0, reason="Logged out Successfully")
+# @pytest.mark.skipif(Execute.test_tc_1000_Logout == 0, reason="Logged out Successfully")
 # @pytest.mark.raretest
 # @pytest.mark.logout
 # @pytest.mark.usualtest
 # @pytest.mark.sanitytest
 # @pytest.mark.run(order=10448)
 # def test_tc_000001_Logout(url):
-#     print("\n\n--------------------------- TC 000001 Logout Start ---------------------------")
+#     print("\n\n--------------------------- TC 000001 Logout Start ---------------------------\n")
 #     now1 = datetime.now()
 #     if var.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")

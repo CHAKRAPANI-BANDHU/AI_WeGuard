@@ -20,19 +20,9 @@ negative_tests = 1
 positive_tests = 1
 
 # Run all positive cases
-test_tc_0001_AccountAdmin_login = 1
+test_tc_0001_Login = 1
 test_tc_0002_Login_Event = 1
-test_tc_100000_AccountAdmin_Logout = 1
-
-# Notification Microservice
-test_000010_Notifications_AccountLevel_GET = 1
-test_000011_Notifications_AccountLevel_POST = 1
-test_000020_Notifications_PolicyLevel_POST = 1
-test_000012_Notifications_AccountLevel_PUT = 1
-test_000013_Alerts_AccountLevel_GET = 1
-test_000014_Alerts_AccountLevel_PUT = 1
-test_000016_Notifications_PUT = 1
-test_000015_Alerts_NotificationServerVersion_GET = 1
+test_tc_1000_Logout = 1
 
 # Run all negative cases
 test_tc_000003_AccountAdmin_Invalid_email = 1
@@ -62,7 +52,7 @@ test_tc_00016_iOS_Devices = 1
 test_tc_00017_Windows_Devices = 1
 
 # Policy Groups
-test_tc_1000_Policy_All = 1
+test_tc_0003_Policy_All = 1
 
 # WeBox
 test_tc_001_WeBox_AlLOWDownload = 1
@@ -138,67 +128,47 @@ test_tc_001_GLobalLevel_UploadCertificate = 1
 Filter_By_alldiffeventspolicy = 1
 
 # Audit Logs
-# Filters by level
 test_tc_901_AuditLogs_Filter_By_ALL = 1
-
-# Yesterday Logs
 test_tc_902_AuditLogs_Filter_By_All_Yesterday = 1
-
-# Custom Date range Logs
 test_tc_903_AuditLogs_Filter_By_All_CustomDateRange = 1
+test_tc_904_AuditLogs_Android_Device_Logs = 1
+test_tc_905_AuditLogs_iOS_Device_Logs = 1
+test_tc_906_AuditLogs_Windows_Device_Logs = 1
 
-# Date Range Alerts
-test_tc_001_TodaysAlerts = 1
-test_tc_001_YesterdaysAlerts = 1
-test_tc_001_CustomDateRange = 1
 
-# CRITICAL Alert that are not acknowledged by use after clicking on Alert notification icon
-test_tc_001_Alerts_CRITICAL = 1
-test_tc_000001_AcknowledgeCRITICALAlerts = 1
-
-# Types and Level
-test_tc_001_AlertsModule_Battery_LOW = 1
-test_tc_001_AlertsModule_Battery_WARNING = 1
-test_tc_001_AlertsModule_Battery_CRITICAL = 1
-test_tc_001_AlertsModule_DATA_USAGE_LOW = 1
-test_tc_001_AlertsModule_DATA_USAGE_CRITICAL = 1
-test_tc_001_AlertsModule_DATA_USAGE_WARNING = 1
-test_tc_001_AlertsModule_KIOSK_LOCKED_Regular = 1
-test_tc_001_AlertsModule_KIOSK_UNLOCKED_CRITICAL = 1
-test_tc_001_AlertsModule_ADMIN_LOCKED_CRITICAL = 1
-test_tc_001_AlertsModule_DEVICE_REBOOTED_CRITICAL = 1
-test_tc_001_AlertsModule_DEVICE_WIPED_CRITICAL = 1
-test_tc_001_AlertsModule_DEVICE_DELETED_CRITICAL = 1
-test_tc_001_AlertsModule_ROOTED_ENROLL_CRITICAL = 1
-test_tc_001_AlertsModule_MEMORY_ALERT_LOW = 1
-test_tc_001_AlertsModule_MEMORY_ALERT_CRITICAL = 1
-test_tc_001_AlertsModule_MEMORY_ALERT_WARNING = 1
-test_tc_001_AlertsModule_DISC_USAGE_LOW = 1
-test_tc_001_AlertsModule_DISC_USAGE_CRITICAL = 1
-test_tc_001_AlertsModule_DISC_USAGE_WARNING = 1
-test_tc_001_AlertsModule_DEVICE_FALLEN_CRITICAL = 1
-test_tc_001_AlertsModule_DEVICE_MARKED_REPLACED_CRITICAL = 1
-test_tc_001_AlertsModule_DEVICE_MARKED_LOST_CRITICAL = 1
-test_tc_001_AlertsModule_DEVICE_MARKED_STOLEN_CRITICAL = 1
-test_tc_001_AlertsModule_DEVICE_CONNECTED_BACK_CRITICAL = 1
-test_tc_001_AlertsModule_Yesterday = 1
-test_tc_001_AlertsModule_Today = 1
-test_tc_001_AlertsModule_CustomDateRange = 1
-
+# Alerts Information
 # Types are different and level is All
 test_tc_1001_Alerts_Types_and_Levels_ALL = 1
 test_tc_1002_Alerts_Levels= 1
 test_tc_1003_Alerts_Types_and_Levels = 1
+test_tc_1004_Unacknowledged_Alerts_CRITICAL = 1
+test_tc_1005_Acknowledge_Alerts_CRITICAL = 1
+test_tc_1006_TodaysAlerts = 1
+test_tc_1007_YesterdaysAlerts = 1
+test_tc_1008_CustomDateRange = 1
 
+# Notification Microservice
+test_1101_Notifications_AccountLevel_GET = 1
+test_1102_Notifications_AccountLevel_POST = 1
+test_1103_Notifications_AccountLevel_PUT = 1
+test_1104_Notification_PolicyLevel_GET = 1
+test_1105_NotificationServerVersion_GET = 1
+test_1106_Notifications_PolicyLevel_POST = 1
+test_1107_Notifications_PolicyLevel_PUT = 1
+test_1108_Notification_PolicyLevel_Geofence_GET = 1
+test_1109_Notification_PolicyLevel_Geofence_POST = 1
+test_1110_Notification_PolicyLevel_Geofence_PUT = 1
+test_1111_Notification_PolicyLevel_Geofence_DELETE = 0
+test_1112_Notification_PolicyLevel_Geofence_Notifications_DELETE = 0
 
 def run_positive_tests():
     print("Inside run_positive_tests")
 
-    global test_tc_000001_AccountAdmin_login
-    test_tc_000001_AccountAdmin_login = 1
+    global test_tc_01_Login
+    test_tc_01_Login = 1
 
-    global test_tc_10000_AccountAdmin_logout
-    test_tc_10000_AccountAdmin_logout = 1
+    global test_tc_1000_Logout
+    test_tc_1000_Logout = 1
 
     global test_tc_000011_AccountLevel_Get_Alert_Configs
     test_tc_000011_AccountLevel_Get_Alert_Configs = 1
@@ -206,17 +176,18 @@ def run_positive_tests():
 
 def run_negative_tests():
     print("Inside run_negative_tests")
-    global test_tc_000005_AccountAdmin_Invalid_credentials
+    
+    global test_tc_03_Invalid_credentials
     test_tc_000005_AccountAdmin_Invalid_credentials = 1
 
-    global test_tc_000003_AccountAdmin_Invalid_email
-    test_tc_000003_AccountAdmin_Invalid_email = 1
+    global test_tc_04_Invalid_email
+    test_tc_05_Invalid_email = 1
 
-    global test_tc_000004_AccountAdmin_Invalid_password
-    test_tc_000004_AccountAdmin_Invalid_password = 1
+    global test_tc_06_Invalid_password
+    test_tc_06_Invalid_password = 1
 
-    global test_tc_000006_AccountAdmin_Credentials_with_spaces
-    test_tc_000006_AccountAdmin_Credentials_with_spaces = 1
+    global test_tc_07_Credentials_with_spaces
+    test_tc_07_Credentials_with_spaces = 1
 
     global test_tc_000007_AccountAdmin_without_username
     test_tc_000007_AccountAdmin_without_username = 1

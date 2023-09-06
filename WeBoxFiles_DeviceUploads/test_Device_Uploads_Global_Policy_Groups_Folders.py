@@ -1,3 +1,51 @@
+# from datetime import datetime
+# import requests
+# import pytest
+# import globalvariables as globalvars
+# import Logs as WeGuard
+# import Executor as Execute
+# import test_GETutils as Utils
+# import json
+# import WeBoxpayloadinfo as WeBox
+#
+# events = 'enterprise/rest/weguard/logs/events'
+#
+# def url_formatter5(actcode, page, limit):
+#     url5 = "enterprise/rest/weguard-v2/webox/upload/folder/{actcode}/shared?page={page}&limit={limit}".format(actcode=actcode, page=page, limit=limit)
+#     return url5
+#
+# def url_formatter6(actcode, page, limit):
+#     url6 = "enterprise/rest/weguard-v2/webox/upload/folder/{actcode}/group?page={page}&limit={limit}".format(actcode=actcode, page=page, limit=limit)
+#     return url6
+#
+# createglobalsharedpolicygroupsfolders='enterprise/rest/weguard-v2/webox/upload/folder/create'
+#
+# config='enterprise/rest/weguard-v2/webox/upload/config'
+#
+# def url_formatter7(policyId):
+#     url7 = 'enterprise/rest/weguard-v2/webox/upload/config/{policyId}/Policy'.format(policyId=policyId)
+#     return url7
+#
+# def url_formatter8(foldername, page, limit, start, end):
+#     url8 = 'enterprise/rest/weguard-v2/webox/upload/files/shared/{foldername}?page={page}&limit={limit}&from={start}&to={end}'.format(foldername=foldername, page=page, limit=limit, start=start, end=end)
+#     return url8
+#
+# def url_formatter9(policyId, foldername, page, limit, start, end):
+#     url9 = 'enterprise/rest/weguard-v2/webox/upload/files/policy/{policyId}/{foldername}?page={page}&limit={limit}&from={start}&to={end}'.format(policyId=policyId, foldername=foldername, page=page, limit=limit, start=start, end=end)
+#     return url9
+#
+# def url_formatter10(foldername, page, limit):
+#     url10 = "enterprise/rest/weguard-v2/webox/upload/files/shared/{foldername}?page={page}&limit={limit}".format(foldername=foldername, page=page, limit=limit)
+#     return url10
+#
+# def url_formatter11(policyId, foldername, page, limit):
+#     url11 = "enterprise/rest/weguard-v2/webox/upload/files/policy/{policyId}/{foldername}?page={page}&limit={limit}".format(policyId=policyId, foldername=foldername, page=page, limit=limit)
+#     return url11
+#
+# def url_formatter12(actcode, pactcode):
+#     url12 = "enterprise/rest/weguard-v2/webox/upload/config/{actcode}/{pactcode}/Shared".format(actcode=actcode, pactcode=pactcode)
+#     return url12
+#
 #
 # # Post method for Shared FoldersWeBox upload config without sign
 # @pytest.mark.parametrize('url', [""])
@@ -11,13 +59,13 @@
 # @pytest.mark.run(order=10181)
 # def test_tc_000001_SharedFoldersWeBoxuploadconfigwithoutsign(url):
 #     now1 = datetime.now()
-#     if globalcheck.bearerToken == '':
+#     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         apiUrl = globalcheck.BaseURL + config
-#         Headers = {'Authorization': 'Bearer {}'.format(globalcheck.bearerToken)}
+#         apiUrl = globalvars.BaseURL + config
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=WeBox.SharedFolderconfigwithoutSign,
-#                             timeout=globalcheck.timeout)
+#                             timeout=globalvars.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
@@ -28,7 +76,7 @@
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
 #             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Shared Folders WeBox upload config without sign passed  ---------------------------")
+#                 "\n\n--------------------------- Shared Folders WeBox upload config without sign passed  ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -65,14 +113,14 @@
 # @pytest.mark.run(order=10185)
 # def test_tc_000001_SharedFoldersWeBoxuploadconfigwithsign(url):
 #     now1 = datetime.now()
-#     if globalcheck.bearerToken == '':
+#     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         apiUrl = globalcheck.BaseURL + config
-#         Headers = {'Authorization': 'Bearer {}'.format(globalcheck.bearerToken)}
-#         WeBox.SharedFolderconfigwithSign["activationCode"] = globalcheck.activationCode
+#         apiUrl = globalvars.BaseURL + config
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#         WeBox.SharedFolderconfigwithSign["activationCode"] = globalvars.activationCode
 #         res = requests.post(url=apiUrl, headers=Headers, json=WeBox.SharedFolderconfigwithSign,
-#                             timeout=globalcheck.timeout)
+#                             timeout=globalvars.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
@@ -83,7 +131,7 @@
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
 #             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Shared Folders WeBox upload config with sign passed ---------------------------")
+#                 "\n\n--------------------------- Shared Folders WeBox upload config with sign passed ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -120,15 +168,15 @@
 # @pytest.mark.run(order=10239)
 # def test_tc_000001_ViewFilesinSharedFolderafterclickingeyeicon(url):
 #     now1 = datetime.now()
-#     if globalcheck.bearerToken == '':
+#     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
 #         for name in WeBox.sharedfolderslist:
-#             viewfoldersinsharedfolder = url_formatter8(name, globalcheck.page_1, globalcheck.page_100, WeBox.isostart,
+#             viewfoldersinsharedfolder = url_formatter8(name, globalvars.page_1, globalvars.page_100, WeBox.isostart,
 #                                                        WeBox.isoend)
-#             apiUrl = globalcheck.BaseURL + viewfoldersinsharedfolder
-#             Headers = {'Authorization': 'Bearer {}'.format(globalcheck.bearerToken)}
-#             res = requests.get(url=apiUrl, headers=Headers, timeout=globalcheck.timeout)
+#             apiUrl = globalvars.BaseURL + viewfoldersinsharedfolder
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#             res = requests.get(url=apiUrl, headers=Headers, timeout=globalvars.timeout)
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
@@ -139,7 +187,7 @@
 #                                      "\n" + "Status Code: " + str(res.status_code) +
 #                                      "\n" + "Response: " + str(res.content))
 #                 WeGuard.logger.debug(
-#                     "\n\n--------------------------- Files are available in globals shared folder ---------------------------")
+#                     "\n\n--------------------------- Files are available in globals shared folder ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -176,17 +224,17 @@
 # @pytest.mark.run(order=10240)
 # def test_tc_000001_ViewFilesinPolicyFoldersafterclickingoneyeicon(url):
 #     now1 = datetime.now()
-#     if globalcheck.bearerToken == '':
+#     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalcheck.Android_profile_ids:
+#         for policyId in globalvars.Android_profile_ids:
 #             for name in WeBox.policyfolderslist:
-#                 viewfilesinpolicyfolders = url_formatter9(policyId, name, globalcheck.page_1, globalcheck.page_100,
+#                 viewfilesinpolicyfolders = url_formatter9(policyId, name, globalvars.page_1, globalvars.page_100,
 #                                                           WeBox.isostart, WeBox.isoend)
-#                 # viewfilesinpolicyfolders = url_formatter9(globalcheck.Android_profile_ids, 'AI Documents', globalcheck.page_1, globalcheck.page_100, WeBox.isostart, WeBox.isoend)
-#                 apiUrl = globalcheck.BaseURL + viewfilesinpolicyfolders
-#                 Headers = {'Authorization': 'Bearer {}'.format(globalcheck.bearerToken)}
-#                 res = requests.get(url=apiUrl, headers=Headers, timeout=globalcheck.timeout)
+#                 # viewfilesinpolicyfolders = url_formatter9(globalvars.Android_profile_ids, 'AI Documents', globalvars.page_1, globalvars.page_100, WeBox.isostart, WeBox.isoend)
+#                 apiUrl = globalvars.BaseURL + viewfilesinpolicyfolders
+#                 Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#                 res = requests.get(url=apiUrl, headers=Headers, timeout=globalvars.timeout)
 #                 curl_str1 = Utils.getCurlEquivalent(res)
 #                 print(curl_str1)
 #                 if res.status_code == 200:
@@ -197,7 +245,7 @@
 #                                          "\n" + "Status Code: " + str(res.status_code) +
 #                                          "\n" + "Response: " + str(res.content))
 #                     WeGuard.logger.debug(
-#                         "\n\n--------------------------- Files are available in policy groups folder ---------------------------")
+#                         "\n\n--------------------------- Files are available in policy groups folder ---------------------------\n")
 #                 elif res.status_code == 400:
 #                     print("\n" + "400 Bad Request!")
 #                     # Add your assertions or actions for 400 Bad Request response here
@@ -234,13 +282,13 @@
 # @pytest.mark.run(order=10241)
 # def test_tc_000001_FolderNamesinGlobalSharedFolders(url):
 #     now1 = datetime.now()
-#     if globalcheck.bearerToken == '':
+#     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         sharedgroupfiles = url_formatter10(globalcheck.activationCode, globalcheck.page_1, globalcheck.page_100)
-#         apiUrl = globalcheck.BaseURL + sharedgroupfiles
-#         Headers = {'Authorization': 'Bearer {}'.format(globalcheck.bearerToken)}
-#         res = requests.get(url=apiUrl, headers=Headers, timeout=globalcheck.timeout)
+#         sharedgroupfiles = url_formatter10(globalvars.activationCode, globalvars.page_1, globalvars.page_100)
+#         apiUrl = globalvars.BaseURL + sharedgroupfiles
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvars.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
@@ -252,7 +300,7 @@
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
 #             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Folder names are available upon clicking on clear in shared folders ---------------------------")
+#                 "\n\n--------------------------- Folder names are available upon clicking on clear in shared folders ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -289,16 +337,16 @@
 # @pytest.mark.run(order=10242)
 # def test_tc_000001_FilesinPolicyGroupFolders(url):
 #     now1 = datetime.now()
-#     if globalcheck.bearerToken == '':
+#     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalcheck.Android_profile_ids:
+#         for policyId in globalvars.Android_profile_ids:
 #             for name in WeBox.policyfolderslist:
-#                 policygroupfiles = url_formatter11(policyId, name, globalcheck.page_1, globalcheck.page_100)
-#                 # policygroupfiles = url_formatter11(globalcheck.Android_profile_ids, 'AI Documents', globalcheck.page_1, globalcheck.page_100)
-#                 apiUrl = globalcheck.BaseURL + policygroupfiles
-#                 Headers = {'Authorization': 'Bearer {}'.format(globalcheck.bearerToken)}
-#                 res = requests.get(url=apiUrl, headers=Headers, timeout=globalcheck.timeout)
+#                 policygroupfiles = url_formatter11(policyId, name, globalvars.page_1, globalvars.page_100)
+#                 # policygroupfiles = url_formatter11(globalvars.Android_profile_ids, 'AI Documents', globalvars.page_1, globalvars.page_100)
+#                 apiUrl = globalvars.BaseURL + policygroupfiles
+#                 Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#                 res = requests.get(url=apiUrl, headers=Headers, timeout=globalvars.timeout)
 #                 curl_str1 = Utils.getCurlEquivalent(res)
 #                 print(curl_str1)
 #                 if res.status_code == 200:
@@ -309,7 +357,7 @@
 #                                          "\n" + "Status Code: " + str(res.status_code) +
 #                                          "\n" + "Response: " + str(res.content))
 #                     WeGuard.logger.debug(
-#                         "\n\n--------------------------- Files are available upon clicking on clear in policy group folders ---------------------------")
+#                         "\n\n--------------------------- Files are available upon clicking on clear in policy group folders ---------------------------\n")
 #                 elif res.status_code == 400:
 #                     print("\n" + "400 Bad Request!")
 #                     # Add your assertions or actions for 400 Bad Request response here
@@ -346,13 +394,13 @@
 # @pytest.mark.run(order=10244)
 # def test_tc_000001_SharedFoldersConfig(url):
 #     now1 = datetime.now()
-#     if globalcheck.bearerToken == '':
+#     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         sharedgroupconfig = url_formatter12(globalcheck.activationCode, globalcheck.productActivationCode)
-#         apiUrl = globalcheck.BaseURL + sharedgroupconfig
-#         Headers = {'Authorization': 'Bearer {}'.format(globalcheck.bearerToken)}
-#         res = requests.get(url=apiUrl, headers=Headers, timeout=globalcheck.timeout)
+#         sharedgroupconfig = url_formatter12(globalvars.activationCode, globalvars.productActivationCode)
+#         apiUrl = globalvars.BaseURL + sharedgroupconfig
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvars.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
@@ -363,7 +411,7 @@
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
 #             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Get the configs of Shared Folders Pass ---------------------------")
+#                 "\n\n--------------------------- Get the configs of Shared Folders Pass ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -400,14 +448,14 @@
 # @pytest.mark.run(order=10243)
 # def test_tc_000001_DownloadPDF(url):
 #     now1 = datetime.now()
-#     if globalcheck.bearerToken == '':
+#     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
 #         pdf = 'uploader/download/pdf'
-#         apiUrl = globalcheck.BaseURL + pdf
+#         apiUrl = globalvars.BaseURL + pdf
 #         # compact_obj = json.dumps(WeBox.pdf)
-#         Headers = {'Authorization': 'Bearer {}'.format(globalcheck.bearerToken)}
-#         res = requests.post(url=apiUrl, headers=Headers, json=WeBox.pdf, timeout=globalcheck.timeout)
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#         res = requests.post(url=apiUrl, headers=Headers, json=WeBox.pdf, timeout=globalvars.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
@@ -418,7 +466,7 @@
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
 #             WeGuard.logger.debug(
-#                 "\n\n--------------------------- PDF file is downloaded successfully ---------------------------")
+#                 "\n\n--------------------------- PDF file is downloaded successfully ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -456,14 +504,14 @@
 # @pytest.mark.run(order=10447)
 # def test_tc_000001_DownloadZIP(url):
 #     now1 = datetime.now()
-#     if globalcheck.bearerToken == '':
+#     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
 #         zip = 'uploader/download/zip'
-#         apiUrl = globalcheck.BaseURL + zip
+#         apiUrl = globalvars.BaseURL + zip
 #         # testing = jsonpickle.encode(WeBox.zip)
-#         Headers = {'Authorization': 'Bearer {}'.format(globalcheck.bearerToken)}
-#         res = requests.post(url=apiUrl, headers=Headers, json=WeBox.zip, timeout=globalcheck.timeout)
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
+#         res = requests.post(url=apiUrl, headers=Headers, json=WeBox.Zip, timeout=globalvars.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
@@ -474,7 +522,7 @@
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
 #             WeGuard.logger.debug(
-#                 "\n\n--------------------------- ZIP file is downloaded successfully ---------------------------")
+#                 "\n\n--------------------------- ZIP file is downloaded successfully ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!")
 #             # Add your assertions or actions for 400 Bad Request response here

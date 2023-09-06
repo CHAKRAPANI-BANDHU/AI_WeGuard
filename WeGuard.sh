@@ -20,5 +20,10 @@ else
     exit 1
 fi
 
+# Mac
 echo "$FILE"
-python3 -m pytest --capture=sys --html="$FILE"
+python3 -m pytest --capture=sys --html="$FILE" --self-contained-html
+
+# # Windows
+#echo "$FILE"
+#python -m pytest --capture=sys --html="$FILE" --self-contained-html
