@@ -413,35 +413,21 @@ def test_tc_1108_GET_PolicyLevel_Notifications_Geofence(url):
                       "\n" + "Request Method: " + res.request.method +
                       "\n" + "Status Code: " + str(res.status_code) +
                       "\n" + "Response: " + str(res.content) + "\n")
-                response_data = json.loads(res.content)
-                entities = response_data.get('entities', [])
-                
+                # Parse the JSON response
+                data = res.json()
 
-                # Initialize lists to store geofenceIds and ids
-                Generalpayload.GeofenceIDS = []
-                Generalpayload.Geofence_MongoDB_IDs = []
+                # Extract 'geofenceId' and 'Id' from the JSON data
+                geofence_id = data.get('geofenceId')
+                id_value = data.get('Id')
 
-                for entity in entities:
-                    geofence_id = entity.get('geofenceId', '')
-                    Generalpayload.Geofence_MongoDB_IDs = entity.get('id', '')
-    
-                    # Append geofenceId and id to their respective lists
-                    Generalpayload.GeofenceIDS.append(geofence_id)
-                    Generalpayload.Geofence_MongoDB_IDs.append(Generalpayload.Geofence_MongoDB_IDs)
-
-                # Print geofenceIds and ids for the current policy ID
+                if geofence_id is not None and id_value is not None:
+                    # Use 'geofence_id' and 'id_value' as needed
+                    print(f'geofenceId: {geofence_id}')
+                    print(f'Id: {id_value}')
+                else:
+                    print("Error: 'geofenceId' or 'Id' not found in the JSON response.")
                 print("\n" + f"Geofence IDs for Policy ID {policyId}: {Generalpayload.GeofenceIDS}")
                 print(f"Entity IDs for Policy ID {policyId}: {Generalpayload.Geofence_MongoDB_IDs}" + "\n")
-
-                # # Initialize a list to store Geofence IDs for each policy
-                # geofence_mongo_db_ids = []
-                # for entity in entities:
-                #     entity_id = entity.get('id', '')  # Check if 'id' is present, use an empty string if not
-                #     geofence_mongo_db_ids.append(entity_id)
-                #     # Append Geofence IDs to the global variable list
-                #     Generalpayload.Geofence_MongoDB_IDs.extend(geofence_mongo_db_ids)
-                # # Print the Geofence IDs for the current policy ID
-                # print("\n" +f"Geofence MongoDB IDs for Policy ID {policyId}: {geofence_mongo_db_ids}" +"\n")
                 print(
                     "\n--------------------------- GET method to get policy level Notifications ---------------------------\n")
             elif res.status_code == 400:
@@ -657,4 +643,4 @@ def test_tc_1112_DELETE_PolicyLevel_Geofence_Notifications(url):
         WeGuard.logger.error("Time taken: " + str(now2 - now1))
         assert False, f"An exception occurred: {e}"
 
-# GET method
+# GET method to get the time spent details in the Geofence
