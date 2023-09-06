@@ -401,7 +401,7 @@ def test_tc_1108_GET_PolicyLevel_Notifications_Geofence(url):
         pytest.skip("Empty Bearer token, Skipping test")
     try:
         for policyId in globalvariables.Android_profile_ids:
-            apiUrl = globalvariables.BaseURL + GETNotificationsByPolicyLevel(policyId)
+            apiUrl = globalvariables.BaseURL + PolicyLevelGeofence(policyId)
             Headers = {'Authorization': 'Bearer {}'.format(globalvariables.bearerToken)}
             res = requests.get(url=apiUrl, headers=Headers, timeout=globalvariables.timeout)
             curl_str1 = Utils.getCurlEquivalent(res)
