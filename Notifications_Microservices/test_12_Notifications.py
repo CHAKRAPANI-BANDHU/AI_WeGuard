@@ -634,8 +634,7 @@ def test_tc_1112_DELETE_PolicyLevel_Geofence_Notifications(url):
                       "\n" + "Request Method: " + res.request.method +
                       "\n" + "Status Code: " + str(res.status_code) +
                       "\n" + "Response: " + str(res.content) + "\n")
-                print(
-                    "\n--------------------------- DELETE method to delete policy level geofence notifications ---------------------------\n")
+                print("\n--------------------------- DELETE method to delete policy level geofence notifications ---------------------------\n")
             elif res.status_code == 400:
                 print("\n" + "400 Bad Request!")
             elif res.status_code == 404:
