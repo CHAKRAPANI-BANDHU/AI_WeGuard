@@ -79,8 +79,10 @@
 #         # Get month
 #         month = presentday.replace(hour=23, minute=59, second=59) - timedelta(30)
 #         print("\n" + "Month: " + str(month))
+#
 #         month_timestamp = int(round(month.timestamp() * 1000))
 #         print("\n" + "Month Timestamp: " + str(month_timestamp))
+#
 #         isomonth = datetime.utcfromtimestamp(month_timestamp / 1000).strftime('%Y-%m-%dT%H:%M:%S.000Z')
 #         print("\n" + "ISO Month: " + isomonth)
 #

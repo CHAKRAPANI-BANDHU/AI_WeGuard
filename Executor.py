@@ -155,11 +155,12 @@ test_1104_Notification_PolicyLevel_GET = 1
 test_1105_NotificationServerVersion_GET = 1
 test_1106_Notifications_PolicyLevel_POST = 1
 test_1107_Notifications_PolicyLevel_PUT = 1
-test_1108_Notification_PolicyLevel_Geofence_GET = 1
-test_1109_Notification_PolicyLevel_Geofence_POST = 1
+test_1108_Notification_PolicyLevel_Geofence_POST = 1
+test_1109_Notification_PolicyLevel_Geofence_GET = 1
 test_1110_Notification_PolicyLevel_Geofence_PUT = 1
 test_1111_Notification_PolicyLevel_Geofence_DELETE = 0
 test_1112_Notification_PolicyLevel_Geofence_Notifications_DELETE = 0
+test_1113_Notification_PolicyLevel_Timespent_Geofence_POST = 1
 
 def run_positive_tests():
     print("Inside run_positive_tests")

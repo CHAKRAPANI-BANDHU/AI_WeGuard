@@ -316,8 +316,9 @@ PostPolicyLevelAlertConfig = {"accountId": None, "policyId": None,
 # Geofence Information
 GeofenceIDS =[]
 Geofence_MongoDB_IDs =[]
+GeofenceTypes=[]
 # Generate and store random Geofence IDs
-GeofenceIds = [str(random.randint(1000000000000000000, 9999999999999999999)) for _ in range(5)]  # Generate 5 random IDs
+GeofenceIds = [str(random.randint(1000000000000000000, 9999999999999999999)) for _ in range(1)]  # Generate 1 random IDs
 GeofenceTypes =[]
 
 
@@ -347,3 +348,7 @@ DeleteGeofenceNotificationsPayload = {
     "id": random_id,
     "policyId": random_policy_id
 }
+
+# Timespent in geofence
+TimespentGeofencePayload = {"deviceIdList": [globalvariables.Android_DeviceIDs], "geofenceId": GeofenceIDS,
+                            "policyId": globalvariables.Android_profile_ids}

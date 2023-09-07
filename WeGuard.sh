@@ -22,8 +22,8 @@ fi
 
 # Mac
 echo "$FILE"
-python3 -m pytest --capture=sys --html="$FILE" --self-contained-html
+python3 -m pytest --capture=sys --html="$FILE" --self-contained-html -v
 
 # # Windows
 #echo "$FILE"
-#python -m pytest --capture=sys --html="$FILE" --self-contained-html
+#python -m pytest --capture=sys --html="$FILE" --self-contained-html -v

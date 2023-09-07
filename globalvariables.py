@@ -88,6 +88,12 @@ iOS_DeviceIDs = []
 # disable apps ids from get api
 disableapps_list = []
 
+
+# Geofence Information
+GEOFENCE_IDS=[]
+GEOFENCE_MONGO_DB_IDS=[]
+GEOFENCE_TYPES=[]
+
 # Time Conversion in different formats
 now_datetime = datetime.now()
 start_of_day_datetime = now_datetime.replace(hour=00, minute=00, second=00)
