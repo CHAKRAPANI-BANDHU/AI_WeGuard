@@ -57,10 +57,13 @@ def test_tc_0001_All_Devices_100(url):
                 # Check platform and store device IDs accordingly
                 if platform == 'ANDROID':
                     globalvar.Android_Devices.append((mongoDBDeviceID, device_id))
+                    globalvar.Android_DeviceIDs.append((device_id))
                 elif platform == 'IOS':
                     globalvar.iOS_Devices.append((mongoDBDeviceID, device_id))
+                    globalvar.iOS_DeviceIDs.append((device_id))
                 elif platform == 'WINDOWS':
                     globalvar.Windows_Devices.append((mongoDBDeviceID, device_id))
+                    globalvar.Windows_DeviceIDs.append((device_id))
                 else:
                     print("\nInvalid platform type")
 
