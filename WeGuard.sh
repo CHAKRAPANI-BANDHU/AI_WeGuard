@@ -20,9 +20,25 @@ else
     exit 1
 fi
 
-# Mac
+# Determine the Python command based on the operating system
+if [ "$OS" = "Darwin" ]; then
+    PY_CMD="python3"
+elif [ "$OS" = "MINGW64_NT-10.0" ]; then
+    PY_CMD="python"
+else
+    echo "Unsupported operating system: $OS"
+    exit 1
+fi
+
+# Print the file name
 echo "$FILE"
-python3 -m pytest --capture=sys --html="$FILE" --self-contained-html -v
+
+# Run pytest using the determined Python command
+$PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v
+
+## Mac
+#echo "$FILE"
+#python3 -m pytest --capture=sys --html="$FILE" --self-contained-html -v
 
 # # Windows
 #echo "$FILE"
