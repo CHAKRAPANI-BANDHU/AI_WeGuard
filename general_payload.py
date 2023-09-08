@@ -319,14 +319,13 @@ Geofence_MongoDB_IDs =[]
 GeofenceTypes=[]
 # Generate and store random Geofence IDs
 GeofenceIds = [str(random.randint(1000000000000000000, 9999999999999999999)) for _ in range(1)]  # Generate 1 random IDs
-GeofenceTypes =[]
 
 
 # Delete Geofence Notifications
 # Generate a random boolean value for 'enabled' field
-enabled_value = random.choice([True, False])
+enabled_values = random.choice([True, False])
 # Generate a random geofenceType value
-geofenceType_value = random.choice(["IN_FENCE", "OUT_FENCE"])
+geofenceType_values = random.choice(["IN_FENCE", "OUT_FENCE"])
 # Real values
 real_policy_id = "64f5beb2d46ba149306f7a39"
 real_id = "64f6f1febf131e7e65603568"
@@ -341,14 +340,10 @@ geofence_id_list = [''.join(random.choice(string.ascii_letters + string.digits) 
 # Create an empty payload dictionary
 DeleteGeofenceNotificationsPayload = {
     "emailList": [random_gmail_address],
-    "enabled": enabled_value,
+    "enabled": enabled_values,
     "geofenceId": random_geofence_id,
     "geofenceIdList": geofence_id_list,
-    "geofenceType": geofenceType_value,
+    "geofenceType": geofenceType_values,
     "id": random_id,
     "policyId": random_policy_id
 }
-
-# Timespent in geofence
-TimespentGeofencePayload = {"deviceIdList": [globalvariables.Android_DeviceIDs], "geofenceId": GeofenceIDS,
-                            "policyId": globalvariables.Android_profile_ids}

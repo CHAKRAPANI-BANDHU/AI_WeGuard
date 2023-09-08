@@ -37,12 +37,14 @@ def test_tc_0001_Login(url):
         res = requests.post(url=apiUrl, json=jsonData, timeout=globalvar.timeout)
         curl_str1 = Utils.getCurlEquivalent(res)
         print(curl_str1)
+        jsonData_str = str(jsonData)
         if res.status_code == 200:
             print("\n" + "200 The request was a success!")
             print("\n" + "Header: " + str(res.headers) +
                   "\n" + "Request URL: " + apiUrl +
                   "\n" + "Request Method: " + res.request.method +
                   "\n" + "Status Code: " + str(res.status_code) +
+                  "\n" + "Request Payload: " + jsonData_str +
                   "\n" + "Response: " + str(res.content) + "\n")
             # print(json.loads(res.content)['entity']['userData'])
             globalvar.bearerToken = json.loads(res.content)['entity']['jwtToken']

@@ -58,7 +58,9 @@ Android_profile_platform = []
 
 # Android Devices Info
 Android_Mongo_DB_DeviceIDs = []
+# All Devices
 Android_Devices = []
+# Single Device
 Android_DeviceIDs = []
 
 # Windows Policies Info
@@ -70,7 +72,9 @@ Windows_profile_platform = []
 
 # Windows Devices Info
 Windows_Mongo_DB_DeviceIDs = []
+# All Devices
 Windows_Devices = []
+# Single Device
 Windows_DeviceIDs = []
 
 # iOS Policies Info
@@ -82,7 +86,9 @@ iOS_profile_platform = []
 
 # iOS Devices Info
 iOS_Mongo_DB_DeviceIDs = []
+# All Devices
 iOS_Devices = []
+# Single Device
 iOS_DeviceIDs = []
 
 # disable apps ids from get api
