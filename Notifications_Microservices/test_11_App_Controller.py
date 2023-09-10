@@ -4,7 +4,7 @@ import pytest
 import requests
 
 import Executor as Execute
-import Logs as WeGuard
+import WeGuardLogger as WeGuard
 import globalvariables as Info
 import test_GETutils as Utils
 

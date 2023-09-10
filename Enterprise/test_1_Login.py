@@ -1,11 +1,9 @@
+import WeGuardLogger as WeGuard
 import json
 from datetime import datetime
-
 import pytest
 import requests
-
 import Executor as Execute
-import Logs as WeGuard
 import globalvariables as globalvar
 import jsonnames
 import general_payload as requestdata
@@ -40,7 +38,14 @@ def test_tc_0001_Login(url):
         jsonData_str = str(jsonData)
         if res.status_code == 200:
             print("\n" + "200 The request was a success!")
+            WeGuard.logger.debug("\n\n" + "200 The request was a success!")
             print("\n" + "Header: " + str(res.headers) +
+                  "\n" + "Request URL: " + apiUrl +
+                  "\n" + "Request Method: " + res.request.method +
+                  "\n" + "Status Code: " + str(res.status_code) +
+                  "\n" + "Request Payload: " + jsonData_str +
+                  "\n" + "Response: " + str(res.content) + "\n")
+            WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
                   "\n" + "Request URL: " + apiUrl +
                   "\n" + "Request Method: " + res.request.method +
                   "\n" + "Status Code: " + str(res.status_code) +
@@ -73,10 +78,10 @@ def test_tc_0001_Login(url):
             print("Request did not succeed! Status code:", res.status_code)
             assert False, "Received {res.status_code} response"
     except BaseException as e:
-        WeGuard.logger.error("Exception : " + str(e))
+        print("Exception : " + str(e))
         now2 = datetime.now()
-        WeGuard.logger.warning("Time taken: " + str(now2 - now1))
-        WeGuard.logger.error("--------------------------- TC 001 LOGIN FAIL ---------------------------\n\n")
+        print("Time taken: " + str(now2 - now1))
+        print("--------------------------- TC 001 LOGIN FAIL ---------------------------\n\n")
         assert False
 
 
@@ -120,10 +125,10 @@ def test_tc_0002_Login_Event(url):
             print("Request did not succeed! Status code:", res.status_code)
             assert False, "Received {res.status_code} response"
     except BaseException as e:
-        WeGuard.logger.error("Exception : " + str(e))
+        print("Exception : " + str(e))
         now2 = datetime.now()
-        WeGuard.logger.warning("Time taken: " + str(now2 - now1))
-        WeGuard.logger.error("--------------------------- Failed Enterprise Events ---------------------------\n\n")
+        print("Time taken: " + str(now2 - now1))
+        print("--------------------------- Failed Enterprise Events ---------------------------\n\n")
         assert False
 
 # @pytest.mark.parametrize('url', [""])
@@ -169,7 +174,7 @@ def test_tc_0002_Login_Event(url):
 #     except requests.RequestException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.warning("Time taken: " + str(now2 - now1))
+#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         WeGuard.logger.error("--------------------------- TC 001 LOGIN FAIL ---------------------------\n\n")
 #         assert False, f"An exception occurred: {e}"
 #
@@ -218,6 +223,6 @@ def test_tc_0002_Login_Event(url):
 #     except requests.RequestException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.warning("Time taken: " + str(now2 - now1))
+#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         WeGuard.logger.error("--------------------------- TC 001 LOGIN FAIL ---------------------------\n\n")
 #         assert False, f"An exception occurred: {e}"

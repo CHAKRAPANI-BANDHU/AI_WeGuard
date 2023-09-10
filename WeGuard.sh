@@ -12,8 +12,10 @@ OS=$(uname)
 
 # Define the file extension based on the operating system
 if [ "$OS" = "Darwin" ]; then
+    # shellcheck disable=SC1001
     FILE="Report_$(date +\%d-\%m-\%Y_\%H:\%M:\%S).html"
 elif [ "$OS" = "MINGW64_NT-10.0" ]; then
+    # shellcheck disable=SC1001
     FILE="Report_$(date +\%d-\%m-\%Y_\%H-\%M-\%S).html"
 else
     echo "Unsupported operating system: $OS"
@@ -34,12 +36,12 @@ fi
 echo "$FILE"
 
 # Run pytest using the determined Python command
-$PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v
+$PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v --show-progress
 
 ## Mac
 #echo "$FILE"
-#python3 -m pytest --capture=sys --html="$FILE" --self-contained-html -v
+#python3 -m pytest --capture=sys --html="$FILE" --self-contained-html -v --show-progress
 
 # # Windows
 #echo "$FILE"
-#python -m pytest --capture=sys --html="$FILE" --self-contained-html -v
+#python -m pytest --capture=sys --html="$FILE" --self-contained-html -v --show-progress

@@ -2,9 +2,8 @@ from datetime import datetime
 
 import pytest
 import requests
-
+import logging
 import Executor as Execute
-import Logs as WeGuard
 import globalvariables as Globalinfo
 import test_GETutils as Utils
 

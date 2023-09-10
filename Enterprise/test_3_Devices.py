@@ -3,7 +3,7 @@ from datetime import datetime
 import pytest
 import requests
 import globalvariables as globalvar
-import Logs as WeGuard
+import logging
 import Executor as Execute
 import test_GETutils as Utils
 import general_payload as RequestInfo

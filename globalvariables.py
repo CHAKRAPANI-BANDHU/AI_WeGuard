@@ -1,6 +1,7 @@
 import os
 import time
 from datetime import datetime, timedelta
+import WeGuardLogger as WeGuard
 
 # Environment Variables
 global userName
@@ -31,9 +32,11 @@ if os.environ.get('QA_BASEURL') is not None:
 if os.environ.get('LOG_LEVEL') is not None:
     loglevel = int(os.environ['LOG_LEVEL'])
 
-log_file = "WeGuard" + format(time.strftime("_%d-%m-%Y_%H:%M:%S")) + ".log"
+log_file = "WeGuard_" + time.strftime("%d-%m-%Y_%H%M%S") + ".log"
+#log_level = 2  # Change this to set the desired log level (0 to 4)
+WeGuard.configure_logger(log_file, loglevel)
 
-timeout = 180
+timeout = 600
 bearerToken = ""
 activationCode = ""
 productActivationCode = ""
