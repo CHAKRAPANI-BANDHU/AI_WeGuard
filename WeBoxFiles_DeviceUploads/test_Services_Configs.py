@@ -49,7 +49,7 @@
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
+#             print("\n" + "404 Result not found!")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
@@ -101,7 +101,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -156,7 +156,7 @@
 #                     # Add your assertions or actions for 400 Bad Request response here
 #                     assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                     print("\n" + "500 Result not found!")
+#                     print("\n" + "404 Result not found!")
 #                     # Add your assertions or actions for 404 Not Found response here
 #                     assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -213,7 +213,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -269,7 +269,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -324,7 +324,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -379,7 +379,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -436,7 +436,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -495,7 +495,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -551,7 +551,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -606,7 +606,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -663,7 +663,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -720,7 +720,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -777,7 +777,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -834,7 +834,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -892,7 +892,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -950,7 +950,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1007,7 +1007,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1065,7 +1065,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1122,7 +1122,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1179,7 +1179,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1237,7 +1237,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1295,7 +1295,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1352,7 +1352,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1409,7 +1409,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1466,7 +1466,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1523,7 +1523,7 @@
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "500 Result not found!")
+#                 print("\n" + "404 Result not found!")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
@@ -1579,7 +1579,7 @@
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "500 Result not found!")
+#             print("\n" + "404 Result not found!")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:

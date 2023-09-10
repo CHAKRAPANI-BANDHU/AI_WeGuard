@@ -145,7 +145,7 @@ def test_tc_001_Policy_ALL_10000(url):
             print("\n" + "400 Bad Request!")
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             assert False, "Received 404 response"
         elif res.status_code == 500:
             print("\n" + "500 Internal Server Error!")

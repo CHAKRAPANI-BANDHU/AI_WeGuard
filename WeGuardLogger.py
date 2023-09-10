@@ -16,7 +16,7 @@ def configure_logger(log_file_to_rotate, log_level):
 
     log_levels = {
         0: logging.CRITICAL,
-        1: WeGuard.logger.error,
+        1: logging.error,
         2: logging.WARNING,
         3: logging.INFO,
         4: logging.DEBUG

@@ -3,9 +3,9 @@ from datetime import datetime
 import pytest
 import requests
 import globalvariables as globalvar
-import logging
 import Executor as Execute
 import test_GETutils as Utils
+import WeGuardLogger as WeGuard
 import general_payload as RequestInfo
 
 
@@ -117,7 +117,7 @@ def test_tc_0001_All_Devices_100(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -167,7 +167,7 @@ def test_tc_0002_All_Devices_500(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -218,7 +218,7 @@ def test_tc_0003_All_Devices_1000(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -269,7 +269,7 @@ def test_tc_0004_Unenrolled_Devices(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -320,7 +320,7 @@ def test_tc_0005_Stolen_Devices(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -371,7 +371,7 @@ def test_tc_0006_Stolen_Devices(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -422,7 +422,7 @@ def test_tc_0007_Active_Devices(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -473,7 +473,7 @@ def test_tc_0008_Lost_Devices(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -524,7 +524,7 @@ def test_tc_0009_Unprovisioned_Devices(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -575,7 +575,7 @@ def test_tc_0010_Search_Policy(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -626,7 +626,7 @@ def test_tc_0011_Filter_By_GroupNames(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -675,7 +675,7 @@ def test_tc_0012_EnableAllDevicesState(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -724,7 +724,7 @@ def test_tc_0013_DisableAllDevicesState(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -774,7 +774,7 @@ def test_tc_0014_Android_Devices(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -823,7 +823,7 @@ def test_tc_0015_iOS_Devices(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
@@ -872,7 +872,7 @@ def test_tc_0016_Windows_Devices(url):
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "500 Result not found!")
+            print("\n" + "404 Result not found!")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
