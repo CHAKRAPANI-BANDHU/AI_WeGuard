@@ -35,8 +35,15 @@ fi
 # Print the file name
 echo "$FILE"
 
-# Run pytest using the determined Python command
+# Run pytest for tests with the 'order' marker
 $PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v --show-progress
+
+## Run pytest for tests with the 'order' marker
+#$PY_CMD -m pytest -k "order" --capture=sys --html="$FILE" --self-contained-html -v --show-progress
+
+## Run pytest for tests without the 'order' marker
+#$PY_CMD -m pytest -k "not order" --capture=sys --html="$FILE" --self-contained-html -v --show-progress
+
 
 ## Mac
 #echo "$FILE"
