@@ -102,8 +102,10 @@ start_of_day_datetime = now_datetime.replace(hour=00, minute=00, second=00)
 end_of_day_datetime = now_datetime.replace(hour=23, minute=59, second=59)
 start_timestamp = int(round(start_of_day_datetime.timestamp() * 1000))
 end_timestamp = int(round(end_of_day_datetime.timestamp() * 1000))
-isostart = datetime.utcfromtimestamp(start_timestamp / 1000).strftime('%Y-%m-%dT%H:%M:%S.000Z')
-isoend = datetime.utcfromtimestamp(end_timestamp / 1000).strftime('%Y-%m-%dT%H:%M:%S.999Z')
+# Convert to ISO format
+isocurrent = now_datetime.strftime('%Y-%m-%dT%H:%M:%S.000Z')
+isostart = start_of_day_datetime.strftime('%Y-%m-%dT%H:%M:%S.000Z')
+isoend = end_of_day_datetime.strftime('%Y-%m-%dT%H:%M:%S.999Z')
 
 # Get today's date
 presentday = datetime.today()

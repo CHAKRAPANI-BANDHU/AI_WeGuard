@@ -169,21 +169,21 @@ WindowsDevices = {
 }
 
 AllYesterdayLogs = {
-  "startDate": globalvariables.yesterday_start_timestamp,
-  "endDate": globalvariables.yesterday_end_timestamp,
-  "event": "All",
-  "logLevel": "All",
-  "deviceIds": [],
-  "policyIds": None
+    "startDate": globalvariables.yesterday_start_timestamp,
+    "endDate": globalvariables.yesterday_end_timestamp,
+    "event": "All",
+    "logLevel": "All",
+    "deviceIds": [],
+    "policyIds": None
 }
 
 AllCustom1MonthLogs = {
-  "startDate": globalvariables.start_of_month_timestamp,
-  "endDate": globalvariables.presentday_timestamp,
-  "event": "All",
-  "logLevel": "All",
-  "deviceIds": [],
-  "policyIds": None
+    "startDate": globalvariables.start_of_month_timestamp,
+    "endDate": globalvariables.presentday_timestamp,
+    "event": "All",
+    "logLevel": "All",
+    "deviceIds": [],
+    "policyIds": None
 }
 
 logout = {
@@ -281,45 +281,71 @@ PutPolicyLevelNotifications = {
 
 # Notification Microservice -- POST Alerts Config
 PostAccountLevelAlertConfig = {"accountId": None, "policyId": None,
-                               "batteryWarningEmailList": [random_gmail_address], "batteryLowEmailList": [random_gmail_address],
-                               "batteryCriticalEmailList": [random_gmail_address], "dataUsageWarningEmailList": [random_gmail_address],
-                               "dataUsageLowEmailList": [random_gmail_address], "dataUsageCriticalEmailList": [random_gmail_address],
-                               "kioskLockedEmailList": [random_gmail_address], "kioskUnLockedEmailList": [random_gmail_address],
-                               "adminLockedEmailList": [random_gmail_address], "deviceRebootedEmailList": [random_gmail_address],
-                               "deviceWipedEmailList": [random_gmail_address], "deviceDeletedEmailList": [random_gmail_address],
-                               "deviceLostEmailList": [random_gmail_address], "deviceStolenEmailList": [random_gmail_address],
-                               "deviceReplacedEmailList": [random_gmail_address], "deviceConnectedBackEmailList": [random_gmail_address],
-                               "memoryWarningEmailList": [random_gmail_address], "memoryLowEmailList": [random_gmail_address],
-                               "memoryCriticalEmailList": [random_gmail_address], "discUsageWarningEmailList": [random_gmail_address],
-                               "discUsageLowEmailList": [random_gmail_address], "discUsageCriticalEmailList": [random_gmail_address],
-                               "simRemovedEmailList": [random_gmail_address], "simChangedEmailList": [random_gmail_address], "simAddedEmailList": [random_gmail_address],
-                               "simLockedEmailList": [random_gmail_address], "resetPasswordEmailList": [random_gmail_address],
+                               "batteryWarningEmailList": [random_gmail_address],
+                               "batteryLowEmailList": [random_gmail_address],
+                               "batteryCriticalEmailList": [random_gmail_address],
+                               "dataUsageWarningEmailList": [random_gmail_address],
+                               "dataUsageLowEmailList": [random_gmail_address],
+                               "dataUsageCriticalEmailList": [random_gmail_address],
+                               "kioskLockedEmailList": [random_gmail_address],
+                               "kioskUnLockedEmailList": [random_gmail_address],
+                               "adminLockedEmailList": [random_gmail_address],
+                               "deviceRebootedEmailList": [random_gmail_address],
+                               "deviceWipedEmailList": [random_gmail_address],
+                               "deviceDeletedEmailList": [random_gmail_address],
+                               "deviceLostEmailList": [random_gmail_address],
+                               "deviceStolenEmailList": [random_gmail_address],
+                               "deviceReplacedEmailList": [random_gmail_address],
+                               "deviceConnectedBackEmailList": [random_gmail_address],
+                               "memoryWarningEmailList": [random_gmail_address],
+                               "memoryLowEmailList": [random_gmail_address],
+                               "memoryCriticalEmailList": [random_gmail_address],
+                               "discUsageWarningEmailList": [random_gmail_address],
+                               "discUsageLowEmailList": [random_gmail_address],
+                               "discUsageCriticalEmailList": [random_gmail_address],
+                               "simRemovedEmailList": [random_gmail_address],
+                               "simChangedEmailList": [random_gmail_address],
+                               "simAddedEmailList": [random_gmail_address],
+                               "simLockedEmailList": [random_gmail_address],
+                               "resetPasswordEmailList": [random_gmail_address],
                                "uninstallWeguardEmailList": [random_gmail_address]}
 
 # Appending it from loop in the code
 PostPolicyLevelAlertConfig = {"accountId": None, "policyId": None,
-                               "batteryWarningEmailList": [random_gmail_address], "batteryLowEmailList": [random_gmail_address],
-                               "batteryCriticalEmailList": [random_gmail_address], "dataUsageWarningEmailList": [random_gmail_address],
-                               "dataUsageLowEmailList": [random_gmail_address], "dataUsageCriticalEmailList": [random_gmail_address],
-                               "kioskLockedEmailList": [random_gmail_address], "kioskUnLockedEmailList": [random_gmail_address],
-                               "adminLockedEmailList": [random_gmail_address], "deviceRebootedEmailList": [random_gmail_address],
-                               "deviceWipedEmailList": [random_gmail_address], "deviceDeletedEmailList": [random_gmail_address],
-                               "deviceLostEmailList": [random_gmail_address], "deviceStolenEmailList": [random_gmail_address],
-                               "deviceReplacedEmailList": [random_gmail_address], "deviceConnectedBackEmailList": None,
-                               "memoryWarningEmailList": [random_gmail_address], "memoryLowEmailList": [random_gmail_address],
-                               "memoryCriticalEmailList": [random_gmail_address], "discUsageWarningEmailList": [random_gmail_address],
-                               "discUsageLowEmailList": [random_gmail_address], "discUsageCriticalEmailList": [random_gmail_address],
-                               "simRemovedEmailList": [random_gmail_address], "simChangedEmailList": [random_gmail_address], "simAddedEmailList": [random_gmail_address],
-                               "simLockedEmailList": [random_gmail_address], "resetPasswordEmailList": [random_gmail_address],
-                               "uninstallWeguardEmailList": [random_gmail_address]}
+                              "batteryWarningEmailList": [random_gmail_address],
+                              "batteryLowEmailList": [random_gmail_address],
+                              "batteryCriticalEmailList": [random_gmail_address],
+                              "dataUsageWarningEmailList": [random_gmail_address],
+                              "dataUsageLowEmailList": [random_gmail_address],
+                              "dataUsageCriticalEmailList": [random_gmail_address],
+                              "kioskLockedEmailList": [random_gmail_address],
+                              "kioskUnLockedEmailList": [random_gmail_address],
+                              "adminLockedEmailList": [random_gmail_address],
+                              "deviceRebootedEmailList": [random_gmail_address],
+                              "deviceWipedEmailList": [random_gmail_address],
+                              "deviceDeletedEmailList": [random_gmail_address],
+                              "deviceLostEmailList": [random_gmail_address],
+                              "deviceStolenEmailList": [random_gmail_address],
+                              "deviceReplacedEmailList": [random_gmail_address], "deviceConnectedBackEmailList": None,
+                              "memoryWarningEmailList": [random_gmail_address],
+                              "memoryLowEmailList": [random_gmail_address],
+                              "memoryCriticalEmailList": [random_gmail_address],
+                              "discUsageWarningEmailList": [random_gmail_address],
+                              "discUsageLowEmailList": [random_gmail_address],
+                              "discUsageCriticalEmailList": [random_gmail_address],
+                              "simRemovedEmailList": [random_gmail_address],
+                              "simChangedEmailList": [random_gmail_address],
+                              "simAddedEmailList": [random_gmail_address],
+                              "simLockedEmailList": [random_gmail_address],
+                              "resetPasswordEmailList": [random_gmail_address],
+                              "uninstallWeguardEmailList": [random_gmail_address]}
 
 # Geofence Information
-GeofenceIDS =[]
-Geofence_MongoDB_IDs =[]
-GeofenceTypes=[]
+GeofenceIDS = []
+Geofence_MongoDB_IDs = []
+GeofenceTypes = []
 # Generate and store random Geofence IDs
 GeofenceIds = [str(random.randint(1000000000000000000, 9999999999999999999)) for _ in range(1)]  # Generate 1 random IDs
-
 
 # Delete Geofence Notifications
 # Generate a random boolean value for 'enabled' field
@@ -336,7 +362,8 @@ random_id = ''.join(random.choice(string.ascii_letters + string.digits) for _ in
 random_geofence_id = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(len(real_geofence_id)))
 geofence_id_length = 19
 # Generate a list of random geofence IDs with the specified length
-geofence_id_list = [''.join(random.choice(string.ascii_letters + string.digits) for _ in range(geofence_id_length)) for _ in range(geofence_id_length)]
+geofence_id_list = [''.join(random.choice(string.ascii_letters + string.digits) for _ in range(geofence_id_length)) for
+                    _ in range(geofence_id_length)]
 # Create an empty payload dictionary
 DeleteGeofenceNotificationsPayload = {
     "emailList": [random_gmail_address],
@@ -347,3 +374,8 @@ DeleteGeofenceNotificationsPayload = {
     "id": random_id,
     "policyId": random_policy_id
 }
+
+# Windows Microservices
+PUT_UpdateTags_Windows_Device = {"tag1": "In-House -- Chakrapani",
+                                 "tag4": "08AFF26C-A5DE-4105-8D62-B74347177FE5",
+                                 "tag3": "QA"}

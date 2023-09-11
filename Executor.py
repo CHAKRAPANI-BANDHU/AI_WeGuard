@@ -55,7 +55,10 @@ test_tc_00017_Windows_Devices = 1
 test_tc_0003_Policy_All = 1
 
 # Windows Microservices
-test_tc_0000001_Windows_DeviceDetailsByMongoID = 1
+test_tc_0000001_Windows_DeviceDetailsByMongoID_GET = 1
+test_tc_0000002_Windows_Device_Updates_Tags_By_MongoID_PUT = 1
+test_tc_0000003_Windows_Fetch_Device_Details_GET = 1
+test_tc_0000004_Windows_Fetch_Devices_By_PolicyIDs_POST=1
 
 # WeBox
 test_tc_001_WeBox_AlLOWDownload = 1
