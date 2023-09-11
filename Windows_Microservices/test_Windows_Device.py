@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 
 import pytest
@@ -16,6 +17,9 @@ def WindowsDeviceDetails(end, page, policyId, size, start):
 
 def WindowsDevicesByPolicyIDs(page, size):
     return "windows/rest/device/bulk?page={page}&size={size}".format(page=page, size=size)
+
+def WindowsDeviceCommand(WindowsMongoDBID):
+    return "windows/rest/device/command/{WindowsMongoDBID}".format(WindowsMongoDBID=WindowsMongoDBID)
 
 # GET method to get Windows devices by Mongo DB ID
 @pytest.mark.parametrize('url', [""])
@@ -43,6 +47,7 @@ def test_tc_0000001_Windows_Device_Details_GET(url):
                                  "\n" + "Request Method: " + res.request.method +
                                  "\n" + "Status Code: " + str(res.status_code) +
                                  "\n" + "Response: " + str(res.content) + "\n")
+            globalvar.bearerToken = json.loads(res.content)['entity']['jwtToken']
         elif res.status_code == 400:
             print("\n" + "400 Bad Request!" + "\n")
             # Add your assertions or actions for 400 Bad Request response here
@@ -210,23 +215,23 @@ def test_tc_0000004_Windows_Fetch_Devices_By_PolicyIDs_POST(url):
         WeGuard.logger.error("-------------------------- Failed to fetch Windows device details by policy id ---------------------------\n\n")
         assert False
         
-# POST method to fetch devices by PolicyIds
+# POST method to add commands
+# Restart of a device
 @pytest.mark.parametrize('url', [""])
-@pytest.mark.skipif(Execute.test_tc_0000005_Windows_Fetch_Devices_By_PolicyIDs_POST == 0, reason="skip test")
+@pytest.mark.skipif(Execute.test_tc_0000005_Windows_Add_Device_Commands_POST == 0, reason="skip test")
 @pytest.mark.negativetest
 @pytest.mark.devices
 @pytest.mark.regressiontest
-@pytest.mark.run(order=100004)
-def test_tc_0000005_Windows_Fetch_Devices_By_PolicyIDs_POST(url):
+@pytest.mark.run(order=100005)
+def test_tc_0000005_Windows_Add_Device_Commands_POST(url):
     now1 = datetime.now()
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     try:
-      for policy_id in globalvar.Windows_profile_ids:
-        WindowsDevices = WindowsDevicesByPolicyIDs(globalvar.page_1, globalvar.page_1000)
-        apiUrl = globalvar.BaseURL + WindowsDevices
+      for mongodbId in globalvar.Windows_Mongo_DB_DeviceIDs:
+        apiUrl = globalvar.BaseURL + WindowsDeviceCommand(mongodbId)
         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-        Payload = {"policyIds": [policy_id]}
+        Payload = {"command":"RebootNow"}
         res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
         if res.status_code == 200:
             curl_str1 = Utils.getCurlEquivalent(res)
@@ -256,6 +261,6 @@ def test_tc_0000005_Windows_Fetch_Devices_By_PolicyIDs_POST(url):
         WeGuard.logger.error("Exception : " + str(e))
         now2 = datetime.now()
         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-        WeGuard.logger.error("-------------------------- Failed to fetch Windows device details by policy id ---------------------------\n\n")
+        WeGuard.logger.error("-------------------------- Failed to execute the device command ---------------------------\n\n")
         assert False
         
