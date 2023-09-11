@@ -95,36 +95,25 @@ def test_tc_0002_Login_Event(url):
         if res.status_code == 200:
             curl_str1 = Utils.getCurlEquivalent(res)
             print(curl_str1)
-            if res.status_code == 200:
-                print("\n" + "200 The request was a success!")
-                WeGuard.logger.debug("\n" + "200 The request was a success!")
-                print("\n" + "Header: " + str(res.headers) +
-                      "\n" + "Request URL: " + apiUrl +
-                      "\n" + "Request Method: " + res.request.method +
-                      "\n" + "Status Code: " + str(res.status_code) +
-                      "\n" + "Response: " + str(res.content) + "\n")
-                WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
-                      "\n" + "Request URL: " + apiUrl +
-                      "\n" + "Request Method: " + res.request.method +
-                      "\n" + "Status Code: " + str(res.status_code) +
-                      "\n" + "Response: " + str(res.content) + "\n")
+            WeGuard.logger.debug("\n" + "200 The request was a success!")
+            WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+                                 "\n" + "Request URL: " + apiUrl +
+                                 "\n" + "Request Method: " + res.request.method +
+                                 "\n" + "Status Code: " + str(res.status_code) +
+                                 "\n" + "Response: " + str(res.content) + "\n")
         elif res.status_code == 400:
-            print("\n" + "400 Bad Request!" + "\n")
             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "404 Result not found!" + "\n")
             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
-            print("\n" + "500 Internal Server Error!" + "\n")
             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
             # Add your assertions or actions for 500 Internal Server Error response here
             assert False, "Received 500 response"
         else:
-            print("Request did not succeed! Status code:", res.status_code)
             WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
             assert False, "Received {res.status_code} response"
     except BaseException as e:
@@ -152,36 +141,25 @@ def test_tc_0002_Login_Event(url):
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
-#             if res.status_code == 200:
-#                 print("\n" + "200 The request was a success!")
 #                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 print("\n" + "Header: " + str(res.headers) +
-#                       "\n" + "Request URL: " + apiUrl +
-#                       "\n" + "Request Method: " + res.request.method +
-#                       "\n" + "Status Code: " + str(res.status_code) +
-#                       "\n" + "Response: " + str(res.content) + "\n")
 #                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
 #                                      "\n" + "Request URL: " + apiUrl +
 #                                      "\n" + "Request Method: " + res.request.method +
 #                                      "\n" + "Status Code: " + str(res.status_code) +
 #                                      "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!" + "\n")
 #             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!" + "\n")
 #             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!" + "\n")
 #             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
-#             print("Request did not succeed! Status code:", res.status_code)
 #             WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except requests.RequestException as e:
@@ -210,35 +188,25 @@ def test_tc_0002_Login_Event(url):
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
 #             WeGuard.logger.debug("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
 #             WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
 #                                  "\n" + "Request URL: " + apiUrl +
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!" + "\n")
 #             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!" + "\n")
 #             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!" + "\n")
 #             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
-#             print("Request did not succeed! Status code:", res.status_code)
 #             WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except requests.RequestException as e:

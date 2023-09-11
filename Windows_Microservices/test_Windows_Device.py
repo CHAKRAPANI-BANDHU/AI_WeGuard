@@ -25,7 +25,6 @@ def test_tc_0000001_Windows_Device_Details_View(url):
       for mongodbId in globalvar.Windows_Mongo_DB_DeviceIDs:
         WindowsDevices = DeviceDetailsByMongoID(mongodbId)
         apiUrl = globalvar.BaseURL + WindowsDevices
-        print(globalvar.Windows_Mongo_DB_DeviceIDs)
         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
         if res.status_code == 200:
@@ -38,7 +37,6 @@ def test_tc_0000001_Windows_Device_Details_View(url):
                       "\n" + "Request Method: " + res.request.method +
                       "\n" + "Status Code: " + str(res.status_code) +
                       "\n" + "Response: " + str(res.content) + "\n")
-                WeGuard.logger.debug("-------------------------- Windows device details is displayed by Mongo DB ID ---------------------------\n\n")
         elif res.status_code == 400:
             print("\n" + "400 Bad Request!" + "\n")
             # Add your assertions or actions for 400 Bad Request response here
