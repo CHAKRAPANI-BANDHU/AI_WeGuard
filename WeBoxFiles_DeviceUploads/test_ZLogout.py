@@ -36,15 +36,15 @@
 #                                  "\n" + "Response: " + str(res.content) + "\n")
 #             WeGuard.logger.debug("--------------------------- Logged out from the account ---------------------------\n\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:

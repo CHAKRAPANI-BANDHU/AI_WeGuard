@@ -1,6 +1,5 @@
 import logging
 from logging.handlers import RotatingFileHandler
-import time
 
 logger = logging.getLogger("WeGuardLogger")
 
@@ -27,7 +26,7 @@ def configure_logger(log_file_to_rotate, log_level):
     else:
         logger.setLevel(logging.WARNING)
 
-    logger.error("Logger error initialization complete")
-    logger.warning("Logger warning initialization complete")
-    logger.info("Logger info initialization complete")
-    logger.debug("Logger initialization complete"+"\n")
+    logger.error("Error log initialization complete")
+    logger.warning("Warning log initialization complete")
+    logger.info("Info log initialization complete")
+    logger.debug("Debug log initialization complete"+"\n")

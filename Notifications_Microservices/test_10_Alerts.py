@@ -78,15 +78,15 @@
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -132,15 +132,15 @@
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -306,11 +306,11 @@
 #                print("\n--------------------------- Acknowledged Critical Alerts ---------------------------\n")
 #             else:
 #                 if res.status_code == 400:
-#                     print("\n" + "400 Bad Request!")
+#                     print("\n" + "400 Bad Request!" + "\n")
 #                 elif res.status_code == 404:
-#                     print("\n" + "404 Result not found!")
+#                     print("\n" + "404 Result not found!" + "\n")
 #                 elif res.status_code == 500:
-#                     print("\n" + "500 Internal Server Error!")
+#                     print("\n" + "500 Internal Server Error!" + "\n")
 #                 else:
 #                     print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
@@ -354,15 +354,15 @@
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #             print("\n--------------------------- Displaying Todays all alert types and levels ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -407,15 +407,15 @@
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #             print("\n--------------------------- Displaying Yesterday's all alert types and levels ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -459,15 +459,15 @@
 #                              "\n" + "Response: " + str(res.content) + "\n")
 #             print("\n--------------------------- Displaying Custom Date Range all alert types and levels ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:

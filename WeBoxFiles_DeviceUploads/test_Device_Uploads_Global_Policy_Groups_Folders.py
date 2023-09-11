@@ -78,15 +78,15 @@
 #             WeGuard.logger.debug(
 #                 "\n\n--------------------------- Shared Folders WeBox upload config without sign passed  ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -133,15 +133,15 @@
 #             WeGuard.logger.debug(
 #                 "\n\n--------------------------- Shared Folders WeBox upload config with sign passed ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -189,15 +189,15 @@
 #                 WeGuard.logger.debug(
 #                     "\n\n--------------------------- Files are available in globals shared folder ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -247,15 +247,15 @@
 #                     WeGuard.logger.debug(
 #                         "\n\n--------------------------- Files are available in policy groups folder ---------------------------\n")
 #                 elif res.status_code == 400:
-#                     print("\n" + "400 Bad Request!")
+#                     print("\n" + "400 Bad Request!" + "\n")
 #                     # Add your assertions or actions for 400 Bad Request response here
 #                     assert False, "Received 400 Bad Request response"
 #                 elif res.status_code == 404:
-#                     print("\n" + "404 Result not found!")
+#                     print("\n" + "404 Result not found!" + "\n")
 #                     # Add your assertions or actions for 404 Not Found response here
 #                     assert False, "Received 404 response"
 #                 elif res.status_code == 500:
-#                     print("\n" + "500 Internal Server Error!")
+#                     print("\n" + "500 Internal Server Error!" + "\n")
 #                     # Add your assertions or actions for 500 Internal Server Error response here
 #                     assert False, "Received 500 response"
 #                 else:
@@ -302,15 +302,15 @@
 #             WeGuard.logger.debug(
 #                 "\n\n--------------------------- Folder names are available upon clicking on clear in shared folders ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -359,15 +359,15 @@
 #                     WeGuard.logger.debug(
 #                         "\n\n--------------------------- Files are available upon clicking on clear in policy group folders ---------------------------\n")
 #                 elif res.status_code == 400:
-#                     print("\n" + "400 Bad Request!")
+#                     print("\n" + "400 Bad Request!" + "\n")
 #                     # Add your assertions or actions for 400 Bad Request response here
 #                     assert False, "Received 400 Bad Request response"
 #                 elif res.status_code == 404:
-#                     print("\n" + "404 Result not found!")
+#                     print("\n" + "404 Result not found!" + "\n")
 #                     # Add your assertions or actions for 404 Not Found response here
 #                     assert False, "Received 404 response"
 #                 elif res.status_code == 500:
-#                     print("\n" + "500 Internal Server Error!")
+#                     print("\n" + "500 Internal Server Error!" + "\n")
 #                     # Add your assertions or actions for 500 Internal Server Error response here
 #                     assert False, "Received 500 response"
 #                 else:
@@ -413,15 +413,15 @@
 #             WeGuard.logger.debug(
 #                 "\n\n--------------------------- Get the configs of Shared Folders Pass ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -468,15 +468,15 @@
 #             WeGuard.logger.debug(
 #                 "\n\n--------------------------- PDF file is downloaded successfully ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -524,15 +524,15 @@
 #             WeGuard.logger.debug(
 #                 "\n\n--------------------------- ZIP file is downloaded successfully ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:

@@ -54,6 +54,9 @@ test_tc_00017_Windows_Devices = 1
 # Policy Groups
 test_tc_0003_Policy_All = 1
 
+# Windows Microservices
+test_tc_0000001_Windows_DeviceDetailsByMongoID = 1
+
 # WeBox
 test_tc_001_WeBox_AlLOWDownload = 1
 test_tc_001_WeBox_licensepagesize = 1

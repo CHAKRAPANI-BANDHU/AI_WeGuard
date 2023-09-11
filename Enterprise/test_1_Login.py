@@ -37,14 +37,7 @@ def test_tc_0001_Login(url):
         print(curl_str1)
         jsonData_str = str(jsonData)
         if res.status_code == 200:
-            print("\n" + "200 The request was a success!")
             WeGuard.logger.debug("\n\n" + "200 The request was a success!")
-            print("\n" + "Header: " + str(res.headers) +
-                  "\n" + "Request URL: " + apiUrl +
-                  "\n" + "Request Method: " + res.request.method +
-                  "\n" + "Status Code: " + str(res.status_code) +
-                  "\n" + "Request Payload: " + jsonData_str +
-                  "\n" + "Response: " + str(res.content) + "\n")
             WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
                   "\n" + "Request URL: " + apiUrl +
                   "\n" + "Request Method: " + res.request.method +
@@ -63,25 +56,25 @@ def test_tc_0001_Login(url):
             globalvar.enterpriseId = json.loads(res.content)['entity']['enterpriseId']
             assert globalvar.userName == json.loads(res.content)['entity']['userName']
         elif res.status_code == 400:
-            print("\n" + "400 Bad Request!")
+            WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "404 Result not found!")
+            WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
-            print("\n" + "500 Internal Server Error!")
+            WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
             # Add your assertions or actions for 500 Internal Server Error response here
             assert False, "Received 500 response"
         else:
-            print("Request did not succeed! Status code:", res.status_code)
+            WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
             assert False, "Received {res.status_code} response"
     except BaseException as e:
-        print("Exception : " + str(e))
+        WeGuard.logger.error("Exception : " + str(e))
         now2 = datetime.now()
-        print("Time taken: " + str(now2 - now1))
-        print("--------------------------- TC 001 LOGIN FAIL ---------------------------\n\n")
+        WeGuard.logger.error("Time taken: " + str(now2 - now1))
+        WeGuard.logger.error("--------------------------- TC 001 LOGIN FAIL ---------------------------\n\n")
         assert False
 
 
@@ -104,31 +97,42 @@ def test_tc_0002_Login_Event(url):
             print(curl_str1)
             if res.status_code == 200:
                 print("\n" + "200 The request was a success!")
+                WeGuard.logger.debug("\n" + "200 The request was a success!")
                 print("\n" + "Header: " + str(res.headers) +
                       "\n" + "Request URL: " + apiUrl +
                       "\n" + "Request Method: " + res.request.method +
                       "\n" + "Status Code: " + str(res.status_code) +
                       "\n" + "Response: " + str(res.content) + "\n")
+                WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+                      "\n" + "Request URL: " + apiUrl +
+                      "\n" + "Request Method: " + res.request.method +
+                      "\n" + "Status Code: " + str(res.status_code) +
+                      "\n" + "Response: " + str(res.content) + "\n")
         elif res.status_code == 400:
-            print("\n" + "400 Bad Request!")
+            print("\n" + "400 Bad Request!" + "\n")
+            WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "404 Result not found!")
+            print("\n" + "404 Result not found!" + "\n")
+            WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
-            print("\n" + "500 Internal Server Error!")
+            print("\n" + "500 Internal Server Error!" + "\n")
+            WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
             # Add your assertions or actions for 500 Internal Server Error response here
             assert False, "Received 500 response"
         else:
             print("Request did not succeed! Status code:", res.status_code)
+            WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
             assert False, "Received {res.status_code} response"
     except BaseException as e:
         print("Exception : " + str(e))
+        WeGuard.logger.error("Exception : " + str(e))
         now2 = datetime.now()
-        print("Time taken: " + str(now2 - now1))
-        print("--------------------------- Failed Enterprise Events ---------------------------\n\n")
+        WeGuard.logger.error("Time taken: " + str(now2 - now1))
+        WeGuard.logger.error("--------------------------- Failed Enterprise Events ---------------------------\n\n")
         assert False
 
 # @pytest.mark.parametrize('url', [""])
@@ -139,7 +143,7 @@ def test_tc_0002_Login_Event(url):
 # def test_tc_000002_InvalidEmail(url):
 #     now1 = datetime.now()
 #     try:
-#         apiUrl = globalvar.BaseURL + globalvar.LoginURL
+#         apiUrl = globalvar.BaseURL + LoginURL
 #         jsonData = {
 #             jsonnames.USERNAME: "chakrapani078@gmail.com",
 #             jsonnames.PASSWORD: globalvar.password
@@ -148,29 +152,38 @@ def test_tc_0002_Login_Event(url):
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
-#                                  "\n" "Request URL: " + apiUrl +
-#                                  "\n" + "Request Method: " + res.request.method +
-#                                  "\n" + "Status Code: " + str(res.status_code) +
-#                                  "\n" + "Response: " + str(res.content) + "\n")
-#             print("JWT token is :" + globalvar.bearerToken)
-#             assert globalvar.userName == json.loads(res.content)['entity']['userName']
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
+#                       "\n" + "Request URL: " + apiUrl +
+#                       "\n" + "Request Method: " + res.request.method +
+#                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                                      "\n" + "Request URL: " + apiUrl +
+#                                      "\n" + "Request Method: " + res.request.method +
+#                                      "\n" + "Status Code: " + str(res.status_code) +
+#                                      "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
+#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
+#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
+#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#             assert False, "Received {res.status_code} response"
 #     except requests.RequestException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -188,7 +201,7 @@ def test_tc_0002_Login_Event(url):
 # def test_tc_000003_InvalidPassword(url):
 #     now1 = datetime.now()
 #     try:
-#         apiUrl = globalvar.BaseURL + globalvar.LoginURL
+#         apiUrl = globalvar.BaseURL + LoginURL
 #         jsonData = {
 #             jsonnames.USERNAME: globalvar.userName,
 #             jsonnames.PASSWORD: "Password@123"
@@ -198,28 +211,36 @@ def test_tc_0002_Login_Event(url):
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
-#            print("\n" + "Header: " + str(res.headers) +
-#                      "\n" + "Request URL: " + apiUrl +
-#                      "\n" + "Request Method: " + res.request.method +
-#                      "\n" + "Status Code: " + str(res.status_code) +
-#                      "\n" + "Response: " + str(res.content) + "\n")
-#             print("JWT token is :" + globalvar.bearerToken)
-#             assert globalvar.userName == json.loads(res.content)['entity']['userName']
+#             WeGuard.logger.debug("\n" + "200 The request was a success!")
+#             print("\n" + "Header: " + str(res.headers) +
+#                   "\n" + "Request URL: " + apiUrl +
+#                   "\n" + "Request Method: " + res.request.method +
+#                   "\n" + "Status Code: " + str(res.status_code) +
+#                   "\n" + "Response: " + str(res.content) + "\n")
+#             WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                                  "\n" + "Request URL: " + apiUrl +
+#                                  "\n" + "Request Method: " + res.request.method +
+#                                  "\n" + "Status Code: " + str(res.status_code) +
+#                                  "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
+#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
+#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
+#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, f"Received {res.status_code} response"
+#             WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#             assert False, "Received {res.status_code} response"
 #     except requests.RequestException as e:
 #         WeGuard.logger.error("Exception : " + str(e))
 #         now2 = datetime.now()

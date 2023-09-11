@@ -45,15 +45,15 @@
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #             print("\n\n--------------------------- Undo and Save is passed ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -97,15 +97,15 @@
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print("\n\n--------------------------- Android Policy configs ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -152,15 +152,15 @@
 #                 print(
 #                     "\n\n--------------------------- Allow Download is Disabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                     print("\n" + "400 Bad Request!")
+#                     print("\n" + "400 Bad Request!" + "\n")
 #                     # Add your assertions or actions for 400 Bad Request response here
 #                     assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                     print("\n" + "404 Result not found!")
+#                     print("\n" + "404 Result not found!" + "\n")
 #                     # Add your assertions or actions for 404 Not Found response here
 #                     assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                     print("\n" + "500 Internal Server Error!")
+#                     print("\n" + "500 Internal Server Error!" + "\n")
 #                     # Add your assertions or actions for 500 Internal Server Error response here
 #                     assert False, "Received 500 response"
 #             else:
@@ -209,15 +209,15 @@
 #                 print(
 #                     "\n\n--------------------------- Allow File View is disabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -265,15 +265,15 @@
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #                print("\n\n--------------------------- Open With is disabled---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -320,15 +320,15 @@
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print("\n\n--------------------------- Show Links is disabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -375,15 +375,15 @@
 #                 print(
 #                     "\n\n--------------------------- Allow Download, Allow file view, Open with, Show links are disabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -432,15 +432,15 @@
 #                 print(
 #                     "\n\n--------------------------- Allow Download is enabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -491,15 +491,15 @@
 #                 print(
 #                     "\n\n--------------------------- Allow File View is enabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -547,15 +547,15 @@
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print("\n\n--------------------------- Open With is enabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -602,15 +602,15 @@
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print("\n\n--------------------------- Show Links is enabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -659,15 +659,15 @@
 #                 print(
 #                     "\n\n--------------------------- Service Types are disabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -716,15 +716,15 @@
 #                 print(
 #                     "\n\n--------------------------- Service Types are enabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -773,15 +773,15 @@
 #                 print(
 #                     "\n\n--------------------------- WeBox Passcode is disabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -830,15 +830,15 @@
 #                 print(
 #                     "\n\n--------------------------- WeBox Passcode is enabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -888,15 +888,15 @@
 #                 print(
 #                     "\n\n--------------------------- Google Drive and Dropbox are enabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -946,15 +946,15 @@
 #                 print(
 #                     "\n\n--------------------------- Amazon S3 and SD Card are enabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1003,15 +1003,15 @@
 #                 print(
 #                     "\n\n--------------------------- Created SD card folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1061,15 +1061,15 @@
 #                 print(
 #                     "\n\n--------------------------- Created Google Drive folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1118,15 +1118,15 @@
 #                 print(
 #                     "\n\n--------------------------- Created Amazon S3 folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1175,15 +1175,15 @@
 #                 print(
 #                     "\n\n--------------------------- Created Dropbox folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1233,15 +1233,15 @@
 #                 print(
 #                     "\n\n--------------------------- SD card and Amazon S3 are disabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1291,15 +1291,15 @@
 #                 print(
 #                     "\n\n--------------------------- Google Drive and Dropbox are disabled ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1348,15 +1348,15 @@
 #                 print(
 #                     "\n\n--------------------------- Created SD card folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1405,15 +1405,15 @@
 #                 print(
 #                     "\n\n--------------------------- Deleted Google Drive folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1462,15 +1462,15 @@
 #                 print(
 #                     "\n\n--------------------------- Deleted SD Card folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1519,15 +1519,15 @@
 #                 print(
 #                     "\n\n--------------------------- Deleted Dropbox folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -1575,15 +1575,15 @@
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #             print("\n\n--------------------------- WeBox Files POST API ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:

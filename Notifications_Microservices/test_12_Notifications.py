@@ -1,6 +1,6 @@
 # import datetime
 # import json
-# 
+#
 # import pytest
 # import requests
 # import Executor as Execute
@@ -8,45 +8,45 @@
 # import test_GETutils as Utils
 # import general_payload as Generalpayload
 # import WeGuardLogger as WeGuard
-# 
-# 
+#
+#
 # # Define the GET AccountLevel Notifications
 # def AccountLevelNotifications(accountId):
 #     return "notification/rest/notification/all/account/{accountId}".format(accountId=accountId)
-# 
+#
 # POSTAccountLevelNotifications = "notification/rest/notification"
-# 
+#
 # def PUTAccountLevelNotifications(notificationId):
 #     PUT_AccountLevelNotification = "notification/rest/notification/{notificationId}".format(notificationId=notificationId)
 #     return PUT_AccountLevelNotification
-# 
+#
 # def GETNotificationsByPolicyLevel(policyId):
 #     return "notification/rest/notification/all/policy/{policyId}".format(policyId=policyId)
-# 
+#
 # POSTPolicyLevelNotifications = "notification/rest/notification"
-# 
+#
 # def PUTNotifications_PolicyLevel(notificationId):
 #     PUT_PolicyLevelNotification = "notification/rest/notification/{notificationId}".format(notificationId=notificationId)
 #     return PUT_PolicyLevelNotification
-# 
+#
 # # GET Policy Level Geofence
 # def GETPolicyLevelGeofence(policyId):
 #     return "notification/rest/notification/geofence/{policyId}".format(policyId=policyId)
-# 
+#
 # POSTGeofence= "notification/rest/notification/geofence"
-# 
+#
 # # Define PUTGeofence as a function that generates the API endpoint URL
 # def PUTGeofences(mongoDBId):
 #     return f"notification/rest/notification/geofence/{mongoDBId}".format(mongoDBId=mongoDBId)
-# 
+#
 # # Delete Policy Level Geofence
 # def DeleteGeofence(policyId):
 #     return "notification/rest/notification/geofence/{policyId}".format(policyId=policyId)
-# 
+#
 # def TimespentGeofence(accountId, page, size, start, end):
 #    GeofenceTimespent = "notification/rest/timespent/account/{accountId}?page={page}&size={size}&start={start}&end={end}".format(accountId=accountId, page=page, size=size, start=start, end=end)
 #    return GeofenceTimespent
-# 
+#
 # # GET method to get all the Account Level Notifications
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_1101_Notifications_AccountLevel_GET == 0, reason="Skip test")
@@ -92,15 +92,15 @@
 #             print(
 #                 "\n--------------------------- GET method to get all the Account Level Notifications ---------------------------\n")
 #         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
@@ -113,8 +113,8 @@
 #             "\n--------------------------- Unable to GET method to get all the Account Level Notifications ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
-# 
+#
+#
 # # POST method to get all the Account Level Notifications with Email Address
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_1102_Notifications_AccountLevel_POST == 0, reason="Skip test")
@@ -148,15 +148,15 @@
 #                 print(
 #                     "\n--------------------------- POST method to get all the Account Level Notifications with Email Address ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -169,8 +169,8 @@
 #             "\n--------------------------- Unable to POST method to get all the Account Level Notifications with Email Address ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
-# 
+#
+#
 # # PUT method to update Account Level Notifications with Email Address
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_1103_Notifications_AccountLevel_PUT == 0, reason="Skip test")
@@ -202,11 +202,11 @@
 #                 print("\n--------------------------- PUT method to update Account Level Notifications with Email Address ---------------------------\n")
 #             else:
 #                 if res.status_code == 400:
-#                     print("\n" + "400 Bad Request!")
+#                     print("\n" + "400 Bad Request!" + "\n")
 #                 elif res.status_code == 404:
-#                     print("\n" + "404 Result not found!")
+#                     print("\n" + "404 Result not found!" + "\n")
 #                 elif res.status_code == 500:
-#                     print("\n" + "500 Internal Server Error!")
+#                     print("\n" + "500 Internal Server Error!" + "\n")
 #                 else:
 #                     print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
@@ -217,8 +217,8 @@
 #             "\n--------------------------- Unable to PUT method to update Account Level Notifications with Email Address ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
-# 
+#
+#
 # # GET method to get policy level Notifications
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_1104_Notification_PolicyLevel_GET == 0, reason="Skip test")
@@ -248,11 +248,11 @@
 #                 print(
 #                     "\n--------------------------- GET method to get policy level Notifications ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #             else:
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
@@ -263,8 +263,8 @@
 #             "\n--------------------------- Unable to GET method to get policy level Notifications ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
-# 
+#
+#
 # # POST method to get all the Policy Level Notifications with Email Address
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_1106_Notifications_PolicyLevel_POST == 0, reason="Skip test")
@@ -305,15 +305,15 @@
 #                 print(
 #                     "\n--------------------------- POST method to get all the Policy Level Notifications with Email Address ---------------------------\n")
 #             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
@@ -326,8 +326,8 @@
 #             "\n--------------------------- Unable to POST method to get all the Policy Level Notifications with Email Address ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
-# 
+#
+#
 # # PUT method to update Policy Level Notifications with Email Address
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_1107_Notifications_PolicyLevel_PUT == 0, reason="Skip test")
@@ -368,15 +368,15 @@
 #                     print(
 #                         "--------------------------- PUT method to update Policy Level Notifications with Email Address ---------------------------\n")
 #                 elif res.status_code == 400:
-#                     print("\n" + "400 Bad Request!")
+#                     print("\n" + "400 Bad Request!" + "\n")
 #                     # Add your assertions or actions for 400 Bad Request response here
 #                     assert False, "Received 400 Bad Request response"
 #                 elif res.status_code == 404:
-#                     print("\n" + "404 Result not found!")
+#                     print("\n" + "404 Result not found!" + "\n")
 #                     # Add your assertions or actions for 404 Not Found response here
 #                     assert False, "Received 404 response"
 #                 elif res.status_code == 500:
-#                     print("\n" + "500 Internal Server Error!")
+#                     print("\n" + "500 Internal Server Error!" + "\n")
 #                     # Add your assertions or actions for 500 Internal Server Error response here
 #                     assert False, "Received 500 response"
 #                 else:
@@ -389,8 +389,8 @@
 #             "\n--------------------------- Unable to PUT method to update Policy Level Notifications with Email Address ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
-# 
+#
+#
 # # Geofences
 # # POST method to create/add the Geofence at the policy level
 # @pytest.mark.parametrize('url', [""])
@@ -427,11 +427,11 @@
 #                         "\n--------------------------- POST method to get policy level Geofence based on geofence list ---------------------------\n")
 #                 else:
 #                     if res.status_code == 400:
-#                         print("\n" + "400 Bad Request!")
+#                         print("\n" + "400 Bad Request!" + "\n")
 #                     elif res.status_code == 404:
-#                         print("\n" + "404 Result not found!")
+#                         print("\n" + "404 Result not found!" + "\n")
 #                     elif res.status_code == 500:
-#                         print("\n" + "500 Internal Server Error!")
+#                         print("\n" + "500 Internal Server Error!" + "\n")
 #                     else:
 #                         print("Request did not succeed! Status code:", res.status_code)
 #                     assert False, f"Received {res.status_code} response"
@@ -442,7 +442,7 @@
 #             "\n--------------------------- Unable to POST method to get policy level Geofence based on geofence list ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
+#
 # # GET method to get policy level Geofence
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_1109_Notification_PolicyLevel_Geofence_GET == 0, reason="Skip test")
@@ -476,17 +476,17 @@
 #                     geofence_id = entity.get("geofenceId")
 #                     geofence_mongodb_id = entity.get("id")
 #                     geofence_type = entity.get("geofenceType")
-# 
+#
 #                     #                if geofence_id and geofence_mongodb_id and geofence_type:
 #                     #                        print(f"\nGeofence ID: {geofence_id}")
-#                     #                        print(f"MongoDB ID : {geofence_mongodb_id}")
+#                     #                        print(f" MongoDB ID : {geofence_mongodb_id}")
 #                     #                        print(f"Geofence Type : {geofence_type}\n")
-# 
+#
 #                     # Append the data to respective lists
 #                     Generalpayload.GeofenceIDS.append(geofence_id)
 #                     Generalpayload.Geofence_MongoDB_IDs.append(geofence_mongodb_id)
 #                     Generalpayload.GeofenceTypes.append(geofence_type)
-# 
+#
 #                 # Now you have all the geofence IDs, MongoDB IDs, and geofence types in separate arrays
 #                 print("All Geofence IDs:", ", ".join(map(str, Generalpayload.GeofenceIDS)) + "\n")
 #                 print("All MongoDB IDs:", ", ".join(map(str, Generalpayload.Geofence_MongoDB_IDs)) + "\n")
@@ -494,11 +494,11 @@
 #                 print(
 #                     "\n--------------------------- GET method to get policy level Notifications ---------------------------\n")
 #             elif res.status_code == 400:
-#                print("\n" + "400 Bad Request!")
+#                print("\n" + "400 Bad Request!" + "\n")
 #             elif res.status_code == 404:
-#                print("\n" + "404 Result not found!")
+#                print("\n" + "404 Result not found!" + "\n")
 #             elif res.status_code == 500:
-#                print("\n" + "500 Internal Server Error!")
+#                print("\n" + "500 Internal Server Error!" + "\n")
 #             else:
 #                print("Request did not succeed! Status code:", res.status_code)
 #                assert False, f"Received {res.status_code} response"
@@ -509,8 +509,8 @@
 #             "\n--------------------------- Unable to GET method to get policy level Notifications ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
-# 
+#
+#
 # # PUT method to update the policy level Geofence
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_1110_Notification_PolicyLevel_Geofence_PUT == 0, reason="Skip test")
@@ -548,11 +548,11 @@
 #                     "\n--------------------------- PUT method to update policy level Geofence ---------------------------\n")
 #             else:
 #                 if res.status_code == 400:
-#                     print("\n" + "400 Bad Request!")
+#                     print("\n" + "400 Bad Request!" + "\n")
 #                 elif res.status_code == 404:
-#                     print("\n" + "404 Result not found!")
+#                     print("\n" + "404 Result not found!" + "\n")
 #                 elif res.status_code == 500:
-#                     print("\n" + "500 Internal Server Error!")
+#                     print("\n" + "500 Internal Server Error!" + "\n")
 #                 else:
 #                     print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
@@ -563,7 +563,7 @@
 #             "\n--------------------------- Unable to update policy level Geofence with PUT method  ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
+#
 # # DELETE method to delete the Geofence based on Geofence ID
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_1111_Notification_PolicyLevel_Geofence_DELETE == 0, reason="Delete the geofence")
@@ -595,11 +595,11 @@
 #                 print(
 #                     "\n--------------------------- DELETE method to get policy level geofence ---------------------------\n")
 #              elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #              elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!")
+#                 print("\n" + "404 Result not found!" + "\n")
 #              elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #              else:
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
@@ -610,7 +610,7 @@
 #             "\n--------------------------- Unable to delete the policy level geofence with DELETE method ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
+#
 # # Skipping this testcases, reason: It will delete the Geofence Notifications
 # # DELETE method to delete the Geofence Notifications
 # @pytest.mark.parametrize('url', [""])
@@ -647,11 +647,11 @@
 #                         print(
 #                             "\n--------------------------- DELETE method to delete policy level geofence notifications ---------------------------\n")
 #                     elif res.status_code == 400:
-#                         print("\n" + "400 Bad Request!")
+#                         print("\n" + "400 Bad Request!" + "\n")
 #                     elif res.status_code == 404:
-#                         print("\n" + "404 Result not found!")
+#                         print("\n" + "404 Result not found!" + "\n")
 #                     elif res.status_code == 500:
-#                         print("\n" + "500 Internal Server Error!")
+#                         print("\n" + "500 Internal Server Error!" + "\n")
 #                     else:
 #                         print("Request did not succeed! Status code:", res.status_code)
 #                         assert False, f"Received {res.status_code} response"
@@ -662,7 +662,7 @@
 #             "\n--------------------------- Unable to delete the policy level geofence notifications with DELETE method ---------------------------\n")
 #         WeGuard.logger.error("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
-# 
+#
 # # POST method to get the time spent details in the Geofence for all policies, devices and Geofences
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_1113_Notification_Timespent_Geofence_ALL_Policies_Device_Geofences_POST == 0, reason="Takes ~30 minutes time to execute for all policies, devices and Geofences")
@@ -707,11 +707,11 @@
 #                         print(
 #                             "\n--------------------------- POST method to get geofence time spent ---------------------------\n")
 #                     elif res.status_code == 400:
-#                         print("\n" + "400 Bad Request!")
+#                         print("\n" + "400 Bad Request!" + "\n")
 #                     elif res.status_code == 404:
-#                         print("\n" + "404 Result not found!")
+#                         print("\n" + "404 Result not found!" + "\n")
 #                     elif res.status_code == 500:
-#                         print("\n" + "500 Internal Server Error!")
+#                         print("\n" + "500 Internal Server Error!" + "\n")
 #                     else:
 #                         print("Request did not succeed! Status code:", res.status_code)
 #                         assert False, f"Received {res.status_code} response"

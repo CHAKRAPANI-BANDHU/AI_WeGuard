@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pytest
 import requests
-import logging
+import WeGuardLogger as WeGuard
 import Executor as Execute
 import globalvariables as Globalinfo
 import test_GETutils as Utils
@@ -46,7 +46,7 @@ def test_tc_001_Policy_ALL_10000(url):
             print("\n" + "200 The request was a success!" + "\n")
             curl_str1 = Utils.getCurlEquivalent(res)
             print(curl_str1)
-            print("\n" + "Header: " + str(res.headers) +
+            WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
                 "\n" + "Request URL: " + apiUrl +
                 "\n" + "Request Method: " + res.request.method +
                 "\n" + "Status Code: " + str(res.status_code) +
@@ -142,13 +142,13 @@ def test_tc_001_Policy_ALL_10000(url):
             print("\niOS Profiles:", Globalinfo.iOS_profiles, "\n")
             print("\nWindows Profiles:", Globalinfo.Windows_profiles, "\n")
         elif res.status_code == 400:
-            print("\n" + "400 Bad Request!")
+            WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            print("\n" + "404 Result not found!")
+            WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
             assert False, "Received 404 response"
         elif res.status_code == 500:
-            print("\n" + "500 Internal Server Error!")
+            WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
             assert False, "Received 500 response"
         else:
             print("Request did not succeed! Status code:", res.status_code)
