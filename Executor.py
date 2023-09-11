@@ -59,6 +59,8 @@ test_tc_0000001_Windows_DeviceDetailsByMongoID_GET = 1
 test_tc_0000002_Windows_Device_Updates_Tags_By_MongoID_PUT = 1
 test_tc_0000003_Windows_Fetch_Device_Details_GET = 1
 test_tc_0000004_Windows_Fetch_Devices_By_PolicyIDs_POST=1
+test_tc_0000005_Windows_Add_Device_Commands_POST=1
+test_tc_0000006_Windows_Add_Device_Commands_POST=1
 
 # WeBox
 test_tc_001_WeBox_AlLOWDownload = 1
