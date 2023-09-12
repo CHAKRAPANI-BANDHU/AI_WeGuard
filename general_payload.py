@@ -198,9 +198,12 @@ logout = {
     "sourceIP": ""
 }
 
-fake = Faker()
+
+# Company Directory
+Contacts_AccountLevel= {"accountId": globalvariables.accountId,"searchText": None}
 
 # Generate a random Gmail email address
+fake = Faker()
 random_gmail_address = fake.email(domain="gmail.com")
 
 # PUT Alerts Config
