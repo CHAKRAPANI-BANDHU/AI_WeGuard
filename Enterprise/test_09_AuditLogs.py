@@ -60,10 +60,10 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 print("\n" + "200 The request was a success!" +"\n")
+#                 WeGuard.logger.debug("\n" + "200 The request was a success!" +"\n")
 #                 # Print information about the current test case
 #                 print(f"Test Case: Filter By Level = {LogLevel}, Filter By Event = {Event}" + "\n")
-#                 print("\n" + "Header: " + str(res.headers) +
+#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
@@ -112,8 +112,8 @@
 #         print(curl_str1)
 #         print("\n\n-------- Filter By Level = All and Date Range is Yesterday --------")
 #         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
+#             WeGuard.logger.debug("\n" + "200 The request was a success!")
+#             WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
@@ -162,9 +162,8 @@
 #         print(curl_str1)
 #         print("\n\n-------- Filter By Level = All and Date Range is Custom (1 Month) --------")
 #         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
 #             WeGuard.logger.debug("\n" + "200 The request was a success!" + "\n")
-#             print("\n" + "Header: " + str(res.headers) +
+#             WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
@@ -223,10 +222,10 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 print("\n" + "200 The request was a success!" +"\n")
+#                 WeGuard.logger.debug("\n" + "200 The request was a success!" +"\n")
 #                 # Print information about the current test case
 #                 print(f" Android Device logs are fetched" + "\n")
-#                 print("\n" + "Header: " + str(res.headers) +
+#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
@@ -283,10 +282,10 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 print("\n" + "200 The request was a success!" +"\n")
+#                 WeGuard.logger.debug("\n" + "200 The request was a success!" +"\n")
 #                 # Print information about the current test case
 #                 print(f" iOS Device logs are fetched" + "\n")
-#                 print("\n" + "Header: " + str(res.headers) +
+#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
@@ -343,10 +342,10 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 print("\n" + "200 The request was a success!" +"\n")
+#                 WeGuard.logger.debug("\n" + "200 The request was a success!" +"\n")
 #                 # Print information about the current test case
 #                 print(f"Windows Device logs are fetched" + "\n")
-#                 print("\n" + "Header: " + str(res.headers) +
+#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +

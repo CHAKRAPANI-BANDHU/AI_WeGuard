@@ -5,22 +5,10 @@ from faker import Faker
 
 import globalvariables
 
-login_event = {
-    "agent": "PORTAL",
-    "actorId": globalvariables.userName,
-    "policyId": None,
-    "type": "",
-    "msg": "",
-    "action": "-",
-    "event": "Enterprise",
-    "sentTime": globalvariables.start_timestamp,
-    "sourceIP": "",
-    "logLevel": "Info",
-    "log": "Logged in",
-    "activationCode": globalvariables.activationCode,
-    "productActivationCode": globalvariables.productActivationCode,
-    "metadata": "{}"
-}
+fake = Faker()
+# Generate a random Gmail email address
+random_gmail_address = fake.email(domain="gmail.com")
+
 
 AllDevices = {
     "search": None,
@@ -198,13 +186,54 @@ logout = {
     "sourceIP": ""
 }
 
-
 # Company Directory
-Contacts_AccountLevel= {"accountId": globalvariables.accountId,"searchText": None}
+# Random ID
+RandomContactsIDs = random.randint(10000000, 99999999)
+FCMUpdateAfterAddingContacts_PolicyLevel = {"topic": globalvariables.activationCode+"_"+globalvariables.productActivationCode, "type": "SYNC_CONTACTS", "isLicenseLevel": True,
+                                "actCode": globalvariables.activationCode,
+                                "pActCode": globalvariables.productActivationCode, "message": None, "id": RandomContactsIDs}
 
-# Generate a random Gmail email address
-fake = Faker()
-random_gmail_address = fake.email(domain="gmail.com")
+# Create contacts at Account Level
+# Define a function to generate a random Gmail address
+def random_email_address():
+    username = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(10))
+    return f"{username}@gmail.com"
+
+# Generate a random Gmail address
+random_email = random_email_address()
+
+# Define a list of possible values for each field
+address_types = ["Work", "Home", "Other"]
+streets = ["Street1", "Street2", "Street3"]
+countries = ["Country1", "Country2", "Country3"]
+cities = ["City1", "City2", "City3"]
+states = ["State1", "State2", "State3"]
+zipcodes = ["12345", "67890", "54321"]
+
+# Generate a random postal address
+postal_address = {
+    "addressType": random.choice(address_types),
+    "street": random.choice(streets),
+    "country": random.choice(countries),
+    "city": random.choice(cities),
+    "state": random.choice(states),
+    "zipcode": random.choice(zipcodes)
+}
+# Create the payload with the random email address
+firstName= ''.join(random.choice(string.ascii_letters) for _ in range(10))
+lastName = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+displayName = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+nickName = ''.join(random.choice(string.ascii_letters) for _ in range(6))
+companyName = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+jobTitle = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+website = "https://www." + ''.join(random.choice(string.ascii_letters) for _ in range(10)) + ".com"
+notes = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+emailAddresses = [{"emailType": "Home", "emailAddress": random_email_address()}]
+phoneNums = ''.join(random.choice(string.digits) for _ in range(10))
+postalAddresses = [postal_address]
+accountId = ''.join(random.choice(string.digits) for _ in range(24))
+policyId = ''.join(random.choice(string.digits) for _ in range(12))
+
 
 # PUT Alerts Config
 fake = Faker()  # Generate a random Gmail address
@@ -329,7 +358,8 @@ PostPolicyLevelAlertConfig = {"accountId": None, "policyId": None,
                               "deviceDeletedEmailList": [random_gmail_address],
                               "deviceLostEmailList": [random_gmail_address],
                               "deviceStolenEmailList": [random_gmail_address],
-                              "deviceReplacedEmailList": [random_gmail_address], "deviceConnectedBackEmailList": None,
+                              "deviceReplacedEmailList": [random_gmail_address],
+                              "deviceConnectedBackEmailList": [random_gmail_address],
                               "memoryWarningEmailList": [random_gmail_address],
                               "memoryLowEmailList": [random_gmail_address],
                               "memoryCriticalEmailList": [random_gmail_address],
@@ -380,5 +410,5 @@ DeleteGeofenceNotificationsPayload = {
 
 # Windows Microservices
 PUT_UpdateTags_Windows_Device = {"tag1": "In-House -- Chakrapani",
-                                 "tag4": "08AFF26C-A5DE-4105-8D62-B74347177FE5",
+                                 "tag4": None,
                                  "tag3": "QA"}

@@ -91,7 +91,7 @@ def test_tc_0002_Login_Event(url):
     try:
         apiUrl = globalvar.BaseURL + event_Login
         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-        res = requests.post(url=apiUrl, headers=Headers, json=requestdata.login_event, timeout=globalvar.timeout)
+        res = requests.post(url=apiUrl, headers=Headers, json=globalvar.login_event, timeout=globalvar.timeout)
         if res.status_code == 200:
             curl_str1 = Utils.getCurlEquivalent(res)
             print(curl_str1)

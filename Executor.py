@@ -63,7 +63,16 @@ test_tc_0000005_Windows_Add_Device_Commands_POST=1
 test_tc_0000006_Windows_Add_Device_Commands_POST=1
 
 # Company Directory
-test_tc_14001_Contacts_Account_Level_POST = 1
+test_tc_14000_Create_Contacts_Account_Level_POST = 1
+test_tc_14001_Contacts_Account_Level_FCM_UPDATE_After_CreatingAdding_Contacts_POST = 1
+test_tc_14002_Contacts_Account_Level_POST = 1
+test_tc_14003_Contacts_Account_Level_DELETE = 1
+test_tc_14004_Contacts_Account_Level_FCM_UPDATE_POST = 1
+test_tc_14005_Create_Contacts_Policy_Level_POST = 1
+test_tc_14006_Contacts_Policy_Level_FCM_UPDATE_After_CreatingAdding_Contacts_POST = 1
+test_tc_14007_Contacts_Policy_Level_POST = 1
+test_tc_14008_Contacts_Policy_Level_DELETE = 1
+test_tc_14009_Contacts_Policy_Level_FCM_UPDATE_POST = 1
 
 
 # WeBox
@@ -170,9 +179,9 @@ test_1107_Notifications_PolicyLevel_PUT = 1
 test_1108_Notification_PolicyLevel_Geofence_POST = 1
 test_1109_Notification_PolicyLevel_Geofence_GET = 1
 test_1110_Notification_PolicyLevel_Geofence_PUT = 1
-test_1111_Notification_PolicyLevel_Geofence_DELETE = 0
+test_1111_Notification_PolicyLevel_Geofence_DELETE = 1
 test_1112_Notification_PolicyLevel_Geofence_Notifications_DELETE = 0
-test_1113_Notification_Timespent_Geofence_ALL_Policies_Device_Geofences_POST = 0
+test_1113_Notification_Timespent_Geofence_ALL_Policies_Device_Geofences_POST = 1
 
 def run_positive_tests():
     print("Inside run_positive_tests")

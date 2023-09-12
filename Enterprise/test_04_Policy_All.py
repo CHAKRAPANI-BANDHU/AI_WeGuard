@@ -51,7 +51,6 @@ def test_tc_001_Policy_ALL_10000(url):
                 "\n" + "Request Method: " + res.request.method +
                 "\n" + "Status Code: " + str(res.status_code) +
                 "\n" + "Response: " + str(res.content) + "\n\n")
-            # print(res.content)
             json_resp = res.json()
             # Store profiles based on platform and type
             for profile in json_resp.get('list', []):
