@@ -334,7 +334,7 @@ def test_tc_0000006_Windows_PUT_Device_Last_Contact_Time(url):
         assert False
 
 
-# GET method to get the device details by policyId
+# GET method to get the Windows device details by policyId
 @pytest.mark.parametrize('url', [""])
 @pytest.mark.skipif(Execute.test_tc_0000007_Windows_DeviceDetailsByPolicyID_GET == 0, reason="skip test")
 @pytest.mark.negativetest
@@ -379,5 +379,5 @@ def test_tc_0000006_Windows_GET_Device_Details_By_PolicyID(url):
         now2 = datetime.now()
         WeGuard.logger.error("Time taken: " + str(now2 - now1))
         WeGuard.logger.error(
-            "-------------------------- GET Failed to get the device details by policyId ---------------------------\n\n")
+            "-------------------------- GET Failed to get the Windows device details by policyId ---------------------------\n\n")
         assert False
