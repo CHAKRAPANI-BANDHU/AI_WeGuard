@@ -38,6 +38,7 @@ echo "$FILE"
 # Run pytest for tests with the 'order' marker
 $PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v --show-progress
 
+
 ## Run pytest for tests with the 'order' marker
 #$PY_CMD -m pytest -k "order" --capture=sys --html="$FILE" --self-contained-html -v --show-progress
 
