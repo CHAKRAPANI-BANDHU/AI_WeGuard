@@ -28,6 +28,12 @@ LastConactTime = "windows/rest/device/last-contactime"
 def WindowsDeviceDetailsByPolicyID(policyId, page, size):
     return "windows/rest/device/policy/{policyId}?page={page}&size={size}".format(policyId=policyId, page=page, size=size)
 
+def SearchWindowsDeviceByPolicyID(policyId, page, size):
+    return "windows/rest/device/search/{policyId}?page={page}&size={size}".format(policyId=policyId, page=page, size=size)
+
+def SearchStringWindowsDevice(page,searchString, size):
+    return "windows/rest/device/search/all?page={page}&searchString={searchString}&size={size}".format(page=page, searchString=searchString, size=size)
+
 
 # GET method to get Windows devices by Mongo DB ID
 @pytest.mark.parametrize('url', [""])
@@ -340,8 +346,8 @@ def test_tc_0000006_Windows_PUT_Device_Last_Contact_Time(url):
 @pytest.mark.negativetest
 @pytest.mark.WindowsDevice
 @pytest.mark.regressiontest
-@pytest.mark.run(order=100006)
-def test_tc_0000006_Windows_GET_Device_Details_By_PolicyID(url):
+@pytest.mark.run(order=100007)
+def test_tc_0000007_Windows_GET_Device_Details_By_PolicyID(url):
     now1 = datetime.now()
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
@@ -353,8 +359,8 @@ def test_tc_0000006_Windows_GET_Device_Details_By_PolicyID(url):
         if res.status_code == 200:
             curl_str1 = Utils.getCurlEquivalent(res)
             print(curl_str1)
-            WeGuard.logger.debug("\n" + "200 The request was a success!")
-            WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+            print("\n" + "200 The request was a success!")
+            print("\n" + "Header: " + str(res.headers) +
                                  "\n" + "Request URL: " + apiUrl +
                                  "\n" + "Request Method: " + res.request.method +
                                  "\n" + "Status Code: " + str(res.status_code) +
@@ -380,4 +386,100 @@ def test_tc_0000006_Windows_GET_Device_Details_By_PolicyID(url):
         WeGuard.logger.error("Time taken: " + str(now2 - now1))
         WeGuard.logger.error(
             "-------------------------- GET Failed to get the Windows device details by policyId ---------------------------\n\n")
+        assert False
+
+# GET method to search the Windows device by policyId
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_0000008_Windows_Device_Search_By_PolicyID_GET == 0, reason="skip test")
+@pytest.mark.negativetest
+@pytest.mark.WindowsDevice
+@pytest.mark.regressiontest
+@pytest.mark.run(order=100008)
+def test_tc_0000008_Windows_GET_Device_Details_By_PolicyID(url):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+      for policy_id in globalvar.Windows_profile_ids:
+        apiUrl = globalvar.BaseURL + SearchWindowsDeviceByPolicyID(policy_id, globalvariables.page_1, globalvariables.page_500)
+        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+        res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
+        if res.status_code == 200:
+            curl_str1 = Utils.getCurlEquivalent(res)
+            print(curl_str1)
+            print("\n" + "200 The request was a success!")
+            print("\n" + "Header: " + str(res.headers) +
+                                 "\n" + "Request URL: " + apiUrl +
+                                 "\n" + "Request Method: " + res.request.method +
+                                 "\n" + "Status Code: " + str(res.status_code) +
+                                 "\n" + "Response: " + str(res.content) + "\n")
+        elif res.status_code == 400:
+            WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+            # Add your assertions or actions for 400 Bad Request response here
+            assert False, "Received 400 Bad Request response"
+        elif res.status_code == 404:
+            WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+            # Add your assertions or actions for 404 Not Found response here
+            assert False, "Received 404 response"
+        elif res.status_code == 500:
+            WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+            # Add your assertions or actions for 500 Internal Server Error response here
+            assert False, "Received 500 response"
+        else:
+            WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+            assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        WeGuard.logger.error("Exception : " + str(e))
+        now2 = datetime.now()
+        WeGuard.logger.error("Time taken: " + str(now2 - now1))
+        WeGuard.logger.error(
+            "-------------------------- GET Failed to get the Windows device by policyId ---------------------------\n\n")
+        assert False
+
+# GET method to search the Windows device by all string/complete deviceId
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_0000009_Windows_Device_Search_By_All_String_GET == 0, reason="skip test")
+@pytest.mark.negativetest
+@pytest.mark.WindowsDevice
+@pytest.mark.regressiontest
+@pytest.mark.run(order=100009)
+def test_tc_0000009_Windows_GET_Search_Device_By_All_String(url):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+      for DeviceId in globalvar.Windows_DeviceIDs:
+        apiUrl = globalvar.BaseURL + SearchStringWindowsDevice( globalvariables.page_1, DeviceId, globalvariables.page_500)
+        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+        res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
+        if res.status_code == 200:
+            curl_str1 = Utils.getCurlEquivalent(res)
+            print(curl_str1)
+            print("\n" + "200 The request was a success!")
+            print("\n" + "Header: " + str(res.headers) +
+                                 "\n" + "Request URL: " + apiUrl +
+                                 "\n" + "Request Method: " + res.request.method +
+                                 "\n" + "Status Code: " + str(res.status_code) +
+                                 "\n" + "Response: " + str(res.content) + "\n")
+        elif res.status_code == 400:
+            WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+            # Add your assertions or actions for 400 Bad Request response here
+            assert False, "Received 400 Bad Request response"
+        elif res.status_code == 404:
+            WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+            # Add your assertions or actions for 404 Not Found response here
+            assert False, "Received 404 response"
+        elif res.status_code == 500:
+            WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+            # Add your assertions or actions for 500 Internal Server Error response here
+            assert False, "Received 500 response"
+        else:
+            WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+            assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        WeGuard.logger.error("Exception : " + str(e))
+        now2 = datetime.now()
+        WeGuard.logger.error("Time taken: " + str(now2 - now1))
+        WeGuard.logger.error(
+            "-------------------------- GET Failed to search the Windows device by all string/complete deviceId ---------------------------\n\n")
         assert False
