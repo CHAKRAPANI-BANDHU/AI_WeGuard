@@ -60,7 +60,7 @@ test_tc_0000002_Windows_Device_Updates_Tags_By_MongoID_PUT = 1
 test_tc_0000003_Windows_Fetch_Device_Details_GET = 1
 test_tc_0000004_Windows_Fetch_Devices_By_PolicyIDs_POST=1
 test_tc_0000005_Windows_Add_Device_Commands_POST=1
-test_tc_0000006_Windows_Add_Device_Commands_POST=1
+test_tc_0000006_Windows_Device_Last_Contact_Time_PUT=1
 
 # Company Directory
 test_tc_14000_Create_Contacts_Account_Level_POST = 1

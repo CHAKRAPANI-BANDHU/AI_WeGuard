@@ -1,6 +1,8 @@
 from datetime import datetime
 import pytest
 import requests
+
+import globalvariables
 import globalvariables as globalvar
 import Executor as Execute
 import test_GETutils as Utils
@@ -18,6 +20,8 @@ def WindowsDevicesByPolicyIDs(page, size):
 
 def WindowsDeviceCommand(WindowsMongoDBID):
     return "windows/rest/device/command/{WindowsMongoDBID}".format(WindowsMongoDBID=WindowsMongoDBID)
+
+LastConactTime = "windows/rest/device/last-contactime"
 
 # GET method to get Windows devices by Mongo DB ID
 @pytest.mark.parametrize('url', [""])
@@ -220,7 +224,7 @@ def test_tc_0000004_Windows_Fetch_Devices_By_PolicyIDs_POST(url):
 @pytest.mark.WindowsDevice
 @pytest.mark.regressiontest
 @pytest.mark.run(order=100005)
-def test_tc_0000005_Windows_Add_Device_Commands_POST(url):
+def test_tc_0000005_POST_Windows_Add_Device_Commands(url):
     now1 = datetime.now()
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
@@ -261,3 +265,52 @@ def test_tc_0000005_Windows_Add_Device_Commands_POST(url):
         WeGuard.logger.error("Time taken: " + str(now2 - now1))
         WeGuard.logger.error("-------------------------- Failed to execute the device command ---------------------------\n\n")
         assert False
+        
+# PUT method to verify the last contact time of the Windows devices
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_0000006_Windows_Device_Last_Contact_Time_PUT == 0, reason="skip test")
+@pytest.mark.negativetest
+@pytest.mark.WindowsDevice
+@pytest.mark.regressiontest
+@pytest.mark.run(order=100006)
+def test_tc_0000006_Windows_PUT_Device_Last_Contact_Time(url):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+      for DeviceId in globalvar.Windows_DeviceIDs:
+        apiUrl = globalvar.BaseURL + LastConactTime
+        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+        ContactTime = {"deviceId": DeviceId , "lastContactTime": globalvariables.isocurrent}
+        res = requests.put(url=apiUrl, headers=Headers, json=ContactTime, timeout=globalvar.timeout)
+        if res.status_code == 200:
+            curl_str1 = Utils.getCurlEquivalent(res)
+            print(curl_str1)
+            WeGuard.logger.debug("\n" + "200 The request was a success!")
+            WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+                                 "\n" + "Request URL: " + apiUrl +
+                                 "\n" + "Request Method: " + res.request.method +
+                                 "\n" + "Status Code: " + str(res.status_code) +
+                                 "\n" + "Response: " + str(res.content) + "\n")
+        elif res.status_code == 400:
+            WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+            # Add your assertions or actions for 400 Bad Request response here
+            assert False, "Received 400 Bad Request response"
+        elif res.status_code == 404:
+            WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+            # Add your assertions or actions for 404 Not Found response here
+            assert False, "Received 404 response"
+        elif res.status_code == 500:
+            WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+            # Add your assertions or actions for 500 Internal Server Error response here
+            assert False, "Received 500 response"
+        else:
+            WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+            assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        WeGuard.logger.error("Exception : " + str(e))
+        now2 = datetime.now()
+        WeGuard.logger.error("Time taken: " + str(now2 - now1))
+        WeGuard.logger.error("-------------------------- Failed to update the last contact time for the Windows device ---------------------------\n\n")
+        assert False
+
