@@ -30,6 +30,7 @@ test_tc_1004_AccountAdmin_Invalid_Email = 1
 test_tc_1005_AccountAdmin_without_username = 1
 test_tc_1006_AccountAdmin_Invalid_password = 1
 test_tc_1007_AccountAdmin_without_password = 1
+test_tc_1008_AccountAdmin_Invalid_password = 1
 
 # Dashbord Page
 test_tc_2001_Dashboard = 1
@@ -37,22 +38,22 @@ test_tc_2002_DashboardCalls = 1
 test_tc_2003_DashboardRecentActivity = 1
 
 # Devices Page
-test_tc_00002_All_Devices_100 = 1
-test_tc_00003_All_Devices_500 = 1
-test_tc_00004_All_Devices_1000 = 1
-test_tc_00005_Unenrolled_Devices = 1
-test_tc_00006_Stolen_Devices = 1
-test_tc_00007_Replaced_Devices = 1
-test_tc_00008_Active_Devices = 1
-test_tc_00009_Lost_Devices = 1
-test_tc_00010_Unprovisioned_Devices = 1
-test_tc_00011_Search_Policy = 1
-test_tc_00012_Filter_By_GroupNames = 1
-test_tc_00013_Enable_All_DevicesState = 1
-test_tc_00014_Disable_All_DevicesState = 1
-test_tc_00015_Android_Devices = 1
-test_tc_00016_iOS_Devices = 1
-test_tc_00017_Windows_Devices = 1
+test_tc_3001_All_Devices_100 = 1
+test_tc_3002_All_Devices_500 = 1
+test_tc_3003_All_Devices_1000 = 1
+test_tc_3004_Unenrolled_Devices = 1
+test_tc_3005_Stolen_Devices = 1
+test_tc_3006_Replaced_Devices = 1
+test_tc_3007_Active_Devices = 1
+test_tc_3008_Lost_Devices = 1
+test_tc_3009_Unprovisioned_Devices = 1
+test_tc_3010_Search_Policy = 1
+test_tc_3011_Filter_By_GroupNames = 1
+test_tc_3012_Enable_All_DevicesState = 1
+test_tc_3013_Disable_All_DevicesState = 1
+test_tc_3014_Android_Devices = 1
+test_tc_3015_iOS_Devices = 1
+test_tc_3016_Windows_Devices = 1
 
 # Policy Groups
 test_tc_0003_Policy_All = 1
@@ -196,27 +197,30 @@ test_1113_Notification_Timespent_Geofence_ALL_Policies_Device_Geofences_POST = 1
 def run_positive_tests():
     print("Inside run_positive_tests")
 
-    global test_tc_0001_Login
-    test_tc_0001_Login = 1
+    global test_tc_1001_Login
+    test_tc_1001_Login = 1
 
-    global test_tc_1000_Logout
-    test_tc_1000_Logout = 1
+    global test_tc_10000_Logout
+    test_tc_10000_Logout = 1
 
 
 def run_negative_tests():
     print("Inside run_negative_tests")
     
-    global test_tc_000005_AccountAdmin_Invalid_credentials
-    test_tc_000005_AccountAdmin_Invalid_credentials = 1
+    global test_tc_1003_AccountAdmin_Invalid_credentials
+    test_tc_1003_AccountAdmin_Invalid_credentials = 1
 
-    global test_tc_000006_AccountAdmin_Invalid_Email
-    test_tc_000006_AccountAdmin_Invalid_Email = 1
+    global test_tc_1004_AccountAdmin_Invalid_Email
+    test_tc_1004_AccountAdmin_Invalid_Email = 1
 
-    global test_tc_000007_AccountAdmin_without_username
-    test_tc_000007_AccountAdmin_without_username = 1
+    global test_tc_1005_AccountAdmin_without_username
+    test_tc_1005_AccountAdmin_without_username = 1
     
-    global test_tc_000008_AccountAdmin_Without_password
-    test_tc_000008_AccountAdmin_Without_password = 1
+    global test_tc_1007_AccountAdmin_without_password
+    test_tc_1007_AccountAdmin_without_password = 1
+    
+    global test_tc_1008_AccountAdmin_Invalid_password
+    test_tc_1008_AccountAdmin_Invalid_password = 1
 
 
 

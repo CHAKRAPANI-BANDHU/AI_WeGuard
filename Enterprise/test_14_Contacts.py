@@ -4,7 +4,6 @@
 # import globalvariables as globalvar
 # import Executor as Execute
 # import test_GETutils as Utils
-# import WeGuardLogger as WeGuard
 # import general_payload as GeneralPayload
 #
 # CreateContacts = "enterprise/rest/contacts/save"
@@ -64,6 +63,7 @@
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
+#                   "\n" + "Request Payload: " + str(CreateContactsAccountLevel) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
@@ -119,6 +119,7 @@
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
+#                   "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_AccountLevel) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
@@ -168,6 +169,7 @@
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
+#                   "\n" + "Request Payload: " + str(Contacts_AccountLevel) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #             json_resp = res.json()
 #             # Store profiles based on platform and type
@@ -279,6 +281,7 @@
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
+#                   "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_AccountLevel) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
@@ -305,7 +308,7 @@
 #
 #
 # # Policy Level Contacts
-# # Account Level: POST method to create contacts on the portal
+# # Policy Level: POST method to create contacts on the portal
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_tc_14005_Create_Contacts_Policy_Level_POST == 0, reason="skip test")
 # @pytest.mark.poitivetest
@@ -346,6 +349,7 @@
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Request Payload: " + str(CreateContactsPolicyLevel) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
@@ -384,14 +388,14 @@
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
+#       for policyId in globalvar.Android_profile_ids:
 #         apiUrl = globalvar.BaseURL + fcmUpdate
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-#         FCMUpdateAfterDeleteContacts_AccountLevel = {
-#             "topic": globalvar.activationCode + "_" + globalvar.productActivationCode,
-#             "type": "SYNC_CONTACTS", "isLicenseLevel": True,
-#             "actCode": globalvar.activationCode,
-#             "pActCode": globalvar.productActivationCode, "message": None, "id": GeneralPayload.RandomContactsIDs}
-#         res = requests.post(url=apiUrl, headers=Headers, json=FCMUpdateAfterDeleteContacts_AccountLevel,
+#         FCMUpdateAfterDeleteContacts_PolicyLevel = {"topic": policyId, "type": "SYNC_CONTACTS", "isLicenseLevel": True,
+#                                                     "actCode": globalvar.activationCode,
+#                                                     "pActCode": globalvar.productActivationCode, "message": None,
+#                                                     "id": GeneralPayload.RandomContactsIDs}
+#         res = requests.post(url=apiUrl, headers=Headers, json=FCMUpdateAfterDeleteContacts_PolicyLevel,
 #                             timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
@@ -401,6 +405,7 @@
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
+#                   "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_PolicyLevel) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
@@ -548,8 +553,8 @@
 #             apiUrl = globalvar.BaseURL + fcmUpdate
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #             FCMUpdateAfterDeleteContacts_PolicyLevel = {"topic": policy_ids, "type": "SYNC_CONTACTS",
-#                                                         "isLicenseLevel": True, "actCode": "9LX20",
-#                                                         "pActCode": "A1EX-VDFA3",
+#                                                         "isLicenseLevel": True, "actCode": globalvar.activationCode,
+#                                                         "pActCode": globalvar.productActivationCode,
 #                                                         "message": None, "id": GeneralPayload.RandomContactsIDs}
 #             res = requests.post(url=apiUrl, headers=Headers, json=FCMUpdateAfterDeleteContacts_PolicyLevel,
 #                                 timeout=globalvar.timeout)
@@ -561,6 +566,7 @@
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
+#                       "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_PolicyLevel) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")

@@ -3,7 +3,6 @@ import requests
 from _datetime import datetime
 import globalvariables as globalvar
 import test_GETutils as Utils
-import WeGuardLogger as WeGuard
 import Executor as Execute
 
 
@@ -34,7 +33,7 @@ def test_tc_2001_Dashboard_GET(url):
         pytest.skip("Empty Bearer token. Skipping test")
     try:
         
-        apiUrl = globalvar.BaseURL + DashboardURL
+        apiUrl = globalvar.BaseURL + DashboardURL(globalvar.activationCode, globalvar.productActivationCode)
         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
         curl_str1 = Utils.getCurlEquivalent(res)
@@ -69,7 +68,6 @@ def test_tc_2001_Dashboard_GET(url):
         now2 = datetime.now()
         print("Time taken: " + str(now2 - now1))
         print("\n\n--------------------------- FAIL to GET Dashboard Details ---------------------------\n\n")
-        WeGuard.logger.error("Exception : " + str(e))
         assert False
 
 # WeTalk Call Info in Dashboard Page
@@ -121,7 +119,6 @@ def test_tc_2002_Dashboard_Calls_GET(url):
         now2 = datetime.now()
         print("Time taken: " + str(now2 - now1))
         print("\n\n--------------------------- FAIL to GET Dashboard Calls ---------------------------\n\n")
-        WeGuard.logger.error("Exception : " + str(e))
         assert False
 
 
@@ -133,7 +130,7 @@ def test_tc_2002_Dashboard_Calls_GET(url):
 @pytest.mark.regressiontest
 @pytest.mark.dashboard
 @pytest.mark.run(order=20003)
-def test_tc_2003_Dashboard_Recent_Activity_Logs(url):
+def test_tc_2003_Dashboard_Recent_Activity_Logs_GET(url):
     now1 = datetime.now()
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token. Skipping test")
