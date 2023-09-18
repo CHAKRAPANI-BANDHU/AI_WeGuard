@@ -35,14 +35,13 @@ def test_tc_0001_All_Devices_100(url):
     try:
         Devices_PageSize_100 = allDevices(globalvar.page_1, globalvar.page_100)
         apiUrl = globalvar.BaseURL + Devices_PageSize_100
-        print("\n\n--------------------------- Device count ---------------------------\n")
         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.AllDevices, timeout=globalvar.timeout)
         curl_str1 = Utils.getCurlEquivalent(res)
         print(curl_str1)
         if res.status_code == 200:
-            WeGuard.logger.debug("\n" + "200 The request was a success!")
-            WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+            print("\n" + "200 The request was a success!")
+            print("\n" + "Header: " + str(res.headers) +
                   "\n" + "Request URL: " + apiUrl +
                   "\n" + "Request Method: " + res.request.method +
                   "\n" + "Status Code: " + str(res.status_code) +
@@ -116,28 +115,28 @@ def test_tc_0001_All_Devices_100(url):
 
         elif res.status_code == 400:
             print("\n" + "400 Bad Request!" + "\n")
-            WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+            print("\n" + "400 Bad Request!" + "\n")
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
             print("\n" + "404 Result not found!" + "\n")
-            WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+            print("\n" + "404 Result not found!" + "\n")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
             print("\n" + "500 Internal Server Error!" + "\n")
-            WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+            print("\n" + "500 Result not found!" + "\n")
             # Add your assertions or actions for 500 Internal Server Error response here
             assert False, "Received 500 response"
         else:
             print("Request did not succeed! Status code:", res.status_code)
             assert False, "Received {res.status_code} response"
     except BaseException as e:
-        WeGuard.logger.error("Exception : " + str(e))
+        print("Exception : " + str(e))
         now2 = datetime.now()
-        WeGuard.logger.error("Time taken: " + str(now2 - now1))
-        WeGuard.logger.error(
-            "-------------------------- Failed to display all the devices for page size 100 (iOS, Android and Windows) ---------------------------\n\n")
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed to display all the devices for page size 100 (iOS, Android and Windows) ---------------------------\n\n")
         assert False
 
 
@@ -155,42 +154,42 @@ def test_tc_0002_All_Devices_500(url):
     try:
         Devices_PageSize_500 = allDevices(globalvar.page_1, globalvar.page_500)
         apiUrl = globalvar.BaseURL + Devices_PageSize_500
-        print("\n\n--------------------------- All the Devices ---------------------------\n")
+        print("\n\n------------------- All the Devices ---------------------------\n")
         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.AllDevices, timeout=globalvar.timeout)
         curl_str1 = Utils.getCurlEquivalent(res)
         print(curl_str1)
         if res.status_code == 200:
-            WeGuard.logger.debug("\n" + "200 The request was a success!")
-            WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+            print("\n" + "200 The request was a success!")
+            print("\n" + "Header: " + str(res.headers) +
                   "\n" + "Request URL: " + apiUrl +
                   "\n" + "Request Method: " + res.request.method +
                   "\n" + "Status Code: " + str(res.status_code) +
                   "\n" + "Response: " + str(res.content) + "\n")
         elif res.status_code == 400:
             print("\n" + "400 Bad Request!" + "\n")
-            WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+            print("\n" + "400 Bad Request!" + "\n")
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
             print("\n" + "404 Result not found!" + "\n")
-            WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+            print("\n" + "404 Result not found!" + "\n")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
             print("\n" + "500 Internal Server Error!" + "\n")
-            WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+            print("\n" + "500 Result not found!" + "\n")
             # Add your assertions or actions for 500 Internal Server Error response here
             assert False, "Received 500 response"
         else:
             print("Request did not succeed! Status code:", res.status_code)
             assert False, "Received {res.status_code} response"
     except BaseException as e:
-        WeGuard.logger.error("Exception : " + str(e))
+        print("Exception : " + str(e))
         now2 = datetime.now()
-        WeGuard.logger.error("Time taken: " + str(now2 - now1))
-        WeGuard.logger.error(
-            "-------------------------- Failed to display all the devices for page size 500 (iOS, Android and Windows) ---------------------------\n\n")
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed to display all the devices for page size 500 (iOS, Android and Windows) ---------------------------\n\n")
         assert False
 
 
@@ -208,42 +207,42 @@ def test_tc_0003_All_Devices_1000(url):
     try:
         Devices_PageSize_1000 = allDevices(globalvar.page_1, globalvar.page_1000)
         apiUrl = globalvar.BaseURL + Devices_PageSize_1000
-        print("\n\n--------------------------- Device count ---------------------------\n")
+        print("\n\n------------------- Device count ---------------------------\n")
         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.AllDevices, timeout=globalvar.timeout)
         if res.status_code == 200:
             curl_str1 = Utils.getCurlEquivalent(res)
             print(curl_str1)
             if res.status_code == 200:
-                WeGuard.logger.debug("\n" + "200 The request was a success!")
-                WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+                print("\n" + "200 The request was a success!")
+                print("\n" + "Header: " + str(res.headers) +
                       "\n" + "Request URL: " + apiUrl +
                       "\n" + "Request Method: " + res.request.method +
                       "\n" + "Status Code: " + str(res.status_code) +
                       "\n" + "Response: " + str(res.content) + "\n")
         elif res.status_code == 400:
-            WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+            print("\n" + "400 Bad Request!" + "\n")
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
             print("\n" + "404 Result not found!" + "\n")
-            WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+            print("\n" + "404 Result not found!" + "\n")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
             print("\n" + "500 Internal Server Error!" + "\n")
-            WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+            print("\n" + "500 Result not found!" + "\n")
             # Add your assertions or actions for 500 Internal Server Error response here
             assert False, "Received 500 response"
         else:
             print("Request did not succeed! Status code:", res.status_code)
             assert False, "Received {res.status_code} response"
     except BaseException as e:
-        WeGuard.logger.error("Exception : " + str(e))
+        print("Exception : " + str(e))
         now2 = datetime.now()
-        WeGuard.logger.error("Time taken: " + str(now2 - now1))
-        WeGuard.logger.error(
-            "-------------------------- Failed to display all the devices for page size 1000 (iOS, Android and Windows) ---------------------------\n\n")
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed to display all the devices for page size 1000 (iOS, Android and Windows) ---------------------------\n\n")
         assert False
 
 
@@ -261,43 +260,43 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         UnenrolledDevices = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + UnenrolledDevices
-#         print("\n\n--------------------------- Unenrolled Devices ---------------------------\n")
+#         print("\n\n------------------- Unenrolled Devices ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.UnenrolledDevices, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to display unenrolled devices ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to display unenrolled devices ---------------------------\n\n")
 #         assert False
 #
 #
@@ -315,43 +314,43 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         StolenDevices = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + StolenDevices
-#         print("\n\n--------------------------- Stolen Devices ---------------------------\n")
+#         print("\n\n------------------- Stolen Devices ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.StolenDevices, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to display stolen devices ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to display stolen devices ---------------------------\n\n")
 #         assert False
 #
 #
@@ -369,43 +368,43 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         ReplacedDevices = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + ReplacedDevices
-#         print("\n\n--------------------------- Replaced Devices ---------------------------\n")
+#         print("\n\n------------------- Replaced Devices ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.ReplacedDevices, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to display replaced devices ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to display replaced devices ---------------------------\n\n")
 #         assert False
 #
 #
@@ -423,43 +422,43 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         ActiveDevices = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + ActiveDevices
-#         print("\n\n--------------------------- Active Devices ---------------------------\n")
+#         print("\n\n------------------- Active Devices ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.ActiveDevices, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to display active devices ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to display active devices ---------------------------\n\n")
 #         assert False
 #
 #
@@ -477,43 +476,43 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         LostDevices = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + LostDevices
-#         print("\n\n--------------------------- Lost Devices ---------------------------\n")
+#         print("\n\n------------------- Lost Devices ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.LostDevices, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to display lost devices ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to display lost devices ---------------------------\n\n")
 #         assert False
 #
 #
@@ -531,43 +530,43 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         UnprovisionedDevices = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + UnprovisionedDevices
-#         print("\n\n--------------------------- Unprovisioned Devices ---------------------------\n")
+#         print("\n\n------------------- Unprovisioned Devices ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.LostDevices, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to display unprovisioned devices ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to display unprovisioned devices ---------------------------\n\n")
 #         assert False
 #
 #
@@ -585,43 +584,43 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         PolicySearch = searchPolicies(globalvar.page_1, globalvar.page_50000, "Kiosk")
 #         apiUrl = globalvar.BaseURL + PolicySearch
-#         print("\n\n--------------------------- Search Policy ---------------------------\n")
+#         print("\n\n------------------- Search Policy ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to display the search policy ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to display the search policy ---------------------------\n\n")
 #         assert False
 #
 #
@@ -639,42 +638,42 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         FilterByGroupNames = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + FilterByGroupNames
-#         print("\n\n--------------------------- Filter By Group Names ---------------------------\n")
+#         print("\n\n------------------- Filter By Group Names ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.FilterByGroupName, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("-------------------------- Failed to display the Filter By Group Names ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("------------- Failed to display the Filter By Group Names ---------------------------\n\n")
 #         assert False
 #
 # # Enable All Devices State
@@ -691,42 +690,42 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         EnableAllDevicesState = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + EnableAllDevicesState
-#         print("\n\n--------------------------- Enable All Devices State ---------------------------\n")
+#         print("\n\n------------------- Enable All Devices State ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.EnableAllDevicesState, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("-------------------------- Failed to display all the enabled devices State ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("------------- Failed to display all the enabled devices State ---------------------------\n\n")
 #         assert False
 #
 # # Disable All Devices State
@@ -743,42 +742,42 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         DisableAllDevicesState = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + DisableAllDevicesState
-#         print("\n\n--------------------------- Disable All Devices State ---------------------------\n")
+#         print("\n\n------------------- Disable All Devices State ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.DisableAllDevicesState, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("-------------------------- Failed to display all the disabled devices State ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("------------- Failed to display all the disabled devices State ---------------------------\n\n")
 #         assert False
 #
 # # View by Devices Type
@@ -796,42 +795,42 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         AndroidDevices = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + AndroidDevices
-#         print("\n\n--------------------------- Android Devices ---------------------------\n")
+#         print("\n\n------------------- Android Devices ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.AndroidDevices, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("-------------------------- Failed to display all the Android devices ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("------------- Failed to display all the Android devices ---------------------------\n\n")
 #         assert False
 #
 # # iOS Devices
@@ -848,42 +847,42 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         iOSDevices = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + iOSDevices
-#         print("\n\n--------------------------- iOS Devices ---------------------------\n")
+#         print("\n\n------------------- iOS Devices ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.iOSDevices, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("-------------------------- Failed to display all the iOS devices ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("------------- Failed to display all the iOS devices ---------------------------\n\n")
 #         assert False
 #
 # # Windows Devices
@@ -900,40 +899,40 @@ def test_tc_0003_All_Devices_1000(url):
 #     try:
 #         WindowsDevices = allDevices(globalvar.page_1, globalvar.page_1000)
 #         apiUrl = globalvar.BaseURL + WindowsDevices
-#         print("\n\n--------------------------- Windows Devices ---------------------------\n")
+#         print("\n\n------------------- Windows Devices ---------------------------\n")
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.WindowsDevices, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "200 The request was a success!")
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
 #             print("\n" + "404 Result not found!" + "\n")
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
 #             print("\n" + "500 Internal Server Error!" + "\n")
-#             WeGuard.logger.error("\n" + "500 Result not found!" + "\n")
+#             print("\n" + "500 Result not found!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("-------------------------- Failed to display all the Windows devices ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("------------- Failed to display all the Windows devices ---------------------------\n\n")
 #         assert False

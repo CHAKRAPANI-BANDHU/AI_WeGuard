@@ -17,7 +17,7 @@
 # @pytest.mark.sanitytest
 # @pytest.mark.run(order=10448)
 # def test_tc_000001_Logout(url):
-#     print("\n\n--------------------------- TC 000001 Logout Start ---------------------------\n")
+#     print("\n\n------------------- TC 000001 Logout Start ---------------------------\n")
 #     now1 = datetime.now()
 #     if var.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
@@ -34,7 +34,7 @@
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content) + "\n")
-#             WeGuard.logger.debug("--------------------------- Logged out from the account ---------------------------\n\n")
+#             print("------------------- Logged out from the account ---------------------------\n\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -51,9 +51,9 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.warning("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------------- Logout is failed ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("------------------- Logout is failed ---------------------------\n\n")
 #         assert False
 #

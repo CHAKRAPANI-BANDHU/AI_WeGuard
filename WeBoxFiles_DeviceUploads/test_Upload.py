@@ -39,13 +39,13 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except Exception as e:
-#         WeGuard.logger.error("Exception: " + str(e))
+#         print("Exception: " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 
 # # Upload wav file in WeBox
@@ -76,13 +76,13 @@
 #
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         print("\n" + "Header: " + str(res.headers) +
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #
 #         if res.status_code == 200:
 #             print("File upload was successful!")
@@ -91,10 +91,10 @@
 #             print("File upload failed! Status code:", res.status_code)
 #             # Add your assertions or actions for upload failure here
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 
 # # Upload gif file in WeBox
@@ -123,16 +123,16 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -162,16 +162,16 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -200,16 +200,16 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully but OGG is not supported -----------------")
+#         print("--------------------File is uploaded successfully but OGG is not supported -----------------")
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 # # Upload webm file in WeBox
@@ -236,16 +236,16 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully but WEBM is not supported -----------------")
+#         print("--------------------File is uploaded successfully but WEBM is not supported -----------------")
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -274,16 +274,16 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -314,12 +314,12 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -351,13 +351,13 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -387,13 +387,13 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -425,13 +425,13 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -457,19 +457,19 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         print("\n" + "Header: " + str(res.headers) +
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -495,19 +495,19 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         print("\n" + "Header: " + str(res.headers) +
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -534,19 +534,19 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         print("\n" + "Header: " + str(res.headers) +
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("-------------------- Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("-------------------- Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -571,19 +571,19 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         print("\n" + "Header: " + str(res.headers) +
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -609,19 +609,19 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         print("\n" + "Header: " + str(res.headers) +
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -647,19 +647,19 @@
 #         res = requests.post(url=apiUrl, files=files, headers=Headers)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         print("\n" + "Header: " + str(res.headers) +
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("-------------------- Apk is uploaded successfully but APK is not supported -----------------")
+#         print("-------------------- Apk is uploaded successfully but APK is not supported -----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -689,13 +689,13 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -720,20 +720,20 @@
 #         res = requests.post(url=apiUrl, files=files, headers=Headers)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         WeGuard.logger.debug(res.content)
+#         print(res.content)
 #         print("\n" + "Header: " + str(res.headers) +
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
-#         WeGuard.logger.debug("--------------------WEBM is not supported-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
+#         print("--------------------WEBM is not supported-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -766,13 +766,13 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully-----------------")
+#         print("--------------------File is uploaded successfully-----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False
 #
 #
@@ -802,11 +802,11 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#         WeGuard.logger.debug("--------------------File is uploaded successfully but MPEG is not supported -----------------")
+#         print("--------------------File is uploaded successfully but MPEG is not supported -----------------")
 #         assert res.status_code == 200
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("--------------------Failed to upload a file-----------------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("--------------------Failed to upload a file-----------------")
 #         assert False

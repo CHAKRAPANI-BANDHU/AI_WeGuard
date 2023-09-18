@@ -195,20 +195,24 @@ FCMUpdateAfterAddingContacts_PolicyLevel = {"topic": globalvariables.activationC
 
 # Create contacts at Account Level
 # Define a function to generate a random Gmail address
-def random_email_address():
-    username = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(10))
+def random_email_address(length=10):
+    characters = string.ascii_letters + string.digits
+    username = ''.join(random.choice(characters) for _ in range(length))
     return f"{username}@gmail.com"
+
+name = string.ascii_letters + string.digits
+randomName = ''.join(random.choice(name) for _ in range(10))
 
 # Generate a random Gmail address
 random_email = random_email_address()
 
 # Define a list of possible values for each field
-address_types = ["Work", "Home", "Other"]
-streets = ["Street1", "Street2", "Street3"]
-countries = ["Country1", "Country2", "Country3"]
-cities = ["City1", "City2", "City3"]
-states = ["State1", "State2", "State3"]
-zipcodes = ["12345", "67890", "54321"]
+address_types = ["Home", "Work", "Other"]
+streets = ["Attapur", "Johnson", "Bidar"]
+countries = ["India", "USA", "India"]
+cities = ["Hyderabad", "Texas", "Bidar"]
+states = ["Telangana", "Alabama", "Karnataka"]
+zipcodes = ["500048", "67894450", "585401"]
 
 # Generate a random postal address
 postal_address = {
@@ -231,8 +235,6 @@ notes = ''.join(random.choice(string.ascii_letters) for _ in range(10))
 emailAddresses = [{"emailType": "Home", "emailAddress": random_email_address()}]
 phoneNums = [{"phone": [''.join(random.choice(string.digits) for _ in range(10))]}]
 postalAddresses = [postal_address]
-accountId = ''.join(random.choice(string.digits) for _ in range(24))
-policyId = ''.join(random.choice(string.digits) for _ in range(12))
 
 
 # PUT Alerts Config

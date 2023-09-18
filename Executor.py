@@ -20,18 +20,21 @@ negative_tests = 1
 positive_tests = 1
 
 # Run all positive cases
-test_tc_0001_Login = 1
-test_tc_0002_Login_Event = 1
-test_tc_1000_Logout = 1
+test_tc_1001_Login = 1
+test_tc_1002_Login_Event = 1
+test_tc_10000_Logout = 1
 
 # Run all negative cases
-test_tc_000003_AccountAdmin_Invalid_email = 1
-test_tc_000004_AccountAdmin_Invalid_password = 1
-test_tc_000005_AccountAdmin_Invalid_credentials = 1
-test_tc_000006_AccountAdmin_Credentials_with_spaces = 1
-test_tc_000007_AccountAdmin_Without_username = 1
-test_tc_000008_AccountAdmin_Without_password = 1
-test_tc_000009_AccountAdmin_Without_username_password = 1
+test_tc_1003_AccountAdmin_Invalid_credentials = 1
+test_tc_1004_AccountAdmin_Invalid_Email = 1
+test_tc_1005_AccountAdmin_without_username = 1
+test_tc_1006_AccountAdmin_Invalid_password = 1
+test_tc_1007_AccountAdmin_without_password = 1
+
+# Dashbord Page
+test_tc_2001_Dashboard = 1
+test_tc_2002_DashboardCalls = 1
+test_tc_2003_DashboardRecentActivity = 1
 
 # Devices Page
 test_tc_00002_All_Devices_100 = 1
@@ -55,6 +58,7 @@ test_tc_00017_Windows_Devices = 1
 test_tc_0003_Policy_All = 1
 
 # Windows Microservices
+# Windows Device
 test_tc_0000001_Windows_DeviceDetailsByMongoID_GET = 1
 test_tc_0000002_Windows_Device_Updates_Tags_By_MongoID_PUT = 1
 test_tc_0000003_Windows_Fetch_Device_Details_GET = 1
@@ -64,8 +68,11 @@ test_tc_0000006_Windows_Device_Last_Contact_Time_PUT=1
 test_tc_0000007_Windows_DeviceDetailsByPolicyID_GET =1
 test_tc_0000008_Windows_Device_Search_By_PolicyID_GET =1
 test_tc_0000009_Windows_Device_Search_By_All_String_GET=1
+# Windows Policy
+test_tc_00000010_Windows_Policy_Clone=1
+test_tc_00000011_Windows_Policy_Delete=1
 
-# Company Directory
+# Contacts
 test_tc_14000_Create_Contacts_Account_Level_POST = 1
 test_tc_14001_Contacts_Account_Level_FCM_UPDATE_After_CreatingAdding_Contacts_POST = 1
 test_tc_14002_Contacts_Account_Level_POST = 1
@@ -189,39 +196,28 @@ test_1113_Notification_Timespent_Geofence_ALL_Policies_Device_Geofences_POST = 1
 def run_positive_tests():
     print("Inside run_positive_tests")
 
-    global test_tc_01_Login
-    test_tc_01_Login = 1
+    global test_tc_0001_Login
+    test_tc_0001_Login = 1
 
     global test_tc_1000_Logout
     test_tc_1000_Logout = 1
-
-    global test_tc_000011_AccountLevel_Get_Alert_Configs
-    test_tc_000011_AccountLevel_Get_Alert_Configs = 1
 
 
 def run_negative_tests():
     print("Inside run_negative_tests")
     
-    global test_tc_03_Invalid_credentials
+    global test_tc_000005_AccountAdmin_Invalid_credentials
     test_tc_000005_AccountAdmin_Invalid_credentials = 1
 
-    global test_tc_04_Invalid_email
-    test_tc_05_Invalid_email = 1
-
-    global test_tc_06_Invalid_password
-    test_tc_06_Invalid_password = 1
-
-    global test_tc_07_Credentials_with_spaces
-    test_tc_07_Credentials_with_spaces = 1
+    global test_tc_000006_AccountAdmin_Invalid_Email
+    test_tc_000006_AccountAdmin_Invalid_Email = 1
 
     global test_tc_000007_AccountAdmin_without_username
     test_tc_000007_AccountAdmin_without_username = 1
+    
+    global test_tc_000008_AccountAdmin_Without_password
+    test_tc_000008_AccountAdmin_Without_password = 1
 
-    global test_tc_000008_AccountAdmin_without_password
-    test_tc_000008_AccountAdmin_without_password = 1
-
-    global test_tc_000009_AccountAdmin_without_username_password
-    test_tc_000009_AccountAdmin_without_username_password = 1
 
 
 # Execute positive test cases

@@ -28,29 +28,29 @@ def test_tc_1105_GET_NotificationServerVersion(url):
         curl_str1 = Utils.getCurlEquivalent(res)
         print(curl_str1)
         if res.status_code == 200:
-            WeGuard.logger.debug("\n" + "200 The request was a success!")
-            WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+            print("\n" + "200 The request was a success!")
+            print("\n" + "Header: " + str(res.headers) +
                   "\n" + "Request URL: " + apiUrl +
                   "\n" + "Request Method: " + res.request.method +
                   "\n" + "Status Code: " + str(res.status_code) +
                   "\n" + "Response: " + str(res.content) + "\n")
         elif res.status_code == 400:
-            WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+            print("\n" + "400 Bad Request!" + "\n")
             # Add your assertions or actions for 400 Bad Request response here
             assert False, "Received 400 Bad Request response"
         elif res.status_code == 404:
-            WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+            print("\n" + "404 Result not found!" + "\n")
             # Add your assertions or actions for 404 Not Found response here
             assert False, "Received 404 response"
         elif res.status_code == 500:
-            WeGuard.logger.error("\n" + "500 Internal Server Error!")
+            print("\n" + "500 Internal Server Error!")
             # Add your assertions or actions for 500 Internal Server Error response here
             assert False, "Received 500 response"
         else:
-            WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+            print("Request did not succeed! Status code:", res.status_code)
             assert False, f"Received {res.status_code} response"
     except Exception as e:
-        WeGuard.logger.error("Exception : " + str(e))
+        print("Exception : " + str(e))
         now2 = datetime.now()
-        WeGuard.logger.error("Time taken: " + str(now2 - now1))
+        print("Time taken: " + str(now2 - now1))
         assert False, f"An exception occurred: {e}"

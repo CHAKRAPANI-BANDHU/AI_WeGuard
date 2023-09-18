@@ -93,13 +93,13 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, f"Received {res.status_code} response"
 #         print(
-#             f"\n--------------------------- Alert notifications of type={alert_type} and level=All ---------------------------\n")
+#             f"\n------------------- Alert notifications of type={alert_type} and level=All ---------------------------\n")
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             f"\n--------------------------- Not available alert notifications of type={alert_type} and level=All ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             f"\n------------------- Not available alert notifications of type={alert_type} and level=All ---------------------------\n")
 #         assert False
 # 
 # # Alert Levels
@@ -147,13 +147,13 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, f"Received {res.status_code} response"
 #         print(
-#             f"\n--------------------------- Alert notifications of type={alert_level} and level=All ---------------------------\n")
+#             f"\n------------------- Alert notifications of type={alert_level} and level=All ---------------------------\n")
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             f"\n--------------------------- Not available alert notifications of type={alert_level} and level=All ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             f"\n------------------- Not available alert notifications of type={alert_level} and level=All ---------------------------\n")
 #         assert False
 # 
 # # Alert Types and Levels
@@ -179,7 +179,7 @@
 #                 res = requests.get(url=apiUrl, headers=Headers, timeout=globalvariables.timeout)
 #                 curl_str1 = Utils.getCurlEquivalent(res)
 #                 print(curl_str1)
-#                 print(f"--------------------------- Alert notifications of type={alert_type} and level={alert_level} ---------------------------\n")
+#                 print(f"------------------- Alert notifications of type={alert_type} and level={alert_level} ---------------------------\n")
 #                 if res.status_code == 200:
 #                     print("\n" + "200 The request was a success!" + "\n")
 #                     print("\n" + "Header: " + str(res.headers) +
@@ -200,10 +200,10 @@
 #                     print("Request did not succeed! Status code: " + str(res.status_code))
 #                     assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#             WeGuard.logger.error("Exception : " + str(e))
+#             print("Exception : " + str(e))
 #             now2 = datetime.now()
-#             WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#             WeGuard.logger.error(f"--------------------------- Not Available -- Alert notifications of type and level ---------------------------\n")
+#             print("Time taken: " + str(now2 - now1))
+#             print(f"------------------- Not Available -- Alert notifications of type and level ---------------------------\n")
 #             assert False
 # 
 # 
@@ -245,7 +245,7 @@
 #                     # Append the unacknowledged alert ID to the array
 #                     globalvariables.UnacknowledgeAlertsIDs.append(item_id)
 #             print("\n200 The request was a success!\n")
-#             print("\n--------------------------- Displaying Unacknowledged Critical Alerts all alert types and levels ---------------------------\n")
+#             print("\n------------------- Displaying Unacknowledged Critical Alerts all alert types and levels ---------------------------\n")
 #             print("\nHeader: " + str(res.headers) +
 #                   "\nRequest URL: " + apiUrl +
 #                   "\nRequest Method: " + res.request.method +
@@ -264,11 +264,11 @@
 #             else:
 #                 print("Request did not succeed! Status code:", res.status_code)
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#         print("Time taken: " + str(now2 - now1))
 #         print(
-#             "\n--------------------------- Not displaying Unacknowledged Critical Alerts all alert types and levels ---------------------------\n")
+#             "\n------------------- Not displaying Unacknowledged Critical Alerts all alert types and levels ---------------------------\n")
 #         assert False
 # 
 # 
@@ -303,7 +303,7 @@
 #                      "\n" + "Request Method: " + res.request.method +
 #                      "\n" + "Status Code: " + str(res.status_code) +
 #                      "\n" + "Response: " + str(res.content) + "\n")
-#                print("\n--------------------------- Acknowledged Critical Alerts ---------------------------\n")
+#                print("\n------------------- Acknowledged Critical Alerts ---------------------------\n")
 #             else:
 #                 if res.status_code == 400:
 #                     print("\n" + "400 Bad Request!" + "\n")
@@ -315,11 +315,11 @@
 #                     print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#         print("Time taken: " + str(now2 - now1))
 #         print(
-#             "\n--------------------------- Unacknowledged critical alerts  ---------------------------\n")
+#             "\n------------------- Unacknowledged critical alerts  ---------------------------\n")
 #         assert False
 # 
 # 
@@ -352,7 +352,7 @@
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n--------------------------- Displaying Todays all alert types and levels ---------------------------\n")
+#             print("\n------------------- Displaying Todays all alert types and levels ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -369,10 +369,10 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("\n--------------------------- Not displaying all alert types and levels ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("\n------------------- Not displaying all alert types and levels ---------------------------\n")
 #         assert False
 # 
 # 
@@ -405,7 +405,7 @@
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n--------------------------- Displaying Yesterday's all alert types and levels ---------------------------\n")
+#             print("\n------------------- Displaying Yesterday's all alert types and levels ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -422,10 +422,10 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("\n--------------------------- Yesterday's -- Not displaying all alert types and levels ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("\n------------------- Yesterday's -- Not displaying all alert types and levels ---------------------------\n")
 #         assert False
 # 
 # 
@@ -457,7 +457,7 @@
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
 #                              "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n--------------------------- Displaying Custom Date Range all alert types and levels ---------------------------\n")
+#             print("\n------------------- Displaying Custom Date Range all alert types and levels ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -474,9 +474,9 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n--------------------------- Custom Date Range -- Not displaying all alert types and levels ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n------------------- Custom Date Range -- Not displaying all alert types and levels ---------------------------\n")
 #         assert False

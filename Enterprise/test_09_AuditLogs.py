@@ -60,10 +60,10 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!" +"\n")
+#                 print("\n" + "200 The request was a success!" +"\n")
 #                 # Print information about the current test case
 #                 print(f"Test Case: Filter By Level = {LogLevel}, Filter By Event = {Event}" + "\n")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
@@ -83,11 +83,11 @@
 #             else:
 #                 print("Request did not succeed! Status code:", res.status_code)
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Failed -- Filter By Level = All, Filter By Events = All and Date Range is current (today) ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Failed -- Filter By Level = All, Filter By Events = All and Date Range is current (today) ---------------------------\n")
 #         assert False
 #
 # # Filter By Level = All and Date Range is Yesterday
@@ -112,8 +112,8 @@
 #         print(curl_str1)
 #         print("\n\n-------- Filter By Level = All and Date Range is Yesterday --------")
 #         if res.status_code == 200:
-#             WeGuard.logger.debug("\n" + "200 The request was a success!")
-#             WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#             print("\n" + "200 The request was a success!")
+#             print("\n" + "Header: " + str(res.headers) +
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
@@ -134,10 +134,10 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("\n\n--------  Failed -- Filter By Level = All and Date Range is Yesterday --------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("\n\n--------  Failed -- Filter By Level = All and Date Range is Yesterday --------")
 #         assert False
 #
 # # Filter By Level = All and Date Range is Custom (1 Month)
@@ -162,8 +162,8 @@
 #         print(curl_str1)
 #         print("\n\n-------- Filter By Level = All and Date Range is Custom (1 Month) --------")
 #         if res.status_code == 200:
-#             WeGuard.logger.debug("\n" + "200 The request was a success!" + "\n")
-#             WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#             print("\n" + "200 The request was a success!" + "\n")
+#             print("\n" + "Header: " + str(res.headers) +
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
@@ -184,10 +184,10 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("\n\n--------  Failed -- Filter By Level = All and Date Range is Custom (1 Month) --------")
+#         print("Time taken: " + str(now2 - now1))
+#         print("\n\n--------  Failed -- Filter By Level = All and Date Range is Custom (1 Month) --------")
 #         assert False
 #
 # # Fetch Android Device Logs
@@ -222,10 +222,10 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!" +"\n")
+#                 print("\n" + "200 The request was a success!" +"\n")
 #                 # Print information about the current test case
 #                 print(f" Android Device logs are fetched" + "\n")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
@@ -245,10 +245,10 @@
 #             else:
 #                 print("Request did not succeed! Status code:", res.status_code)
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(f"Android Device logs are not fetched" + "\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(f"Android Device logs are not fetched" + "\n")
 #         assert False
 #
 # # Fetch iOS Device Logs
@@ -282,10 +282,10 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!" +"\n")
+#                 print("\n" + "200 The request was a success!" +"\n")
 #                 # Print information about the current test case
 #                 print(f" iOS Device logs are fetched" + "\n")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
@@ -305,10 +305,10 @@
 #             else:
 #                 print("Request did not succeed! Status code:", res.status_code)
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(f"iOS Device logs are not fetched" + "\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(f"iOS Device logs are not fetched" + "\n")
 #         assert False
 #
 # # Fetch Windows Device Logs
@@ -342,10 +342,10 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             if res.status_code == 200:
-#                 WeGuard.logger.debug("\n" + "200 The request was a success!" +"\n")
+#                 print("\n" + "200 The request was a success!" +"\n")
 #                 # Print information about the current test case
 #                 print(f"Windows Device logs are fetched" + "\n")
-#                 WeGuard.logger.debug("\n" + "Header: " + str(res.headers) +
+#                 print("\n" + "Header: " + str(res.headers) +
 #                       "\n" + "Request URL: " + apiUrl +
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
@@ -365,8 +365,8 @@
 #             else:
 #                 print("Request did not succeed! Status code:", res.status_code)
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(f"Windows Device logs are not fetched" + "\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(f"Windows Device logs are not fetched" + "\n")
 #         assert False

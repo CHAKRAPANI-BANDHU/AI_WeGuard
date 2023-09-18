@@ -90,7 +90,7 @@
 #             else:
 #                 print("No entities found in the response.")
 #             print(
-#                 "\n--------------------------- GET method to get all the Account Level Notifications ---------------------------\n")
+#                 "\n------------------- GET method to get all the Account Level Notifications ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -107,11 +107,11 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to GET method to get all the Account Level Notifications ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to GET method to get all the Account Level Notifications ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 #
@@ -146,7 +146,7 @@
 #                 globalvariables.Account_notification_ids = json.loads(res.content)['entity']['id']
 #                 print("\nAccount Level Notification IDs:", Generalpayload.getAccountLevelNotificationId)
 #                 print(
-#                     "\n--------------------------- POST method to get all the Account Level Notifications with Email Address ---------------------------\n")
+#                     "\n------------------- POST method to get all the Account Level Notifications with Email Address ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -163,11 +163,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to POST method to get all the Account Level Notifications with Email Address ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to POST method to get all the Account Level Notifications with Email Address ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 #
@@ -199,7 +199,7 @@
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
-#                 print("\n--------------------------- PUT method to update Account Level Notifications with Email Address ---------------------------\n")
+#                 print("\n------------------- PUT method to update Account Level Notifications with Email Address ---------------------------\n")
 #             else:
 #                 if res.status_code == 400:
 #                     print("\n" + "400 Bad Request!" + "\n")
@@ -211,11 +211,11 @@
 #                     print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception: " + str(e))
+#         print("Exception: " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to PUT method to update Account Level Notifications with Email Address ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to PUT method to update Account Level Notifications with Email Address ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 #
@@ -246,7 +246,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n--------------------------- GET method to get policy level Notifications ---------------------------\n")
+#                     "\n------------------- GET method to get policy level Notifications ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #             elif res.status_code == 404:
@@ -257,11 +257,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception: " + str(e))
+#         print("Exception: " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to GET method to get policy level Notifications ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to GET method to get policy level Notifications ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 #
@@ -303,7 +303,7 @@
 #                 Generalpayload.getPolicyLevelNotificationId.append(notification_id)
 #                 print("\nPolicy Level Notification IDs:", Generalpayload.getPolicyLevelNotificationId)
 #                 print(
-#                     "\n--------------------------- POST method to get all the Policy Level Notifications with Email Address ---------------------------\n")
+#                     "\n------------------- POST method to get all the Policy Level Notifications with Email Address ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -320,11 +320,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to POST method to get all the Policy Level Notifications with Email Address ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to POST method to get all the Policy Level Notifications with Email Address ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 #
@@ -366,7 +366,7 @@
 #                           "\n" + "Status Code: " + str(res.status_code) +
 #                           "\n" + "Response: " + str(res.content) + "\n")
 #                     print(
-#                         "--------------------------- PUT method to update Policy Level Notifications with Email Address ---------------------------\n")
+#                         "------------------- PUT method to update Policy Level Notifications with Email Address ---------------------------\n")
 #                 elif res.status_code == 400:
 #                     print("\n" + "400 Bad Request!" + "\n")
 #                     # Add your assertions or actions for 400 Bad Request response here
@@ -383,11 +383,11 @@
 #                     print("Request did not succeed! Status code:", res.status_code)
 #                     assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception: " + str(e))
+#         print("Exception: " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to PUT method to update Policy Level Notifications with Email Address ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to PUT method to update Policy Level Notifications with Email Address ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 #
@@ -424,7 +424,7 @@
 #                           "\n" + "Status Code: " + str(res.status_code) +
 #                           "\n" + "Response: " + str(res.content) + "\n")
 #                     print(
-#                         "\n--------------------------- POST method to get policy level Geofence based on geofence list ---------------------------\n")
+#                         "\n------------------- POST method to get policy level Geofence based on geofence list ---------------------------\n")
 #                 else:
 #                     if res.status_code == 400:
 #                         print("\n" + "400 Bad Request!" + "\n")
@@ -436,11 +436,11 @@
 #                         print("Request did not succeed! Status code:", res.status_code)
 #                     assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception: " + str(e))
+#         print("Exception: " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to POST method to get policy level Geofence based on geofence list ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to POST method to get policy level Geofence based on geofence list ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 # # GET method to get policy level Geofence
@@ -492,7 +492,7 @@
 #                 print("All MongoDB IDs:", ", ".join(map(str, Generalpayload.Geofence_MongoDB_IDs)) + "\n")
 #                 print("All Geofence Types:", ", ".join(map(str, Generalpayload.GeofenceTypes)) + "\n")
 #                 print(
-#                     "\n--------------------------- GET method to get policy level Notifications ---------------------------\n")
+#                     "\n------------------- GET method to get policy level Notifications ---------------------------\n")
 #             elif res.status_code == 400:
 #                print("\n" + "400 Bad Request!" + "\n")
 #             elif res.status_code == 404:
@@ -503,11 +503,11 @@
 #                print("Request did not succeed! Status code:", res.status_code)
 #                assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception: " + str(e))
+#         print("Exception: " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to GET method to get policy level Notifications ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to GET method to get policy level Notifications ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 #
@@ -545,7 +545,7 @@
 #                       "\n" + "Request Payload: " + PUTGeofence_str +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n--------------------------- PUT method to update policy level Geofence ---------------------------\n")
+#                     "\n------------------- PUT method to update policy level Geofence ---------------------------\n")
 #             else:
 #                 if res.status_code == 400:
 #                     print("\n" + "400 Bad Request!" + "\n")
@@ -557,11 +557,11 @@
 #                     print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception: " + str(e))
+#         print("Exception: " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to update policy level Geofence with PUT method  ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to update policy level Geofence with PUT method  ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 # # DELETE method to delete the Geofence based on Geofence ID
@@ -593,7 +593,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n--------------------------- DELETE method to get policy level geofence ---------------------------\n")
+#                     "\n------------------- DELETE method to get policy level geofence ---------------------------\n")
 #              elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #              elif res.status_code == 404:
@@ -604,11 +604,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception: " + str(e))
+#         print("Exception: " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to delete the policy level geofence with DELETE method ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to delete the policy level geofence with DELETE method ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 # # Skipping this testcases, reason: It will delete the Geofence Notifications
@@ -645,7 +645,7 @@
 #                               "\n" + "Status Code: " + str(res.status_code) +
 #                               "\n" + "Response: " + str(res.content) + "\n")
 #                         print(
-#                             "\n--------------------------- DELETE method to delete policy level geofence notifications ---------------------------\n")
+#                             "\n------------------- DELETE method to delete policy level geofence notifications ---------------------------\n")
 #                     elif res.status_code == 400:
 #                         print("\n" + "400 Bad Request!" + "\n")
 #                     elif res.status_code == 404:
@@ -656,11 +656,11 @@
 #                         print("Request did not succeed! Status code:", res.status_code)
 #                         assert False, f"Received {res.status_code} response"
 #     except Exception as e:
-#         WeGuard.logger.error("Exception: " + str(e))
+#         print("Exception: " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to delete the policy level geofence notifications with DELETE method ---------------------------\n")
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
+#             "\n------------------- Unable to delete the policy level geofence notifications with DELETE method ---------------------------\n")
+#         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"
 #
 # # POST method to get the time spent details in the Geofence for all policies, devices and Geofences
@@ -705,7 +705,7 @@
 #                               "\n" + "Request Payload: " + json.dumps(Timespent) +  # Convert to JSON string
 #                               "\n" + "Response: " + str(res.content) + "\n")
 #                         print(
-#                             "\n--------------------------- POST method to get geofence time spent ---------------------------\n")
+#                             "\n------------------- POST method to get geofence time spent ---------------------------\n")
 #                     elif res.status_code == 400:
 #                         print("\n" + "400 Bad Request!" + "\n")
 #                     elif res.status_code == 404:
@@ -719,6 +719,6 @@
 #         print("Exception: " + str(e))
 #         now2 = datetime.datetime.now()
 #         print(
-#             "\n--------------------------- Unable to get geofence time spent with POST method ---------------------------\n")
+#             "\n------------------- Unable to get geofence time spent with POST method ---------------------------\n")
 #         print("Time taken: " + str(now2 - now1))
 #         assert False, f"An exception occurred: {e}"

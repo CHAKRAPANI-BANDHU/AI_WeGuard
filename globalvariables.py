@@ -5,6 +5,10 @@ import WeGuardLogger as WeGuard
 
 # Time Conversion in different formats
 now_datetime = datetime.now()
+# Create a datetime object for September 11, 2023
+timestamp = datetime(2023, 9, 11, 0, 30, 0)
+# Convert the timestamp to ISO format
+OneWeekCustomISO = timestamp.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
 start_of_day_datetime = now_datetime.replace(hour=00, minute=00, second=00)
 end_of_day_datetime = now_datetime.replace(hour=23, minute=59, second=59)
 start_timestamp = int(round(start_of_day_datetime.timestamp() * 1000))

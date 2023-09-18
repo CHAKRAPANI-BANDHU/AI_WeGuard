@@ -26,7 +26,7 @@ def configure_logger(log_file_to_rotate, log_level):
     else:
         logger.setLevel(logging.WARNING)
 
-    logger.error("Error log initialization complete")
-    logger.warning("Warning log initialization complete")
     logger.info("Info log initialization complete")
+    logger.warning("Warning log initialization complete")
     logger.debug("Debug log initialization complete"+"\n")
+    logger.error("Error log initialization complete")

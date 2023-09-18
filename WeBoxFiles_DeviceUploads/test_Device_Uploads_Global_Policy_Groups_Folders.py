@@ -75,8 +75,8 @@
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Shared Folders WeBox upload config without sign passed  ---------------------------\n")
+#             print(
+#                 "\n\n------------------- Shared Folders WeBox upload config without sign passed  ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -93,11 +93,11 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Shared Folders WeBox upload config without sign failed ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Shared Folders WeBox upload config without sign failed ---------------------------\n\n")
 #         assert False
 #
 #
@@ -130,8 +130,8 @@
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Shared Folders WeBox upload config with sign passed ---------------------------\n")
+#             print(
+#                 "\n\n------------------- Shared Folders WeBox upload config with sign passed ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -148,11 +148,11 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Shared Folders WeBox upload config with sign failed ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Shared Folders WeBox upload config with sign failed ---------------------------\n\n")
 #         assert False
 #
 #
@@ -186,8 +186,8 @@
 #                                      "\n" + "Request Method: " + res.request.method +
 #                                      "\n" + "Status Code: " + str(res.status_code) +
 #                                      "\n" + "Response: " + str(res.content))
-#                 WeGuard.logger.debug(
-#                     "\n\n--------------------------- Files are available in globals shared folder ---------------------------\n")
+#                 print(
+#                     "\n\n------------------- Files are available in globals shared folder ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -204,11 +204,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Files are not available in globals shared folder ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Files are not available in globals shared folder ---------------------------\n\n")
 #         assert False
 #
 #
@@ -244,8 +244,8 @@
 #                                          "\n" + "Request Method: " + res.request.method +
 #                                          "\n" + "Status Code: " + str(res.status_code) +
 #                                          "\n" + "Response: " + str(res.content))
-#                     WeGuard.logger.debug(
-#                         "\n\n--------------------------- Files are available in policy groups folder ---------------------------\n")
+#                     print(
+#                         "\n\n------------------- Files are available in policy groups folder ---------------------------\n")
 #                 elif res.status_code == 400:
 #                     print("\n" + "400 Bad Request!" + "\n")
 #                     # Add your assertions or actions for 400 Bad Request response here
@@ -262,11 +262,11 @@
 #                     print("Request did not succeed! Status code:", res.status_code)
 #                     assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Files are not available in policy groups folder ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Files are not available in policy groups folder ---------------------------\n\n")
 #         assert False
 #
 #
@@ -299,8 +299,8 @@
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Folder names are available upon clicking on clear in shared folders ---------------------------\n")
+#             print(
+#                 "\n\n------------------- Folder names are available upon clicking on clear in shared folders ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -317,11 +317,11 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Folder names are not available upon clicking on clear in shared folders ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Folder names are not available upon clicking on clear in shared folders ---------------------------\n\n")
 #         assert False
 #
 #
@@ -356,8 +356,8 @@
 #                                          "\n" + "Request Method: " + res.request.method +
 #                                          "\n" + "Status Code: " + str(res.status_code) +
 #                                          "\n" + "Response: " + str(res.content))
-#                     WeGuard.logger.debug(
-#                         "\n\n--------------------------- Files are available upon clicking on clear in policy group folders ---------------------------\n")
+#                     print(
+#                         "\n\n------------------- Files are available upon clicking on clear in policy group folders ---------------------------\n")
 #                 elif res.status_code == 400:
 #                     print("\n" + "400 Bad Request!" + "\n")
 #                     # Add your assertions or actions for 400 Bad Request response here
@@ -374,11 +374,11 @@
 #                     print("Request did not succeed! Status code:", res.status_code)
 #                     assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Files are not available upon clicking on clear in policy group folders ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Files are not available upon clicking on clear in policy group folders ---------------------------\n\n")
 #         assert False
 #
 #
@@ -410,8 +410,8 @@
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- Get the configs of Shared Folders Pass ---------------------------\n")
+#             print(
+#                 "\n\n------------------- Get the configs of Shared Folders Pass ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -429,10 +429,10 @@
 #             assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Get the configs of Shared Folders Pass Fail ---------------------------\n\n")
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Get the configs of Shared Folders Pass Fail ---------------------------\n\n")
+#         print("Exception : " + str(e))
 #         assert False
 #
 #
@@ -465,8 +465,8 @@
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- PDF file is downloaded successfully ---------------------------\n")
+#             print(
+#                 "\n\n------------------- PDF file is downloaded successfully ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -483,12 +483,12 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- PDF file is not downloaded successfully ---------------------------\n\n")
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- PDF file is not downloaded successfully ---------------------------\n\n")
+#         print("Exception : " + str(e))
 #         assert False
 #
 #
@@ -521,8 +521,8 @@
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
 #                                  "\n" + "Response: " + str(res.content))
-#             WeGuard.logger.debug(
-#                 "\n\n--------------------------- ZIP file is downloaded successfully ---------------------------\n")
+#             print(
+#                 "\n\n------------------- ZIP file is downloaded successfully ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -539,9 +539,9 @@
 #             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- ZIP file is not downloaded successfully ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- ZIP file is not downloaded successfully ---------------------------\n\n")
 #         assert False

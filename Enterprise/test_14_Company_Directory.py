@@ -66,26 +66,26 @@
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
-#             WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to create the contacts at the Account Level ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to create the contacts at the Account Level ---------------------------\n\n")
 #         assert False
 #
 #
@@ -121,26 +121,26 @@
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
-#             WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to update the fcm at the Account Level after creating/adding the contacts ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to update the fcm at the Account Level after creating/adding the contacts ---------------------------\n\n")
 #         assert False
 #
 #
@@ -178,26 +178,26 @@
 #             globalvar.AccountLevel_Contacts_IDS = contact_ids  # Assign the list to the global variable
 #             print("Account Level Contacts IDS:", globalvar.AccountLevel_Contacts_IDS)
 #         elif res.status_code == 400:
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
-#             WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to display the Account Level Contacts ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to display the Account Level Contacts ---------------------------\n\n")
 #         assert False
 #
 #
@@ -227,26 +227,26 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #             elif res.status_code == 400:
-#                 WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
-#                 WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to delete the Account Level Contacts ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to delete the Account Level Contacts ---------------------------\n\n")
 #         assert False
 #
 #
@@ -281,26 +281,26 @@
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
-#             WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to update the fcm at the Account Level Contacts ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to update the fcm at the Account Level Contacts ---------------------------\n\n")
 #         assert False
 #
 #
@@ -348,26 +348,26 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #             elif res.status_code == 400:
-#                 WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
-#                 WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to create the contacts at the Policy Level ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to create the contacts at the Policy Level ---------------------------\n\n")
 #         assert False
 #
 #
@@ -403,26 +403,26 @@
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
-#             WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
 #             assert False, "Received 400 Bad Request response"
 #         elif res.status_code == 404:
-#             WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#             print("\n" + "404 Result not found!" + "\n")
 #             # Add your assertions or actions for 404 Not Found response here
 #             assert False, "Received 404 response"
 #         elif res.status_code == 500:
-#             WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+#             print("\n" + "500 Internal Server Error!" + "\n")
 #             # Add your assertions or actions for 500 Internal Server Error response here
 #             assert False, "Received 500 response"
 #         else:
-#             WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#             print("Request did not succeed! Status code:", res.status_code)
 #             assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to update the fcm at the Policy Level after creating/adding the contacts ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to update the fcm at the Policy Level after creating/adding the contacts ---------------------------\n\n")
 #         assert False
 #
 #
@@ -460,26 +460,26 @@
 #                 globalvar.PolicyLevel_Contacts_IDS = contact_ids  # Assign the list to the global variable
 #                 print("Account Level Contacts IDS:", globalvar.PolicyLevel_Contacts_IDS)
 #             elif res.status_code == 400:
-#                 WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
-#                 WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to display the Policy Level Contacts ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to display the Policy Level Contacts ---------------------------\n\n")
 #         assert False
 #
 #
@@ -509,26 +509,26 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #             elif res.status_code == 400:
-#                 WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
-#                 WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to delete the Policy Level Contacts ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to delete the Policy Level Contacts ---------------------------\n\n")
 #         assert False
 #
 #
@@ -563,24 +563,24 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #             elif res.status_code == 400:
-#                 WeGuard.logger.error("\n" + "400 Bad Request!" + "\n")
+#                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
 #                 assert False, "Received 400 Bad Request response"
 #             elif res.status_code == 404:
-#                 WeGuard.logger.error("\n" + "404 Result not found!" + "\n")
+#                 print("\n" + "404 Result not found!" + "\n")
 #                 # Add your assertions or actions for 404 Not Found response here
 #                 assert False, "Received 404 response"
 #             elif res.status_code == 500:
-#                 WeGuard.logger.error("\n" + "500 Internal Server Error!" + "\n")
+#                 print("\n" + "500 Internal Server Error!" + "\n")
 #                 # Add your assertions or actions for 500 Internal Server Error response here
 #                 assert False, "Received 500 response"
 #             else:
-#                 WeGuard.logger.error("Request did not succeed! Status code:", res.status_code)
+#                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, "Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "-------------------------- Failed to update the fcm at the Policy Level Contacts ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to update the fcm at the Policy Level Contacts ---------------------------\n\n")
 #         assert False

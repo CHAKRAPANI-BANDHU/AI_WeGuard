@@ -43,7 +43,7 @@
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n\n--------------------------- Undo and Save is passed ---------------------------\n")
+#             print("\n\n------------------- Undo and Save is passed ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -61,8 +61,8 @@
 #             assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
 #             now2 = datetime.now()
-#             WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#             WeGuard.logger.error("\n\n--------------------------- Undo and Save is failed---------------------------\n\n")
+#             print("Time taken: " + str(now2 - now1))
+#             print("\n\n------------------- Undo and Save is failed---------------------------\n\n")
 #             assert False
 #
 #
@@ -95,7 +95,7 @@
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
-#                 print("\n\n--------------------------- Android Policy configs ---------------------------\n")
+#                 print("\n\n------------------- Android Policy configs ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -112,10 +112,10 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#             WeGuard.logger.error("Exception : " + str(e))
+#             print("Exception : " + str(e))
 #             now2 = datetime.now()
-#             WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#             WeGuard.logger.error("\n\n--------------------------- No configs for Android Policy  ---------------------------\n\n")
+#             print("Time taken: " + str(now2 - now1))
+#             print("\n\n------------------- No configs for Android Policy  ---------------------------\n\n")
 #             assert False
 #
 #
@@ -150,7 +150,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Allow Download is Disabled ---------------------------\n")
+#                     "\n\n------------------- Allow Download is Disabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                     print("\n" + "400 Bad Request!" + "\n")
 #                     # Add your assertions or actions for 400 Bad Request response here
@@ -167,11 +167,11 @@
 #                     print("Request did not succeed! Status code:", res.status_code)
 #                     assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#                 WeGuard.logger.error("Exception : " + str(e))
+#                 print("Exception : " + str(e))
 #                 now2 = datetime.now()
-#                 WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#                 WeGuard.logger.error(
-#                     "\n\n--------------------------- Allow Download is not disabled ---------------------------\n\n")
+#                 print("Time taken: " + str(now2 - now1))
+#                 print(
+#                     "\n\n------------------- Allow Download is not disabled ---------------------------\n\n")
 #                 assert False
 #
 #
@@ -207,7 +207,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Allow File View is disabled ---------------------------\n")
+#                     "\n\n------------------- Allow File View is disabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -224,11 +224,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#             WeGuard.logger.error("Exception : " + str(e))
+#             print("Exception : " + str(e))
 #             now2 = datetime.now()
-#             WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#             WeGuard.logger.error(
-#                 "\n\n--------------------------- Allow File View is not disabled ---------------------------\n\n")
+#             print("Time taken: " + str(now2 - now1))
+#             print(
+#                 "\n\n------------------- Allow File View is not disabled ---------------------------\n\n")
 #             assert False
 #
 #
@@ -263,7 +263,7 @@
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
-#                print("\n\n--------------------------- Open With is disabled---------------------------\n")
+#                print("\n\n------------------- Open With is disabled---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -280,10 +280,10 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#             WeGuard.logger.error("Exception : " + str(e))
+#             print("Exception : " + str(e))
 #             now2 = datetime.now()
-#             WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#             WeGuard.logger.error("\n\n--------------------------- OpenWith is not disabled ---------------------------\n\n")
+#             print("Time taken: " + str(now2 - now1))
+#             print("\n\n------------------- OpenWith is not disabled ---------------------------\n\n")
 #             assert False
 #
 #
@@ -318,7 +318,7 @@
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
-#                 print("\n\n--------------------------- Show Links is disabled ---------------------------\n")
+#                 print("\n\n------------------- Show Links is disabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -335,10 +335,10 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("\n\n--------------------------- Show Links is not disabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("\n\n------------------- Show Links is not disabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -373,7 +373,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Allow Download, Allow file view, Open with, Show links are disabled ---------------------------\n")
+#                     "\n\n------------------- Allow Download, Allow file view, Open with, Show links are disabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -390,11 +390,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Allow Download, Allow file view, Open with, Show links are not disabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Allow Download, Allow file view, Open with, Show links are not disabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -430,7 +430,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Allow Download is enabled ---------------------------\n")
+#                     "\n\n------------------- Allow Download is enabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -447,11 +447,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#             WeGuard.logger.error("Exception : " + str(e))
+#             print("Exception : " + str(e))
 #             now2 = datetime.now()
-#             WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#             WeGuard.logger.error(
-#                 "\n\n--------------------------- Allow Download is not enabled ---------------------------\n\n")
+#             print("Time taken: " + str(now2 - now1))
+#             print(
+#                 "\n\n------------------- Allow Download is not enabled ---------------------------\n\n")
 #             assert False
 #
 #
@@ -489,7 +489,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Allow File View is enabled ---------------------------\n")
+#                     "\n\n------------------- Allow File View is enabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -506,11 +506,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Allow File View is not enabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Allow File View is not enabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -545,7 +545,7 @@
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
-#                 print("\n\n--------------------------- Open With is enabled ---------------------------\n")
+#                 print("\n\n------------------- Open With is enabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -562,10 +562,10 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("\n\n--------------------------- Open With is not enabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("\n\n------------------- Open With is not enabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -600,7 +600,7 @@
 #                       "\n" + "Request Method: " + res.request.method +
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
-#                 print("\n\n--------------------------- Show Links is enabled ---------------------------\n")
+#                 print("\n\n------------------- Show Links is enabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -617,11 +617,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Show Links is not enabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Show Links is not enabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -657,7 +657,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Service Types are disabled ---------------------------\n")
+#                     "\n\n------------------- Service Types are disabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -674,11 +674,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Service Types are not disabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Service Types are not disabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -714,7 +714,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Service Types are enabled ---------------------------\n")
+#                     "\n\n------------------- Service Types are enabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -731,11 +731,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Service Types are not enabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Service Types are not enabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -771,7 +771,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- WeBox Passcode is disabled ---------------------------\n")
+#                     "\n\n------------------- WeBox Passcode is disabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -788,11 +788,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- WeBox Passcode is not disabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- WeBox Passcode is not disabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -828,7 +828,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- WeBox Passcode is enabled ---------------------------\n")
+#                     "\n\n------------------- WeBox Passcode is enabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -845,11 +845,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- WeBox Passcode is not enabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- WeBox Passcode is not enabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -886,7 +886,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Google Drive and Dropbox are enabled ---------------------------\n")
+#                     "\n\n------------------- Google Drive and Dropbox are enabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -903,11 +903,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Google Drive and Dropbox are enabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Google Drive and Dropbox are enabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -944,7 +944,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Amazon S3 and SD Card are enabled ---------------------------\n")
+#                     "\n\n------------------- Amazon S3 and SD Card are enabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -961,11 +961,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Amazon S3 and SD Card are not enabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Amazon S3 and SD Card are not enabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -1001,7 +1001,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Created SD card folder successfully ---------------------------\n")
+#                     "\n\n------------------- Created SD card folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -1018,11 +1018,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Unable to create SD card folder ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Unable to create SD card folder ---------------------------\n\n")
 #         assert False
 #
 #
@@ -1059,7 +1059,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Created Google Drive folder successfully ---------------------------\n")
+#                     "\n\n------------------- Created Google Drive folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -1076,11 +1076,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Unable to create Google Drive folder ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Unable to create Google Drive folder ---------------------------\n\n")
 #         assert False
 #
 #
@@ -1116,7 +1116,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Created Amazon S3 folder successfully ---------------------------\n")
+#                     "\n\n------------------- Created Amazon S3 folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -1133,11 +1133,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Unable to create AmazonS3 folder ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Unable to create AmazonS3 folder ---------------------------\n\n")
 #         assert False
 #
 #
@@ -1173,7 +1173,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Created Dropbox folder successfully ---------------------------\n")
+#                     "\n\n------------------- Created Dropbox folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -1190,11 +1190,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Unable to create Dropbox folder ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Unable to create Dropbox folder ---------------------------\n\n")
 #         assert False
 #
 #
@@ -1231,7 +1231,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- SD card and Amazon S3 are disabled ---------------------------\n")
+#                     "\n\n------------------- SD card and Amazon S3 are disabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -1248,11 +1248,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- SD card and Amazon S3 are not disabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- SD card and Amazon S3 are not disabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -1289,7 +1289,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Google Drive and Dropbox are disabled ---------------------------\n")
+#                     "\n\n------------------- Google Drive and Dropbox are disabled ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -1306,11 +1306,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Google Drive and Dropbox are not disabled ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Google Drive and Dropbox are not disabled ---------------------------\n\n")
 #         assert False
 #
 #
@@ -1346,7 +1346,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Created SD card folder successfully ---------------------------\n")
+#                     "\n\n------------------- Created SD card folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -1363,10 +1363,10 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("\n\n--------------------------- Unable to create SD card folder ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print("\n\n------------------- Unable to create SD card folder ---------------------------\n\n")
 #         assert False
 #
 #
@@ -1403,7 +1403,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Deleted Google Drive folder successfully ---------------------------\n")
+#                     "\n\n------------------- Deleted Google Drive folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -1420,11 +1420,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#             WeGuard.logger.error("Exception : " + str(e))
+#             print("Exception : " + str(e))
 #             now2 = datetime.now()
-#             WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#             WeGuard.logger.error(
-#                 "\n\n--------------------------- Unable to delete Google Drive folder ---------------------------\n\n")
+#             print("Time taken: " + str(now2 - now1))
+#             print(
+#                 "\n\n------------------- Unable to delete Google Drive folder ---------------------------\n\n")
 #             assert False
 #
 #
@@ -1460,7 +1460,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Deleted SD Card folder successfully ---------------------------\n")
+#                     "\n\n------------------- Deleted SD Card folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -1477,11 +1477,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#             WeGuard.logger.error("Exception : " + str(e))
+#             print("Exception : " + str(e))
 #             now2 = datetime.now()
-#             WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#             WeGuard.logger.error(
-#                 "\n\n--------------------------- Unable to delete SD Card folder ---------------------------\n\n")
+#             print("Time taken: " + str(now2 - now1))
+#             print(
+#                 "\n\n------------------- Unable to delete SD Card folder ---------------------------\n\n")
 #             assert False
 #
 #
@@ -1517,7 +1517,7 @@
 #                       "\n" + "Status Code: " + str(res.status_code) +
 #                       "\n" + "Response: " + str(res.content) + "\n")
 #                 print(
-#                     "\n\n--------------------------- Deleted Dropbox folder successfully ---------------------------\n")
+#                     "\n\n------------------- Deleted Dropbox folder successfully ---------------------------\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -1534,11 +1534,11 @@
 #                 print("Request did not succeed! Status code:", res.status_code)
 #                 assert False, f"Received {res.status_code} response"
 #     except BaseException as e:
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Exception : " + str(e))
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error(
-#             "\n\n--------------------------- Unable to delete Dropbox folder ---------------------------\n\n")
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "\n\n------------------- Unable to delete Dropbox folder ---------------------------\n\n")
 #         assert False
 #
 #
@@ -1573,7 +1573,7 @@
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
-#             print("\n\n--------------------------- WeBox Files POST API ---------------------------\n")
+#             print("\n\n------------------- WeBox Files POST API ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -1592,7 +1592,7 @@
 #         assert res.status_code == 200
 #     except BaseException as e:
 #         now2 = datetime.now()
-#         WeGuard.logger.error("Time taken: " + str(now2 - now1))
-#         WeGuard.logger.error("\n\n--------------------------- WeBox Files POST API ---------------------------\n\n")
-#         WeGuard.logger.error("Exception : " + str(e))
+#         print("Time taken: " + str(now2 - now1))
+#         print("\n\n------------------- WeBox Files POST API ---------------------------\n\n")
+#         print("Exception : " + str(e))
 #         assert False
