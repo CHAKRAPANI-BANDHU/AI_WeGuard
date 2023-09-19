@@ -1,0 +1,66 @@
+[
+    {
+        "omauri": "./Device/Vendor/MSFT/Policy/Config/Connectivity/AllowBluetooth",
+        "csp": "Policy",
+        "category": "Connectivity",
+        "name": "AllowBluetooth",
+        "description": "Supported values:0-Disallow Bluetooth. If this is set to 0, the radio in the Bluetooth control panel will be grayed out and the user will not be able to turn Bluetooth on, 1-Reserved. If this is set to 1, the radio in the Bluetooth control panel will be functional and the user will be able to turn Bluetooth on, 2(Default)-Allow Bluetooth. If this is set to 2, the radio in the Bluetooth control panel will be functional and the user will be able to turn Bluetooth on. https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-connectivity",
+        "dataType": "int",
+        "allowedActions": {
+            "get": "True",
+            "add": "True",
+            "replace": "True",
+            "delete": "True",
+            "exec":"False"
+        },
+        "supportedValues": {
+            "min": 0,
+            "max": 2,
+            "allowedValues": "0,1,2"
+        },
+        "placeholders": [],
+        "supportedVersions": [
+            {
+                "version": "10",
+                "present": "True"
+            },
+            {
+                "version": "11",
+                "present": "True"
+            }
+        ],
+        "enabled": "True"
+    },
+    {
+        "omauri": "./Device/Vendor/MSFT/Policy/Config/Camera/AllowCamera",
+        "csp": "Policy",
+        "category": "Camera",
+        "name": "AllowCamera",
+        "description": "Supported values:0- Not Allowed, 1(Default)- Allowed. https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-camera",
+        "dataType": "int",
+        "allowedActions": {
+            "get": "True",
+            "add": "True",
+            "replace": "True",
+            "delete": "True",
+            "exec":"False"
+        },
+        "supportedValues": {
+            "min": 0,
+            "max": 1,
+            "allowedValues": "0,1"
+        },
+        "placeholders": [],
+        "supportedVersions": [
+            {
+                "version": "10",
+                "present": "True"
+            },
+            {
+                "version": "11",
+                "present": "True"
+            }
+        ],
+        "enabled": "True"
+    }
+]

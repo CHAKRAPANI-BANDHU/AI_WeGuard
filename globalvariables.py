@@ -176,6 +176,10 @@ AccountLevel_Contacts_IDS = []
 PolicyLevel_Contacts_IDS = []
 
 
+OMA_URIs=[]
+Actions=[]
+dataType=[]
+
 login_event = {
     "agent": "PORTAL",
     "actorId": userName,

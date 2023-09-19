@@ -74,6 +74,9 @@ test_tc_1100001_Windows_Policy_Clone_POST=1
 test_tc_1100002_Windows_Policy_Delete=1
 test_tc_1100003_Windows_Policy_GET=1
 
+# CSPs
+test_tc_1170001_Windows_Generic_CSPs_POST=1
+
 # Contacts
 test_tc_14000_Create_Contacts_Account_Level_POST = 1
 test_tc_14001_Contacts_Account_Level_FCM_UPDATE_After_CreatingAdding_Contacts_POST = 1
