@@ -3,7 +3,6 @@
 # import pytest
 # import globalvariables
 # import general_payload
-# import WeGuardLogger as WeGuard
 # import Executor as Execute
 # import test_GETutils as Utils
 #
@@ -12,83 +11,81 @@
 #     allLogs = "enterprise/rest/weguard/logs/eventsPerAccount?page={page}&size={size}".format(page=page, size=size)
 #     return allLogs
 #
+# # Define Log_Levels and Events before using them in the test function
+# Log_Levels = ["All", "Info", "Warn", "Debug", "Error"]
+# Events = ["All", "Login", "Logout", "Start Impersonate", "End Impersonate", "Policy", "Device", "Group", "Upload",
+#           "Roles and Permissions", "Command", "Broadcast", "WeTalk", "WeBox passcode", "Kiosk passcode", "USERNAME",
+#           "META DATA", "KIOSK", "EMM_ACCOUNT", "LOCATION", "POLICY", "APPLICATION", "SERVICES", "KNOX",
+#           "CRASH REPORT EVENT", "PROVISIONING", "KIOSK LOCK/UNLOCK EVENT", "DEVICE LOCK EVENT", "POLL EVENT",
+#           "GET LICENSE", "PROVISION PROFILE LICENSE", "LICENSE ACTIVATION", "DEVICE WIPE EVENT", "DATA USAGE EVENT",
+#           "PUSH EVENTS", "WeGuard APP", "Find my device", "OTHER EVENTS", "OPS", "DeviceInformation",
+#           "ClearPasscode", "DeviceLock", "InstallApplication", "RemoveApplication", "InstallProfile",
+#           "InstallProvisioningProfile", "Settings", "RestartDevice", "ShutDownDevice"]
+#
+#
+# # Fixture to check if test_tc_901_AuditLogs_Filter_By_ALL is set to 1
+# @pytest.fixture
+# def check_test_tc_901_AuditLogs_Filter_By_ALL():
+#     return Execute.test_tc_901_AuditLogs_Filter_By_ALL == 1
+#
 #
 # # Filter By Level = All, Filter By Events = All and Date Range is current (today)
-# @pytest.mark.parametrize('url', [""])
-# @pytest.mark.skipif(Execute.test_tc_901_AuditLogs_Filter_By_ALL == 0,
-#                     reason="This test must run, it is mandatory. Without this test rest of test case execution should stop")
+# @pytest.mark.parametrize('level, event', [(level, event) for level in Log_Levels for event in Events])
+# @pytest.mark.skipif(not check_test_tc_901_AuditLogs_Filter_By_ALL,
+#                     reason="This test must run, it is mandatory. Without this test, rest of test case execution should stop")
 # @pytest.mark.positivetest
 # @pytest.mark.usualtest
 # @pytest.mark.auditlogs
 # @pytest.mark.sanitytest
 # @pytest.mark.regressiontest
-# @pytest.mark.run(order=10251)
-# def test_tc_0001_Filter_By_Level_and_Event_ALL_on_CurrentDateTime(url):
-#     Log_Levels = ["All", "Info", "Warn", "Debug", "Error"]
-#     Events = ["All", "Login", "Logout", "Start Impersonate", "End Impersonate", "Policy", "Device", "Group", "Upload",
-#               "Roles and Permissions", "Command", "Broadcast", "WeTalk", "WeBox passcode", "Kiosk passcode", "USERNAME",
-#               "META DATA", "KIOSK", "EMM_ACCOUNT", "LOCATION", "POLICY", "APPLICATION", "SERVICES", "KNOX",
-#               "CRASH REPORT EVENT", "PROVISIONING", "KIOSK LOCK/UNLOCK EVENT", "DEVICE LOCK EVENT", "POLL EVENT",
-#               "GET LICENSE", "PROVISION PROFILE LICENSE", "LICENSE ACTIVATION", "DEVICE WIPE EVENT", "DATA USAGE EVENT",
-#               "PUSH EVENTS", "WeGuard APP", "Find my device", "OTHER EVENTS", "OPS", "DeviceInformation",
-#               "ClearPasscode", "DeviceLock", "InstallApplication", "RemoveApplication", "InstallProfile",
-#               "InstallProvisioningProfile", "Settings", "RestartDevice", "ShutDownDevice"]
-#
-#     def generate_test_cases():
-#         test_cases = []
-#         for level in Log_Levels:
-#             for event in Events:
-#                 test_cases.append((level, event))
-#         return test_cases
-#
+# def test_tc_901_Filter_By_Level_and_Event_ALL_on_CurrentDateTime(level, event):
 #     now1 = datetime.now()
 #     if globalvariables.bearerToken == '':
-#         pytest.skip("Empty Bearer token Skipping test")
+#         pytest.skip("Empty Bearer token. Skipping test")
+#
 #     try:
-#         for LogLevel, Event in generate_test_cases():
-#             apiUrl = globalvariables.BaseURL + AuditLogs(globalvariables.page_1, globalvariables.page_100)
-#             Headers = {'Authorization': 'Bearer {}'.format(globalvariables.bearerToken)}
-#             payload = {
-#                 "startDate": globalvariables.start_timestamp,
-#                 "endDate": globalvariables.end_timestamp,
-#                 "event": Event,
-#                 "logLevel": LogLevel,
-#                 "deviceIds": [],
-#                 "policyIds": None
-#             }
-#             res = requests.post(url=apiUrl, headers=Headers, json=payload, timeout=globalvariables.timeout)
-#             curl_str1 = Utils.getCurlEquivalent(res)
-#             print(curl_str1)
-#             if res.status_code == 200:
-#                 print("\n" + "200 The request was a success!" +"\n")
-#                 # Print information about the current test case
-#                 print(f"Test Case: Filter By Level = {LogLevel}, Filter By Event = {Event}" + "\n")
-#                 print("\n" + "Header: " + str(res.headers) +
-#                       "\n" + "Request URL: " + apiUrl +
-#                       "\n" + "Request Method: " + res.request.method +
-#                       "\n" + "Status Code: " + str(res.status_code) +
-#                       "\n" + "Response: " + str(res.content) + "\n")
-#             elif res.status_code == 400:
-#                 print("\n" + "400 Bad Request!" + "\n")
-#                 # Add your assertions or actions for 400 Bad Request response here
-#                 assert False, "Received 400 Bad Request response"
-#             elif res.status_code == 404:
-#                 print("\n" + "404 Result not found!" + "\n")
-#                 # Add your assertions or actions for 404 Not Found response here
-#                 assert False, "Received 404 response"
-#             elif res.status_code == 500:
-#                 print("\n" + "500 Internal Server Error!" + "\n")
-#                 # Add your assertions or actions for 500 Internal Server Error response here
-#                 assert False, "Received 500 response"
-#             else:
-#                 print("Request did not succeed! Status code:", res.status_code)
-#     except BaseException as e:
+#         apiUrl = globalvariables.BaseURL + AuditLogs(globalvariables.page_1, globalvariables.page_100)
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvariables.bearerToken)}
+#         payload = {
+#             "startDate": globalvariables.start_timestamp,
+#             "endDate": globalvariables.end_timestamp,
+#             "event": event,
+#             "logLevel": level,
+#             "deviceIds": [],
+#             "policyIds": None
+#         }
+#         res = requests.post(url=apiUrl, headers=Headers, json=payload, timeout=globalvariables.timeout)
+#
+#         if res.status_code == 200:
+#             print("\n" + "200 The request was a success!" + "\n")
+#             # Print information about the current test case
+#             print(f"Test Case: Filter By Level = {level}, Filter By Event = {event}" + "\n")
+#             print("\n" + "Header: " + str(res.headers) +
+#                   "\n" + "Request URL: " + apiUrl +
+#                   "\n" + "Request Method: " + res.request.method +
+#                   "\n" + "Status Code: " + str(res.status_code) +
+#                   "\n" + "Response: " + str(res.content) + "\n")
+#         elif res.status_code == 400:
+#             print("\n" + "400 Bad Request!" + "\n")
+#             # Add your assertions or actions for 400 Bad Request response here
+#             assert False, "Received 400 Bad Request response"
+#         elif res.status_code == 404:
+#             print("\n" + "404 Result not found!" + "\n")
+#             # Add your assertions or actions for 404 Not Found response here
+#             assert False, "Received 404 response"
+#         elif res.status_code == 500:
+#             print("\n" + "500 Internal Server Error!" + "\n")
+#             # Add your assertions or actions for 500 Internal Server Error response here
+#             assert False, "Received 500 response"
+#         else:
+#             print("Request did not succeed! Status code:", res.status_code)
+#     except Exception as e:
 #         print("Exception : " + str(e))
 #         now2 = datetime.now()
 #         print("Time taken: " + str(now2 - now1))
-#         print(
-#             "\n\n------------------- Failed -- Filter By Level = All, Filter By Events = All and Date Range is current (today) ---------------------------\n")
+#         print(f"Failed to display the Filter By Level = {level}, Filter By Event = {event} on current day/today" + str(datetime.now()) + "\n")
 #         assert False
+#
 #
 # # Filter By Level = All and Date Range is Yesterday
 # @pytest.mark.parametrize('url', [""])

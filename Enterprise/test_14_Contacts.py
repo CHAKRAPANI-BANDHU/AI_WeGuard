@@ -320,7 +320,7 @@
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policy_id in globalvar.Android_profile_ids:
+#         for policy_id in globalvar.Android_Policy_IDs:
 #             apiUrl = globalvar.BaseURL + CreateContacts
 #             headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #             CreateContactsPolicyLevel = [
@@ -388,7 +388,7 @@
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#       for policyId in globalvar.Android_profile_ids:
+#       for policyId in globalvar.Android_Policy_IDs:
 #         apiUrl = globalvar.BaseURL + fcmUpdate
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         FCMUpdateAfterDeleteContacts_PolicyLevel = {"topic": policyId, "type": "SYNC_CONTACTS", "isLicenseLevel": True,
@@ -443,7 +443,7 @@
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvar.Android_profile_ids:
+#         for policyId in globalvar.Android_Policy_IDs:
 #             apiUrl = globalvar.BaseURL + POSTPolicyLevelContacts(policyId, globalvar.page_1000, globalvar.page_1)
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #             res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
@@ -549,7 +549,7 @@
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policy_ids in globalvar.Android_profile_ids:
+#         for policy_ids in globalvar.Android_Policy_IDs:
 #             apiUrl = globalvar.BaseURL + fcmUpdate
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #             FCMUpdateAfterDeleteContacts_PolicyLevel = {"topic": policy_ids, "type": "SYNC_CONTACTS",

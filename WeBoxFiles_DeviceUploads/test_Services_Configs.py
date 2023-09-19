@@ -81,7 +81,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -133,7 +133,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -190,7 +190,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -247,7 +247,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -302,7 +302,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -356,7 +356,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -413,7 +413,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -471,7 +471,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -529,7 +529,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -584,7 +584,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -640,7 +640,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -697,7 +697,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -754,7 +754,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -811,7 +811,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -868,7 +868,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -926,7 +926,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -984,7 +984,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -1041,7 +1041,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -1099,7 +1099,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -1156,7 +1156,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -1213,7 +1213,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -1271,7 +1271,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -1329,7 +1329,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -1385,7 +1385,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -1443,7 +1443,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -1500,7 +1500,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             url3 = url_formatter3(policyId)
 #             apiUrl = globalvars.BaseURL + url3
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
@@ -1557,7 +1557,7 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #          url3 = url_formatter3(policyId)
 #         apiUrl = globalvars.BaseURL + url_formatter3
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}

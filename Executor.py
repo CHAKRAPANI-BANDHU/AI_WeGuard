@@ -70,8 +70,9 @@ test_tc_0000007_Windows_DeviceDetailsByPolicyID_GET =1
 test_tc_0000008_Windows_Device_Search_By_PolicyID_GET =1
 test_tc_0000009_Windows_Device_Search_By_All_String_GET=1
 # Windows Policy
-test_tc_00000010_Windows_Policy_Clone=1
-test_tc_00000011_Windows_Policy_Delete=1
+test_tc_1100001_Windows_Policy_Clone_POST=1
+test_tc_1100002_Windows_Policy_Delete=1
+test_tc_1100003_Windows_Policy_GET=1
 
 # Contacts
 test_tc_14000_Create_Contacts_Account_Level_POST = 1

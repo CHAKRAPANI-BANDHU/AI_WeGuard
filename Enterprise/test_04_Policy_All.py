@@ -2,7 +2,6 @@ from datetime import datetime
 
 import pytest
 import requests
-import WeGuardLogger as WeGuard
 import Executor as Execute
 import globalvariables as Globalinfo
 import test_GETutils as Utils
@@ -24,13 +23,13 @@ def url_formatter(page, size):
 @pytest.mark.run(order=10008)
 def test_tc_001_Policy_ALL_10000(url):
     # Function to store profiles
-    def store_profiles(platform, profile_type, profile_id, profile_name):
+    def store_profiles(platform, policy_type, policy_id, policy_name):
         if platform == "ANDROID":
-            Globalinfo.Android_profiles.append((profile_type, profile_id, profile_name))
+            Globalinfo.Android_Policies.append((policy_type, policy_id, policy_name))
         elif platform == "IOS":
-            Globalinfo.iOS_profiles.append((profile_type, profile_id, profile_name))
+            Globalinfo.iOS_Policies.append((policy_type, policy_id, policy_name))
         elif platform == "WINDOWS":
-            Globalinfo.Windows_profiles.append((profile_type, profile_id, profile_name))
+            Globalinfo.Windows_Policies.append((policy_type, policy_id, policy_name))
         else:
             print("Invalid platform")
 
@@ -63,67 +62,58 @@ def test_tc_001_Policy_ALL_10000(url):
             # Extract and store IDs from JSON response
             # extract_and_store_ids(json_resp, 'platform', 'id')
             # Access Windows profile IDs
-            if Globalinfo.Windows_profiles:
+            if Globalinfo.Windows_Policies:
                 print("\nWindows Policies Information:")
-                for profile in Globalinfo.Windows_profiles:
-                    Globalinfo.Windows_profile_name.append(profile[2])  # Append Name (since Platform is swapped)
-                    Globalinfo.Windows_profile_ids.append(profile[1])  # Append ID
-                    Globalinfo.Windows_profile_type.append(profile[0])  # Append Type (since Name is swapped)
-                    # print("ID:", profile[1])    # Print ID
-                    # print("Names:", profile[2])  # Print Names
-                    # print("Type:", profile[0])  # Print Type
+                for profile in Globalinfo.Windows_Policies:
+                    Globalinfo.Windows_Policy_Names.append(profile[2])  # Append Name 
+                    Globalinfo.Windows_Policy_IDs.append(profile[1])  # Append Policy ID
+                    Globalinfo.Windows_Policy_Types.append(profile[0])  # Append Type 
 
-                Windows_profile_ids_str = ', '.join(Globalinfo.Windows_profile_ids)
-                print("\nWindows Policy IDs: " + Windows_profile_ids_str)
+                Windows_Policy_IDs_str = ', '.join(Globalinfo.Windows_Policy_IDs)
+                print("\nWindows Policy IDs: " + Windows_Policy_IDs_str)
 
-                Windows_Names_str = ', '.join(Globalinfo.Windows_profile_name)
+                Windows_Names_str = ', '.join(Globalinfo.Windows_Policy_Names)
                 print("\nWindows Policy Names: " + Windows_Names_str)
 
-                Windows_Type_str = ', '.join(Globalinfo.Windows_profile_type)
+                Windows_Type_str = ', '.join(Globalinfo.Windows_Policy_Types)
                 print("\nWindows Policy Types: " + Windows_Type_str + "\n")
             else:
                 print("No Windows Policies found.")
 
             # Access Android profile IDs
-            if Globalinfo.Android_profiles:
+            if Globalinfo.Android_Policies:
                 print("\nAndroid Policies Information:")
-                for profile in Globalinfo.Android_profiles:
-                    Globalinfo.Android_profile_ids.append(profile[1])  # Append ID
-                    Globalinfo.Android_profile_name.append(profile[2])  # Append Name
-                    Globalinfo.Android_profile_type.append(profile[0])  # Append Type
-                    # print("ID:", profile[1])    # Print ID
-                    # print("Names:", profile[2])  # Print Names
-                    # print("Type:", profile[0])  # Print Types
+                for profile in Globalinfo.Android_Policies:
+                    Globalinfo.Android_Policy_IDs.append(profile[1])  # Append Policy ID
+                    Globalinfo.Android_Policy_Names.append(profile[2])  # Append Name
+                    Globalinfo.Android_Policy_Types.append(profile[0])  # Append Type
 
-                Android_profile_ids_str = ', '.join(Globalinfo.Android_profile_ids)
-                print("\nAndroid Policy IDs: " + Android_profile_ids_str)
+                Android_Policy_IDs_str = ', '.join(Globalinfo.Android_Policy_IDs)
+                print("\nAndroid Policy IDs: " + Android_Policy_IDs_str)
 
-                Android_Names_str = ', '.join(Globalinfo.Android_profile_name)
+                Android_Names_str = ', '.join(Globalinfo.Android_Policy_Names)
                 print("\nAndroid Policy Names: " + Android_Names_str)
 
-                Android_Types_str = ', '.join(Globalinfo.Android_profile_type)
+                Android_Types_str = ', '.join(Globalinfo.Android_Policy_Types)
                 print("\nAndroid Policy Types: " + Android_Types_str + "\n")
             else:
                 print("No Android Policies found.")
 
             # Access iOS profile IDs
-            if Globalinfo.iOS_profiles:
+            if Globalinfo.iOS_Policies:
                 print("\niOS Policies Information:")
-                for profile in Globalinfo.iOS_profiles:
-                    Globalinfo.iOS_profile_ids.append(profile[1])  # Append ID
-                    Globalinfo.iOS_profile_name.append(profile[2])  # Append Name
-                    Globalinfo.iOS_profile_type.append(profile[0])  # Append Type
-                    # print("ID:", profile[1])   # Print ID
-                    # print("Name:", profile[2])  # Print Name
-                    # print("Type:", profile[0])  # Print Type
+                for profile in Globalinfo.iOS_Policies:
+                    Globalinfo.iOS_Policy_IDs.append(profile[1])  # Append ID
+                    Globalinfo.iOS_Policy_Names.append(profile[2])  # Append Name
+                    Globalinfo.iOS_Policy_Types.append(profile[0])  # Append Type
 
-                iOS_profile_ids_str = ', '.join(Globalinfo.iOS_profile_ids)
-                print("\niOS Policy IDs: " + iOS_profile_ids_str)
+                iOS_Policy_IDs_str = ', '.join(Globalinfo.iOS_Policy_IDs)
+                print("\niOS Policy IDs: " + iOS_Policy_IDs_str)
 
-                iOS_Names_str = ', '.join(Globalinfo.iOS_profile_name)
+                iOS_Names_str = ', '.join(Globalinfo.iOS_Policy_Names)
                 print("\niOS Policy Names: " + iOS_Names_str)
 
-                iOS_Types_str = ', '.join(Globalinfo.iOS_profile_type)
+                iOS_Types_str = ', '.join(Globalinfo.iOS_Policy_Types)
                 print("\niOS Policy Types: " + iOS_Types_str + "\n")
             else:
                 print("No iOS Policies found.")
@@ -131,15 +121,15 @@ def test_tc_001_Policy_ALL_10000(url):
                 # Store policies based on platform and type
                 for policies in json_resp.get('list', []):
                     platform = policies.get('platform')
-                    profile_type = policies.get('type')
-                    profile_id = policies.get('id')
-                    profile_name = policies.get('name')
-                    store_profiles(platform, profile_type, profile_id, profile_name)
+                    policy_type = policies.get('type')
+                    policy_id = policies.get('id')
+                    policy_name = policies.get('name')
+                    store_profiles(platform, policy_type, policy_id, policy_name)
 
             # Print stored profiles
-            print("\nAndroid Profiles:", Globalinfo.Android_profiles, "\n")
-            print("\niOS Profiles:", Globalinfo.iOS_profiles, "\n")
-            print("\nWindows Profiles:", Globalinfo.Windows_profiles, "\n")
+            print("\nAndroid Policies:", Globalinfo.Android_Policies, "\n")
+            print("\niOS Policies:", Globalinfo.iOS_Policies, "\n")
+            print("\nWindows Policies:", Globalinfo.Windows_Policies, "\n")
         elif res.status_code == 400:
             print("\n" + "400 Bad Request!" + "\n")
             assert False, "Received 400 Bad Request response"

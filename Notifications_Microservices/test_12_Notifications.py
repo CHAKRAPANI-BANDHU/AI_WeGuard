@@ -232,7 +232,7 @@
 #     if globalvariables.bearerToken == '':
 #         pytest.skip("Empty Bearer token, Skipping test")
 #     try:
-#         for policyId in globalvariables.Android_profile_ids:
+#         for policyId in globalvariables.Android_Policy_IDs:
 #             apiUrl = globalvariables.BaseURL + GETNotificationsByPolicyLevel(policyId)
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvariables.bearerToken)}
 #             res = requests.get(url=apiUrl, headers=Headers, timeout=globalvariables.timeout)
@@ -281,7 +281,7 @@
 #         apiUrl = globalvariables.BaseURL + POSTPolicyLevelNotifications
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvariables.bearerToken)}
 #         # Loop through policy IDs and send POST requests
-#         for policy_id in globalvariables.Android_profile_ids:
+#         for policy_id in globalvariables.Android_Policy_IDs:
 #             # Update the payload with the current policy ID
 #             Generalpayload.PostPolicyLevelAlertConfig["accountId"] = Generalpayload.AccountID
 #             Generalpayload.PostPolicyLevelAlertConfig["policyId"] = policy_id
@@ -342,7 +342,7 @@
 #         pytest.skip("Empty Bearer token, Skipping test")
 #     try:
 #         for notification_ids in Generalpayload.getPolicyLevelNotificationId:
-#             for policy_ids in globalvariables.Android_profile_ids:
+#             for policy_ids in globalvariables.Android_Policy_IDs:
 #                 apiUrl = globalvariables.BaseURL + PUTNotifications_PolicyLevel(notification_ids)
 #                 headers = {'Authorization': f'Bearer {globalvariables.bearerToken}'}
 #                 Generalpayload.PutPolicyLevelNotifications["accountId"] = globalvariables.accountId
@@ -405,7 +405,7 @@
 #     if globalvariables.bearerToken == '':
 #         pytest.skip("Empty Bearer token, Skipping test")
 #     try:
-#         for policyId in globalvariables.Android_profile_ids:
+#         for policyId in globalvariables.Android_Policy_IDs:
 #             for geofenceId in Generalpayload.GeofenceIds:
 #                 POSTGeofencePayload = {
 #                     "geofenceIdList": [geofenceId],
@@ -456,7 +456,7 @@
 #     if globalvariables.bearerToken == '':
 #         pytest.skip("Empty Bearer token, Skipping test")
 #     try:
-#         for policyId in globalvariables.Android_profile_ids:
+#         for policyId in globalvariables.Android_Policy_IDs:
 #             apiUrl = globalvariables.BaseURL + GETPolicyLevelGeofence(policyId)
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvariables.bearerToken)}
 #             res = requests.get(url=apiUrl, headers=Headers, timeout=globalvariables.timeout)
@@ -577,7 +577,7 @@
 #     if globalvariables.bearerToken == '':
 #         pytest.skip("Empty Bearer token, Skipping test")
 #     try:
-#         for policyId in globalvariables.Android_profile_ids:
+#         for policyId in globalvariables.Android_Policy_IDs:
 #             for geofenceIdList in Generalpayload.GeofenceIds:
 #              apiUrl = globalvariables.BaseURL + DeleteGeofence(policyId)
 #              Headers = {'Authorization': 'Bearer {}'.format(globalvariables.bearerToken)}
@@ -625,7 +625,7 @@
 #     if globalvariables.bearerToken == '':
 #         pytest.skip("Empty Bearer token, Skipping test")
 #     try:
-#         for policyId in globalvariables.Android_profile_ids:
+#         for policyId in globalvariables.Android_Policy_IDs:
 #             for geofenceType_value in Generalpayload.geofenceType_values:
 #                 for enabled_value in Generalpayload.enabled_values:
 #                     # Update the payload with the current values
@@ -676,7 +676,7 @@
 #     if globalvariables.bearerToken == '':
 #         pytest.skip("Empty Bearer token, Skipping test")
 #     try:
-#         for policyId in globalvariables.Android_profile_ids:
+#         for policyId in globalvariables.Android_Policy_IDs:
 #             for android_device_id in globalvariables.Android_DeviceIDs:
 #                  for geofenceId in Generalpayload.GeofenceIDS:
 #                     apiUrl = globalvariables.BaseURL + TimespentGeofence(globalvariables.accountId,

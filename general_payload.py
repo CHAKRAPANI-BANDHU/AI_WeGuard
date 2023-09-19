@@ -29,7 +29,7 @@ AndroidPoliciesDevices = {
     "stolen": None,
     "unEnrolled": None,
     "active": None,
-    "policyIdList": globalvariables.Android_profile_ids
+    "policyIdList": globalvariables.Android_Policy_IDs
 }
 
 UnenrolledDevices = {
@@ -95,7 +95,7 @@ EnableAllDevicesState = {
     "stolen": True,
     "unEnrolled": True,
     "active": True,
-    "policyIdList": globalvariables.Android_profile_ids
+    "policyIdList": globalvariables.Android_Policy_IDs
 }
 
 DisableAllDevicesState = {
@@ -106,7 +106,7 @@ DisableAllDevicesState = {
     "stolen": False,
     "unEnrolled": False,
     "active": False,
-    "policyIdList": globalvariables.Android_profile_ids
+    "policyIdList": globalvariables.Android_Policy_IDs
 }
 
 FilterByGroupName = {

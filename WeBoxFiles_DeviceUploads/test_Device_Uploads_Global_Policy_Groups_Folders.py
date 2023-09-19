@@ -227,11 +227,11 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             for name in WeBox.policyfolderslist:
 #                 viewfilesinpolicyfolders = url_formatter9(policyId, name, globalvars.page_1, globalvars.page_100,
 #                                                           WeBox.isostart, WeBox.isoend)
-#                 # viewfilesinpolicyfolders = url_formatter9(globalvars.Android_profile_ids, 'AI Documents', globalvars.page_1, globalvars.page_100, WeBox.isostart, WeBox.isoend)
+#                 # viewfilesinpolicyfolders = url_formatter9(globalvars.Android_Policy_IDs, 'AI Documents', globalvars.page_1, globalvars.page_100, WeBox.isostart, WeBox.isoend)
 #                 apiUrl = globalvars.BaseURL + viewfilesinpolicyfolders
 #                 Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
 #                 res = requests.get(url=apiUrl, headers=Headers, timeout=globalvars.timeout)
@@ -340,10 +340,10 @@
 #     if globalvars.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policyId in globalvars.Android_profile_ids:
+#         for policyId in globalvars.Android_Policy_IDs:
 #             for name in WeBox.policyfolderslist:
 #                 policygroupfiles = url_formatter11(policyId, name, globalvars.page_1, globalvars.page_100)
-#                 # policygroupfiles = url_formatter11(globalvars.Android_profile_ids, 'AI Documents', globalvars.page_1, globalvars.page_100)
+#                 # policygroupfiles = url_formatter11(globalvars.Android_Policy_IDs, 'AI Documents', globalvars.page_1, globalvars.page_100)
 #                 apiUrl = globalvars.BaseURL + policygroupfiles
 #                 Headers = {'Authorization': 'Bearer {}'.format(globalvars.bearerToken)}
 #                 res = requests.get(url=apiUrl, headers=Headers, timeout=globalvars.timeout)

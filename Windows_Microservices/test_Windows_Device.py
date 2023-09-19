@@ -146,7 +146,7 @@
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policy_id in globalvar.Windows_profile_ids:
+#         for policy_id in globalvar.Windows_Policy_IDs:
 #             WindowsDevices = WindowsDeviceDetails(globalvar.isoend, globalvar.page_1, policy_id, globalvar.page_1000,
 #                                                   globalvar.isostart)
 #             apiUrl = globalvar.BaseURL + WindowsDevices
@@ -197,7 +197,7 @@
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for policy_id in globalvar.Windows_profile_ids:
+#         for policy_id in globalvar.Windows_Policy_IDs:
 #             WindowsDevices = WindowsDevicesByPolicyIDs(globalvar.page_1, globalvar.page_1000)
 #             apiUrl = globalvar.BaseURL + WindowsDevices
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
@@ -350,7 +350,7 @@
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#       for policy_id in globalvar.Windows_profile_ids:
+#       for policy_id in globalvar.Windows_Policy_IDs:
 #         apiUrl = globalvar.BaseURL + WindowsDeviceDetailsByPolicyID(policy_id, globalvariables.page_1, globalvariables.page_500)
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
@@ -398,7 +398,7 @@
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#       for policy_id in globalvar.Windows_profile_ids:
+#       for policy_id in globalvar.Windows_Policy_IDs:
 #         apiUrl = globalvar.BaseURL + SearchWindowsDeviceByPolicyID(policy_id, globalvariables.page_1, globalvariables.page_500)
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)

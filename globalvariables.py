@@ -127,10 +127,10 @@ UnacknowledgeAlertsIDs = []
 # Policy Groups Information of Android, iOS and Windows from common policy
 # After clicking on policy groups on left navigation bar
 # Android Policies Info
-Android_profiles = []
-Android_profile_ids = []
-Android_profile_name = []
-Android_profile_type = []
+Android_Policies = []
+Android_Policy_IDs = []
+Android_Policy_Names = []
+Android_Policy_Types = []
 Android_profile_platform = []
 
 # Android Devices Info
@@ -139,10 +139,10 @@ Android_Devices = []
 Android_DeviceIDs = []
 
 # Windows Policies Info
-Windows_profiles = []
-Windows_profile_ids = []
-Windows_profile_name = []
-Windows_profile_type = []
+Windows_Policies = []
+Windows_Policy_IDs = []
+Windows_Policy_Names = []
+Windows_Policy_Types = []
 Windows_profile_platform = []
 
 # Windows Devices Info
@@ -151,11 +151,11 @@ Windows_Devices = []
 Windows_DeviceIDs = []
 
 # iOS Policies Info
-iOS_profiles = []
-iOS_profile_ids = []
-iOS_profile_name = []
-iOS_profile_type = []
-iOS_profile_platform = []
+iOS_Policies = []
+iOS_Policy_IDs = []
+iOS_Policy_Names = []
+iOS_Policy_Types = []
+iOS_Profile_Platform = []
 
 # iOS Devices Info
 iOS_Mongo_DB_DeviceIDs = []
