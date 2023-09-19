@@ -59,12 +59,12 @@
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!" + "\n")
 #             # Print information about the current test case
-#             print(f"Test Case: Filter By Level = {level}, Filter By Event = {event}" + "\n")
 #             print("\n" + "Header: " + str(res.headers) +
 #                   "\n" + "Request URL: " + apiUrl +
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content) + "\n")
+#             print(f"Test Case: Filter By Level = {level}, Filter By Event = {event}" + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here

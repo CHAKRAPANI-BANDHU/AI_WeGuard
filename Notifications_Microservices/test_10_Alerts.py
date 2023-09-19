@@ -188,7 +188,6 @@
 #         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvariables.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
-#         print(f"------------------- Filter By Alert type={alert_type} and level={alert_level} ---------------------------\n")
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!" + "\n")
 #             print("\n" + "Header: " + str(res.headers) +
@@ -196,6 +195,7 @@
 #                   "\n" + "Request Method: " + res.request.method +
 #                   "\n" + "Status Code: " + str(res.status_code) +
 #                   "\n" + "Response: " + str(res.content))
+#         print(f"------------------- Filter By Alert type={alert_type} and level={alert_level} ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n400 Bad Request!")
 #             assert False, "Received 400 Bad Request response"
