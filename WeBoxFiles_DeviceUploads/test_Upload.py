@@ -34,7 +34,7 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -77,7 +77,7 @@
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
 #         print(res.content)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -118,7 +118,7 @@
 #         with open("WeBoxFiles_DeviceUploads/FilesUpload/Daishi.gif", 'rb') as file:
 #             files = {'file': file.read()}  # Read the file content
 #         res = requests.post(url=apiUrl, files=files, headers=Headers)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -157,7 +157,7 @@
 #         with open("WeBoxFiles_DeviceUploads/FilesUpload/Over the Horizon.mp3", 'rb') as file:
 #             files = {'file': file.read()}  # Read the file content
 #         res = requests.post(url=apiUrl, files=files, headers=Headers)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -195,7 +195,7 @@
 #         Files = {
 #             'file': open("WeBoxFiles_DeviceUploads/FilesUpload/file_example_OOG_1MG (1).ogg", 'rb')}
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -231,7 +231,7 @@
 #         Headers = {'x-token': 'lqa7nt69izjgcg0uv4rl'}
 #         files = {'file': open("WeBoxFiles_DeviceUploads/FilesUpload/FilesUpload/elephants-dream.webm", 'rb')}
 #         res = requests.post(url=apiUrl, files=files, headers=Headers)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -269,7 +269,7 @@
 #         files = {
 #             'file': open("WeBoxFiles_DeviceUploads/FilesUpload/file_example_MOV_1280_1_4MB.mov", 'rb')}
 #         res = requests.post(url=apiUrl, files=files, headers=Headers)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -309,7 +309,7 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -346,7 +346,7 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -382,7 +382,7 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -420,7 +420,7 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -458,7 +458,7 @@
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
 #         print(res.content)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -496,7 +496,7 @@
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
 #         print(res.content)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -535,7 +535,7 @@
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
 #         print(res.content)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -572,7 +572,7 @@
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
 #         print(res.content)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -610,7 +610,7 @@
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
 #         print(res.content)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -648,7 +648,7 @@
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
 #         print(res.content)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -684,7 +684,7 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -721,7 +721,7 @@
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
 #         print(res.content)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -761,7 +761,7 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +
@@ -797,7 +797,7 @@
 #         res = requests.post(url=apiUrl, files=Files, headers=Headers, timeout=VariableX.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #   print(curl_str1)
-#         print("\n" + "Header: " + str(res.headers) +
+#         print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                              "\n" + "Request URL: " + apiUrl +
 #                              "\n" + "Request Method: " + res.request.method +
 #                              "\n" + "Status Code: " + str(res.status_code) +

@@ -175,10 +175,10 @@ GEOFENCE_TYPES=[]
 AccountLevel_Contacts_IDS = []
 PolicyLevel_Contacts_IDS = []
 
-
+# Windows CSPs
 OMA_URIs=[]
-Actions=[]
 dataType=[]
+Actions=[]
 
 login_event = {
     "agent": "PORTAL",

@@ -45,7 +45,7 @@ def test_tc_001_Policy_ALL_10000(url):
             print("\n" + "200 The request was a success!" + "\n")
             curl_str1 = Utils.getCurlEquivalent(res)
             print(curl_str1)
-            print("\n" + "Header: " + str(res.headers) +
+            print(#"\n" + "Header: " + str(res.headers) + "\n"
                 "\n" + "Request URL: " + apiUrl +
                 "\n" + "Request Method: " + res.request.method +
                 "\n" + "Status Code: " + str(res.status_code) +

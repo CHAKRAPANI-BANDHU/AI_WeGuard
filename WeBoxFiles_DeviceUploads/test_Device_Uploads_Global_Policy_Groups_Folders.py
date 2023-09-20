@@ -70,7 +70,7 @@
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
+#             print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                                  "\n" + "Request URL: " + apiUrl +
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
@@ -125,7 +125,7 @@
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
+#             print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                                  "\n" + "Request URL: " + apiUrl +
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
@@ -181,7 +181,7 @@
 #             print(curl_str1)
 #             if res.status_code == 200:
 #                 print("\n" + "200 The request was a success!")
-#                 print("\n" + "Header: " + str(res.headers) +
+#                 print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                                      "\n" + "Request URL: " + apiUrl +
 #                                      "\n" + "Request Method: " + res.request.method +
 #                                      "\n" + "Status Code: " + str(res.status_code) +
@@ -239,7 +239,7 @@
 #                 print(curl_str1)
 #                 if res.status_code == 200:
 #                     print("\n" + "200 The request was a success!")
-#                     print("\n" + "Header: " + str(res.headers) +
+#                     print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                                          "\n" + "Request URL: " + apiUrl +
 #                                          "\n" + "Request Method: " + res.request.method +
 #                                          "\n" + "Status Code: " + str(res.status_code) +
@@ -294,7 +294,7 @@
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
 #             WeBox.sharedfolderslist = json.loads(res.content)['entities']
-#             print("\n" + "Header: " + str(res.headers) +
+#             print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                                  "\n" + "Request URL: " + apiUrl +
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
@@ -351,7 +351,7 @@
 #                 print(curl_str1)
 #                 if res.status_code == 200:
 #                     print("\n" + "200 The request was a success!")
-#                     print("\n" + "Header: " + str(res.headers) +
+#                     print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                                          "\n" + "Request URL: " + apiUrl +
 #                                          "\n" + "Request Method: " + res.request.method +
 #                                          "\n" + "Status Code: " + str(res.status_code) +
@@ -405,7 +405,7 @@
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
+#             print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                                  "\n" + "Request URL: " + apiUrl +
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
@@ -460,7 +460,7 @@
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
+#             print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                                  "\n" + "Request URL: " + apiUrl +
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
@@ -516,7 +516,7 @@
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
-#             print("\n" + "Header: " + str(res.headers) +
+#             print(#"\n" + "Header: " + str(res.headers) + "\n"
 #                                  "\n" + "Request URL: " + apiUrl +
 #                                  "\n" + "Request Method: " + res.request.method +
 #                                  "\n" + "Status Code: " + str(res.status_code) +
