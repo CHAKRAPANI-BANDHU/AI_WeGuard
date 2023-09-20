@@ -12,12 +12,12 @@ NotificationServerVersionURL = "notification/app/version"
 
 # GET method to get notification server version
 @pytest.mark.parametrize('url', [""])
-@pytest.mark.skipif(Execute.test_1105_NotificationServerVersion_GET == 0, reason="Skip test")
+@pytest.mark.skipif(Execute.test_1105_Notification_Server_Version_GET == 0, reason="Skip test")
 @pytest.mark.positivetest
 @pytest.mark.sanitytest
 @pytest.mark.regressiontest
 @pytest.mark.run(order=11005)
-def test_tc_1105_GET_NotificationServerVersion(url):
+def test_tc_1105_GET_Notification_Server_Version(url):
     now1 = datetime.now()
     if Info.bearerToken == '':
         pytest.skip("Empty Bearer token, Skipping test")
