@@ -46,7 +46,7 @@ def test_OMA_URIs(oma_uri, dataType, action):
                       "\n" + "Status Code: " + str(res.status_code) +
                       "\n" + "Request Payload: " + str(payload) +
                       "\n" + "Response: " + str(res.content) + "\n")
-                print(f"Running test for OMA-URI: {oma_uri}")
+                print(f"Executed test for OMA-URI: {oma_uri}")
             elif res.status_code == 400:
                 print("\n" + "400 Bad Request!" + "\n")
                 # Add your assertions or actions for 400 Bad Request response here
@@ -66,5 +66,5 @@ def test_OMA_URIs(oma_uri, dataType, action):
             print("RequestException : " + str(e))
             now2 = datetime.now()
             print("Time taken: " + str(now2 - now1))
-            print(f"Failed to execute test for OMA-URI: {oma_uri}")
+            print(f"Failed to execute the test for OMA-URI: {oma_uri}")
             assert False
