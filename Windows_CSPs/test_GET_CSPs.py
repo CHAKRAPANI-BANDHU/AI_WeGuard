@@ -20,7 +20,7 @@ with open('/Users/chakrapani/AIWeGuardAPIs/Windows_CSPs/CSPs.json', 'r') as json
         globalvar.Actions.append(action)
 
 
-# GET CSPs
+# Execute all the CSPs [Only GET]
 @pytest.mark.parametrize('oma_uri, dataType, action', zip(globalvar.OMA_URIs, globalvar.dataType, globalvar.Actions))
 @pytest.mark.skipif(Execute.test_tc_1170001_Windows_Generic_CSPs_POST == 0, reason="skip test")
 @pytest.mark.positivetest
