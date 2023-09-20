@@ -55,6 +55,20 @@ test_tc_3014_Android_Devices = 1
 test_tc_3015_iOS_Devices = 1
 test_tc_3016_Windows_Devices = 1
 
+# Device details view
+test_tc_5001_GET_Android_Device_By_PolicyID=1
+test_tc_5002_GET_Android_Device_By_MongoDBID=1
+test_tc_5003_POST_Android_Device_FCMUpdate_DU=1
+test_tc_5004_GET_Android_Device_Notes=1
+test_tc_5005_POST_Android_Device_Activity=1
+test_tc_5006_GET_Android_Device_ScreenShareHistory=1
+test_tc_5007_GET_Android_Device_Apps=1
+test_tc_5008_GET_Android_Device_Broadcast_History=1
+test_tc_5009_PUT_Android_Device_Last_Contact_Time=1
+test_tc_5010_GET_Android_Device_Data_Usage=1
+test_tc_5011_GET_Android_Device_Enterprise_AppSizes=1
+test_tc_5012_POST_Android_Device_Wake_Up=1
+
 # Policy Groups
 test_tc_0003_Policy_All = 1
 

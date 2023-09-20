@@ -8,17 +8,6 @@ import test_GETutils as Utils
 
 GenericCSP = "windows/rest/csp/genericcsp"
 
-# Load the JSON data
-with open('/Users/chakrapani/AIWeGuardAPIs/Windows_CSPs/CSPs.json', 'r') as json_file:
-    data = json.load(json_file)
-    
-    # Iterate through each entry in the JSON data
-    for entry in data:
-        globalvar.OMA_URIs.append(entry["omauri"])
-        globalvar.dataType.append(entry['dataType'])
-        action = entry.get("action", "get")
-        globalvar.Actions.append(action)
-
 
 # Execute all the CSPs [Only GET]
 @pytest.mark.parametrize('oma_uri, dataType, action', zip(globalvar.OMA_URIs, globalvar.dataType, globalvar.Actions))
@@ -33,6 +22,15 @@ def test_OMA_URIs(oma_uri, dataType, action):
         try:
             apiUrl = globalvar.BaseURL + GenericCSP
             Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+            # Load the JSON data
+            with open('/Users/chakrapani/AIWeGuardAPIs/Windows_CSPs/CSPs.json', 'r') as json_file:
+                data = json.load(json_file)
+                # Iterate through each entry in the JSON data
+                for entry in data:
+                    globalvar.OMA_URIs.append(entry["omauri"])
+                    globalvar.dataType.append(entry['dataType'])
+                    action = entry.get("action", "get")
+                    globalvar.Actions.append(action)
             policy_id = globalvar.Windows_Policy_IDs[0]
             payload = {"csps": [{"oma-uri": oma_uri, "dataType": dataType, "action": action}], "policyId": policy_id}
             res = requests.post(url=apiUrl, headers=Headers, json=payload, timeout=globalvar.timeout)
