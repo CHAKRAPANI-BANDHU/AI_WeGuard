@@ -58,6 +58,9 @@ test_tc_3016_Windows_Devices = 1
 # Policy Groups
 test_tc_0003_Policy_All = 1
 
+# Enterprise App Version
+test_1111111_Enterprise_Server_Version_GET=1
+
 # Windows Microservices
 # Windows Device
 test_tc_0000001_Windows_DeviceDetailsByMongoID_GET = 1
