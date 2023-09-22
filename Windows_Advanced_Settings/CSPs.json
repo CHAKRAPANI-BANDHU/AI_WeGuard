@@ -62,5 +62,37 @@
             }
         ],
         "enabled": "True"
+    },
+    {
+        "omauri": "./Device/Vendor/MSFT/Policy/Config/System/AllowLocation",
+        "csp": "Policy",
+        "category": "System",
+        "name": "AllowLocation",
+        "description": "Supported values:0- Force Location Off. All Location Privacy settings are toggled off and grayed out. Users cannot change the settings, and no apps are allowed access to the Location service, including Cortana and Search, 1(Default)-Location service is allowed. The user has control and can change Location Privacy settings on or off, 2-Force Location On. All Location Privacy settings are toggled on and grayed out. Users cannot change the settings and all consent permissions will be automatically suppressed. https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-system",
+        "dataType": "int",
+        "allowedActions": {
+            "get": true,
+            "add": true,
+            "replace": true,
+            "delete": true,
+            "exec": false
+        },
+        "supportedValues": {
+            "min": 0,
+            "max": 2,
+            "allowedValues":"0,1,2"
+        },
+        "placeholders": [],
+        "supportedVersions": [
+            {
+                "version": "10",
+                "present": true
+            },
+            {
+                "version": "11",
+                "present": true
+            }
+        ],
+        "enabled": true
     }
 ]
