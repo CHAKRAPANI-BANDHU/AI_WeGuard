@@ -1,4 +1,3 @@
-import WeGuardLogger as WeGuard
 import json
 from datetime import datetime
 import pytest

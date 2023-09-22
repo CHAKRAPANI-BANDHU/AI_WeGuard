@@ -8,33 +8,67 @@ import test_GETutils as Utils
 
 GenericCSP = "windows/rest/csp/genericcsp"
 
+# Define a class to represent CSP data
+class CSPData:
+    def __init__(self, omauri, csp, category, name, description, dataType, allowedActions, supportedValues, supportedVersions, enabled):
+        self.omauri = omauri
+        self.csp = csp
+        self.category = category
+        self.name = name
+        self.description = description
+        self.dataType = dataType
+        self.allowedActions = allowedActions
+        self.supportedValues = supportedValues
+        self.supportedVersions = supportedVersions
+        self.enabled = enabled
+
 # Load CSPs JSON data
 with open('Windows_Advanced_Settings/CSPs.json', 'r') as json_file:
     csp_data = json.load(json_file)
 
-# Modify the test_data list comprehension to include all combinations of data, action, and value
+# Parse JSON data into CSPData objects
+csp_objects = [CSPData(entry["omauri"], entry["csp"], entry["category"], entry["name"], entry["description"],
+                       entry["dataType"], entry["allowedActions"], entry["supportedValues"],
+                       entry["supportedVersions"], entry["enabled"]) for entry in csp_data]
+
+# Initialize the test_data list
 test_data = []
 
-for entry in csp_data:
-    allowed_actions = [action for action, allowed in entry["allowedActions"].items() if allowed.lower() == "true"]
-    supported_values = entry["supportedValues"]["allowedValues"].split(",")
-    
+# Print the CSP data, supported values, and allowed actions
+for csp_obj in csp_objects:
+    print("\nCSP Data:")
+    print(vars(csp_obj))  # Printing CSP objects as dictionaries
+
+    allowed_actions = [action for action, allowed in csp_obj.allowedActions.items() if allowed.lower() == "true"]
+    supported_values = csp_obj.supportedValues["allowedValues"].split(",")
+
+    # Print supported values and allowed actions for each CSP object
+    print("\nSupported Values for CSP:", csp_obj.name)
+    print(supported_values)
+
+    print("\nAllowed Actions for CSP:", csp_obj.name)
+    print(allowed_actions)
+
     # Include "get" action without supported values
     if "get" in allowed_actions:
-        test_data.append((entry, "get", None))
-    
+        test_data.append((csp_obj, "get", None))
+
     # Include "add," "replace," and "delete" actions for supported values
     for action in ["add", "replace", "delete"]:
         if action in allowed_actions:
             for value in supported_values:
-                test_data.append((entry, action, value))
+                test_data.append((csp_obj, action, value))
 
+# Print the generated test data
+print("\nTest Data:")
+for data, action, value in test_data:
+    print(f"Data: {data.omauri}, Action: {action}, Value: {value}")
 
 # Define a function to format the test case name
 def format_test_case_name(data, action, value):
     if action == "get":
-        return f"OMA-URI: {data['omauri']}, Action: {action}, Supported Values: None"
-    return f"OMA-URI: {data['omauri']}, Action: {action}, Supported Values: {value}"
+        return f"OMA-URI: {data.omauri}, Action: {action}, Supported Values: None"
+    return f"OMA-URI: {data.omauri}, Action: {action}, Supported Values: {value}"
 
 
 # Execute actions based on allowedActions and values
@@ -47,8 +81,8 @@ def format_test_case_name(data, action, value):
 @pytest.mark.run(order=1170001)
 def test_Windows_CSPs(data, action, value):
     now1 = datetime.now()
-    oma_uri = data["omauri"]
-    dataType = data["dataType"]
+    oma_uri = data.omauri
+    dataType = data.dataType
     policy_id = globalvar.Windows_Policy_IDs[0]  # Make sure you have this defined somewhere
     
     try:
