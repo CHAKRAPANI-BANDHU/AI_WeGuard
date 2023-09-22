@@ -36,12 +36,13 @@ def test_tc_1001_Login(url):
         jsonData_str = str(jsonData)
         if res.status_code == 200:
             print("\n\n" + "200 The request was a success!")
-            print(#"\n" + "Header: " + str(res.headers) + "\n"
-                  "\n" + "Request URL: " + apiUrl +
-                  "\n" + "Request Method: " + res.request.method +
-                  "\n" + "Status Code: " + str(res.status_code) +
-                  "\n" + "Request Payload: " + jsonData_str +
-                  "\n" + "Response: " + str(res.content) + "\n")
+            print(
+                # "\n" + "Header: " + str(res.headers) + "\n"
+                "\n" + "Request URL: " + apiUrl +
+                "\n" + "Request Method: " + res.request.method +
+                "\n" + "Status Code: " + str(res.status_code) +
+                "\n" + "Request Payload: " + jsonData_str +
+                "\n" + "Response: " + str(res.content) + "\n")
             # print(json.loads(res.content)['entity']['userData'])
             globalvar.bearerToken = json.loads(res.content)['entity']['jwtToken']
             globalvar.activationCode = json.loads(res.content)['entity']['activationCode']
@@ -94,11 +95,12 @@ def test_tc_1002_Login_Event(url):
             curl_str1 = Utils.getCurlEquivalent(res)
             print(curl_str1)
             print("\n" + "200 The request was a success!")
-            print(#"\n" + "Header: " + str(res.headers) + "\n"
-                                 "\n" + "Request URL: " + apiUrl +
-                                 "\n" + "Request Method: " + res.request.method +
-                                 "\n" + "Status Code: " + str(res.status_code) +
-                                 "\n" + "Response: " + str(res.content) + "\n")
+            print(
+                # "\n" + "Header: " + str(res.headers) + "\n"
+                "\n" + "Request URL: " + apiUrl +
+                "\n" + "Request Method: " + res.request.method +
+                "\n" + "Status Code: " + str(res.status_code) +
+                "\n" + "Response: " + str(res.content) + "\n")
         elif res.status_code == 400:
             print("\n" + "400 Bad Request!" + "\n")
             # Add your assertions or actions for 400 Bad Request response here
@@ -121,7 +123,7 @@ def test_tc_1002_Login_Event(url):
         print("Time taken: " + str(now2 - now1))
         print("------------------- Failed Enterprise Events ---------------------------\n\n")
         assert False
-        
+
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_tc_000003_AccountAdmin_Invalid_credentials == 0, reason="test is skipped")
 # @pytest.mark.login

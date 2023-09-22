@@ -5,9 +5,14 @@ import requests
 import globalvariables as globalvar
 import Executor as Execute
 import test_GETutils as Utils
+import general_payload as GeneralPayload
 
 GenericCSP = "windows/rest/csp/genericcsp"
 
+# Load CSPs JSON data
+with open('Windows_Advanced_Settings/CSPs.json', 'r') as json_file:
+    CSP_Data = json.load(json_file)
+    
 # Define a class to represent CSP data
 class CSPData:
     def __init__(self, omauri, csp, category, name, description, dataType, allowedActions, supportedValues, supportedVersions, enabled):
@@ -22,47 +27,28 @@ class CSPData:
         self.supportedVersions = supportedVersions
         self.enabled = enabled
 
-# Load CSPs JSON data
-with open('Windows_Advanced_Settings/CSPs.json', 'r') as json_file:
-    csp_data = json.load(json_file)
-
 # Parse JSON data into CSPData objects
-csp_objects = [CSPData(entry["omauri"], entry["csp"], entry["category"], entry["name"], entry["description"],
+CSP_Data = [CSPData(entry["omauri"], entry["csp"], entry["category"], entry["name"], entry["description"],
                        entry["dataType"], entry["allowedActions"], entry["supportedValues"],
-                       entry["supportedVersions"], entry["enabled"]) for entry in csp_data]
+                       entry["supportedVersions"], entry["enabled"]) for entry in CSP_Data]
 
-# Initialize the test_data list
-test_data = []
-
-# Print the CSP data, supported values, and allowed actions
-for csp_obj in csp_objects:
-    print("\nCSP Data:")
-    print(vars(csp_obj))  # Printing CSP objects as dictionaries
-
-    allowed_actions = [action for action, allowed in csp_obj.allowedActions.items() if allowed.lower() == "true"]
-    supported_values = csp_obj.supportedValues["allowedValues"].split(",")
-
-    # Print supported values and allowed actions for each CSP object
-    print("\nSupported Values for CSP:", csp_obj.name)
-    print(supported_values)
-
-    print("\nAllowed Actions for CSP:", csp_obj.name)
-    print(allowed_actions)
+for csp_obj in CSP_Data:
+    GeneralPayload.Allowed_Actions = [action for action, allowed in csp_obj.allowedActions.items() if allowed.lower() == "true"]
+    GeneralPayload.Supported_Values = csp_obj.supportedValues["allowedValues"].split(",")
 
     # Include "get" action without supported values
-    if "get" in allowed_actions:
-        test_data.append((csp_obj, "get", None))
+    if "get" in GeneralPayload.Allowed_Actions:
+        GeneralPayload.Test_Data.append((csp_obj, "get", None))
 
     # Include "add," "replace," and "delete" actions for supported values
-    for action in ["add", "replace", "delete"]:
-        if action in allowed_actions:
-            for value in supported_values:
-                test_data.append((csp_obj, action, value))
+    for action in ["add", "replace", "delete", "exec"]:
+        if action in GeneralPayload.Allowed_Actions:
+            for value in GeneralPayload.Supported_Values:
+                GeneralPayload.Test_Data.append((csp_obj, action, value))
 
-# Print the generated test data
-print("\nTest Data:")
-for data, action, value in test_data:
+for data, action, value in GeneralPayload.Test_Data:
     print(f"Data: {data.omauri}, Action: {action}, Value: {value}")
+    print(GeneralPayload.Test_Data)
 
 # Define a function to format the test case name
 def format_test_case_name(data, action, value):
@@ -72,9 +58,9 @@ def format_test_case_name(data, action, value):
 
 
 # Execute actions based on allowedActions and values
-@pytest.mark.parametrize('data, action, value', test_data,
-                         ids=[format_test_case_name(data, action, value) for data, action, value in test_data])
-@pytest.mark.skipif(Execute.test_tc_1170001_Windows_Generic_CSPs_POST == 0, reason="skip test")
+@pytest.mark.parametrize('data, action, value', GeneralPayload.Test_Data,
+                         ids=[format_test_case_name(data, action, value) for data, action, value in GeneralPayload.Test_Data])
+@pytest.mark.skipif(Execute.test_tc_1170001_Windows_Generic_CSPs_POST == 0, reason="Windows CSP is skipped")
 @pytest.mark.positivetest
 @pytest.mark.WindowsDevice
 @pytest.mark.regressiontest
@@ -98,6 +84,15 @@ def test_Windows_CSPs(data, action, value):
             del payload["csps"][0]["value"]
         
         res = requests.post(url=apiUrl, headers=Headers, json=payload, timeout=globalvar.timeout)
+        # Print supported values and allowed actions for each CSP object
+        print("\nSupported Values for CSP:", csp_obj.name)
+        print(GeneralPayload.Supported_Values)
+
+        print("\nAllowed Actions for CSP:", csp_obj.name)
+        print(GeneralPayload.Allowed_Actions)
+# Printing CSP objects as dictionaries
+        print("\nCSP Data:", vars(csp_obj), "\n")
+        
         if res.status_code == 200:
             curl_str1 = Utils.getCurlEquivalent(res)
             print(curl_str1)

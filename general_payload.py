@@ -414,3 +414,31 @@ DeleteGeofenceNotificationsPayload = {
 PUT_UpdateTags_Windows_Device = {"tag1": "In-House -- Chakrapani",
                                  "tag4": None,
                                  "tag3": "QA"}
+
+CSP_Info=[]
+
+# Define a class to represent CSP data
+class CSPData:
+    def __init__(self, omauri, csp, category, name, description, dataType, allowedActions, supportedValues, supportedVersions, enabled):
+        self.omauri = omauri
+        self.csp = csp
+        self.category = category
+        self.name = name
+        self.description = description
+        self.dataType = dataType
+        self.allowedActions = allowedActions
+        self.supportedValues = supportedValues
+        self.supportedVersions = supportedVersions
+        self.enabled = enabled
+
+# Parse JSON data into CSPData objects
+CSP_Data = [CSPData(entry["omauri"], entry["csp"], entry["category"], entry["name"], entry["description"],
+                       entry["dataType"], entry["allowedActions"], entry["supportedValues"],
+                       entry["supportedVersions"], entry["enabled"]) for entry in CSP_Info]
+
+
+# Initialize the test_data list
+Test_Data = []
+
+Allowed_Actions=[]
+Supported_Values=[]
