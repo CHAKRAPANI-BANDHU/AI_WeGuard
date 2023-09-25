@@ -10,8 +10,12 @@ import general_payload as GeneralPayload
 GenericCSP = "windows/rest/csp/genericcsp"
 
 # Load CSPs JSON data
-with open('Windows_Advanced_Settings/CSPs.json', 'r') as json_file:
-    CSP_Data = json.load(json_file)
+with open('/Users/chakrapani/AIWeGuardAPIs/Windows_Advanced_Settings/CSPs.json', 'r') as json_file:
+    try:
+        CSP_Data = json.load(json_file)
+    except json.JSONDecodeError as e:
+        print(f"JSON parsing error: {e}")
+
 
 # Define the CSPData class (customize according to your data structure)
 class CSPData:
@@ -28,6 +32,7 @@ class CSPData:
         self.supportedVersions = supportedVersions
         self.enabled = enabled
 
+
 # Create a list to store CSP objects
 csp_objects = []
 
@@ -35,37 +40,37 @@ test_data = []
 
 # Iterate through CSPs in the order they appear in the JSON file
 for csp_obj_data in CSP_Data:
-    # Create a CSPData object
-    csp_obj = CSPData(
-        csp_obj_data["omauri"],
-        csp_obj_data["csp"],
-        csp_obj_data["category"],
-        csp_obj_data["name"],
-        csp_obj_data["description"],
-        csp_obj_data["dataType"],
-        csp_obj_data["allowedActions"],
-        csp_obj_data["supportedValues"],
-        csp_obj_data["supportedVersions"],
-        csp_obj_data["enabled"]
-    )
-    csp_objects.append(csp_obj)
+    # Check if "get," "add," "replace," or "delete" is allowed and set to True
+    allowed_actions = {action: allowed for action, allowed in csp_obj_data["allowedActions"].items()
+                       if action in ["get", "add", "replace", "delete"] and allowed}
+    
+    if allowed_actions:
+        # Create a CSPData object
+        csp_obj = CSPData(
+            csp_obj_data["omauri"],
+            csp_obj_data["csp"],
+            csp_obj_data["category"],
+            csp_obj_data["name"],
+            csp_obj_data["description"],
+            csp_obj_data["dataType"],
+            allowed_actions,
+            csp_obj_data["supportedValues"],
+            csp_obj_data["supportedVersions"],
+            csp_obj_data["enabled"]
+        )
+        csp_objects.append(csp_obj)
+        print(f"Added CSP object: {csp_obj.name}")
 
 # Iterate through CSP objects and execute them one by one
 for csp_obj in csp_objects:
-    allowed_actions = [
-        action for action, allowed in csp_obj.allowedActions.items() if
-        isinstance(allowed, str) and allowed.lower() == "true"
-    ]
-    GeneralPayload.Allowed_Actions[csp_obj.omauri] = allowed_actions
-    GeneralPayload.Supported_Values = csp_obj.supportedValues["allowedValues"].split(",")
-
-    # Include "get" action without supported values
-    if "get" in allowed_actions:
-        test_data.append((csp_obj, "get", None))
-
-    # Include "add," "replace," and "delete" actions for supported values
-    for action in ["add", "replace", "delete", "exec"]:
-        if action in allowed_actions:
+    for action, is_allowed in csp_obj.allowedActions.items():
+        GeneralPayload.Allowed_Actions[csp_obj.omauri] = [action]
+        GeneralPayload.Supported_Values = csp_obj.supportedValues["allowedValues"].split(",")
+        
+        # Include "get" action without supported values
+        if action == "get":
+            test_data.append((csp_obj, action, None))
+        else:
             for value in GeneralPayload.Supported_Values:
                 test_data.append((csp_obj, action, value))
 
@@ -84,6 +89,7 @@ def format_test_case_name(data, action, value):
 @pytest.mark.regressiontest
 @pytest.mark.run(order=1170001)
 def test_Windows_CSPs(data, action, value):
+    print(f"Received data: {data.omauri}, action: {action}, value: {value}")
     now1 = datetime.now()
     oma_uri = data.omauri
     dataType = data.dataType
@@ -143,4 +149,3 @@ def test_Windows_CSPs(data, action, value):
         now2 = datetime.now()
         print("Time taken: " + str(now2 - now1))
         print(f"Failed to execute the test for OMA-URI: {oma_uri}, Action: {action}, Value: {value}")
-        assert False

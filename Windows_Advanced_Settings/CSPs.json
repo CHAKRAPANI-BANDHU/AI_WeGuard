@@ -1,98 +1,131 @@
 [
-    {
-        "omauri": "./Device/Vendor/MSFT/Policy/Config/Connectivity/AllowBluetooth",
-        "csp": "Policy",
-        "category": "Connectivity",
-        "name": "AllowBluetooth",
-        "description": "Supported values:0-Disallow Bluetooth. If this is set to 0, the radio in the Bluetooth control panel will be grayed out and the user will not be able to turn Bluetooth on, 1-Reserved. If this is set to 1, the radio in the Bluetooth control panel will be functional and the user will be able to turn Bluetooth on, 2(Default)-Allow Bluetooth. If this is set to 2, the radio in the Bluetooth control panel will be functional and the user will be able to turn Bluetooth on. https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-connectivity",
-        "dataType": "int",
-        "allowedActions": {
-            "get": "True",
-            "add": "True",
-            "replace": "True",
-            "delete": "True",
-            "exec":"False"
-        },
-        "supportedValues": {
-            "min": 0,
-            "max": 2,
-            "allowedValues": "0,1,2"
-        },
-        "placeholders": [],
-        "supportedVersions": [
-            {
-                "version": "10",
-                "present": "True"
-            },
-            {
-                "version": "11",
-                "present": "True"
-            }
-        ],
-        "enabled": "True"
+  {
+    "omauri": "./Device/Vendor/MSFT/Policy/Config/Connectivity/AllowBluetooth",
+    "csp": "Policy",
+    "category": "Connectivity",
+    "name": "AllowBluetooth",
+    "description": "Supported values:0-Disallow Bluetooth. If this is set to 0, the radio in the Bluetooth control panel will be grayed out and the user will not be able to turn Bluetooth on, 1-Reserved. If this is set to 1, the radio in the Bluetooth control panel will be functional and the user will be able to turn Bluetooth on, 2(Default)-Allow Bluetooth. If this is set to 2, the radio in the Bluetooth control panel will be functional and the user will be able to turn Bluetooth on. https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-connectivity",
+    "dataType": "int",
+    "allowedActions": {
+      "get": "True",
+      "add": "True",
+      "replace": "True",
+      "delete": "True",
+      "exec": "False"
     },
-    {
-        "omauri": "./Device/Vendor/MSFT/Policy/Config/Camera/AllowCamera",
-        "csp": "Policy",
-        "category": "Camera",
-        "name": "AllowCamera",
-        "description": "Supported values:0- Not Allowed, 1(Default)- Allowed. https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-camera",
-        "dataType": "int",
-        "allowedActions": {
-            "get": "True",
-            "add": "True",
-            "replace": "True",
-            "delete": "True",
-            "exec":"False"
-        },
-        "supportedValues": {
-            "min": 0,
-            "max": 1,
-            "allowedValues": "0,1"
-        },
-        "placeholders": [],
-        "supportedVersions": [
-            {
-                "version": "10",
-                "present": "True"
-            },
-            {
-                "version": "11",
-                "present": "True"
-            }
-        ],
-        "enabled": "True"
+    "supportedValues": {
+      "min": 0,
+      "max": 2,
+      "allowedValues": "0,1,2"
     },
-    {
-        "omauri": "./Device/Vendor/MSFT/Policy/Config/System/AllowLocation",
-        "csp": "Policy",
-        "category": "System",
-        "name": "AllowLocation",
-        "description": "Supported values:0- Force Location Off. All Location Privacy settings are toggled off and grayed out. Users cannot change the settings, and no apps are allowed access to the Location service, including Cortana and Search, 1(Default)-Location service is allowed. The user has control and can change Location Privacy settings on or off, 2-Force Location On. All Location Privacy settings are toggled on and grayed out. Users cannot change the settings and all consent permissions will be automatically suppressed. https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-system",
-        "dataType": "int",
-        "allowedActions": {
-            "get": true,
-            "add": true,
-            "replace": true,
-            "delete": true,
-            "exec": false
-        },
-        "supportedValues": {
-            "min": 0,
-            "max": 2,
-            "allowedValues":"0,1,2"
-        },
-        "placeholders": [],
-        "supportedVersions": [
-            {
-                "version": "10",
-                "present": true
-            },
-            {
-                "version": "11",
-                "present": true
-            }
-        ],
-        "enabled": true
-    }
+    "placeholders": [],
+    "supportedVersions": [
+      {
+        "version": "10",
+        "present": "True"
+      },
+      {
+        "version": "11",
+        "present": "True"
+      }
+    ],
+    "enabled": "True"
+  },
+  {
+    "omauri": "./Device/Vendor/MSFT/Policy/Config/Camera/AllowCamera",
+    "csp": "Policy",
+    "category": "Camera",
+    "name": "AllowCamera",
+    "description": "Supported values:0- Not Allowed, 1(Default)- Allowed. https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-camera",
+    "dataType": "int",
+    "allowedActions": {
+      "get": "True",
+      "add": "True",
+      "replace": "True",
+      "delete": "True",
+      "exec": "False"
+    },
+    "supportedValues": {
+      "min": 0,
+      "max": 1,
+      "allowedValues": "0,1"
+    },
+    "placeholders": [],
+    "supportedVersions": [
+      {
+        "version": "10",
+        "present": "True"
+      },
+      {
+        "version": "11",
+        "present": "True"
+      }
+    ],
+    "enabled": "True"
+  },
+  {
+    "omauri": "./Device/Vendor/MSFT/Policy/Config/System/AllowLocation",
+    "csp": "Policy",
+    "category": "System",
+    "name": "AllowLocation",
+    "description": "Supported values:0- Force Location Off. All Location Privacy settings are toggled off and grayed out. Users cannot change the settings, and no apps are allowed access to the Location service, including Cortana and Search, 1(Default)-Location service is allowed. The user has control and can change Location Privacy settings on or off, 2-Force Location On. All Location Privacy settings are toggled on and grayed out. Users cannot change the settings and all consent permissions will be automatically suppressed. https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-system",
+    "dataType": "int",
+    "allowedActions": {
+      "get": true,
+      "add": true,
+      "replace": true,
+      "delete": true,
+      "exec": false
+    },
+    "supportedValues": {
+      "min": 0,
+      "max": 2,
+      "allowedValues": "0,1,2"
+    },
+    "placeholders": [],
+    "supportedVersions": [
+      {
+        "version": "10",
+        "present": true
+      },
+      {
+        "version": "11",
+        "present": true
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "omauri": "./Device/Vendor/MSFT/Policy/Config/TaskManager/AllowEndTask",
+    "csp": "Policy",
+    "category": "TaskManager",
+    "name": "AllowEndTask",
+    "description": "This setting determines whether non-administrators can use Task Manager to end tasks - enabled (1) or disabled (0). Default: enabled. https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-taskmanager",
+    "dataType": "int",
+    "allowedActions": {
+      "get": true,
+      "add": true,
+      "replace": true,
+      "delete": true,
+      "exec": false
+    },
+    "supportedValues": {
+      "min": 0,
+      "max": 1,
+      "allowedValues": "0,1",
+      "valuesHelp": []
+    },
+    "placeholders": [],
+    "supportedVersions": [
+      {
+        "version": "10",
+        "present": true
+      },
+      {
+        "version": "11",
+        "present": true
+      }
+    ],
+    "enabled": true
+  }
 ]
