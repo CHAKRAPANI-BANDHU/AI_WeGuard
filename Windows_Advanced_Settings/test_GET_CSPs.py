@@ -78,7 +78,7 @@ def format_test_case_name(data, action, value):
 # Execute actions based on allowedActions and values
 @pytest.mark.parametrize('data, action, value', test_data,
                          ids=[format_test_case_name(data, action, value) for data, action, value in test_data])
-@pytest.mark.skipif(Execute.test_tc_1170001_Windows_Generic_CSPs_POST == 0, reason= "Windows CSP is skipped")
+@pytest.mark.skipif(Execute.test_tc_1170001_Windows_Generic_CSPs_POST == 0, reason="Windows CSP is skipped")
 @pytest.mark.positivetest
 @pytest.mark.WindowsDevice
 @pytest.mark.regressiontest
