@@ -61,15 +61,15 @@ for csp_obj in csp_objects:
         isinstance(allowed, bool) and allowed
     ]
     GeneralPayload.Allowed_Actions[csp_obj.omauri] = allowed_actions
-
+    
     supported_values = csp_obj.supportedValues.get("allowedValues")
     if supported_values is not None:
         GeneralPayload.Supported_Values = supported_values.split(",")
-
+        
         # Include "get" action without supported values
         if "get" in allowed_actions:
             test_data.append((csp_obj, "get", None))
-
+        
         # Include "add," "replace," and "delete" actions for supported values
         for action in ["add", "replace", "delete", "exec"]:
             if action in allowed_actions:
@@ -77,6 +77,15 @@ for csp_obj in csp_objects:
                     test_data.append((csp_obj, action, value))
     else:
         print(f"'allowedValues' not present for OMA-URI: {csp_obj.omauri}")
+        
+        # Print min and max values if 'allowedValues' is not present
+        min_value = csp_obj.supportedValues.get("min")
+        max_value = csp_obj.supportedValues.get("max")
+        
+        if min_value is not None and max_value is not None:
+            print(f"Min Value: {min_value}, Max Value: {max_value}")
+        else:
+            print("Min and Max values are not defined for this CSP.")
 
 # Define a function to format the test case name
 def format_test_case_name(data, action, value):
