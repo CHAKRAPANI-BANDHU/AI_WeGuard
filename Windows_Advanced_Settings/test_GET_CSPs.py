@@ -7,10 +7,12 @@ import Executor as Execute
 import test_GETutils as Utils
 import general_payload as GeneralPayload
 
+# Constants
 GenericCSP = "windows/rest/csp/genericcsp"
+JSON_File_Path="/Users/chakrapani/AIWeGuardAPIs/Windows_Advanced_Settings/CSP.json"
 
 # Load CSPs JSON data
-with open('/Users/chakrapani/AIWeGuardAPIs/Windows_Advanced_Settings/CSPs.json', 'r') as json_file:
+with open(JSON_File_Path, 'r') as json_file:
     try:
         CSP_Data = json.load(json_file)
     except json.JSONDecodeError as e:
@@ -54,38 +56,36 @@ for csp_obj_data in CSP_Data:
     csp_objects.append(csp_obj)
     print(f"Added CSP object: {csp_obj.name}")
 
-# Iterate through CSP objects and execute them one by one
+# Inside the loop where you iterate through CSP objects
 for csp_obj in csp_objects:
     allowed_actions = [
         action for action, allowed in csp_obj.allowedActions.items() if
         isinstance(allowed, bool) and allowed
     ]
     GeneralPayload.Allowed_Actions[csp_obj.omauri] = allowed_actions
-    
     supported_values = csp_obj.supportedValues.get("allowedValues")
+    
     if supported_values is not None:
         GeneralPayload.Supported_Values = supported_values.split(",")
-        
-        # Include "get" action without supported values
-        if "get" in allowed_actions:
-            test_data.append((csp_obj, "get", None))
-        
-        # Include "add," "replace," and "delete" actions for supported values
-        for action in ["add", "replace", "delete", "exec"]:
-            if action in allowed_actions:
-                for value in GeneralPayload.Supported_Values:
-                    test_data.append((csp_obj, action, value))
     else:
-        print(f"'allowedValues' not present for OMA-URI: {csp_obj.omauri}")
-        
-        # Print min and max values if 'allowedValues' is not present
-        min_value = csp_obj.supportedValues.get("min")
-        max_value = csp_obj.supportedValues.get("max")
-        
-        if min_value is not None and max_value is not None:
-            print(f"Min Value: {min_value}, Max Value: {max_value}")
+        # If 'allowedValues' is not present, calculate min and max from supported values
+        supported_values_list = csp_obj.supportedValues.get("supportedValues", "").split(",")
+        if supported_values_list:
+            GeneralPayload.Supported_Values = [
+                f"Min: {min(supported_values_list)}, Max: {max(supported_values_list)}"
+            ]
         else:
-            print("Min and Max values are not defined for this CSP.")
+            GeneralPayload.Supported_Values = []
+    
+# Include "get" action without supported values
+    if "get" in allowed_actions:
+        test_data.append((csp_obj, "get", None))
+
+    # Include "add," "replace," and "delete" actions for supported values
+    for action in ["add", "replace", "delete", "exec"]:
+        if action in allowed_actions:
+            for value in GeneralPayload.Supported_Values:
+                test_data.append((csp_obj, action, value))
 
 # Define a function to format the test case name
 def format_test_case_name(data, action, value):
@@ -102,7 +102,7 @@ def format_test_case_name(data, action, value):
 @pytest.mark.regressiontest
 @pytest.mark.run(order=1170001)
 def test_Windows_CSPs(data, action, value):
-    print(f"Received data: {data.omauri}, Action: {action}, Value: {value}")
+    print(f"Received data: {data.omauri}, action: {action}, value: {value}")
     now1 = datetime.now()
     oma_uri = data.omauri
     dataType = data.dataType

@@ -13,7 +13,7 @@ OS=$(uname)
 # Define the file extension based on the operating system
 if [ "$OS" = "Darwin" ]; then
     # shellcheck disable=SC1001
-    FILE="WeGuard_API_Testing_$(date +\%d-\%m-\%Y_\%H:\%M:\%S).html"
+    FILE="API_Testing_$(date +\%d-\%m-\%Y_\%H:\%M:\%S).html"
 elif [ "$OS" = "MINGW64_NT-10.0" ]; then
     # shellcheck disable=SC1001
     FILE="Report_$(date +\%d-\%m-\%Y_\%H-\%M-\%S).html"
