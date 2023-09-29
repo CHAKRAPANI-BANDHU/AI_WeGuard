@@ -1186,17 +1186,16 @@ def test_tc_5021_Android_Device_Reboot(device_command):
                     "actCode": globalvar.activationCode, "pActCode": globalvar.productActivationCode,
                     "priority": "high", "id": GeneralPayload.RandomContactsIDs}
                 res = requests.post(url=apiUrl, headers=Headers, json=device_command_payload, timeout=globalvar.timeout)
+                curl_str = Utils.getCurlEquivalent(res)
+                print(curl_str)
                 if res.status_code == 200:
                     print("\n200 The request was a success!")
-                    # Print request and response details
-                    curl_str = Utils.getCurlEquivalent(res)
-                    print(curl_str)
-                    print(
-                        f"\nRequest URL: {apiUrl}\n"
-                        f"Request Method: {res.request.method}\n"
-                        f"Status Code: {res.status_code}\n"
-                        f"Request Payload: {device_command_payload}\n"
-                        f"Response: {res.content}\n")
+                    print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                        "\n" + "Request URL: " + apiUrl +
+                        "\n" + "Request Method: " + res.request.method +
+                        "\n" + "Status Code: " + str(res.status_code) +
+                        "\n" + "Request Payload: " + str(device_command_payload) +
+                        "\n" + "Response: " + str(res.content) + "\n")
                     print(f"\nExecuted the Device Command = {device_command}\n")
                 elif res.status_code == 400:
                     print("\n400 Bad Request!")
