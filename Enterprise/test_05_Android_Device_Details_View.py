@@ -1197,6 +1197,7 @@ def test_tc_5021_Android_Device_Reboot(device_command):
                         f"Status Code: {res.status_code}\n"
                         f"Request Payload: {device_command_payload}\n"
                         f"Response: {res.content}\n")
+                    print(f"\nExecuted the Device Command = {device_command}\n")
                 elif res.status_code == 400:
                     print("\n400 Bad Request!")
                     assert False, "Received 400 Bad Request response"
@@ -1213,7 +1214,7 @@ def test_tc_5021_Android_Device_Reboot(device_command):
         print(f"Exception: {str(e)}")
         now2 = datetime.now()
         print(f"Time taken: {str(now2 - now1)}")
-        print(f"\nExecuted the Device Command = {device_command}\n")
+        print(f"\nFailed to execute the Device Command = {device_command}\n")
 
 
 # Admin Lock
