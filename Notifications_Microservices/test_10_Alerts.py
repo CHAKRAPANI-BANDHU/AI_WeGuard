@@ -76,11 +76,11 @@
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content))
+#             print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Response: " + str(res.content))
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -131,11 +131,11 @@
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content))
+#             print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Response: " + str(res.content))
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -167,8 +167,10 @@
 # def check_test_tc_1003_Alerts_Types_and_Levels():
 #     return Execute.test_tc_1003_Alerts_Types_and_Levels == 1
 #
+#
 # # Alert Types and Levels
-# @pytest.mark.parametrize('alert_type, alert_level', [(alert_type, alert_level) for alert_type in Alert_Types for alert_level in Alert_Levels])
+# @pytest.mark.parametrize('alert_type, alert_level',
+#                          [(alert_type, alert_level) for alert_type in Alert_Types for alert_level in Alert_Levels])
 # @pytest.mark.skipif(not check_test_tc_1003_Alerts_Types_and_Levels,
 #                     reason="This test must run, it is mandatory. Without this test, rest of test case execution should stop")
 # @pytest.mark.positivetest
@@ -181,21 +183,22 @@
 #     now1 = datetime.now()
 #     try:
 #         apiUrl = globalvariables.BaseURL + AlertTypeLevels(globalvariables.accountId, globalvariables.isostart,
-#                                     globalvariables.isoend, globalvariables.page_1,
-#                                     globalvariables.page_1000,
-#                                     alert_type, alert_level)
+#                                                            globalvariables.isoend, globalvariables.page_1,
+#                                                            globalvariables.page_1000,
+#                                                            alert_type, alert_level)
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvariables.bearerToken)}
 #         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvariables.timeout)
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!" + "\n")
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content))
-#         print(f"------------------- Filter By Alert type={alert_type} and level={alert_level} ---------------------------\n")
+#             print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Response: " + str(res.content))
+#             print(
+#                 f"------------------- Filter By Alert type={alert_type} and level={alert_level} ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n400 Bad Request!")
 #             assert False, "Received 400 Bad Request response"
@@ -212,9 +215,9 @@
 #         print("Exception : " + str(e))
 #         now2 = datetime.now()
 #         print("Time taken: " + str(now2 - now1))
-#         print(f"------------------- Failed to display the Filter By Alert type={alert_type} and level={alert_level} ---------------------------\n")
+#         print(
+#             f"------------------- Failed to display the Filter By Alert type={alert_type} and level={alert_level} ---------------------------\n")
 #         assert False
-#
 #
 #
 # # GET method to get critical alerts that are not acknowledged by user after clicking on Alert notification icon
@@ -309,11 +312,11 @@
 #             print(curl_str1)
 #             if res.status_code == 200:
 #                 print("\n" + "200 The request was a success!" + "\n")
-#                 print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                       "\n" + "Request URL: " + apiUrl +
-#                       "\n" + "Request Method: " + res.request.method +
-#                       "\n" + "Status Code: " + str(res.status_code) +
-#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                     "\n" + "Request URL: " + apiUrl +
+#                     "\n" + "Request Method: " + res.request.method +
+#                     "\n" + "Status Code: " + str(res.status_code) +
+#                     "\n" + "Response: " + str(res.content) + "\n")
 #                 print("\n------------------- Acknowledged Critical Alerts ---------------------------\n")
 #             else:
 #                 if res.status_code == 400:
@@ -359,11 +362,11 @@
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
+#             print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Response: " + str(res.content) + "\n")
 #             print("\n------------------- Displaying Todays all alert types and levels ---------------------------\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
@@ -413,11 +416,11 @@
 #         print(curl_str1)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
+#             print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Response: " + str(res.content) + "\n")
 #             print(
 #                 "\n------------------- Displaying Yesterday's all alert types and levels ---------------------------\n")
 #         elif res.status_code == 400:
@@ -468,11 +471,11 @@
 #         curl_str1 = Utils.getCurlEquivalent(res)
 #         print(curl_str1)
 #         if res.status_code == 200:
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
+#             print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Response: " + str(res.content) + "\n")
 #             print(
 #                 "\n------------------- Displaying Custom Date Range all alert types and levels ---------------------------\n")
 #         elif res.status_code == 400:

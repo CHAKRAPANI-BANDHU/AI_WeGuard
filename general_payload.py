@@ -9,7 +9,6 @@ fake = Faker()
 # Generate a random Gmail email address
 random_gmail_address = fake.email(domain="gmail.com")
 
-
 AllDevices = {
     "search": None,
     "provisioned": True,
@@ -187,11 +186,14 @@ logout = {
 }
 
 # Company Directory
-# Random ID
+# Random ID Eight Digits
 RandomContactsIDs = random.randint(10000000, 99999999)
-FCMUpdateAfterAddingContacts_PolicyLevel = {"topic": globalvariables.activationCode+"_"+globalvariables.productActivationCode, "type": "SYNC_CONTACTS", "isLicenseLevel": True,
-                                "actCode": globalvariables.activationCode,
-                                "pActCode": globalvariables.productActivationCode, "message": None, "id": RandomContactsIDs}
+FCMUpdateAfterAddingContacts_PolicyLevel = {
+    "topic": globalvariables.activationCode + "_" + globalvariables.productActivationCode, "type": "SYNC_CONTACTS",
+    "isLicenseLevel": True,
+    "actCode": globalvariables.activationCode,
+    "pActCode": globalvariables.productActivationCode, "message": None, "id": RandomContactsIDs}
+
 
 # Create contacts at Account Level
 # Define a function to generate a random Gmail address
@@ -199,6 +201,7 @@ def random_email_address(length=10):
     characters = string.ascii_letters + string.digits
     username = ''.join(random.choice(characters) for _ in range(length))
     return f"{username}@gmail.com"
+
 
 name = string.ascii_letters + string.digits
 randomName = ''.join(random.choice(name) for _ in range(10))
@@ -224,7 +227,7 @@ postal_address = {
     "zipcode": random.choice(zipcodes)
 }
 # Create the payload with the random email address
-firstName= ''.join(random.choice(string.ascii_letters) for _ in range(10))
+firstName = ''.join(random.choice(string.ascii_letters) for _ in range(10))
 lastName = ''.join(random.choice(string.ascii_letters) for _ in range(10))
 displayName = ''.join(random.choice(string.ascii_letters) for _ in range(10))
 nickName = ''.join(random.choice(string.ascii_letters) for _ in range(6))
@@ -235,7 +238,6 @@ notes = ''.join(random.choice(string.ascii_letters) for _ in range(10))
 emailAddresses = [{"emailType": "Home", "emailAddress": random_email_address()}]
 phoneNums = [{"phone": [''.join(random.choice(string.digits) for _ in range(10))]}]
 postalAddresses = [postal_address]
-
 
 # PUT Alerts Config
 fake = Faker()  # Generate a random Gmail address
@@ -415,6 +417,16 @@ PUT_UpdateTags_Windows_Device = {"tag1": "In-House -- Chakrapani",
                                  "tag4": None,
                                  "tag3": "QA"}
 
+# Generate a random 4-digit number room ID for WeSupport
+random_number = random.randint(1000, 9999)
+# Format it as a string with double colons
+Room_ID = f"::{random_number}"
+RandomID = RandomContactsIDs
+
+# Session IDs
+random_number = random.randint(100000000, 999999999)
+SessionID = random_number
+
 # Initialize the test_data list
-Allowed_Actions={}
-Supported_Values=[]
+Allowed_Actions = {}
+Supported_Values = []

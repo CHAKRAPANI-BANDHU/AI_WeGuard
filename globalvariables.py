@@ -120,6 +120,7 @@ accountId = ""
 companyName = ""
 name = ""
 enterpriseId = ""
+role=""
 
 
 UnacknowledgeAlertsIDs = []

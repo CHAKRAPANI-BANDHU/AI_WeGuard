@@ -53,6 +53,7 @@ def test_tc_1001_Login(url):
             globalvar.name = globalvar.fname + "%20%20" + globalvar.lname
             globalvar.companyName = json.loads(res.content)['entity']['companyName']
             globalvar.enterpriseId = json.loads(res.content)['entity']['enterpriseId']
+            globalvar.role = json.loads(res.content)['entity']['role']
             assert globalvar.userName == json.loads(res.content)['entity']['userName']
         elif res.status_code == 400:
             print("\n" + "400 Bad Request!" + "\n")
