@@ -33,4 +33,4 @@ OUTPUT=$($PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v
 echo "$OUTPUT" > "$FILE"
 
 # Send the output as an email using the Python script
-python3 send_emails.py "$FILE"
+python3 /Users/chakrapani/AIWeGuardAPIs/Utilities/send_emails.py "$FILE"

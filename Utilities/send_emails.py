@@ -12,9 +12,13 @@ from google.oauth2.credentials import Credentials
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
+Credentials_JSON = '/Users/chakrapani/AIWeGuardAPIs/Utilities/credentials.json'
+Token_JSON = '/Users/chakrapani/AIWeGuardAPIs/Utilities/token.json'
+
 creds = None
-if os.path.exists('token.json'):
-    creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+if os.path.exists(Token_JSON):
+    creds = Credentials.from_authorized_user_file(Token_JSON, SCOPES)
+
 # If there are no (valid) credentials available, let the user log in.
 if not creds or not creds.valid:
     if creds and creds.expired and creds.refresh_token:
@@ -22,10 +26,11 @@ if not creds or not creds.valid:
     else:
         from google_auth_oauthlib.flow import InstalledAppFlow
 
-        flow = InstalledAppFlow.from_client_secrets_file('/Users/chakrapani/AIWeGuardAPIs/credentials.json', SCOPES)
+        flow = InstalledAppFlow.from_client_secrets_file(Credentials_JSON, SCOPES)
         creds = flow.run_local_server(port=0)
-    # Save the credentials for the next run
-    with open('token.json', 'w') as token:
+
+    # Save the credentials for the next run in the Utilities directory
+    with open(Token_JSON, 'w') as token:
         token.write(creds.to_json())
 
 service = build('gmail', 'v1', credentials=creds)
@@ -61,7 +66,7 @@ def create_message_with_attachment(recipient, file_path):
 def send_message(service, message):
     try:
         message = service.users().messages().send(userId='me', body=message).execute()
-        print('Email sent successfully. Message Id: %s' % message['id'])
+        print('\nEmail sent successfully. Message Id: %s' % message['id'] + "\n")
     except Exception as error:
         print('An error occurred while sending the email:', error)
 
