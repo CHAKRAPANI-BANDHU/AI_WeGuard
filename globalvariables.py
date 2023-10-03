@@ -107,8 +107,8 @@ if os.environ.get('QA_BASEURL') is not None:
 if os.environ.get('LOG_LEVEL') is not None:
     loglevel = int(os.environ['LOG_LEVEL'])
 
-log_file = "WeGuard_" + time.strftime("%d-%m-%Y_%H:%M:%S") + ".log"
-WeGuard.configure_logger(log_file, loglevel)
+# log_file = "WeGuard_" + time.strftime("%d-%m-%Y_%H:%M:%S") + ".log"
+# WeGuard.configure_logger(log_file, loglevel)
 
 timeout = 600
 bearerToken = ""

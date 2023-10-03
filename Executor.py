@@ -80,7 +80,7 @@ test_tc_5020_POST_Android_Device_DataUsage=1
 
 # Device Commands
 test_tc_5021_Android_Device_Commands=1
-test_tc_5022_Android_Device_Admin_Device_Commands=0
+test_tc_5022_Android_Device_Admin_Device_Commands=1
 test_tc_5030_Android_Device_Wipe_Profile=0
 test_tc_5031_Android_Device_Wipe=0
 test_tc_5032_Android_Device_Uninstall_WeGuard=0
