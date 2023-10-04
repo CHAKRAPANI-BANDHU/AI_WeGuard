@@ -146,5 +146,5 @@ def test_tc_4001_Policy_ALL_10000(url):
         print("Exception : " + str(e))
         now2 = datetime.now()
         print("Time taken: " + str(now2 - now1))
-        print("------------------- TC 001 LOGIN FAIL ---------------------------\n\n")
+        print("------------------- GET Policy - Failed  ---------------------------\n\n")
         assert False

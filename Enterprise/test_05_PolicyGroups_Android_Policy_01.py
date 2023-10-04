@@ -56,5 +56,5 @@ def test_tc_4001_Android_Policy_By_ID_GET(url):
         print("Exception : " + str(e))
         now2 = datetime.now()
         print("Time taken: " + str(now2 - now1))
-        print("------------------- TC 001 LOGIN FAIL ---------------------------\n\n")
+        print("------------------- GET Android Policy Failed ---------------------------\n\n")
         assert False
