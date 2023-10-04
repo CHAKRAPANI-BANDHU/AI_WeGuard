@@ -197,3 +197,6 @@ login_event = {
     "productActivationCode": productActivationCode,
     "metadata": "{}"
 }
+
+# Policy Groups (GET Policy API is triggered)
+Android_Policy_Name =""

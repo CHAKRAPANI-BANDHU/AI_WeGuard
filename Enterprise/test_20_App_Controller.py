@@ -16,7 +16,7 @@ EnterpriseServerVersionURL = "enterprise/app/version"
 @pytest.mark.sanitytest
 @pytest.mark.regressiontest
 @pytest.mark.run(order=1111111)
-def test_tc_1111111_GET_Enterprise_Server_Version(url):
+def test_tc_11_GET_Enterprise_Server_Version(url):
     now1 = datetime.now()
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token, Skipping test")

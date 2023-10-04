@@ -21,7 +21,7 @@ def url_formatter(page, size):
 @pytest.mark.regressiontest
 @pytest.mark.positivetest
 @pytest.mark.run(order=400000)
-def test_tc_4001_Policy_ALL_10000(url):
+def test_tc_4000_Policy_ALL_10000(url):
     # Function to store profiles
     def store_profiles(platform, policy_type, policy_id, policy_name):
         if platform == "ANDROID":

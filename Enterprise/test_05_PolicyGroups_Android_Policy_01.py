@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 
 import pytest
@@ -25,7 +26,7 @@ def test_tc_4001_Android_Policy_By_ID_GET(url):
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     try:
-        for policyId in Globalinfo.Android_Policies:
+        for policyId in Globalinfo.Android_Policy_IDs:
             apiUrl = Globalinfo.BaseURL + AndroidPolicy(policyId)
             Headers = {'Authorization': 'Bearer ' + Globalinfo.bearerToken}
             res = requests.get(url=apiUrl, headers=Headers)
@@ -38,8 +39,8 @@ def test_tc_4001_Android_Policy_By_ID_GET(url):
                     "\n" + "Request Method: " + res.request.method +
                     "\n" + "Status Code: " + str(res.status_code) +
                     "\n" + "Response: " + str(res.content) + "\n\n")
-                res_json = res.json()
-                print("JSON :" + res_json)
+                Globalinfo.Android_Policy_Name = json.loads(res.content)['entity']['name']
+                print("\nPolicy Name:" + Globalinfo.Android_Policy_Name + "\n")
             elif res.status_code == 400:
                 print("\n" + "400 Bad Request!" + "\n")
                 assert False, "Received 400 Bad Request response"
