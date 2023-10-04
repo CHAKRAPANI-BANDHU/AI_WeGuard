@@ -127,16 +127,25 @@ UnacknowledgeAlertsIDs = []
 
 # Policy Groups Information of Android, iOS and Windows from common policy
 # After clicking on policy groups on left navigation bar
-# Android Policies Info
+
+# Android All Policies Info
+Android_All_Policies=[]
+Android_All_Policy_IDs = []
+Android_All_Policy_Names = []
+Android_All_Policy_Types = []
+
+# Android Play Policies Info
 Android_Policies = []
 Android_Policy_IDs = []
 Android_Policy_Names = []
 Android_Policy_Types = []
 Android_profile_platform = []
 
-# non Play Policies Info
+# Android Non Play Policies Info
+Android_Non_Play_Policies=[]
 Android_Non_Play_Policy_IDs=[]
 Android_Non_Play_Policy_Names=[]
+Android_Non_Play_Policy_Types=[]
 
 # Android Devices Info
 Android_Mongo_DB_DeviceIDs = []
