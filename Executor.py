@@ -57,7 +57,14 @@ test_tc_3016_Windows_Devices = 1
 
 # Policy Groups
 test_tc_4000_Policy_All=1
+
+# Policy Groups -- Android Policy
 test_tc_4001_GET_Android_Policy_By_ID = 1
+test_tc_4002_GET_Android_AppsData = 1
+test_tc_4003_GET_Android_Play_Store_AppsList = 1
+test_tc_4004_GET_Android_Location_Track_Config = 1
+test_tc_4005_GET_Android_DataUsage = 1
+test_tc_4006_GET_Android_APN_Setting_ID = 1
 
 # Device details view
 test_tc_5001_GET_Android_Device_By_PolicyID=1

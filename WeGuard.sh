@@ -39,11 +39,11 @@ echo "$FILE"
 $PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v --show-progress
 
 
-# Capture the output of the Bash script
-OUTPUT=$($PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v --show-progress)
-
-# Send the output as an email
-python3 "$OUTPUT"
+## Capture the output of the Bash script
+#OUTPUT=$($PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v --show-progress)
+#
+## Send the output as an email
+#python3 /Users/chakrapani/AIWeGuardAPIs/send_emails.py "$OUTPUT"
 
 ## Run pytest for tests with the 'order' marker
 #$PY_CMD -m pytest -k "order" --capture=sys --html="$FILE" --self-contained-html -v --show-progress
