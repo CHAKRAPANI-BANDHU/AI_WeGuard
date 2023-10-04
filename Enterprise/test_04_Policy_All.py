@@ -14,14 +14,14 @@ def url_formatter(page, size):
 
 
 @pytest.mark.parametrize('url', [""])
-@pytest.mark.skipif(Execute.test_tc_0003_Policy_All == 0, reason="test skipped")
+@pytest.mark.skipif(Execute.test_tc_4000_Policy_All == 0, reason="test skipped")
 @pytest.mark.usualtest
 @pytest.mark.policygroups
 @pytest.mark.sanitytest
 @pytest.mark.regressiontest
 @pytest.mark.positivetest
-@pytest.mark.run(order=10008)
-def test_tc_001_Policy_ALL_10000(url):
+@pytest.mark.run(order=400000)
+def test_tc_4001_Policy_ALL_10000(url):
     # Function to store profiles
     def store_profiles(platform, policy_type, policy_id, policy_name):
         if platform == "ANDROID":
