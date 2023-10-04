@@ -67,7 +67,7 @@ def test_tc_4001_Android_Policy_By_ID_GET(url):
                 Globalinfo.Android_Policy_Name = json.loads(res.content)['entity']['name']
                 Globalinfo.APNSettingID = json.loads(res.content)['entity']['apnSettingId']
                 print("Policy Name:" + Globalinfo.Android_Policy_Name + "\n")
-                print("APN Setting ID:" + Globalinfo.APNSettingID + "\n")
+                print("APN Setting ID:" + str(Globalinfo.APNSettingID) + "\n")
             elif res.status_code == 400:
                 print("\n" + "400 Bad Request!" + "\n")
                 assert False, "Received 400 Bad Request response"
@@ -199,10 +199,11 @@ def test_tc_4004_Android_Location_Track_Config(url):
             apiUrl = Globalinfo.BaseURL + GETAndroidLocationTrackConfig(policyId)
             Headers = {'Authorization': 'Bearer ' + Globalinfo.bearerToken}
             res = requests.get(url=apiUrl, headers=Headers)
+            curl_str1 = Utils.getCurlEquivalent(res)
+            print(curl_str1)
             if res.status_code == 200:
                 print("\n" + "200 The request was a success!" + "\n")
-                curl_str1 = Utils.getCurlEquivalent(res)
-                print(curl_str1)
+
                 print(  # "\n" + "Header: " + str(res.headers) + "\n"
                     "\n" + "Request URL: " + apiUrl +
                     "\n" + "Request Method: " + res.request.method +

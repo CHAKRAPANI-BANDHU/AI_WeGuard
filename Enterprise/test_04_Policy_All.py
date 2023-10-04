@@ -26,6 +26,8 @@ def test_tc_4000_Policy_ALL_10000(url):
     def store_profiles(platform, policy_type, policy_id, policy_name):
         if platform == "ANDROID":
             Globalinfo.Android_Policies.append((policy_type, policy_id, policy_name))
+            if policy_type == "ANDROID_NON_PLAY":
+                Globalinfo.Android_Non_Play_Policies.append((policy_id, policy_name))
         elif platform == "IOS":
             Globalinfo.iOS_Policies.append((policy_type, policy_id, policy_name))
         elif platform == "WINDOWS":
@@ -87,17 +89,32 @@ def test_tc_4000_Policy_ALL_10000(url):
                     Globalinfo.Android_Policy_IDs.append(profile[1])  # Append Policy ID
                     Globalinfo.Android_Policy_Names.append(profile[2])  # Append Name
                     Globalinfo.Android_Policy_Types.append(profile[0])  # Append Type
-
+    
                 Android_Policy_IDs_str = ', '.join(Globalinfo.Android_Policy_IDs)
                 print("\nAndroid Policy IDs: " + Android_Policy_IDs_str)
-
+    
                 Android_Names_str = ', '.join(Globalinfo.Android_Policy_Names)
                 print("\nAndroid Policy Names: " + Android_Names_str)
-
+    
                 Android_Types_str = ', '.join(Globalinfo.Android_Policy_Types)
                 print("\nAndroid Policy Types: " + Android_Types_str + "\n")
             else:
                 print("No Android Policies found.")
+
+            # Access Android Non-Play policies
+            if Globalinfo.Android_Non_Play_Policies:
+                print("\nAndroid Non-Play Policies Information:")
+                for profile in Globalinfo.Android_Non_Play_Policies:
+                    Globalinfo.Android_Non_Play_Policy_IDs.append(profile[0])  # Append Policy ID
+                    Globalinfo.Android_Non_Play_Policy_Names.append(profile[1])  # Append Name
+    
+                Android_Non_Play_Policy_IDs_str = ', '.join(Globalinfo.Android_Non_Play_Policy_IDs)
+                print("\nAndroid Non-Play Policy IDs: " + Android_Non_Play_Policy_IDs_str)
+    
+                Android_Non_Play_Names_str = ', '.join(Globalinfo.Android_Non_Play_Policy_Names)
+                print("\nAndroid Non-Play Policy Names: " + Android_Non_Play_Names_str + "\n")
+            else:
+                print("No Android Non-Play Policies found.")
 
             # Access iOS profile IDs
             if Globalinfo.iOS_Policies:

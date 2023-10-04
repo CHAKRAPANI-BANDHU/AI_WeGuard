@@ -134,6 +134,10 @@ Android_Policy_Names = []
 Android_Policy_Types = []
 Android_profile_platform = []
 
+# non Play Policies Info
+Android_Non_Play_Policy_IDs=[]
+Android_Non_Play_Policy_Names=[]
+
 # Android Devices Info
 Android_Mongo_DB_DeviceIDs = []
 Android_Devices = []
