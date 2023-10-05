@@ -373,4 +373,3 @@ def test_tc_4007_Android_Kiosk_Persona_Image(url):
         print("Time taken: " + str(now2 - now1))
         print("------------------- GET Android Kiosk Persona Image Failed ---------------------------\n\n")
         assert False
-
