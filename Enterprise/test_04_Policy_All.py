@@ -6,38 +6,38 @@ import Executor as Execute
 import globalvariables as Globalinfo
 import test_GETutils as Utils
 
+
 def AllPolicy(page, size):
     url = f"enterprise/rest/v3/policy/all?page={page}&size={size}&deviceCount=true&impersonator=false"
     return url
 
+
 # Function to store profiles separately based on type
 def store_profiles(platform, policy_type, policy_id, policy_name):
     if platform == "ANDROID":
-        if policy_type == "ANDROID_KIOSK":
-            Globalinfo.Android_Kiosk_Policy_IDs.append(policy_id)
-            Globalinfo.Android_Kiosk_Policy_Names.append(policy_name)
-        elif policy_type == "ANDROID_WM":
-            Globalinfo.Android_WM_Policy_IDs.append(policy_id)
-            Globalinfo.Android_WM_Policy_Names.append(policy_name)
-        elif policy_type == "ANDROID_BYOD":
-            Globalinfo.Android_BYOD_Policy_IDs.append(policy_id)
-            Globalinfo.Android_BYOD_Policy_Names.append(policy_name)
-        elif policy_type == "ANDROID_NON_PLAY_KIOSK":
-            Globalinfo.Android_Non_Play_Kiosk_Policy_IDs.append(policy_id)
-            Globalinfo.Android_Non_Play_Kiosk_Policy_Names.append(policy_name)
-        elif policy_type == "ANDROID_NON_PLAY_WM":
-            Globalinfo.Android_Non_Play_WM_Policy_IDs.append(policy_id)
-            Globalinfo.Android_Non_Play_WM_Policy_Names.append(policy_name)
-        elif policy_type == "ANDROID_NON_PLAY_BYOD":
-            Globalinfo.Android_Non_Play_BYOD_Policy_IDs.append(policy_id)
-            Globalinfo.Android_Non_Play_BYOD_Policy_Names.append(policy_name)
-        elif policy_type in ["ANDROID_KIOSK", "ANDROID_WM", "ANDROID_BYOD"]:
-            Globalinfo.Android_Policies.append((policy_type, policy_id, policy_name))
-        elif policy_type in ["ANDROID_NON_PLAY_KIOSK", "ANDROID_NON_PLAY_WM", "ANDROID_NON_PLAY_BYOD"]:
-            Globalinfo.Android_Non_Play_Policies.append((policy_id, policy_name))
-        elif policy_type in ["ANDROID_KIOSK", "ANDROID_WM", "ANDROID_BYOD", "ANDROID_NON_PLAY_KIOSK",
-                             "ANDROID_NON_PLAY_WM", "ANDROID_NON_PLAY_BYOD"]:
-            Globalinfo.Android_All_Policies.append((policy_type, policy_id, policy_name))
+        Globalinfo.Android_All_Policy_IDs.append((policy_type, policy_id, policy_name))
+    if policy_type == "ANDROID_KIOSK":
+        Globalinfo.Android_Kiosk_Policy_IDs.append(policy_id)
+        Globalinfo.Android_Kiosk_Policy_Names.append(policy_name)
+    elif policy_type == "ANDROID_WM":
+        Globalinfo.Android_WM_Policy_IDs.append(policy_id)
+        Globalinfo.Android_WM_Policy_Names.append(policy_name)
+    elif policy_type == "ANDROID_BYOD":
+        Globalinfo.Android_BYOD_Policy_IDs.append(policy_id)
+        Globalinfo.Android_BYOD_Policy_Names.append(policy_name)
+    elif policy_type == "ANDROID_NON_PLAY_KIOSK":
+        Globalinfo.Android_Non_Play_Kiosk_Policy_IDs.append(policy_id)
+        Globalinfo.Android_Non_Play_Kiosk_Policy_Names.append(policy_name)
+    elif policy_type == "ANDROID_NON_PLAY_WM":
+        Globalinfo.Android_Non_Play_WM_Policy_IDs.append(policy_id)
+        Globalinfo.Android_Non_Play_WM_Policy_Names.append(policy_name)
+    elif policy_type == "ANDROID_NON_PLAY_BYOD":
+        Globalinfo.Android_Non_Play_BYOD_Policy_IDs.append(policy_id)
+        Globalinfo.Android_Non_Play_BYOD_Policy_Names.append(policy_name)
+    elif policy_type == ["ANDROID_KIOSK", "ANDROID_WM", "ANDROID_BYOD"]:
+        Globalinfo.Android_Policies.append((policy_type, policy_id, policy_name))
+    elif policy_type == ["ANDROID_NON_PLAY_KIOSK", "ANDROID_NON_PLAY_WM", "ANDROID_NON_PLAY_BYOD"]:
+        Globalinfo.Android_Non_Play_Policies.append((policy_id, policy_name))
     elif platform == "IOS":
         Globalinfo.iOS_Policies.append((policy_type, policy_id, policy_name))
     elif platform == "WINDOWS":
@@ -73,7 +73,7 @@ def test_tc_4000_Policy_ALL_10000(url):
                 "\n" + "Status Code: " + str(res.status_code) +
                 "\n" + "Response: " + str(res.content) + "\n\n")
             json_response = json.loads(res.content)
-            # Store profiles based on platform and type
+            # Iterate through policy data and store profiles
             for profile in json_response.get('list', []):
                 platform = profile.get('platform')
                 profile_type = profile.get('type')
@@ -96,35 +96,35 @@ def test_tc_4000_Policy_ALL_10000(url):
                 print("\nWindows Policy Types: " + Windows_Type_str + "\n")
             else:
                 print("No Windows Policies found.")
-            
-            # Print Android All Policies
-            if Globalinfo.Android_All_Policies:
-                print("\n============== Android Play and Non-Play (All) Policies Information ==============")
-                for profile in Globalinfo.Android_All_Policies:
-                    print(f"Android All Policy Type: {profile[0]}")
-                    print(f"Android All Policy ID: {profile[1]}")
-                    print(f"Android All Policy Name: {profile[2]}\n")
-            else:
-                print("No All Android Policies found.")
-            
-            # Access Android policies
-            if Globalinfo.Android_Policies:
-                print("\n====== Android Policies Information ======")
-                for profile in Globalinfo.Android_Policies:
-                    print(f"Android Policy Type: {profile[0]}")
-                    print(f"Android Policy ID: {profile[1]}")
-                    print(f"Android Policy Name: {profile[2]}\n")
-            else:
-                print("No Android Policies found.")
-            
-            # Access Android Non-Play policies
-            if Globalinfo.Android_Non_Play_Policies:
-                print("\n====== Android Non-Play Policies Information ======")
-                for profile in Globalinfo.Android_Non_Play_Policies:
-                    print(f"Android Non-Play Policy ID: {profile[0]}")
-                    print(f"Android Non-Play Policy Name: {profile[1]}\n")
-            else:
-                print("No Android Non-Play Policies found.")
+                
+                # Print Android All Policies
+                if Globalinfo.Android_All_Policies:
+                    print("\n============== Android Play and Non-Play (All) Policies Information ==============")
+                    for profile in Globalinfo.Android_All_Policies:
+                        print(f"Android All Policy Type: {profile[0]}")
+                        print(f"Android All Policy ID: {profile[1]}")
+                        print(f"Android All Policy Name: {profile[2]}\n")
+                else:
+                    print("No All Android Policies found.")
+                
+                # Access Android policies
+                if Globalinfo.Android_Policies:
+                    print("\n====== Android Policies Information ======")
+                    for profile in Globalinfo.Android_Policies:
+                        print(f"Android Policy Type: {profile[0]}")
+                        print(f"Android Policy ID: {profile[1]}")
+                        print(f"Android Policy Name: {profile[2]}\n")
+                else:
+                    print("No Android Policies found.")
+                
+                # Access Android Non-Play policies
+                if Globalinfo.Android_Non_Play_Policies:
+                    print("\n====== Android Non-Play Policies Information ======")
+                    for profile in Globalinfo.Android_Non_Play_Policies:
+                        print(f"Android Non-Play Policy ID: {profile[0]}")
+                        print(f"Android Non-Play Policy Name: {profile[1]}\n")
+                else:
+                    print("No Android Non-Play Policies found.")
             
             # Access iOS profile IDs
             if Globalinfo.iOS_Policies:
@@ -145,7 +145,7 @@ def test_tc_4000_Policy_ALL_10000(url):
             # Print stored profiles
             print("\n======== Android All Policies ========\n")
             print("\nAndroid All Policies: ", Globalinfo.Android_All_Policies, "\n")
-            print("\n======== Android Policies ========", Globalinfo.Android_Policies, "\n")
+            print("\n======== Android Policies ========\n")
             # Print the collected play policy IDs and policy names
             print("\nAndroid Policies: ", Globalinfo.Android_Policies, "\n")
             print("Android Kiosk Policy IDs:", Globalinfo.Android_Kiosk_Policy_IDs, "\n")
