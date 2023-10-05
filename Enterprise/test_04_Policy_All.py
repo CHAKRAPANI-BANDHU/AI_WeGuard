@@ -143,8 +143,11 @@ def test_tc_4000_Policy_ALL_10000(url):
                 print("No iOS Policies found.")
             
             # Print stored profiles
+            print("\n======== Android All Policies ========\n")
+            print("\nAndroid All Policies: ", Globalinfo.Android_All_Policies, "\n")
             print("\n======== Android Policies ========", Globalinfo.Android_Policies, "\n")
             # Print the collected play policy IDs and policy names
+            print("\nAndroid Policies: ", Globalinfo.Android_Policies, "\n")
             print("Android Kiosk Policy IDs:", Globalinfo.Android_Kiosk_Policy_IDs, "\n")
             print("Android Kiosk Policy Names:", Globalinfo.Android_Kiosk_Policy_Names, "\n")
             print("Android WM Policy IDs:", Globalinfo.Android_WM_Policy_IDs, "\n")
@@ -152,7 +155,8 @@ def test_tc_4000_Policy_ALL_10000(url):
             print("Android BYOD Policy IDs:", Globalinfo.Android_BYOD_Policy_IDs, "\n")
             print("Android BYOD Policy Names:", Globalinfo.Android_BYOD_Policy_Names, "\n")
             # Print the collected non-play policy IDs and policy names
-            print("\n======== Android Non Play Policies ========", Globalinfo.Android_Non_Play_Policies, "\n")
+            print("\n======== Android Non Play Policies ========\n")
+            print("\nAndroid All Non Play Policies: ", Globalinfo.Android_Non_Play_Policies, "\n")
             print("Android Non Kiosk Policy IDs:", Globalinfo.Android_Non_Play_Kiosk_Policy_IDs, "\n")
             print("Android Non Kiosk Policy Names:", Globalinfo.Android_Non_Play_Kiosk_Policy_Names, "\n")
             print("Android Non WM Policy IDs:", Globalinfo.Android_Non_Play_WM_Policy_IDs, "\n")
