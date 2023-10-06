@@ -45,13 +45,16 @@ def GETAndroidGenericQRGeneration(policyId):
     AndroidQR = "enterprise/rest/weguard-v2/qr/generic/generation/{policyId}".format(policyId=policyId)
     return AndroidQR
 
+
 def GETAndroidDisabledApps(policyId):
     AndroidDisabledApps = "enterprise/rest/disabledapps/{policyId}".format(policyId=policyId)
     return AndroidDisabledApps
 
+
 def GETAndroidTimeFence(policyId):
     AndroidTimeFence = "enterprise/rest/timefence/{policyId}".format(policyId=policyId)
     return AndroidTimeFence
+
 
 # GET -- Android Policy
 @pytest.mark.parametrize('url', [""])
@@ -393,9 +396,11 @@ def test_tc_4007_Android_Kiosk_Persona_Image(url):
         print("------------------- GET Android Kiosk Persona Image Failed ---------------------------\n\n")
         assert False
 
+
 # GET method to get the Generic QR Generation
 @pytest.mark.parametrize('url', [""])
-@pytest.mark.skipif(Execute.test_tc_4008_GET_Android_GenericQRGeneration == 0, reason="Android Generic QR Generation is skipped")
+@pytest.mark.skipif(Execute.test_tc_4008_GET_Android_GenericQRGeneration == 0,
+                    reason="Android Generic QR Generation is skipped")
 @pytest.mark.poitivetest
 @pytest.mark.contacts
 @pytest.mark.regressiontest
@@ -440,7 +445,8 @@ def test_tc_4008_GET_Android_Generic_QR_Generation(url):
         print(
             "------------- Failed to display the Generic QR Generation information when the policy is launched ---------------------------\n\n")
         assert False
-        
+
+
 # GET method to get the Generic QR Generation
 @pytest.mark.parametrize('url', [""])
 @pytest.mark.skipif(Execute.test_tc_4009_GET_Android_Disabled_Apps == 0, reason="Android Disabled Apps is skipped")
@@ -489,6 +495,7 @@ def test_tc_4009_GET_Android_Generic_QR_Generation(url):
             "------------- Failed to display the Android Disabled Apps information when the policy is launched ---------------------------\n\n")
         assert False
 
+
 # GET method to get the Generic QR Generation
 @pytest.mark.parametrize('url', [""])
 @pytest.mark.skipif(Execute.test_tc_4010_GET_Android_Time_Fence == 0, reason="Android Time Fence is skipped")
@@ -501,8 +508,8 @@ def test_tc_4010_GET_Android_Time_Fence(url):
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     try:
-        for policyId in Globalinfo.Android_Policy_IDs:
-            apiUrl = Globalinfo.BaseURL + GETAndroidTimeFence(policyId)
+        for timefenceConfigID in Globalinfo.timefenceId:
+            apiUrl = Globalinfo.BaseURL + GETAndroidTimeFence(timefenceConfigID)
             Headers = {'Authorization': 'Bearer {}'.format(Globalinfo.bearerToken)}
             res = requests.get(url=apiUrl, headers=Headers, timeout=Globalinfo.timeout)
             if res.status_code == 200:
