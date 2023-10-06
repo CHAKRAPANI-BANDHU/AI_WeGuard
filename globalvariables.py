@@ -244,3 +244,6 @@ login_event = {
 # Policy Groups (GET Policy API is triggered)
 Android_Policy_Name =[]
 APNSettingID=[]
+
+# Time Fencing
+timefenceId=[]

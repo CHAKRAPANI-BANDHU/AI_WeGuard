@@ -45,6 +45,13 @@ def GETAndroidGenericQRGeneration(policyId):
     AndroidQR = "enterprise/rest/weguard-v2/qr/generic/generation/{policyId}".format(policyId=policyId)
     return AndroidQR
 
+def GETAndroidDisabledApps(policyId):
+    AndroidDisabledApps = "enterprise/rest/disabledapps/{policyId}".format(policyId=policyId)
+    return AndroidDisabledApps
+
+def GETAndroidTimeFence(policyId):
+    AndroidTimeFence = "enterprise/rest/timefence/{policyId}".format(policyId=policyId)
+    return AndroidTimeFence
 
 # GET -- Android Policy
 @pytest.mark.parametrize('url', [""])
@@ -77,8 +84,11 @@ def test_tc_4001_Android_Policy_By_ID_GET(url):
                 Globalinfo.Android_Policy_Name.append(android_policy_name)
                 apn_setting_id = json.loads(res.content)['entity']['apnSettingId']
                 Globalinfo.APNSettingID.append(apn_setting_id)
+                timeFencePolicyConfigs_id = json.loads(res.content)['entity']['timeFencePolicyConfigs']['id]']
+                Globalinfo.timefenceId.append(timeFencePolicyConfigs_id)
                 print("Policy Name: " + android_policy_name + "\n")
                 print("APN Setting ID: " + str(apn_setting_id) + "\n")
+                print("Time Fence ID: " + str(timeFencePolicyConfigs_id) + "\n")
             elif res.status_code == 400:
                 print("\n" + "400 Bad Request!" + "\n")
                 assert False, "Received 400 Bad Request response"
@@ -383,8 +393,7 @@ def test_tc_4007_Android_Kiosk_Persona_Image(url):
         print("------------------- GET Android Kiosk Persona Image Failed ---------------------------\n\n")
         assert False
 
-
-# POST method to get the Generic QR Generation
+# GET method to get the Generic QR Generation
 @pytest.mark.parametrize('url', [""])
 @pytest.mark.skipif(Execute.test_tc_4008_GET_Android_GenericQRGeneration == 0, reason="Android Generic QR Generation is skipped")
 @pytest.mark.poitivetest
@@ -409,14 +418,6 @@ def test_tc_4008_GET_Android_Generic_QR_Generation(url):
                     "\n" + "Request Method: " + res.request.method +
                     "\n" + "Status Code: " + str(res.status_code) +
                     "\n" + "Response: " + str(res.content) + "\n")
-                json_resp = res.json()
-                # Store profiles based on platform and type
-                contact_ids = []  # Create an empty list to store contact IDs
-                for contact in json_resp.get('list', []):
-                    contacts_id = contact.get('id')
-                    contact_ids.append(contacts_id)  # Append each ID to the list
-                Globalinfo.PolicyLevel_Contacts_IDS = contact_ids  # Assign the list to the global variable
-                print("Account Level Contacts IDS:", Globalinfo.PolicyLevel_Contacts_IDS)
             elif res.status_code == 400:
                 print("\n" + "400 Bad Request!" + "\n")
                 # Add your assertions or actions for 400 Bad Request response here
@@ -438,4 +439,100 @@ def test_tc_4008_GET_Android_Generic_QR_Generation(url):
         print("Time taken: " + str(now2 - now1))
         print(
             "------------- Failed to display the Generic QR Generation information when the policy is launched ---------------------------\n\n")
+        assert False
+        
+# GET method to get the Generic QR Generation
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_4009_GET_Android_Disabled_Apps == 0, reason="Android Disabled Apps is skipped")
+@pytest.mark.poitivetest
+@pytest.mark.contacts
+@pytest.mark.regressiontest
+@pytest.mark.run(order=400009)
+def test_tc_4009_GET_Android_Generic_QR_Generation(url):
+    now1 = datetime.now()
+    if Globalinfo.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+        for policyId in Globalinfo.Android_Policy_IDs:
+            apiUrl = Globalinfo.BaseURL + GETAndroidDisabledApps(policyId)
+            Headers = {'Authorization': 'Bearer {}'.format(Globalinfo.bearerToken)}
+            res = requests.get(url=apiUrl, headers=Headers, timeout=Globalinfo.timeout)
+            if res.status_code == 200:
+                curl_str1 = Utils.getCurlEquivalent(res)
+                print(curl_str1)
+                print("\n" + "200 The request was a success!")
+                print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                    "\n" + "Request URL: " + apiUrl +
+                    "\n" + "Request Method: " + res.request.method +
+                    "\n" + "Status Code: " + str(res.status_code) +
+                    "\n" + "Response: " + str(res.content) + "\n")
+            elif res.status_code == 400:
+                print("\n" + "400 Bad Request!" + "\n")
+                # Add your assertions or actions for 400 Bad Request response here
+                assert False, "Received 400 Bad Request response"
+            elif res.status_code == 404:
+                print("\n" + "404 Result not found!" + "\n")
+                # Add your assertions or actions for 404 Not Found response here
+                assert False, "Received 404 response"
+            elif res.status_code == 500:
+                print("\n" + "500 Internal Server Error!" + "\n")
+                # Add your assertions or actions for 500 Internal Server Error response here
+                assert False, "Received 500 response"
+            else:
+                print("Request did not succeed! Status code:", res.status_code)
+                assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        print("Exception : " + str(e))
+        now2 = datetime.now()
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed to display the Android Disabled Apps information when the policy is launched ---------------------------\n\n")
+        assert False
+
+# GET method to get the Generic QR Generation
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_4010_GET_Android_Time_Fence == 0, reason="Android Time Fence is skipped")
+@pytest.mark.poitivetest
+@pytest.mark.contacts
+@pytest.mark.regressiontest
+@pytest.mark.run(order=400010)
+def test_tc_4010_GET_Android_Time_Fence(url):
+    now1 = datetime.now()
+    if Globalinfo.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+        for policyId in Globalinfo.Android_Policy_IDs:
+            apiUrl = Globalinfo.BaseURL + GETAndroidTimeFence(policyId)
+            Headers = {'Authorization': 'Bearer {}'.format(Globalinfo.bearerToken)}
+            res = requests.get(url=apiUrl, headers=Headers, timeout=Globalinfo.timeout)
+            if res.status_code == 200:
+                curl_str1 = Utils.getCurlEquivalent(res)
+                print(curl_str1)
+                print("\n" + "200 The request was a success!")
+                print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                    "\n" + "Request URL: " + apiUrl +
+                    "\n" + "Request Method: " + res.request.method +
+                    "\n" + "Status Code: " + str(res.status_code) +
+                    "\n" + "Response: " + str(res.content) + "\n")
+            elif res.status_code == 400:
+                print("\n" + "400 Bad Request!" + "\n")
+                # Add your assertions or actions for 400 Bad Request response here
+                assert False, "Received 400 Bad Request response"
+            elif res.status_code == 404:
+                print("\n" + "404 Result not found!" + "\n")
+                # Add your assertions or actions for 404 Not Found response here
+                assert False, "Received 404 response"
+            elif res.status_code == 500:
+                print("\n" + "500 Internal Server Error!" + "\n")
+                # Add your assertions or actions for 500 Internal Server Error response here
+                assert False, "Received 500 response"
+            else:
+                print("Request did not succeed! Status code:", res.status_code)
+                assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        print("Exception : " + str(e))
+        now2 = datetime.now()
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed to display the time fence information when the policy is launched ---------------------------\n\n")
         assert False
