@@ -66,6 +66,7 @@ test_tc_4004_GET_Android_Location_Track_Config = 1
 test_tc_4005_GET_Android_DataUsage = 1
 test_tc_4006_GET_Android_APN_Setting_ID = 1
 test_tc_4007_GET_Android_Kiosk_Persona_Image = 1
+test_tc_4008_GET_Android_GenericQRGeneration = 1
 
 # Device details view
 test_tc_5001_GET_Android_Device_By_PolicyID=1

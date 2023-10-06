@@ -8,15 +8,19 @@
 #
 # CreateContacts = "enterprise/rest/contacts/save"
 #
+#
 # def POSTAccountLevelContacts(page, size):
 #     return "enterprise/rest/contacts/all?page={page}&size={size}".format(page=page, size=size)
+#
 #
 # def Delete_Account_and_Policy_Level_Contacts(ContactsMongoDBId):
 #     return "enterprise/rest/contacts/{ContactsMongoDBId}".format(ContactsMongoDBId=ContactsMongoDBId)
 #
+#
 # def POSTPolicyLevelContacts(policyId, pageSize, page):
 #     return "enterprise/rest/weguard-v2/devices/forgroup/{policyId}?pageSize={pageSize}&page={page}".format(
 #         policyId=policyId, pageSize=pageSize, page=page)
+#
 #
 # fcmUpdate = "enterprise/rest/weguard-v2/fcmUpdate"
 #
@@ -37,34 +41,34 @@
 #         apiUrl = globalvar.BaseURL + CreateContacts
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         CreateContactsAccountLevel = [
-#                 {
-#                     "firstName": GeneralPayload.firstName,
-#                     "lastName": GeneralPayload.lastName,
-#                     "displayName": GeneralPayload.displayName,
-#                     "nickName": GeneralPayload.nickName,
-#                     "companyName": GeneralPayload.companyName,
-#                     "jobTitle": GeneralPayload.jobTitle,
-#                     "website": GeneralPayload.website,
-#                     "notes": GeneralPayload.notes,
-#                     "emailAddresses": GeneralPayload.emailAddresses,
-#                     "phoneNums": GeneralPayload.phoneNums,
-#                     "postalAddresses": GeneralPayload.postalAddresses,
-#                     "accountId": globalvar.accountId,
-#                     "policyId": None
-#                 }
-#             ]
+#             {
+#                 "firstName": GeneralPayload.firstName,
+#                 "lastName": GeneralPayload.lastName,
+#                 "displayName": GeneralPayload.displayName,
+#                 "nickName": GeneralPayload.nickName,
+#                 "companyName": GeneralPayload.companyName,
+#                 "jobTitle": GeneralPayload.jobTitle,
+#                 "website": GeneralPayload.website,
+#                 "notes": GeneralPayload.notes,
+#                 "emailAddresses": GeneralPayload.emailAddresses,
+#                 "phoneNums": GeneralPayload.phoneNums,
+#                 "postalAddresses": GeneralPayload.postalAddresses,
+#                 "accountId": globalvar.accountId,
+#                 "policyId": None
+#             }
+#         ]
 #         res = requests.post(url=apiUrl, headers=Headers, json=CreateContactsAccountLevel,
 #                             timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             print("\n" + "200 The request was a success!")
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Request Payload: " + str(CreateContactsAccountLevel) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
+#             print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Request Payload: " + str(CreateContactsAccountLevel) +
+#                 "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -115,12 +119,12 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             print("\n" + "200 The request was a success!")
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_AccountLevel) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
+#             print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_AccountLevel) +
+#                 "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -165,12 +169,12 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             print("\n" + "200 The request was a success!")
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Request Payload: " + str(Contacts_AccountLevel) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
+#             print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Request Payload: " + str(Contacts_AccountLevel) +
+#                 "\n" + "Response: " + str(res.content) + "\n")
 #             json_resp = res.json()
 #             # Store profiles based on platform and type
 #             contact_ids = []  # Create an empty list to store contact IDs
@@ -223,11 +227,11 @@
 #                 curl_str1 = Utils.getCurlEquivalent(res)
 #                 print(curl_str1)
 #                 print("\n" + "200 The request was a success!")
-#                 print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                       "\n" + "Request URL: " + apiUrl +
-#                       "\n" + "Request Method: " + res.request.method +
-#                       "\n" + "Status Code: " + str(res.status_code) +
-#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                     "\n" + "Request URL: " + apiUrl +
+#                     "\n" + "Request Method: " + res.request.method +
+#                     "\n" + "Status Code: " + str(res.status_code) +
+#                     "\n" + "Response: " + str(res.content) + "\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -277,12 +281,12 @@
 #             curl_str1 = Utils.getCurlEquivalent(res)
 #             print(curl_str1)
 #             print("\n" + "200 The request was a success!")
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_AccountLevel) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
+#             print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_AccountLevel) +
+#                 "\n" + "Response: " + str(res.content) + "\n")
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -345,12 +349,12 @@
 #                 curl_str1 = Utils.getCurlEquivalent(res)
 #                 print(curl_str1)
 #                 print("\n" + "200 The request was a success!")
-#                 print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                       "\n" + "Request URL: " + apiUrl +
-#                       "\n" + "Request Method: " + res.request.method +
-#                       "\n" + "Status Code: " + str(res.status_code) +
-#                       "\n" + "Request Payload: " + str(CreateContactsPolicyLevel) +
-#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                     "\n" + "Request URL: " + apiUrl +
+#                     "\n" + "Request Method: " + res.request.method +
+#                     "\n" + "Status Code: " + str(res.status_code) +
+#                     "\n" + "Request Payload: " + str(CreateContactsPolicyLevel) +
+#                     "\n" + "Response: " + str(res.content) + "\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -388,40 +392,41 @@
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#       for policyId in globalvar.Android_Policy_IDs:
-#         apiUrl = globalvar.BaseURL + fcmUpdate
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-#         FCMUpdateAfterDeleteContacts_PolicyLevel = {"topic": policyId, "type": "SYNC_CONTACTS", "isLicenseLevel": True,
-#                                                     "actCode": globalvar.activationCode,
-#                                                     "pActCode": globalvar.productActivationCode, "message": None,
-#                                                     "id": GeneralPayload.RandomContactsIDs}
-#         res = requests.post(url=apiUrl, headers=Headers, json=FCMUpdateAfterDeleteContacts_PolicyLevel,
-#                             timeout=globalvar.timeout)
-#         if res.status_code == 200:
-#             curl_str1 = Utils.getCurlEquivalent(res)
-#             print(curl_str1)
-#             print("\n" + "200 The request was a success!")
-#             print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                   "\n" + "Request URL: " + apiUrl +
-#                   "\n" + "Request Method: " + res.request.method +
-#                   "\n" + "Status Code: " + str(res.status_code) +
-#                   "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_PolicyLevel) +
-#                   "\n" + "Response: " + str(res.content) + "\n")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!" + "\n")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!" + "\n")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!" + "\n")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, "Received {res.status_code} response"
+#         for policyId in globalvar.Android_Policy_IDs:
+#             apiUrl = globalvar.BaseURL + fcmUpdate
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+#             FCMUpdateAfterDeleteContacts_PolicyLevel = {"topic": policyId, "type": "SYNC_CONTACTS",
+#                                                         "isLicenseLevel": True,
+#                                                         "actCode": globalvar.activationCode,
+#                                                         "pActCode": globalvar.productActivationCode, "message": None,
+#                                                         "id": GeneralPayload.RandomContactsIDs}
+#             res = requests.post(url=apiUrl, headers=Headers, json=FCMUpdateAfterDeleteContacts_PolicyLevel,
+#                                 timeout=globalvar.timeout)
+#             if res.status_code == 200:
+#                 curl_str1 = Utils.getCurlEquivalent(res)
+#                 print(curl_str1)
+#                 print("\n" + "200 The request was a success!")
+#                 print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                     "\n" + "Request URL: " + apiUrl +
+#                     "\n" + "Request Method: " + res.request.method +
+#                     "\n" + "Status Code: " + str(res.status_code) +
+#                     "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_PolicyLevel) +
+#                     "\n" + "Response: " + str(res.content) + "\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!" + "\n")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "404 Result not found!" + "\n")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!" + "\n")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, "Received {res.status_code} response"
 #     except BaseException as e:
 #         print("Exception : " + str(e))
 #         now2 = datetime.now()
@@ -451,11 +456,12 @@
 #                 curl_str1 = Utils.getCurlEquivalent(res)
 #                 print(curl_str1)
 #                 print("\n" + "200 The request was a success!")
-#                 print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                       "\n" + "Request URL: " + apiUrl +
-#                       "\n" + "Request Method: " + res.request.method +
-#                       "\n" + "Status Code: " + str(res.status_code) +
-#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(
+#                     # "\n" + "Header: " + str(res.headers) + "\n"
+#                     "\n" + "Request URL: " + apiUrl +
+#                     "\n" + "Request Method: " + res.request.method +
+#                     "\n" + "Status Code: " + str(res.status_code) +
+#                     "\n" + "Response: " + str(res.content) + "\n")
 #                 json_resp = res.json()
 #                 # Store profiles based on platform and type
 #                 contact_ids = []  # Create an empty list to store contact IDs
@@ -508,11 +514,11 @@
 #                 curl_str1 = Utils.getCurlEquivalent(res)
 #                 print(curl_str1)
 #                 print("\n" + "200 The request was a success!")
-#                 print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                       "\n" + "Request URL: " + apiUrl +
-#                       "\n" + "Request Method: " + res.request.method +
-#                       "\n" + "Status Code: " + str(res.status_code) +
-#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                     "\n" + "Request URL: " + apiUrl +
+#                     "\n" + "Request Method: " + res.request.method +
+#                     "\n" + "Status Code: " + str(res.status_code) +
+#                     "\n" + "Response: " + str(res.content) + "\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here
@@ -562,12 +568,12 @@
 #                 curl_str1 = Utils.getCurlEquivalent(res)
 #                 print(curl_str1)
 #                 print("\n" + "200 The request was a success!")
-#                 print(#"\n" + "Header: " + str(res.headers) + "\n"
-#                       "\n" + "Request URL: " + apiUrl +
-#                       "\n" + "Request Method: " + res.request.method +
-#                       "\n" + "Status Code: " + str(res.status_code) +
-#                       "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_PolicyLevel) +
-#                       "\n" + "Response: " + str(res.content) + "\n")
+#                 print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                     "\n" + "Request URL: " + apiUrl +
+#                     "\n" + "Request Method: " + res.request.method +
+#                     "\n" + "Status Code: " + str(res.status_code) +
+#                     "\n" + "Request Payload: " + str(FCMUpdateAfterDeleteContacts_PolicyLevel) +
+#                     "\n" + "Response: " + str(res.content) + "\n")
 #             elif res.status_code == 400:
 #                 print("\n" + "400 Bad Request!" + "\n")
 #                 # Add your assertions or actions for 400 Bad Request response here

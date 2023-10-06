@@ -148,26 +148,32 @@ Android_Non_Play_Policy_Names=[]
 Android_Non_Play_Policy_Types=[]
 
 # Android Kiosk Policies Info
+Android_Kiosk_Policies=[]
 Android_Kiosk_Policy_IDs = []
 Android_Kiosk_Policy_Names = []
 
 # Android WM Policies Info
+Android_WM_Policies=[]
 Android_WM_Policy_IDs = []
 Android_WM_Policy_Names = []
 
 # Android BYOD (Work Profile) Policies Info
+Android_BYOD_Policies=[]
 Android_BYOD_Policy_IDs = []
 Android_BYOD_Policy_Names = []
 
 # Android Non Play Kiosk Policies Info
+Android_Non_Play_Kiosk_Policies=[]
 Android_Non_Play_Kiosk_Policy_IDs = []
 Android_Non_Play_Kiosk_Policy_Names = []
 
 # Android Non Play WM Policies Info
+Android_Non_Play_WM_Policies=[]
 Android_Non_Play_WM_Policy_IDs = []
 Android_Non_Play_WM_Policy_Names = []
 
 # Android Non Play BYOD (Work Profile) Policies Info
+Android_Non_Play_BYOD_Policies=[]
 Android_Non_Play_BYOD_Policy_IDs = []
 Android_Non_Play_BYOD_Policy_Names = []
 

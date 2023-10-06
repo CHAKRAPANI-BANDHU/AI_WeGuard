@@ -67,9 +67,9 @@ def test_tc_3001_All_Devices_100(url):
                     globalvar.Windows_Mongo_DB_DeviceIDs.append(mongoDBDeviceID)
                 else:
                     print("\nInvalid platform type")
-            
+
             # Display the extracted device IDs of Windows, Android and iOS.
-            
+
             # Windows Devices Information
             if globalvar.Windows_Devices:
                 print("\nWindows Devices Information:")
@@ -83,7 +83,7 @@ def test_tc_3001_All_Devices_100(url):
                 print("\nWindows Mongo DB Device IDs: " + Windows_MongoDBDeviceID_str)
             else:
                 print("\nNo Windows Devices found.")
-            
+
             # Android Devices Information
             if globalvar.Android_Devices:
                 print("\nAndroid Devices Information:")
@@ -97,7 +97,7 @@ def test_tc_3001_All_Devices_100(url):
                 print("\nAndroid Mongo DB Device IDs: " + Android_MongoDBDeviceID_str)
             else:
                 print("\nNo Android Devices found.")
-            
+
             # iOS Devices Information
             if globalvar.iOS_Devices:
                 print("\niOS Devices Information:")
@@ -112,7 +112,7 @@ def test_tc_3001_All_Devices_100(url):
                 print("\niOS Mongo DB Device IDs: " + iOS_MongoDBDeviceID_str)
             else:
                 print("\nNo iOS Devices found.")
-        
+
         elif res.status_code == 400:
             print("\n" + "400 Bad Request!" + "\n")
             print("\n" + "400 Bad Request!" + "\n")
