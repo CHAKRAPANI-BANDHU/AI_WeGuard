@@ -83,15 +83,57 @@ def test_tc_4001_Android_Policy_By_ID_GET(url):
                     "\n" + "Request Method: " + res.request.method +
                     "\n" + "Status Code: " + str(res.status_code) +
                     "\n" + "Response: " + str(res.content) + "\n\n")
-                android_policy_name = json.loads(res.content)['entity']['name']
-                Globalinfo.Android_Policy_Name.append(android_policy_name)
-                apn_setting_id = json.loads(res.content)['entity']['apnSettingId']
-                Globalinfo.APNSettingID.append(apn_setting_id)
-                timeFencePolicyConfigs_id = json.loads(res.content)['entity']['timeFencePolicyConfigs']['id]']
-                Globalinfo.timefenceId.append(timeFencePolicyConfigs_id)
-                print("Policy Name: " + android_policy_name + "\n")
-                print("APN Setting ID: " + str(apn_setting_id) + "\n")
-                print("Time Fence ID: " + str(timeFencePolicyConfigs_id) + "\n")
+                
+                # Decode the JSON response
+                response = res.content.decode('utf-8')
+                parsed_response = json.loads(response)
+                
+                # Extract Android policy name
+                android_policy_name = parsed_response['entity']['name']
+                if android_policy_name:
+                    Globalinfo.Android_Policy_Name.append(android_policy_name)
+                    print("Policy Name:", android_policy_name, "\n")
+                else:
+                    print("Policy Name not found in the response.")
+                
+                # Extract APN setting ID
+                apn_setting_id = parsed_response['entity']['apnSettingId']
+                if apn_setting_id:
+                    Globalinfo.APNSettingID.append(apn_setting_id)
+                    print("APN Setting ID:", apn_setting_id, "\n")
+                else:
+                    print("APN Setting ID not found in the response.")
+
+                # Extract geofences if they exist
+                geofences = parsed_response.get('entity', {}).get('geofences', [])
+                geofence_policy_ids = []
+
+                if geofences:
+                    for geofence in geofences:
+                        geofence_policy_id = geofence.get('geofencePolicyId')
+                        if geofence_policy_id is not None:
+                            geofence_policy_ids.append(geofence_policy_id)
+
+                if geofence_policy_ids:
+                    Globalinfo.geofencePolicyConfigId.extend(geofence_policy_ids)
+                    print("Geofence Policy Config IDs: ", geofence_policy_ids, "\n")
+                    print("Geofence Policy IDs of all Android Policies: ", Globalinfo.geofencePolicyConfigId, "\n")
+                else:
+                    print("No geofences with 'geofencePolicyId' found in the response." + "\n")
+
+                # Extract and handle timeFencePolicyConfigs if they exist
+                time_fence_config = parsed_response.get('entity', {}).get('timeFencePolicyConfigs')
+                if time_fence_config is not None:
+                    time_fence_config_id = time_fence_config.get('id')
+                    if time_fence_config_id:
+                        Globalinfo.timefenceId.append(time_fence_config_id)
+                        print("Time Fence Config ID:", time_fence_config_id, "\n")
+                    else:
+                        print("No Time Fence Config ID found in timeFencePolicyConfigs." + "\n")
+                else:
+                    print("No Time Fence Configs available in the response." + "\n")
+                    print("Time Fence Config IDs of all Android Policies: ", Globalinfo.timefenceId, "\n")
+
             elif res.status_code == 400:
                 print("\n" + "400 Bad Request!" + "\n")
                 assert False, "Received 400 Bad Request response"
@@ -110,7 +152,6 @@ def test_tc_4001_Android_Policy_By_ID_GET(url):
         print("Time taken: " + str(now2 - now1))
         print("------------------- GET Android Policy Failed ---------------------------\n\n")
         assert False
-
 
 # GET -- Android Apps Data by Activation and Product Activation Code
 @pytest.mark.parametrize('url', [""])
@@ -227,7 +268,7 @@ def test_tc_4004_Android_Location_Track_Config(url):
             print(curl_str1)
             if res.status_code == 200:
                 print("\n" + "200 The request was a success!" + "\n")
-                
+
                 print(  # "\n" + "Header: " + str(res.headers) + "\n"
                     "\n" + "Request URL: " + apiUrl +
                     "\n" + "Request Method: " + res.request.method +
@@ -508,8 +549,8 @@ def test_tc_4010_GET_Android_Time_Fence(url):
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     try:
-        for timefenceConfigID in Globalinfo.timefenceId:
-            apiUrl = Globalinfo.BaseURL + GETAndroidTimeFence(timefenceConfigID)
+        for policyId in Globalinfo.Android_Policy_IDs:
+            apiUrl = Globalinfo.BaseURL + GETAndroidTimeFence(policyId)
             Headers = {'Authorization': 'Bearer {}'.format(Globalinfo.bearerToken)}
             res = requests.get(url=apiUrl, headers=Headers, timeout=Globalinfo.timeout)
             if res.status_code == 200:

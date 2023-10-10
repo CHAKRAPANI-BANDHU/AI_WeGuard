@@ -247,3 +247,6 @@ APNSettingID=[]
 
 # Time Fencing
 timefenceId=[]
+
+# Geofence
+geofencePolicyConfigId=[]
