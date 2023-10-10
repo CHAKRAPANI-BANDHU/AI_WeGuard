@@ -51,8 +51,8 @@ def GETAndroidDisabledApps(policyId):
     return AndroidDisabledApps
 
 
-def GETAndroidTimeFence(policyId):
-    AndroidTimeFence = "enterprise/rest/timefence/{policyId}".format(policyId=policyId)
+def GETAndroidTimeFence(timeFenceConfigId):
+    AndroidTimeFence = "enterprise/rest/timefence/{timeFenceConfigId}".format(timeFenceConfigId=timeFenceConfigId)
     return AndroidTimeFence
 
 
@@ -102,7 +102,7 @@ def test_tc_4001_Android_Policy_By_ID_GET(url):
                     Globalinfo.APNSettingID.append(apn_setting_id)
                     print("APN Setting ID:", apn_setting_id, "\n")
                 else:
-                    print("APN Setting ID not found in the response.")
+                    print("APN Setting ID not found in the response." + "\n")
 
                 # Extract geofences if they exist
                 geofences = parsed_response.get('entity', {}).get('geofences', [])
@@ -549,8 +549,8 @@ def test_tc_4010_GET_Android_Time_Fence(url):
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     try:
-        for policyId in Globalinfo.Android_Policy_IDs:
-            apiUrl = Globalinfo.BaseURL + GETAndroidTimeFence(policyId)
+        for timefenceConfigID in Globalinfo.timefenceId:
+            apiUrl = Globalinfo.BaseURL + GETAndroidTimeFence(timefenceConfigID)
             Headers = {'Authorization': 'Bearer {}'.format(Globalinfo.bearerToken)}
             res = requests.get(url=apiUrl, headers=Headers, timeout=Globalinfo.timeout)
             if res.status_code == 200:
