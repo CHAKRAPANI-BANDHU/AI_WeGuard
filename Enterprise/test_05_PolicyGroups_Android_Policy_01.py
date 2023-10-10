@@ -120,6 +120,7 @@ def test_tc_4001_Android_Policy_By_ID_GET(url):
                 else:
                     print("No geofences with 'geofencePolicyId' found in the response." + "\n")
                     print("Geofence Policy IDs of all Android Policies: ", Globalinfo.geofencePolicyConfigId, "\n")
+               
                 # Extract and handle timeFencePolicyConfigs if they exist
                 time_fence_config = parsed_response.get('entity', {}).get('timeFencePolicyConfigs')
                 if time_fence_config is not None:
