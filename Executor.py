@@ -97,9 +97,15 @@ test_tc_5020_POST_Android_Device_DataUsage=1
 test_tc_5021_Android_Device_Commands=0
 test_tc_5022_Android_Device_Admin_Device_Commands=0
 
+# Reports
+test_tc_8001_GET_Reports_License = 1
+test_tc_8002_GET_Reports_Apple_Profiles = 1
+test_tc_8003_GET_Reports_Windows_Profiles = 1
 
 # Data Usage on left navigation bar
 test_tc_11001_GET_Android_DataUsageOn = 1
+
+
 
 
 # Enterprise App Version
