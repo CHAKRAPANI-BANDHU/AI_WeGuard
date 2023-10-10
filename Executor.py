@@ -98,6 +98,10 @@ test_tc_5021_Android_Device_Commands=0
 test_tc_5022_Android_Device_Admin_Device_Commands=0
 
 
+# Data Usage on left navigation bar
+test_tc_11001_GET_Android_DataUsageOn = 1
+
+
 # Enterprise App Version
 test_1111111_Enterprise_Server_Version_GET=1
 
