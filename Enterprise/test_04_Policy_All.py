@@ -42,7 +42,7 @@ def store_profiles(platform, policy_type, policy_id, policy_name):
 
 
 # Define the test function
-@pytest.mark.parametrize('url', [""])
+@pytest.mark.parametrize('Page, Size', [(p, s) for p in Globalinfo.page for s in Globalinfo.pageSize])
 @pytest.mark.skipif(Execute.test_tc_4000_Policy_All == 0, reason="test skipped")
 @pytest.mark.usualtest
 @pytest.mark.policygroups
@@ -50,12 +50,12 @@ def store_profiles(platform, policy_type, policy_id, policy_name):
 @pytest.mark.regressiontest
 @pytest.mark.positivetest
 @pytest.mark.run(order=400000)
-def test_tc_4000_Policy_ALL_10000(url):
+def test_tc_4000_Policy_ALL_10000(Page, Size):
     now1 = datetime.now()
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     try:
-        apiUrl = Globalinfo.BaseURL + AllPolicy(Globalinfo.page_1, Globalinfo.page_1000)
+        apiUrl = Globalinfo.BaseURL + AllPolicy(Page, Size)
         Headers = {'Authorization': 'Bearer ' + Globalinfo.bearerToken}
         res = requests.get(url=apiUrl, headers=Headers)
         if res.status_code == 200:

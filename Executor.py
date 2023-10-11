@@ -38,22 +38,13 @@ test_tc_2002_DashboardCalls = 1
 test_tc_2003_DashboardRecentActivity = 1
 
 # Devices Page
-test_tc_3001_All_Devices_100 = 1
-test_tc_3002_All_Devices_500 = 1
-test_tc_3003_All_Devices_1000 = 1
-test_tc_3004_Unenrolled_Devices = 1
-test_tc_3005_Stolen_Devices = 1
-test_tc_3006_Replaced_Devices = 1
-test_tc_3007_Active_Devices = 1
-test_tc_3008_Lost_Devices = 1
-test_tc_3009_Unprovisioned_Devices = 1
-test_tc_3010_Search_Policy = 1
-test_tc_3011_Filter_By_GroupNames = 1
-test_tc_3012_Enable_All_DevicesState = 1
-test_tc_3013_Disable_All_DevicesState = 1
-test_tc_3014_Android_Devices = 1
-test_tc_3015_iOS_Devices = 1
-test_tc_3016_Windows_Devices = 1
+test_tc_3001_All_Devices_Pagination = 1
+test_tc_3002_Devices_States = 1
+test_tc_3003_Search_Policy = 1
+test_tc_3004_Filter_By_GroupNames = 1
+test_tc_3005_Enable_All_DevicesState = 1
+test_tc_3006_Disable_All_DevicesState = 1
+test_tc_3007_View_By_Device_Types = 1
 
 # Policy Groups
 test_tc_4000_Policy_All=1

@@ -5,22 +5,23 @@ import Executor as Execute
 import globalvariables as Globalinfo
 import test_GETutils as Utils
 
+
 def License(pageSize, page):
-    GETLicense = "enterprise/rest/weguard-v2/license?pageSize={pageSize}&page={page}".format(pageSize=pageSize, page=page)
+    GETLicense = "enterprise/rest/weguard-v2/license?pageSize={pageSize}&page={page}".format(pageSize=pageSize,
+                                                                                             page=page)
     return GETLicense
+
 
 def AppleProfiles(page, size):
     GETAppleProfiles = "apple/rest/profile/all?page={page}&size={size}".format(page=page, size=size)
     return GETAppleProfiles
 
+
 WindowsProfiles = "windows/rest/policy/all"
 
 
-Pages = [1, 2, 3, 4]
-Sizes = [100, 300, 500, 700, 900, 1000]
-
 # GET -- Reports -- License
-@pytest.mark.parametrize('Page, Size', [(p, s) for p in Pages for s in Sizes])
+@pytest.mark.parametrize('Page, Size', [(p, s) for p in Globalinfo.page for s in Globalinfo.pageSize])
 @pytest.mark.skipif(Execute.test_tc_8001_GET_Reports_License == 0, reason="GET - License in Reports")
 @pytest.mark.usualtest
 @pytest.mark.policygroups
@@ -65,8 +66,9 @@ def test_tc_8001_Reports_License_GET(Page, Size):
         print("------------------- Failed - GET License ---------------------------\n\n")
         assert False
 
+
 # GET -- Reports -- Apple Profiles
-@pytest.mark.parametrize('Page, Size', [(p, s) for p in Pages for s in Sizes])
+@pytest.mark.parametrize('Page, Size', [(p, s) for p in Globalinfo.page for s in Globalinfo.pageSize])
 @pytest.mark.skipif(Execute.test_tc_8002_GET_Reports_Apple_Profiles == 0, reason="GET - Apple Profiles in Reports")
 @pytest.mark.usualtest
 @pytest.mark.policygroups
@@ -79,7 +81,7 @@ def test_tc_8002_Reports_Apple_Profiles_GET(Page, Size):
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token. Skipping test.")
     try:
-        apiUrl = Globalinfo.BaseURL + AppleProfiles(Page, Sizes)
+        apiUrl = Globalinfo.BaseURL + AppleProfiles(Page, Size)
         headers = {'Authorization': 'Bearer ' + Globalinfo.bearerToken}
         res = requests.get(url=apiUrl, headers=headers)
         if res.status_code == 200:
@@ -111,8 +113,8 @@ def test_tc_8002_Reports_Apple_Profiles_GET(Page, Size):
         print("------------------- Failed - GET Apple Profiles ---------------------------\n\n")
         assert False
 
+
 # GET -- Reports -- Windows Profiles
-@pytest.mark.parametrize('url', [])
 @pytest.mark.skipif(Execute.test_tc_8003_GET_Reports_Windows_Profiles == 0, reason="GET - Windows Profiles in Reports")
 @pytest.mark.usualtest
 @pytest.mark.policygroups
@@ -120,7 +122,7 @@ def test_tc_8002_Reports_Apple_Profiles_GET(Page, Size):
 @pytest.mark.regressiontest
 @pytest.mark.positivetest
 @pytest.mark.run(order=800003)
-def test_tc_8003_Reports_Windows_Profiles_GET(url):
+def test_tc_8003_Reports_Windows_Profiles_GET():
     now1 = datetime.now()
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token. Skipping test.")
@@ -156,4 +158,3 @@ def test_tc_8003_Reports_Windows_Profiles_GET(url):
         print("Time taken: " + str(now2 - now1))
         print("------------------- Failed - GET Windows Profiles ---------------------------\n\n")
         assert False
-        

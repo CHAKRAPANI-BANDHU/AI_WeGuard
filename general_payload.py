@@ -9,6 +9,18 @@ fake = Faker()
 # Generate a random Gmail email address
 random_gmail_address = fake.email(domain="gmail.com")
 
+# Define the base DeviceState with all keys set to None
+Base_DeviceState = {
+    "search": None,
+    "provisioned": None,
+    "replaced": None,
+    "lost": None,
+    "stolen": None,
+    "unEnrolled": None,
+    "active": None,
+    "policyIdList": None
+}
+
 AllDevices = {
     "search": None,
     "provisioned": True,
@@ -29,61 +41,6 @@ AndroidPoliciesDevices = {
     "unEnrolled": None,
     "active": None,
     "policyIdList": globalvariables.Android_Policy_IDs
-}
-
-UnenrolledDevices = {
-    "search": None,
-    "provisioned": None,
-    "replaced": None,
-    "lost": None,
-    "stolen": None,
-    "unEnrolled": True,
-    "active": None,
-    "policyIdList": None
-}
-
-LostDevices = {
-    "search": None,
-    "provisioned": None,
-    "replaced": None,
-    "lost": True,
-    "stolen": None,
-    "unEnrolled": True,
-    "active": None,
-    "policyIdList": None
-}
-
-StolenDevices = {
-    "search": None,
-    "provisioned": None,
-    "replaced": None,
-    "lost": None,
-    "stolen": True,
-    "unEnrolled": None,
-    "active": None,
-    "policyIdList": None
-}
-
-ActiveDevices = {
-    "search": None,
-    "provisioned": None,
-    "replaced": None,
-    "lost": None,
-    "stolen": None,
-    "unEnrolled": None,
-    "active": True,
-    "policyIdList": None
-}
-
-ReplacedDevices = {
-    "search": None,
-    "provisioned": None,
-    "replaced": True,
-    "lost": None,
-    "stolen": None,
-    "unEnrolled": None,
-    "active": True,
-    "policyIdList": None
 }
 
 EnableAllDevicesState = {
@@ -116,42 +73,6 @@ FilterByGroupName = {
     "stolen": False,
     "unEnrolled": False,
     "active": False,
-    "policyIdList": None
-}
-
-AndroidDevices = {
-    "search": None,
-    "provisioned": True,
-    "replaced": None,
-    "lost": None,
-    "stolen": None,
-    "unEnrolled": None,
-    "type": "ANDROID",
-    "active": None,
-    "policyIdList": None
-}
-
-iOSDevices = {
-    "search": None,
-    "provisioned": True,
-    "replaced": None,
-    "lost": None,
-    "stolen": None,
-    "unEnrolled": None,
-    "type": "IOS",
-    "active": None,
-    "policyIdList": None
-}
-
-WindowsDevices = {
-    "search": None,
-    "provisioned": True,
-    "replaced": None,
-    "lost": None,
-    "stolen": None,
-    "unEnrolled": None,
-    "type": "WINDOWS",
-    "active": None,
     "policyIdList": None
 }
 

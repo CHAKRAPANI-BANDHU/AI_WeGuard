@@ -11,11 +11,9 @@ def AndroidDataUsage(page, size, type):
     return GETDataUsage
 
 Types = ["MOBILE", "WIFI"]
-Pages = [1, 2, 3, 4]
-Sizes = [100, 300, 500, 700, 900, 1000]
 
 # GET -- Data Usage for Mobile/Network
-@pytest.mark.parametrize('Type, Page, Size', [(t, p, s) for t in Types for p in Pages for s in Sizes])
+@pytest.mark.parametrize('Type, Page, Size', [(t, p, s) for t in Types for p in Globalinfo.page for s in Globalinfo.pageSize])
 @pytest.mark.skipif(Execute.test_tc_11001_GET_Android_DataUsageOn == 0, reason="GET - Android Data Usage")
 @pytest.mark.usualtest
 @pytest.mark.policygroups

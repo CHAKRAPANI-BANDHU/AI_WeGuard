@@ -89,11 +89,8 @@ global loglevel
 loglevel = 0
 
 # Pagination
-page_1 = 1
-page_100 = 100
-page_500 = 500
-page_1000 = 1000
-page_50000 = 50000
+page = [1]
+pageSize = [100, 500, 1000]
 
 if os.environ.get('WEGUARD_USER') is not None:
     userName = os.getenv('WEGUARD_USER')
@@ -122,7 +119,7 @@ name = ""
 enterpriseId = ""
 role=""
 
-
+# Alerts
 UnacknowledgeAlertsIDs = []
 
 # Policy Groups Information of Android, iOS and Windows from common policy
