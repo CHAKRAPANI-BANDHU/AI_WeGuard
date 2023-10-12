@@ -125,6 +125,9 @@ UnacknowledgeAlertsIDs = []
 # Policy Groups Information of Android, iOS and Windows from common policy
 # After clicking on policy groups on left navigation bar
 
+# All Platform (Android, iOS, Windows) Policy IDs
+AllPlatformPolicyIDs=[]
+
 # Android All Policies Info
 Android_All_Policies=[]
 Android_All_Policy_IDs = []

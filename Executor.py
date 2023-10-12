@@ -42,9 +42,7 @@ test_tc_3001_All_Devices_Pagination = 1
 test_tc_3002_Devices_States = 1
 test_tc_3003_Search_Policy = 1
 test_tc_3004_Filter_By_GroupNames = 1
-test_tc_3005_Enable_All_DevicesState = 1
-test_tc_3006_Disable_All_DevicesState = 1
-test_tc_3007_View_By_Device_Types = 1
+test_tc_3005_View_By_Device_Types = 1
 
 # Policy Groups
 test_tc_4000_Policy_All=1

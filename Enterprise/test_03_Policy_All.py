@@ -218,8 +218,9 @@ def test_tc_4000_Policy_ALL_10000(Page, Size):
                 print("Android Non-Play BYOD Policy Names: ", android_non_play_byod_policy_names)
             else:
                 print("No Android Non-Play BYOD Policies found.")
-        
-        
+                
+                # Print All Platform (Android, iOS, Windows) Policy IDs
+            print("\nAll Platform (Android, iOS, Windows) Policy IDs : " + str(Globalinfo.Android_All_Policy_IDs) + str(Globalinfo.iOS_Policy_IDs) + str(Globalinfo.Windows_Policy_IDs) +"\n")
         
         elif res.status_code == 400:
             print("\n" + "400 Bad Request!" + "\n")

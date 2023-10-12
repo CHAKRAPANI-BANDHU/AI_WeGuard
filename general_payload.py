@@ -64,16 +64,15 @@ DisableAllDevicesState = {
     "active": False,
     "policyIdList": globalvariables.Android_Policy_IDs
 }
-
 FilterByGroupName = {
     "search": None,
-    "provisioned": False,
+    "provisioned": True,
     "replaced": False,
     "lost": False,
     "stolen": False,
     "unEnrolled": False,
     "active": False,
-    "policyIdList": None
+    "policyIdList": globalvariables.AllPlatformPolicyIDs
 }
 
 AllYesterdayLogs = {
