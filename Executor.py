@@ -94,7 +94,11 @@ test_tc_8003_GET_Reports_Windows_Profiles = 1
 # Data Usage on left navigation bar
 test_tc_11001_GET_Android_DataUsageOn = 1
 
-
+# Broadcast
+test_tc_13001_Broadcast_MessageHistory_Type_GET = 1
+test_tc_13002_Broadcast_All_Policies_GET = 1
+test_tc_13003_Broadcast_MessageHistory_POST = 1
+test_tc_13004_Broadcast_Message_Read_By_Device_GET = 1
 
 
 # Enterprise App Version

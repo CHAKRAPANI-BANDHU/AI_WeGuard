@@ -37,7 +37,7 @@
 # sender = 'qateam126@gmail.com'  # Change this to your Gmail address
 # subject = "API Test Report"
 # recipients = ['chakrapani.bandhu@wenable.com']  # Change this to the recipient's email addresses
-# message_text = "Please find the report of pyscripts executed"
+# message_text = "\nHello Team,\n" "\nPlease find the API Testing Report executed through Pyscripts using Python"
 #
 # # Read the file path from the command-line argument
 # if len(sys.argv) < 2:

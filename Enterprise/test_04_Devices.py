@@ -27,7 +27,7 @@ def searchPolicies(page, size, search):
 @pytest.mark.sanitytest
 @pytest.mark.regressiontest
 @pytest.mark.run(order=30001)
-def test_tc_3001_All_Device_Pagination(Page, Size):
+def test_tc_3001_All_Devices_Paginations(Page, Size):
     now1 = datetime.now()
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token  Skipping test")
@@ -136,238 +136,238 @@ def test_tc_3001_All_Device_Pagination(Page, Size):
         assert False
 
 
-# Filter by Device States
-# Updated custom_test_name function
-def custom_test_name(params):
-    Page, Size, provisioned, replaced, lost, stolen, unEnrolled, active = params
-    return f"Page - {Page} - Size - {Size} - Active - {active} - Provisioned - {provisioned} - Replaced - {replaced} - Lost - {lost} - Stolen - {stolen} - Unenrolled - {unEnrolled}"
-
-TrueFalse = [True, False]
-
-# Generate all combinations of True and False for DeviceState keys
-combinations = list(itertools.product(TrueFalse, repeat=6))
-
-# Updated @pytest.mark.parametrize decorator
-@pytest.mark.parametrize(
-    'test_params',
-    [(Page, Size, *combo) for Page in globalvar.page for Size in globalvar.pageSize for combo in combinations],
-    ids=custom_test_name
-)
-def test_tc_3002_Device_States(test_params):
-    Page, Size, provisioned, active, replaced, lost, stolen, unEnrolled = test_params
-    now1 = datetime.now()
-    if globalvar.bearerToken == '':
-        pytest.skip("Empty Bearer token Skipping test")
-
-    try:
-        apiUrl = globalvar.BaseURL + allDevices(Page, Size)
-        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-        device_state = RequestInfo.Base_DeviceState.copy()
-        device_state["provisioned"] = provisioned
-        device_state["replaced"] = replaced
-        device_state["lost"] = lost
-        device_state["stolen"] = stolen
-        device_state["unEnrolled"] = unEnrolled
-        device_state["active"] = active
-        
-        res = requests.post(url=apiUrl, headers=Headers, json=device_state, timeout=globalvar.timeout)
-        
-        if res.status_code == 200:
-            curl_str1 = Utils.getCurlEquivalent(res)
-            print(curl_str1)
-            if res.status_code == 200:
-                print("\n200 The request was a success!")
-                print(
-                    "\n" + "Request URL: " + apiUrl +
-                    "\n" + "Request Method: " + res.request.method +
-                    "\n" + "Status Code: " + str(res.status_code) +
-                    "\n" + "Request Payload: " + str(device_state) +
-                    "\n" + "Response: " + str(res.content) + "\n")
-                print(f"DeviceState: {device_state} with Page {Page} and Size {Size}\n")
-        elif res.status_code == 400:
-            print("\n400 Bad Request!\n")
-            # Add your assertions or actions for 400 Bad Request response here
-            assert False, "Received 400 Bad Request response"
-        elif res.status_code == 404:
-            print("\n404 Result not found!\n")
-            # Add your assertions or actions for 404 Not Found response here
-            assert False, "Received 404 response"
-        elif res.status_code == 500:
-            print("\n500 Internal Server Error!\n")
-            # Add your assertions or actions for 500 Internal Server Error response here
-            assert False, "Received 500 response"
-        else:
-            print(f"Request did not succeed! Status code: {res.status_code}")
-            assert False, f"Received {res.status_code} response"
-    except BaseException as e:
-        print(f"Exception: {str(e)}")
-        now2 = datetime.now()
-        print(f"Time taken: {str(now2 - now1)}")
-        print(f"Failed to display the Provisioned: {provisioned}, Active: {active}, Replaced: {replaced}, Lost: {lost}, Stolen: {stolen}, Unenrolled: {unEnrolled}")
-        assert False
-
-
-# Search Policy
-@pytest.mark.parametrize('Page, Size', [(p, s) for p in globalvar.page for s in globalvar.pageSize])
-@pytest.mark.skipif(Execute.test_tc_3003_Search_Policy == 0, reason="skip test")
-@pytest.mark.negativetest
-@pytest.mark.devices
-@pytest.mark.regressiontest
-@pytest.mark.run(order=30003)
-def test_tc_3003_Search_Policy(Page, Size):
-    now1 = datetime.now()
-    if globalvar.bearerToken == '':
-        pytest.skip("Empty Bearer token Skipping test")
-    try:
-        PolicySearch = searchPolicies(Page, Size, "Kiosk")
-        apiUrl = globalvar.BaseURL + PolicySearch
-        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-        res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
-        if res.status_code == 200:
-            curl_str1 = Utils.getCurlEquivalent(res)
-            print(curl_str1)
-            if res.status_code == 200:
-                print("\n" + "200 The request was a success!")
-                print(  # "\n" + "Header: " + str(res.headers) + "\n"
-                    "\n" + "Request URL: " + apiUrl +
-                    "\n" + "Request Method: " + res.request.method +
-                    "\n" + "Status Code: " + str(res.status_code) +
-                    "\n" + "Response: " + str(res.content) + "\n")
-                print("\n\n------------------- Searched the Policy ---------------------------\n")
-        elif res.status_code == 400:
-            print("\n" + "400 Bad Request!" + "\n")
-            # Add your assertions or actions for 400 Bad Request response here
-            assert False, "Received 400 Bad Request response"
-        elif res.status_code == 404:
-            print("\n" + "404 Result not found!" + "\n")
-            # Add your assertions or actions for 404 Not Found response here
-            assert False, "Received 404 response"
-        elif res.status_code == 500:
-            print("\n" + "500 Internal Server Error!" + "\n")
-            # Add your assertions or actions for 500 Internal Server Error response here
-            assert False, "Received 500 response"
-        else:
-            print("Request did not succeed! Status code:", res.status_code)
-            assert False, "Received {res.status_code} response"
-    except BaseException as e:
-        print("Exception : " + str(e))
-        now2 = datetime.now()
-        print("Time taken: " + str(now2 - now1))
-        print(
-            "------------- Failed to display the search policy ---------------------------\n\n")
-        assert False
-
-
-# Filter By Group Names
-@pytest.mark.parametrize('Page, Size', [(p, s) for p in globalvar.page for s in globalvar.pageSize])
-@pytest.mark.skipif(Execute.test_tc_3004_Filter_By_GroupNames == 0, reason="skip test")
-@pytest.mark.negativetest
-@pytest.mark.devices
-@pytest.mark.regressiontest
-@pytest.mark.run(order=30004)
-def test_tc_3004_Filter_By_GroupNames(Page, Size):
-    now1 = datetime.now()
-    if globalvar.bearerToken == '':
-        pytest.skip("Empty Bearer token Skipping test")
-    try:
-            FilterByGroupNames = allDevices(Page, Size)
-            apiUrl = globalvar.BaseURL + FilterByGroupNames
-            print("\n\n------------------- Filter By Group Names ---------------------------\n")
-            Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-            res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.FilterByGroupName, timeout=globalvar.timeout)
-            if res.status_code == 200:
-                curl_str1 = Utils.getCurlEquivalent(res)
-                print(curl_str1)
-                if res.status_code == 200:
-                    print("\n" + "200 The request was a success!")
-                    print(  # "\n" + "Header: " + str(res.headers) + "\n"
-                        "\n" + "Request URL: " + apiUrl +
-                        "\n" + "Request Method: " + res.request.method +
-                        "\n" + "Status Code: " + str(res.status_code) +
-                        "\n" + "Response: " + str(res.content) + "\n")
-            elif res.status_code == 400:
-                print("\n" + "400 Bad Request!" + "\n")
-                print("\n" + "400 Bad Request!" + "\n")
-                # Add your assertions or actions for 400 Bad Request response here
-                assert False, "Received 400 Bad Request response"
-            elif res.status_code == 404:
-                print("\n" + "404 Result not found!" + "\n")
-                # Add your assertions or actions for 404 Not Found response here
-                assert False, "Received 404 response"
-            elif res.status_code == 500:
-                print("\n" + "500 Internal Server Error!" + "\n")
-                # Add your assertions or actions for 500 Internal Server Error response here
-                assert False, "Received 500 response"
-            else:
-                print("Request did not succeed! Status code:", res.status_code)
-                assert False, "Received {res.status_code} response"
-    except BaseException as e:
-        print("Exception : " + str(e))
-        now2 = datetime.now()
-        print("Time taken: " + str(now2 - now1))
-        print("------------- Failed to display the Filter By Group Names ---------------------------\n\n")
-        assert False
-        
-# View by Devices Type
-DeviceTypes = ["ANDROID", "IOS", "WINDOWS"]
-
-
-# Android, iOS, Windows Devices
-@pytest.mark.parametrize('Page, Size, DeviceType',
-                         [(p, s, d) for p in globalvar.page for s in globalvar.pageSize for d in DeviceTypes])
-@pytest.mark.skipif(Execute.test_tc_3005_View_By_Device_Types == 0, reason="skip test")
-@pytest.mark.negativetest
-@pytest.mark.devices
-@pytest.mark.regressiontest
-@pytest.mark.run(order=30005)
-def test_tc_3005_Devices_Types(Page, Size, DeviceType):
-    now1 = datetime.now()
-    if globalvar.bearerToken == '':
-        pytest.skip("Empty Bearer token Skipping test")
-    try:
-        apiUrl = globalvar.BaseURL + allDevices(Page, Size)
-        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-        DevicesTypes = {
-            "search": None,
-            "provisioned": True,
-            "replaced": None,
-            "lost": None,
-            "stolen": None,
-            "unEnrolled": None,
-            "type": DeviceType,  # Set the device type dynamically
-            "active": None,
-            "policyIdList": None
-        }
-        res = requests.post(url=apiUrl, headers=Headers, json=DevicesTypes, timeout=globalvar.timeout)
-        if res.status_code == 200:
-            curl_str1 = Utils.getCurlEquivalent(res)
-            print(curl_str1)
-            if res.status_code == 200:
-                print("\n" + "200 The request was a success!")
-                print(  # "\n" + "Header: " + str(res.headers) + "\n"
-                    "\n" + "Request URL: " + apiUrl +
-                    "\n" + "Request Method: " + res.request.method +
-                    "\n" + "Status Code: " + str(res.status_code) +
-                    "\n" + "Response: " + str(res.content) + "\n")
-                print(f" Page {Page}, Size {Size} and Type {DeviceType}\n")
-        elif res.status_code == 400:
-            print("\n" + "400 Bad Request!" + "\n")
-            # Add your assertions or actions for 400 Bad Request response here
-            assert False, "Received 400 Bad Request response"
-        elif res.status_code == 404:
-            print("\n" + "404 Result not found!" + "\n")
-            # Add your assertions or actions for 404 Not Found response here
-            assert False, "Received 404 response"
-        elif res.status_code == 500:
-            print("\n" + "500 Internal Server Error!" + "\n")
-            # Add your assertions or actions for 500 Internal Server Error response here
-            assert False, "Received 500 response"
-        else:
-            print("Request did not succeed! Status code:", res.status_code)
-            assert False, "Received {res.status_code} response"
-    except BaseException as e:
-        print("Exception : " + str(e))
-        now2 = datetime.now()
-        print("Time taken: " + str(now2 - now1))
-        print(f" Failed to display the Page {Page}, Size {Size} and Type {DeviceType}\n")
-        assert False
+# # Filter by Device States
+# # Updated custom_test_name function
+# def custom_test_name(params):
+#     Page, Size, provisioned, replaced, lost, stolen, unEnrolled, active = params
+#     return f"Page - {Page} - Size - {Size} - Active - {active} - Provisioned - {provisioned} - Replaced - {replaced} - Lost - {lost} - Stolen - {stolen} - Unenrolled - {unEnrolled}"
+#
+# TrueFalse = [True, False]
+#
+# # Generate all combinations of True and False for DeviceState keys
+# combinations = list(itertools.product(TrueFalse, repeat=6))
+#
+# # Updated @pytest.mark.parametrize decorator
+# @pytest.mark.parametrize(
+#     'test_params',
+#     [(Page, Size, *combo) for Page in globalvar.page for Size in globalvar.pageSize for combo in combinations],
+#     ids=custom_test_name
+# )
+# def test_tc_3002_Device_States(test_params):
+#     Page, Size, provisioned, active, replaced, lost, stolen, unEnrolled = test_params
+#     now1 = datetime.now()
+#     if globalvar.bearerToken == '':
+#         pytest.skip("Empty Bearer token Skipping test")
+#
+#     try:
+#         apiUrl = globalvar.BaseURL + allDevices(Page, Size)
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+#         device_state = RequestInfo.Base_DeviceState.copy()
+#         device_state["provisioned"] = provisioned
+#         device_state["replaced"] = replaced
+#         device_state["lost"] = lost
+#         device_state["stolen"] = stolen
+#         device_state["unEnrolled"] = unEnrolled
+#         device_state["active"] = active
+#
+#         res = requests.post(url=apiUrl, headers=Headers, json=device_state, timeout=globalvar.timeout)
+#
+#         if res.status_code == 200:
+#             curl_str1 = Utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n200 The request was a success!")
+#                 print(
+#                     "\n" + "Request URL: " + apiUrl +
+#                     "\n" + "Request Method: " + res.request.method +
+#                     "\n" + "Status Code: " + str(res.status_code) +
+#                     "\n" + "Request Payload: " + str(device_state) +
+#                     "\n" + "Response: " + str(res.content) + "\n")
+#                 print(f"DeviceState: {device_state} with Page {Page} and Size {Size}\n")
+#         elif res.status_code == 400:
+#             print("\n400 Bad Request!\n")
+#             # Add your assertions or actions for 400 Bad Request response here
+#             assert False, "Received 400 Bad Request response"
+#         elif res.status_code == 404:
+#             print("\n404 Result not found!\n")
+#             # Add your assertions or actions for 404 Not Found response here
+#             assert False, "Received 404 response"
+#         elif res.status_code == 500:
+#             print("\n500 Internal Server Error!\n")
+#             # Add your assertions or actions for 500 Internal Server Error response here
+#             assert False, "Received 500 response"
+#         else:
+#             print(f"Request did not succeed! Status code: {res.status_code}")
+#             assert False, f"Received {res.status_code} response"
+#     except BaseException as e:
+#         print(f"Exception: {str(e)}")
+#         now2 = datetime.now()
+#         print(f"Time taken: {str(now2 - now1)}")
+#         print(f"Failed to display the Provisioned: {provisioned}, Active: {active}, Replaced: {replaced}, Lost: {lost}, Stolen: {stolen}, Unenrolled: {unEnrolled}")
+#         assert False
+#
+#
+# # Search Policy
+# @pytest.mark.parametrize('Page, Size', [(p, s) for p in globalvar.page for s in globalvar.pageSize])
+# @pytest.mark.skipif(Execute.test_tc_3003_Search_Policy == 0, reason="skip test")
+# @pytest.mark.negativetest
+# @pytest.mark.devices
+# @pytest.mark.regressiontest
+# @pytest.mark.run(order=30003)
+# def test_tc_3003_Search_Policy(Page, Size):
+#     now1 = datetime.now()
+#     if globalvar.bearerToken == '':
+#         pytest.skip("Empty Bearer token Skipping test")
+#     try:
+#         PolicySearch = searchPolicies(Page, Size, "Kiosk")
+#         apiUrl = globalvar.BaseURL + PolicySearch
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+#         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
+#         if res.status_code == 200:
+#             curl_str1 = Utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                     "\n" + "Request URL: " + apiUrl +
+#                     "\n" + "Request Method: " + res.request.method +
+#                     "\n" + "Status Code: " + str(res.status_code) +
+#                     "\n" + "Response: " + str(res.content) + "\n")
+#                 print("\n\n------------------- Searched the Policy ---------------------------\n")
+#         elif res.status_code == 400:
+#             print("\n" + "400 Bad Request!" + "\n")
+#             # Add your assertions or actions for 400 Bad Request response here
+#             assert False, "Received 400 Bad Request response"
+#         elif res.status_code == 404:
+#             print("\n" + "404 Result not found!" + "\n")
+#             # Add your assertions or actions for 404 Not Found response here
+#             assert False, "Received 404 response"
+#         elif res.status_code == 500:
+#             print("\n" + "500 Internal Server Error!" + "\n")
+#             # Add your assertions or actions for 500 Internal Server Error response here
+#             assert False, "Received 500 response"
+#         else:
+#             print("Request did not succeed! Status code:", res.status_code)
+#             assert False, "Received {res.status_code} response"
+#     except BaseException as e:
+#         print("Exception : " + str(e))
+#         now2 = datetime.now()
+#         print("Time taken: " + str(now2 - now1))
+#         print(
+#             "------------- Failed to display the search policy ---------------------------\n\n")
+#         assert False
+#
+#
+# # Filter By Group Names
+# @pytest.mark.parametrize('Page, Size', [(p, s) for p in globalvar.page for s in globalvar.pageSize])
+# @pytest.mark.skipif(Execute.test_tc_3004_Filter_By_GroupNames == 0, reason="skip test")
+# @pytest.mark.negativetest
+# @pytest.mark.devices
+# @pytest.mark.regressiontest
+# @pytest.mark.run(order=30004)
+# def test_tc_3004_Filter_By_GroupNames(Page, Size):
+#     now1 = datetime.now()
+#     if globalvar.bearerToken == '':
+#         pytest.skip("Empty Bearer token Skipping test")
+#     try:
+#             FilterByGroupNames = allDevices(Page, Size)
+#             apiUrl = globalvar.BaseURL + FilterByGroupNames
+#             print("\n\n------------------- Filter By Group Names ---------------------------\n")
+#             Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+#             res = requests.post(url=apiUrl, headers=Headers, json=RequestInfo.FilterByGroupName, timeout=globalvar.timeout)
+#             if res.status_code == 200:
+#                 curl_str1 = Utils.getCurlEquivalent(res)
+#                 print(curl_str1)
+#                 if res.status_code == 200:
+#                     print("\n" + "200 The request was a success!")
+#                     print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                         "\n" + "Request URL: " + apiUrl +
+#                         "\n" + "Request Method: " + res.request.method +
+#                         "\n" + "Status Code: " + str(res.status_code) +
+#                         "\n" + "Response: " + str(res.content) + "\n")
+#             elif res.status_code == 400:
+#                 print("\n" + "400 Bad Request!" + "\n")
+#                 print("\n" + "400 Bad Request!" + "\n")
+#                 # Add your assertions or actions for 400 Bad Request response here
+#                 assert False, "Received 400 Bad Request response"
+#             elif res.status_code == 404:
+#                 print("\n" + "404 Result not found!" + "\n")
+#                 # Add your assertions or actions for 404 Not Found response here
+#                 assert False, "Received 404 response"
+#             elif res.status_code == 500:
+#                 print("\n" + "500 Internal Server Error!" + "\n")
+#                 # Add your assertions or actions for 500 Internal Server Error response here
+#                 assert False, "Received 500 response"
+#             else:
+#                 print("Request did not succeed! Status code:", res.status_code)
+#                 assert False, "Received {res.status_code} response"
+#     except BaseException as e:
+#         print("Exception : " + str(e))
+#         now2 = datetime.now()
+#         print("Time taken: " + str(now2 - now1))
+#         print("------------- Failed to display the Filter By Group Names ---------------------------\n\n")
+#         assert False
+#
+# # View by Devices Type
+# DeviceTypes = ["ANDROID", "IOS", "WINDOWS"]
+#
+#
+# # Android, iOS, Windows Devices
+# @pytest.mark.parametrize('Page, Size, DeviceType',
+#                          [(p, s, d) for p in globalvar.page for s in globalvar.pageSize for d in DeviceTypes])
+# @pytest.mark.skipif(Execute.test_tc_3005_View_By_Device_Types == 0, reason="skip test")
+# @pytest.mark.negativetest
+# @pytest.mark.devices
+# @pytest.mark.regressiontest
+# @pytest.mark.run(order=30005)
+# def test_tc_3005_Devices_Types(Page, Size, DeviceType):
+#     now1 = datetime.now()
+#     if globalvar.bearerToken == '':
+#         pytest.skip("Empty Bearer token Skipping test")
+#     try:
+#         apiUrl = globalvar.BaseURL + allDevices(Page, Size)
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+#         DevicesTypes = {
+#             "search": None,
+#             "provisioned": True,
+#             "replaced": None,
+#             "lost": None,
+#             "stolen": None,
+#             "unEnrolled": None,
+#             "type": DeviceType,  # Set the device type dynamically
+#             "active": None,
+#             "policyIdList": None
+#         }
+#         res = requests.post(url=apiUrl, headers=Headers, json=DevicesTypes, timeout=globalvar.timeout)
+#         if res.status_code == 200:
+#             curl_str1 = Utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             if res.status_code == 200:
+#                 print("\n" + "200 The request was a success!")
+#                 print(  # "\n" + "Header: " + str(res.headers) + "\n"
+#                     "\n" + "Request URL: " + apiUrl +
+#                     "\n" + "Request Method: " + res.request.method +
+#                     "\n" + "Status Code: " + str(res.status_code) +
+#                     "\n" + "Response: " + str(res.content) + "\n")
+#                 print(f" Page {Page}, Size {Size} and Type {DeviceType}\n")
+#         elif res.status_code == 400:
+#             print("\n" + "400 Bad Request!" + "\n")
+#             # Add your assertions or actions for 400 Bad Request response here
+#             assert False, "Received 400 Bad Request response"
+#         elif res.status_code == 404:
+#             print("\n" + "404 Result not found!" + "\n")
+#             # Add your assertions or actions for 404 Not Found response here
+#             assert False, "Received 404 response"
+#         elif res.status_code == 500:
+#             print("\n" + "500 Internal Server Error!" + "\n")
+#             # Add your assertions or actions for 500 Internal Server Error response here
+#             assert False, "Received 500 response"
+#         else:
+#             print("Request did not succeed! Status code:", res.status_code)
+#             assert False, "Received {res.status_code} response"
+#     except BaseException as e:
+#         print("Exception : " + str(e))
+#         now2 = datetime.now()
+#         print("Time taken: " + str(now2 - now1))
+#         print(f" Failed to display the Page {Page}, Size {Size} and Type {DeviceType}\n")
+#         assert False

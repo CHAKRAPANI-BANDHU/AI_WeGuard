@@ -248,5 +248,8 @@ APNSettingID=[]
 # Time Fencing
 timefenceId=[]
 
+# Broadcast
+BroadcastReqID=[]
+
 # Geofence
 geofencePolicyConfigId=[]

@@ -32,38 +32,6 @@ AllDevices = {
     "policyIdList": None
 }
 
-AndroidPoliciesDevices = {
-    "search": None,
-    "provisioned": True,
-    "replaced": None,
-    "lost": None,
-    "stolen": None,
-    "unEnrolled": None,
-    "active": None,
-    "policyIdList": globalvariables.Android_Policy_IDs
-}
-
-EnableAllDevicesState = {
-    "search": None,
-    "provisioned": True,
-    "replaced": True,
-    "lost": True,
-    "stolen": True,
-    "unEnrolled": True,
-    "active": True,
-    "policyIdList": globalvariables.Android_Policy_IDs
-}
-
-DisableAllDevicesState = {
-    "search": None,
-    "provisioned": False,
-    "replaced": False,
-    "lost": False,
-    "stolen": False,
-    "unEnrolled": False,
-    "active": False,
-    "policyIdList": globalvariables.Android_Policy_IDs
-}
 FilterByGroupName = {
     "search": None,
     "provisioned": True,

@@ -27,10 +27,10 @@
 #echo "$FILE"
 #
 ## Capture the output of the Bash script
-#OUTPUT=$($PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v --show-progress)
+#$PY_CMD -m pytest --capture=sys --html="$FILE" --self-contained-html -v --show-progress
 #
-## Save the output to an HTML file
-#echo "$OUTPUT" > "$FILE"
+### Save the output to an HTML file
+##echo "$OUTPUT" > "$FILE"
 #
 ## Send the output as an email using the Python script
 #python3 /Users/chakrapani/AIWeGuardAPIs/Utilities/send_emails.py "$FILE"
