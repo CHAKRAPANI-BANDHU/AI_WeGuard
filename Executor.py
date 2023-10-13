@@ -99,6 +99,7 @@ test_tc_13001_Broadcast_MessageHistory_Type_GET = 1
 test_tc_13002_Broadcast_All_Policies_GET = 1
 test_tc_13003_Broadcast_MessageHistory_POST = 1
 test_tc_13004_Broadcast_Message_Read_By_Device_GET = 1
+test_tc_13005_Broadcast_Send_Message_Plain_Text = 1
 
 
 # Enterprise App Version

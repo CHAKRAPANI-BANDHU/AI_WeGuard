@@ -1,5 +1,6 @@
 import random
 import string
+import uuid
 
 from faker import Faker
 
@@ -60,6 +61,11 @@ AllCustom1MonthLogs = {
     "deviceIds": [],
     "policyIds": None
 }
+
+# Generate a random UUID
+my_uuid = uuid.uuid4()
+# Format the UUID to match the specified format
+UUID = '-'.join([my_uuid.hex[:8], my_uuid.hex[8:12], my_uuid.hex[12:16], my_uuid.hex[16:20], my_uuid.hex[20:]])
 
 logout = {
     "agent": "PORTAL",

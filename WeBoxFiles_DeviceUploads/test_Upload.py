@@ -47,7 +47,7 @@
 #         print("Time taken: " + str(now2 - now1))
 #         print("--------------------Failed to upload a file-----------------")
 #         assert False
-
+#
 # # Upload wav file in WeBox
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_tc_001_WeBox_WAVUpload == 0,
@@ -96,7 +96,7 @@
 #         print("Time taken: " + str(now2 - now1))
 #         print("--------------------Failed to upload a file-----------------")
 #         assert False
-
+#
 # # Upload gif file in WeBox
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_tc_001_WeBox_GIFUpload == 0,

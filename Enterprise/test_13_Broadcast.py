@@ -5,6 +5,7 @@ import requests
 import globalvariables as globalvar
 import Executor as Execute
 import test_GETutils as Utils
+import general_payload as Request
 
 
 def POSTMessageHistory(page, pageSize):
@@ -29,6 +30,9 @@ def GETDeviceReadMessage(reqID, page, pageSize):
                                                                                                   page=page,
                                                                                                   pageSize=pageSize)
     return url
+
+
+FCMUpdate = "enterprise/rest/weguard-v2/fcmUpdate"
 
 
 # Broadcast - GET Message History
@@ -216,10 +220,8 @@ def test_tc_13003_Broadcast_Message_History_POST(Page, Size, WcmValue):
 @pytest.mark.run(order=13004)
 def test_tc_13004_Broadcast_Message_Read_By_Devices_GET(Page, Size):
     now1 = datetime.now()
-    
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token. Skipping test")
-    
     try:
         for broadcastMessageReqID in globalvar.BroadcastReqID:
             apiUrl = globalvar.BaseURL + GETDeviceReadMessage(broadcastMessageReqID, Page, Size)
@@ -254,4 +256,59 @@ def test_tc_13004_Broadcast_Message_Read_By_Devices_GET(Page, Size):
         now2 = datetime.now()
         print("Time taken: " + str(now2 - now1))
         print("\nFailed to display the Message Ready By Devices with Page={}, Size={}".format(Page, Size))
+        assert False
+
+
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_13005_Broadcast_Send_Message_Plain_Text == 0,
+                    reason="FCM Update Remote View is skipped")
+@pytest.mark.positivetest
+@pytest.mark.broadcast
+@pytest.mark.regressiontest
+@pytest.mark.run(order=13005)
+def test_tc_13005_Broadcast_Send_Message_Plain_Text_POST(url):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+        apiUrl = globalvar.BaseURL + FCMUpdate
+        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+        Payload = {
+            "topic": globalvar.activationCode + "_" + globalvar.productActivationCode,
+            "type": "FCM_MESSAGE", "isLicenseLevel": True, "actCode": globalvar.activationCode,
+            "pActCode": globalvar.productActivationCode,
+             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"normal\",\"title\":\"qa\",\"iconUrl\":\"https://stage-cache.weguard.ai/qa-cache-weguard-io/64cb86dd80f4b80b1dc65e73/238ed64b982bc5d4274d812d1b354157/5.1.15ITVIRTUsers.png\",\"body\":\"Test\"}",
+             "pId": None, "priority": "high", "id": Request.RandomID, "reqId": Request.UUID}
+        res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
+        if res.status_code == 200:
+            print("\n" + "200 The request was a success!")
+            curl_str1 = Utils.getCurlEquivalent(res)
+            print(curl_str1)
+            print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                "\n" + "Request URL: " + apiUrl +
+                "\n" + "Request Method: " + res.request.method +
+                "\n" + "Status Code: " + str(res.status_code) +
+                "\n" + "Request Payload: " + str(Payload) +
+                "\n" + "Response: " + str(res.content) + "\n")
+        elif res.status_code == 400:
+            print("\n" + "400 Bad Request!" + "\n")
+            # Add your assertions or actions for 400 Bad Request response here
+            assert False, "Received 400 Bad Request response"
+        elif res.status_code == 404:
+            print("\n" + "404 Result not found!" + "\n")
+            # Add your assertions or actions for 404 Not Found response here
+            assert False, "Received 404 response"
+        elif res.status_code == 500:
+            print("\n" + "500 Internal Server Error!" + "\n")
+            # Add your assertions or actions for 500 Internal Server Error response here
+            assert False, "Received 500 response"
+        else:
+            print("Request did not succeed! Status code:", res.status_code)
+            assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        print("Exception : " + str(e))
+        now2 = datetime.now()
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed send the plain text broadcast ---------------------------\n\n")
         assert False
