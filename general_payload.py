@@ -324,3 +324,18 @@ SessionID = random_number
 # Initialize the test_data list
 Allowed_Actions = {}
 Supported_Values = []
+
+# Broadcast Message and Title
+# Lists of sample titles and messages
+titles = ["Important Update", "Breaking News", "Weather Forecast", "Daily Quote", "Tech Tips"]
+messages = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Don't forget to stay hydrated today!",
+    "Python is a versatile programming language.",
+    "Today's weather: sunny with a chance of rain.",
+    "Life is 10% what happens to us and 90% how we react to it.",
+]
+# Generate random titles and messages
+random_title = random.choice(titles)
+random_message = random.choice(messages)
+

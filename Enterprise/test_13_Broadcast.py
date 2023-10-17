@@ -34,6 +34,11 @@ def GETDeviceReadMessage(reqID, page, pageSize):
 
 FCMUpdate = "enterprise/rest/weguard-v2/fcmUpdate"
 
+BroadcastPolicy = "enterprise/rest/broadcast/policy/multi"
+
+# Rich Text
+BroadcastMessageRichText = "enterprise/rest/broadcast/message/save"
+
 
 # Broadcast - GET Message History
 @pytest.mark.parametrize('Page, Size', [(p, s) for p in globalvar.page for s in globalvar.pageSize])
@@ -259,14 +264,15 @@ def test_tc_13004_Broadcast_Message_Read_By_Devices_GET(Page, Size):
         assert False
 
 
+# Broadcast - Plain Text --> Message to All Level
 @pytest.mark.parametrize('url', [""])
-@pytest.mark.skipif(Execute.test_tc_13005_Broadcast_Send_Message_Plain_Text == 0,
-                    reason="FCM Update Remote View is skipped")
+@pytest.mark.skipif(Execute.test_tc_13005_Broadcast_Send_Message_Level_All_Plain_Text == 0,
+                    reason="Broadcast plain text message to level = All is skipped")
 @pytest.mark.positivetest
 @pytest.mark.broadcast
 @pytest.mark.regressiontest
 @pytest.mark.run(order=13005)
-def test_tc_13005_Broadcast_Send_Message_Plain_Text_POST(url):
+def test_tc_13005_Broadcast_Send_Message_All_Level_Plain_Text(url):
     now1 = datetime.now()
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
@@ -277,8 +283,8 @@ def test_tc_13005_Broadcast_Send_Message_Plain_Text_POST(url):
             "topic": globalvar.activationCode + "_" + globalvar.productActivationCode,
             "type": "FCM_MESSAGE", "isLicenseLevel": True, "actCode": globalvar.activationCode,
             "pActCode": globalvar.productActivationCode,
-             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"normal\",\"title\":\"qa\",\"iconUrl\":\"https://stage-cache.weguard.ai/qa-cache-weguard-io/64cb86dd80f4b80b1dc65e73/238ed64b982bc5d4274d812d1b354157/5.1.15ITVIRTUsers.png\",\"body\":\"Test\"}",
-             "pId": None, "priority": "high", "id": Request.RandomID, "reqId": Request.UUID}
+            "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"normal\",\"title\": " + Request.random_title + ",\"iconUrl\":\"https://stage-cache.weguard.ai/qa-cache-weguard-io/64cb86dd80f4b80b1dc65e73/238ed64b982bc5d4274d812d1b354157/5.1.15ITVIRTUsers.png\",\"body\":" + Request.random_message + "}",
+            "pId": None, "priority": "high", "id": Request.RandomID, "reqId": Request.UUID}
         res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
         if res.status_code == 200:
             print("\n" + "200 The request was a success!")
@@ -310,5 +316,357 @@ def test_tc_13005_Broadcast_Send_Message_Plain_Text_POST(url):
         now2 = datetime.now()
         print("Time taken: " + str(now2 - now1))
         print(
-            "------------- Failed send the plain text broadcast ---------------------------\n\n")
+            "------------- Failed send the plain text broadcast to All level ---------------------------\n\n")
+        assert False
+
+
+# Broadcast - Plain Text --> Message to Group Level
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_13006_Broadcast_Send_Message_Level_Group_Plain_Text == 0,
+                    reason="Broadcast plain text message to level = Group is skipped")
+@pytest.mark.positivetest
+@pytest.mark.broadcast
+@pytest.mark.regressiontest
+@pytest.mark.run(order=13006)
+def test_tc_13006_Broadcast_Send_Message_Group_Level_Plain_Text(url):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+        for policyName in globalvar.Android_All_Policy_Names:
+            for policyId in globalvar.Android_All_Policy_IDs:
+                apiUrl = globalvar.BaseURL + BroadcastPolicy
+                Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+                Payload = {
+                    "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000\",\"textType\":\"normal\",\"title\": " + Request.random_title + ",\"body\":" + Request.random_message + "}",
+                    "policies": [{"WCM": False, "policyName": policyName, "policyId": policyId,
+                                  "reqId": Request.UUID}], "id": Request.RandomID, "reqId": Request.UUID}
+                res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
+                if res.status_code == 200:
+                    print("\n" + "200 The request was a success!")
+                    curl_str1 = Utils.getCurlEquivalent(res)
+                    print(curl_str1)
+                    print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                        "\n" + "Request URL: " + apiUrl +
+                        "\n" + "Request Method: " + res.request.method +
+                        "\n" + "Status Code: " + str(res.status_code) +
+                        "\n" + "Request Payload: " + str(Payload) +
+                        "\n" + "Response: " + str(res.content) + "\n")
+                elif res.status_code == 400:
+                    print("\n" + "400 Bad Request!" + "\n")
+                    # Add your assertions or actions for 400 Bad Request response here
+                    assert False, "Received 400 Bad Request response"
+                elif res.status_code == 404:
+                    print("\n" + "404 Result not found!" + "\n")
+                    # Add your assertions or actions for 404 Not Found response here
+                    assert False, "Received 404 response"
+                elif res.status_code == 500:
+                    print("\n" + "500 Internal Server Error!" + "\n")
+                    # Add your assertions or actions for 500 Internal Server Error response here
+                    assert False, "Received 500 response"
+                else:
+                    print("Request did not succeed! Status code:", res.status_code)
+                    assert False, "Received {res.status_code} response"
+    
+    except BaseException as e:
+        print("Exception : " + str(e))
+        now2 = datetime.now()
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed send the plain text broadcast at Group Level ---------------------------\n\n")
+        assert False
+
+
+# Broadcast - Plain Text --> Message to Device Level
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_13007_Broadcast_Send_Message_Level_Device_Plain_Text == 0,
+                    reason="Broadcast plain text message to level = Device is skipped")
+@pytest.mark.positivetest
+@pytest.mark.broadcast
+@pytest.mark.regressiontest
+@pytest.mark.run(order=13007)
+def test_tc_13007_Broadcast_Send_Message_Device_Level_Plain_Text_POST(url):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+        for Android_DeviceID in globalvar.Android_DeviceIDs:
+            for policyId in globalvar.Android_All_Policy_IDs:
+                apiUrl = globalvar.BaseURL + FCMUpdate
+                Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+                Payload = {
+                    "topic": Android_DeviceID + "_" + globalvar.activationCode + "_" + globalvar.productActivationCode,
+                    "type": "FCM_MESSAGE", "isLicenseLevel": False,
+                    "actCode": globalvar.activationCode, "pActCode": globalvar.productActivationCode,
+                    "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"normal\",\"body\":\"QA\",\"title\":\"Test\"}",
+                    "pId": policyId, "priority": "high", "id": Request.RandomID,
+                    "reqId": Request.UUID}
+                res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
+                if res.status_code == 200:
+                    print("\n" + "200 The request was a success!")
+                    curl_str1 = Utils.getCurlEquivalent(res)
+                    print(curl_str1)
+                    print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                        "\n" + "Request URL: " + apiUrl +
+                        "\n" + "Request Method: " + res.request.method +
+                        "\n" + "Status Code: " + str(res.status_code) +
+                        "\n" + "Request Payload: " + str(Payload) +
+                        "\n" + "Response: " + str(res.content) + "\n")
+                elif res.status_code == 400:
+                    print("\n" + "400 Bad Request!" + "\n")
+                    # Add your assertions or actions for 400 Bad Request response here
+                    assert False, "Received 400 Bad Request response"
+                elif res.status_code == 404:
+                    print("\n" + "404 Result not found!" + "\n")
+                    # Add your assertions or actions for 404 Not Found response here
+                    assert False, "Received 404 response"
+                elif res.status_code == 500:
+                    print("\n" + "500 Internal Server Error!" + "\n")
+                    # Add your assertions or actions for 500 Internal Server Error response here
+                    assert False, "Received 500 response"
+                else:
+                    print("Request did not succeed! Status code:", res.status_code)
+                    assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        print("Exception : " + str(e))
+        now2 = datetime.now()
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed send the plain text broadcast at Device Level ---------------------------\n\n")
+        assert False
+
+
+# Broadcast - Plain Text --> Message to All Level
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_13008_Broadcast_Send_Message_Level_All_Rich_Text == 0,
+                    reason="Broadcast rich text message to level = All is skipped")
+@pytest.mark.positivetest
+@pytest.mark.broadcast
+@pytest.mark.regressiontest
+@pytest.mark.run(order=13005)
+def test_tc_13005_Broadcast_Send_Message_All_Level_Rich_Text_POST(url):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+        apiUrl = globalvar.BaseURL + BroadcastMessageRichText
+        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+        Payload = {"textColor": "#ffffff", "bgColor": "#000", "textType": "rich", "title": "Test",
+                   "body": "QA&nbsp;<a href=\"https://qa-cloud.weguard.ai/#/login\" target=\"_blank\">https://qa-cloud.weguard.ai/#/login</a>"}
+        res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
+        if res.status_code == 200:
+            print("\n" + "200 The request was a success!")
+            curl_str1 = Utils.getCurlEquivalent(res)
+            print(curl_str1)
+            print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                "\n" + "Request URL: " + apiUrl +
+                "\n" + "Request Method: " + res.request.method +
+                "\n" + "Status Code: " + str(res.status_code) +
+                "\n" + "Request Payload: " + str(Payload) +
+                "\n" + "Response: " + str(res.content) + "\n")
+            response_data = json.loads(res.content)
+            entity = response_data['entity']
+            globalvar.BroadcastMessageID = []  # Initialize the list before appending 'messageID' values
+            if isinstance(entity, dict):
+                message_id = entity.get('messageID')
+                if message_id is not None:
+                    globalvar.BroadcastMessageID.append(message_id)
+        elif res.status_code == 400:
+            print("\n" + "400 Bad Request!" + "\n")
+            # Add your assertions or actions for 400 Bad Request response here
+            assert False, "Received 400 Bad Request response"
+        elif res.status_code == 404:
+            print("\n" + "404 Result not found!" + "\n")
+            # Add your assertions or actions for 404 Not Found response here
+            assert False, "Received 404 response"
+        elif res.status_code == 500:
+            print("\n" + "500 Internal Server Error!" + "\n")
+            # Add your assertions or actions for 500 Internal Server Error response here
+            assert False, "Received 500 response"
+        else:
+            print("Request did not succeed! Status code:", res.status_code)
+            assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        print("Exception : " + str(e))
+        now2 = datetime.now()
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed send the rich text broadcast to All level ---------------------------\n\n")
+        assert False
+
+
+# Broadcast - Rich Text --> Message to All Level --> FCM Update
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_13011_Broadcast_FCMUpdate == 0,
+                    reason="Broadcast rich text message to level = All fcmUpdate is skipped")
+@pytest.mark.positivetest
+@pytest.mark.broadcast
+@pytest.mark.regressiontest
+@pytest.mark.run(order=130011)
+def test_tc_130012_Broadcast_Send_Message_All_Level_Rich_Text_POST_FCMUpdate(url):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+        apiUrl = globalvar.BaseURL + FCMUpdate
+        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+        Payload = {
+            "topic": globalvar.activationCode + "_" + globalvar.productActivationCode,
+            "type": "FCM_MESSAGE", "isLicenseLevel": True, "actCode": globalvar.activationCode,
+            "pActCode": globalvar.productActivationCode,
+            "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"rich\",\"title\": " + Request.random_title + ",\"iconUrl\":\"https://stage-cache.weguard.ai/qa-cache-weguard-io/64cb86dd80f4b80b1dc65e73/238ed64b982bc5d4274d812d1b354157/5.1.15ITVIRTUsers.png\",\"body\":" + Request.random_message + ", \"bMsgBodyRef\":" + globalvar.BroadcastMessageID + "}",
+            "pId": None, "priority": "high", "id": Request.RandomID, "reqId": Request.UUID}
+        res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
+        if res.status_code == 200:
+            print("\n" + "200 The request was a success!")
+            curl_str1 = Utils.getCurlEquivalent(res)
+            print(curl_str1)
+            print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                "\n" + "Request URL: " + apiUrl +
+                "\n" + "Request Method: " + res.request.method +
+                "\n" + "Status Code: " + str(res.status_code) +
+                "\n" + "Request Payload: " + str(Payload) +
+                "\n" + "Response: " + str(res.content) + "\n")
+        elif res.status_code == 400:
+            print("\n" + "400 Bad Request!" + "\n")
+            # Add your assertions or actions for 400 Bad Request response here
+            assert False, "Received 400 Bad Request response"
+        elif res.status_code == 404:
+            print("\n" + "404 Result not found!" + "\n")
+            # Add your assertions or actions for 404 Not Found response here
+            assert False, "Received 404 response"
+        elif res.status_code == 500:
+            print("\n" + "500 Internal Server Error!" + "\n")
+            # Add your assertions or actions for 500 Internal Server Error response here
+            assert False, "Received 500 response"
+        else:
+            print("Request did not succeed! Status code:", res.status_code)
+            assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        print("Exception : " + str(e))
+        now2 = datetime.now()
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed send the rich text broadcast message to level = All fcm update ---------------------------\n\n")
+        assert False
+
+
+# Broadcast - Rich Text --> Message to Group Level = Save API
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_13009_Broadcast_Send_Message_Level_Group_Rich_Text == 0,
+                    reason="Broadcast rich text message to level = Group is skipped")
+@pytest.mark.positivetest
+@pytest.mark.broadcast
+@pytest.mark.regressiontest
+@pytest.mark.run(order=13005)
+def test_tc_13005_Broadcast_Send_Message_Group_Level_Rich_Text_POST(url):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+        apiUrl = globalvar.BaseURL + BroadcastMessageRichText
+        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+        Payload = {"textColor": "#ffffff", "bgColor": "#000", "textType": "rich", "body": "qa", "title": "test"}
+        res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
+        if res.status_code == 200:
+            print("\n" + "200 The request was a success!")
+            curl_str1 = Utils.getCurlEquivalent(res)
+            print(curl_str1)
+            print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                "\n" + "Request URL: " + apiUrl +
+                "\n" + "Request Method: " + res.request.method +
+                "\n" + "Status Code: " + str(res.status_code) +
+                "\n" + "Request Payload: " + str(Payload) +
+                "\n" + "Response: " + str(res.content) + "\n")
+            response_data = json.loads(res.content)
+            entity = response_data['entity']
+            globalvar.BroadcastMessageID = []  # Initialize the list before appending 'messageID' values
+            if isinstance(entity, dict):
+                message_id = entity.get('messageID')
+                if message_id is not None:
+                    globalvar.BroadcastMessageID.append(message_id)
+        elif res.status_code == 400:
+            print("\n" + "400 Bad Request!" + "\n")
+            # Add your assertions or actions for 400 Bad Request response here
+            assert False, "Received 400 Bad Request response"
+        elif res.status_code == 404:
+            print("\n" + "404 Result not found!" + "\n")
+            # Add your assertions or actions for 404 Not Found response here
+            assert False, "Received 404 response"
+        elif res.status_code == 500:
+            print("\n" + "500 Internal Server Error!" + "\n")
+            # Add your assertions or actions for 500 Internal Server Error response here
+            assert False, "Received 500 response"
+        else:
+            print("Request did not succeed! Status code:", res.status_code)
+            assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        print("Exception : " + str(e))
+        now2 = datetime.now()
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed send the rich text broadcast to Group level ---------------------------\n\n")
+        assert False
+
+
+# Broadcast - Rich Text --> Message to Group Level = Broadcast policy (Multi)
+@pytest.mark.parametrize('url', [""])
+@pytest.mark.skipif(Execute.test_tc_13009_Broadcast_Send_Message_Level_Group_Rich_Text == 0,
+                    reason="Broadcast rich text message to level = Group is skipped")
+@pytest.mark.positivetest
+@pytest.mark.broadcast
+@pytest.mark.regressiontest
+@pytest.mark.run(order=13009)
+def test_tc_13009_Broadcast_Send_Message_Group_Level_Rich_Text_POST(url):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+        for policyName in globalvar.Android_All_Policy_Names:
+            for policyId in globalvar.Android_All_Policy_IDs:
+                apiUrl = globalvar.BaseURL + BroadcastPolicy
+                Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+                Payload = {
+                    "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000\",\"textType\":\"normal\",\"title\": " + Request.random_title + ",\"body\":" + Request.random_message + "}",
+                    "policies": [{"WCM": False, "policyName": policyName, "policyId": policyId,
+                                  "reqId": Request.UUID}], "id": Request.RandomID, "reqId": Request.UUID}
+                res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
+                if res.status_code == 200:
+                    print("\n" + "200 The request was a success!")
+                    curl_str1 = Utils.getCurlEquivalent(res)
+                    print(curl_str1)
+                    print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                        "\n" + "Request URL: " + apiUrl +
+                        "\n" + "Request Method: " + res.request.method +
+                        "\n" + "Status Code: " + str(res.status_code) +
+                        "\n" + "Request Payload: " + str(Payload) +
+                        "\n" + "Response: " + str(res.content) + "\n")
+                    response_data = json.loads(res.content)
+                    entity = response_data['entity']
+                    globalvar.BroadcastMessageID = []  # Initialize the list before appending 'messageID' values
+                    if isinstance(entity, dict):
+                        message_id = entity.get('messageID')
+                        if message_id is not None:
+                            globalvar.BroadcastMessageID.append(message_id)
+                elif res.status_code == 400:
+                    print("\n" + "400 Bad Request!" + "\n")
+                    # Add your assertions or actions for 400 Bad Request response here
+                    assert False, "Received 400 Bad Request response"
+                elif res.status_code == 404:
+                    print("\n" + "404 Result not found!" + "\n")
+                    # Add your assertions or actions for 404 Not Found response here
+                    assert False, "Received 404 response"
+                elif res.status_code == 500:
+                    print("\n" + "500 Internal Server Error!" + "\n")
+                    # Add your assertions or actions for 500 Internal Server Error response here
+                    assert False, "Received 500 response"
+                else:
+                    print("Request did not succeed! Status code:", res.status_code)
+                    assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        print("Exception : " + str(e))
+        now2 = datetime.now()
+        print("Time taken: " + str(now2 - now1))
+        print(
+            "------------- Failed send the rich text broadcast to Group level ---------------------------\n\n")
         assert False
