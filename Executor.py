@@ -130,17 +130,20 @@ test_tc_1100003_Windows_Policy_GET=1
 # CSPs
 test_tc_1170001_Windows_Generic_CSPs_POST = 1
 
-# Contacts
-test_tc_14000_Create_Contacts_Account_Level_POST = 1
-test_tc_14001_Contacts_Account_Level_FCM_UPDATE_After_CreatingAdding_Contacts_POST = 1
-test_tc_14002_Contacts_Account_Level_POST = 1
-test_tc_14003_Contacts_Account_Level_DELETE = 1
-test_tc_14004_Contacts_Account_Level_FCM_UPDATE_POST = 1
-test_tc_14005_Create_Contacts_Policy_Level_POST = 1
-test_tc_14006_Contacts_Policy_Level_FCM_UPDATE_After_CreatingAdding_Contacts_POST = 1
-test_tc_14007_Contacts_Policy_Level_POST = 1
-test_tc_14008_Contacts_Policy_Level_DELETE = 1
-test_tc_14009_Contacts_Policy_Level_FCM_UPDATE_POST = 1
+# Company Directory
+test_tc_14000_CompanyDirectory_Account_Level_Create_Contacts_POST = 1
+test_tc_14001_CompanyDirectory_Account_Level_FCM_UPDATE_After_CreatingAdding_Contacts_POST = 1
+test_tc_14002_CompanyDirectory_Account_Level_POST = 1
+test_tc_14003_CompanyDirectory_Account_Level_DELETE = 1
+test_tc_14004_CompanyDirectory_Account_Level_FCM_UPDATE_POST = 1
+test_tc_14005_CompanyDirectory_Policy_Level_Create_Contacts_POST = 1
+test_tc_14006_CompanyDirectory_Policy_Level_FCM_UPDATE_After_CreatingAdding_Contacts_POST = 1
+test_tc_14007_CompanyDirectory_Policy_Level_POST = 1
+test_tc_14008_CompanyDirectory_Policy_Level_DELETE = 1
+test_tc_14009_CompanyDirectory_Policy_Level_FCM_UPDATE_POST = 1
+
+# WeShield
+test_tc_19001_WeShield = 1
 
 
 # WeBox
