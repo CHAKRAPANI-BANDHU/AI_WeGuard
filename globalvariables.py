@@ -248,10 +248,17 @@ APNSettingID=[]
 # Time Fencing
 timefenceId=[]
 
-# Broadcast Plain Text
-BroadcastReqID=[]
-# Broadcast Rich Text
-BroadcastMessageID=[]
+# Broadcast
+# Play Policies
+LicensesBroadcastReqID=[]
+DevicesBroadcastReqID = []
+AllPlayPoliciesBroadcastReqID=[]
+# Non Play Policies
+LicensesBroadcastReqIDNonPlayPolicies=[]
+DevicesBroadcastReqIDNonPlayPolicies = []
+AllNonPlayPoliciesBroadcastReqID=[]
+# Play and Non Play
+Broadcast_Play_Non_Play_Message_ReqID=[]
 
 # Geofence
 geofencePolicyConfigId=[]

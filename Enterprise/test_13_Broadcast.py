@@ -69,6 +69,27 @@
 #                 "\n" + "Request Method: " + res.request.method +
 #                 "\n" + "Status Code: " + str(res.status_code) +
 #                 "\n" + "Response: " + str(res.content) + "\n")
+#             response_data = json.loads(res.content)
+#             licenses = response_data['entity']['licenses']
+#             devices = response_data['entity']['devices']
+#             # Check if licenses and devices are empty
+#             if not licenses and not devices:
+#                  print("Both licenses and devices are empty in the response.\n")
+#                 # You can perform specific actions or assertions for this case if needed.
+#             else:
+#             # Licenses are not empty, handle them
+#                 for license in licenses:
+#                     req_id = license.get('reqID')
+#                     if req_id is not None:
+#                        globalvar.LicensesBroadcastReqID.append(req_id)
+#                     print("Licenses Broadcast Req ID for Message: ", str(globalvar.LicensesBroadcastReqID) + "\n")
+#                 for device in devices:
+#                     req_id = device.get('reqID')
+#                     if req_id is not None:
+#                         globalvar.DevicesBroadcastReqID.append(req_id)
+#                     print("Devices Broadcast Req ID for Message: ", str(globalvar.DevicesBroadcastReqID) + "\n")
+#             globalvar.AllPlayPoliciesBroadcastReqID = globalvar.LicensesBroadcastReqID + globalvar.DevicesBroadcastReqID
+#             print("Play Policies Broadcast Req ID for Messages: ", str(globalvar.AllPlayPoliciesBroadcastReqID) + "\n")
 #             print("\nBroadcast Message History with Page={}, Size={}".format(Page, Size))
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
@@ -145,8 +166,8 @@
 #         assert False
 #
 #
-# # Broadcast - POST Message History
-# wcm_values = [True, False]
+# # Broadcast - POST Message History (Non Play Policies)
+# wcm_values = [True]
 #
 #
 # @pytest.mark.parametrize('Page, Size, WcmValue',
@@ -170,7 +191,6 @@
 #         Payload = {"actCode": globalvar.activationCode, "pActCode": globalvar.productActivationCode, "wcm": WcmValue,
 #                    "type": "FCM_MESSAGE"}
 #         res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
-#
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
 #             curl_str1 = Utils.getCurlEquivalent(res)
@@ -183,13 +203,39 @@
 #                 "\n" + "Response: " + str(res.content) + "\n")
 #             response_data = json.loads(res.content)
 #             licenses = response_data['entity']['licenses']
-#             globalvar.BroadcastReqID = []  # Initialize the list before appending 'reqID' values
-#             for license in licenses:
-#                 req_id = license.get('reqID')
-#                 if req_id is not None:
-#                     globalvar.BroadcastReqID.append(req_id)
-#             print("Broadcast Req ID for Message Read by Devices: ", globalvar.BroadcastReqID)
-#             print("\nMessage History with Page={}, Size={}, WcmValue={}".format(Page, Size, WcmValue))
+#             devices = response_data['entity']['devices']
+#
+#             # Check if licenses and devices are empty
+#             if not licenses and not devices:
+#                 print("Both licenses and devices are empty in the response.\n")
+#                 # You can perform specific actions or assertions for this case if needed.
+#             else:
+#                 # Licenses are not empty, handle them
+#                 for license in licenses:
+#                     req_id = license.get('reqID')
+#                     if req_id is not None:
+#                         globalvar.LicensesBroadcastReqIDNonPlayPolicies.append(req_id)
+#
+#                 # Devices are not empty, handle them
+#                 for device in devices:
+#                     req_id = device.get('reqID')
+#                     if req_id is not None:
+#                         globalvar.DevicesBroadcastReqIDNonPlayPolicies.append(req_id)
+#
+#             print("Licenses Broadcast Req ID for Message (Non Play Policies): ",
+#                   str(globalvar.LicensesBroadcastReqIDNonPlayPolicies) + "\n")
+#             print("Devices Broadcast Req ID for Message (Non Play Policies): ",
+#                   str(globalvar.DevicesBroadcastReqIDNonPlayPolicies) + "\n")
+#
+#             globalvar.AllNonPlayPoliciesBroadcastReqID = globalvar.LicensesBroadcastReqIDNonPlayPolicies + globalvar.DevicesBroadcastReqIDNonPlayPolicies
+#             print("Non Play Policies Broadcast Req ID for Messages: ",
+#                   str(globalvar.AllNonPlayPoliciesBroadcastReqID) + "\n")
+#
+#             globalvar.Broadcast_Play_Non_Play_Message_ReqID = globalvar.AllPlayPoliciesBroadcastReqID + globalvar.AllNonPlayPoliciesBroadcastReqID
+#             print("Broadcast Play and Non Play Policies Message Req ID for Messages: ",
+#                   str(globalvar.Broadcast_Play_Non_Play_Message_ReqID) + "\n")
+#
+#             print("\nNon Play Policies Message History with Page={}, Size={}, WcmValue={}".format(Page, Size, WcmValue))
 #         elif res.status_code == 400:
 #             print("\n" + "400 Bad Request!" + "\n")
 #             # Add your assertions or actions for 400 Bad Request response here
@@ -213,57 +259,6 @@
 #         assert False
 #
 #
-# # Broadcast - Message Read by Devices
-# @pytest.mark.parametrize('Page, Size',
-#                          [(p, s) for p in globalvar.page for s in globalvar.pageSize])
-# @pytest.mark.skipif(Execute.test_tc_13004_Broadcast_Message_Read_By_Device_GET == 0,
-#                     reason="GET Broadcast - Message Read by Devices is skipped")
-# @pytest.mark.positivetest
-# @pytest.mark.broadcast
-# @pytest.mark.sanitytest
-# @pytest.mark.regressiontest
-# @pytest.mark.run(order=13004)
-# def test_tc_13004_Broadcast_Message_Read_By_Devices_GET(Page, Size):
-#     now1 = datetime.now()
-#     if globalvar.bearerToken == '':
-#         pytest.skip("Empty Bearer token. Skipping test")
-#     try:
-#         # for broadcastMessageReqID in globalvar.BroadcastReqID:
-#         apiUrl = globalvar.BaseURL + GETDeviceReadMessage(globalvar.BroadcastReqID[0], Page, Size)
-#         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-#         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
-#         if res.status_code == 200:
-#             print("\n" + "200 The request was a success!")
-#             curl_str1 = Utils.getCurlEquivalent(res)
-#             print(curl_str1)
-#             print(
-#                 "\n" + "Request URL: " + apiUrl +
-#                 "\n" + "Request Method: " + res.request.method +
-#                 "\n" + "Status Code: " + str(res.status_code) +
-#                 "\n" + "Response: " + str(res.content) + "\n")
-#         elif res.status_code == 400:
-#             print("\n" + "400 Bad Request!" + "\n")
-#             # Add your assertions or actions for 400 Bad Request response here
-#             assert False, "Received 400 Bad Request response"
-#         elif res.status_code == 404:
-#             print("\n" + "404 Result not found!" + "\n")
-#             # Add your assertions or actions for 404 Not Found response here
-#             assert False, "Received 404 response"
-#         elif res.status_code == 500:
-#             print("\n" + "500 Internal Server Error!" + "\n")
-#             # Add your assertions or actions for 500 Internal Server Error response here
-#             assert False, "Received 500 response"
-#         else:
-#             print("Request did not succeed! Status code:", res.status_code)
-#             assert False, "Received {res.status_code} response"
-#     except BaseException as e:
-#         print("Exception : " + str(e))
-#         now2 = datetime.now()
-#         print("Time taken: " + str(now2 - now1))
-#         print("\nFailed to display the Message Ready By Devices with Page={}, Size={}".format(Page, Size))
-#         assert False
-#
-#
 # # Broadcast - Plain Text --> Message to All Level
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_tc_13005_Broadcast_Send_Message_Level_All_Plain_Text == 0,
@@ -283,8 +278,8 @@
 #             "topic": globalvar.activationCode + "_" + globalvar.productActivationCode,
 #             "type": "FCM_MESSAGE", "isLicenseLevel": True, "actCode": globalvar.activationCode,
 #             "pActCode": globalvar.productActivationCode,
-#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"normal\",\"title\": " + Request.random_title + ",\"iconUrl\":\"https://stage-cache.weguard.ai/qa-cache-weguard-io/64cb86dd80f4b80b1dc65e73/238ed64b982bc5d4274d812d1b354157/5.1.15ITVIRTUsers.png\",\"body\":" + Request.random_message + "}",
-#             "pId": None, "priority": "high", "id": Request.RandomID, "reqId": Request.UUID}
+#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"normal\",\"title\":\"Alert!\",\"iconUrl\":\"https://stage-cache.weguard.ai/qa-cache-weguard-io/64cb86dd80f4b80b1dc65e73/238ed64b982bc5d4274d812d1b354157/5.1.15ITVIRTUsers.png\",\"body\":\"Today's weather: sunny with a chance of rain.\"}",
+#             "pId": None, "priority": "high", "id": str(Request.RandomID), "reqId": str(Request.UUID)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
 #         if res.status_code == 200:
 #             print("\n" + "200 The request was a success!")
@@ -319,7 +314,6 @@
 #             "------------- Failed send the plain text broadcast to All level ---------------------------\n\n")
 #         assert False
 #
-#
 # # Broadcast - Plain Text --> Message to Group Level
 # @pytest.mark.parametrize('url', [""])
 # @pytest.mark.skipif(Execute.test_tc_13006_Broadcast_Send_Message_Level_Group_Plain_Text == 0,
@@ -338,7 +332,7 @@
 #         apiUrl = globalvar.BaseURL + BroadcastPolicy
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         Payload = {
-#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000\",\"textType\":\"normal\",\"title\": " + Request.random_title + ",\"body\":" + Request.random_message + "}",
+#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000\",\"textType\":\"normal\",\"title\": \"Alert!\",\"body\":\"Today's weather: sunny with a chance of rain.\"}",
 #             "policies": [{"WCM": False, "policyName": globalvar.Android_All_Policy_Names[0],
 #                           "policyId": globalvar.Android_All_Policy_IDs[0],
 #                           "reqId": Request.UUID}], "id": Request.RandomID, "reqId": Request.UUID}
@@ -400,7 +394,7 @@
 #                          0] + "_" + globalvar.activationCode + "_" + globalvar.productActivationCode,
 #             "type": "FCM_MESSAGE", "isLicenseLevel": False,
 #             "actCode": globalvar.activationCode, "pActCode": globalvar.productActivationCode,
-#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"normal\",\"body\":" + Request.random_message + ",\"title\":" + Request.random_title + "}",
+#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"normal\",\"body\":\"Today's weather: sunny with a chance of rain.\",\"title\":\"Alert!\"}",
 #             "pId": globalvar.Android_All_Policy_IDs[0], "priority": "high", "id": Request.RandomID,
 #             "reqId": Request.UUID}
 #         res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
@@ -437,6 +431,55 @@
 #             "------------- Failed send the plain text broadcast at Device Level ---------------------------\n\n")
 #         assert False
 #
+# # Broadcast - Message Read by Devices
+# @pytest.mark.parametrize('Page, Size',
+#                          [(p, s) for p in globalvar.page for s in globalvar.pageSize])
+# @pytest.mark.skipif(Execute.test_tc_13004_Broadcast_Message_Read_By_Device_GET == 0,
+#                     reason="GET Broadcast - Message Read by Devices is skipped")
+# @pytest.mark.positivetest
+# @pytest.mark.broadcast
+# @pytest.mark.sanitytest
+# @pytest.mark.regressiontest
+# @pytest.mark.run(order=13004)
+# def test_tc_13004_Broadcast_Message_Read_By_Devices_GET(Page, Size):
+#     now1 = datetime.now()
+#     if globalvar.bearerToken == '':
+#         pytest.skip("Empty Bearer token. Skipping test")
+#     try:
+#     # for broadcastMessageReqID in globalvar.AllPlayPoliciesBroadcastReqID:
+#         apiUrl = globalvar.BaseURL + GETDeviceReadMessage(globalvar.AllPlayPoliciesBroadcastReqID[0], Page, Size)
+#         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+#         res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
+#         if res.status_code == 200:
+#             print("\n" + "200 The request was a success!")
+#             curl_str1 = Utils.getCurlEquivalent(res)
+#             print(curl_str1)
+#             print(
+#                 "\n" + "Request URL: " + apiUrl +
+#                 "\n" + "Request Method: " + res.request.method +
+#                 "\n" + "Status Code: " + str(res.status_code) +
+#                 "\n" + "Response: " + str(res.content) + "\n")
+#         elif res.status_code == 400:
+#             print("\n" + "400 Bad Request!" + "\n")
+#             # Add your assertions or actions for 400 Bad Request response here
+#             assert False, "Received 400 Bad Request response"
+#         elif res.status_code == 404:
+#             print("\n" + "404 Result not found!" + "\n")
+#             # Add your assertions or actions for 404 Not Found response here
+#             assert False, "Received 404 response"
+#         elif res.status_code == 500:
+#             print("\n" + "500 Internal Server Error!" + "\n")
+#             # Add your assertions or actions for 500 Internal Server Error response here
+#             assert False, "Received 500 response"
+#         else:
+#             print("Request did not succeed! Status code:", res.status_code)
+#             assert False, "Received {res.status_code} response"
+#     except BaseException as e:
+#         print("Exception : " + str(e))
+#         now2 = datetime.now()
+#         print("Time taken: " + str(now2 - now1))
+#         print("\nFailed to display the Message Ready By Devices with Page={}, Size={}".format(Page, Size))
+#         assert False
 #
 # # Broadcast - Rich Text --> Message to All Level
 # @pytest.mark.parametrize('url', [""])
@@ -516,9 +559,7 @@
 #             "topic": globalvar.activationCode + "_" + globalvar.productActivationCode,
 #             "type": "FCM_MESSAGE", "isLicenseLevel": True, "actCode": globalvar.activationCode,
 #             "pActCode": globalvar.productActivationCode,
-#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"rich\",\"title\":\"" + str(
-#                 Request.random_title) + "\",\"iconUrl\":\"https://stage-cache.weguard.ai/qa-cache-weguard-io/64cb86dd80f4b80b1dc65e73/238ed64b982bc5d4274d812d1b354157/5.1.15ITVIRTUsers.png\",\"body\":\"" + str(
-#                 Request.random_message) + "\", \"bMsgBodyRef\":\"" + str(globalvar.BroadcastMessageID) + "\"}",
+#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"rich\",\"title\":\"Alert!\",\"iconUrl\":\"https://stage-cache.weguard.ai/qa-cache-weguard-io/64cb86dd80f4b80b1dc65e73/238ed64b982bc5d4274d812d1b354157/5.1.15ITVIRTUsers.png\",\"body\":\"Today's weather: sunny with a chance of rain.\", \"bMsgBodyRef\":\"" + str(globalvar.AllPlayPoliciesBroadcastReqID) + "\"}",
 #             "pId": None, "priority": "high", "id": str(Request.RandomID), "reqId": str(Request.UUID)}
 #         res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
 #         if res.status_code == 200:
@@ -631,7 +672,7 @@
 #         apiUrl = globalvar.BaseURL + BroadcastPolicy
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         Payload = {
-#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000\",\"textType\":\"normal\",\"title\": " + Request.random_title + ",\"body\":" + Request.random_message + "}",
+#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000\",\"textType\":\"normal\",\"title\": \"Alert!\",\"body\":\"Today's weather: sunny with a chance of rain.\"}",
 #             "policies": [{"WCM": False, "policyName": globalvar.Android_All_Policy_Names[0],
 #                           "policyId": globalvar.Android_All_Policy_IDs[0],
 #                           "reqId": Request.UUID}], "id": Request.RandomID, "reqId": Request.UUID}
@@ -698,8 +739,8 @@
 #             "textColor": "#ffffff",
 #             "bgColor": "#000",
 #             "textType": "rich",
-#             "body": Request.random_message + "<a href=\"https://www.weguard.com\" target=\"_blank\">WeGuard</a>",
-#             "title": Request.random_title
+#             "body": "Today's weather: sunny with a chance of rain." + "<a href=\"https://www.weguard.com\" target=\"_blank\">WeGuard</a>",
+#             "title": "Alert!"
 #         }
 #         res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
 #         if res.status_code == 200:
@@ -754,11 +795,10 @@
 #         apiUrl = globalvar.BaseURL + FCMUpdate
 #         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #         Payload = {
-#             "topic": globalvar.Android_DeviceIDs[
-#                          0] + "_" + globalvar.activationCode + "_" + globalvar.productActivationCode,
+#             "topic": globalvar.Android_DeviceIDs[0] + "_" + globalvar.activationCode + "_" + globalvar.productActivationCode,
 #             "type": "FCM_MESSAGE", "isLicenseLevel": False,
 #             "actCode": globalvar.activationCode, "pActCode": globalvar.productActivationCode,
-#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"normal\",\"body\":" + Request.random_message + ",\"title\":" + Request.random_title + ", \"bMsgBodyRef\":\"" + str(
+#             "message": "{\"textColor\":\"#ffffff\",\"bgColor\":\"#000000\",\"textType\":\"normal\",\"body\":\"Today's weather: sunny with a chance of rain.\",\"title\": \"Alert!\", \"bMsgBodyRef\":\"" + str(
 #                 globalvar.BroadcastMessageID) + "\"}",
 #             "pId": globalvar.Android_All_Policy_IDs[0],
 #             "priority": "high", "id": Request.RandomID, "reqId": Request.UUID}

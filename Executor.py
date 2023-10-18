@@ -143,7 +143,7 @@ test_tc_14008_CompanyDirectory_Policy_Level_DELETE = 1
 test_tc_14009_CompanyDirectory_Policy_Level_FCM_UPDATE_POST = 1
 
 # WeShield
-test_tc_19001_WeShield = 1
+test_tc_19001_WeShield_Overview = 1
 
 
 # WeBox
