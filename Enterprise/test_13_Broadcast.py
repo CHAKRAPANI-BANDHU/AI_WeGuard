@@ -685,7 +685,7 @@ def test_tc_13009_Broadcast_Send_Message_Group_Level_Rich_Text_POST(url):
 @pytest.mark.broadcast
 @pytest.mark.regressiontest
 @pytest.mark.run(order=13010)
-def test_tc_13010_Broadcast_Send_Message_Level_Device_Rich_Text_POST(url):
+def test_tc_13010_Broadcast_Send_Message_Device_Level_Rich_Text_POST(url):
     now1 = datetime.now()
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
@@ -694,9 +694,13 @@ def test_tc_13010_Broadcast_Send_Message_Level_Device_Rich_Text_POST(url):
         #     for policyId in globalvar.Android_All_Policy_IDs:
         apiUrl = globalvar.BaseURL + BroadcastMessageRichText
         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-        Payload = {"textColor": "#ffffff", "bgColor": "#000", "textType": "rich",
-                   "body": + Request.random_message + "<a href=\"https://www.weguard.com\" target=\"_blank\">WeGuard</a>",
-                   "title": Request.random_title}
+        Payload = {
+            "textColor": "#ffffff",
+            "bgColor": "#000",
+            "textType": "rich",
+            "body": Request.random_message + "<a href=\"https://www.weguard.com\" target=\"_blank\">WeGuard</a>",
+            "title": Request.random_title
+        }
         res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
         if res.status_code == 200:
             print("\n" + "200 The request was a success!")
