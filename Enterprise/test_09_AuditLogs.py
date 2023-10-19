@@ -187,9 +187,9 @@
 #         print("\n\n--------  Failed -- Filter By Level = All and Date Range is Custom (1 Month) --------")
 #         assert False
 #
-# # Fetch Android Device Logs
+# # Fetch _CompanyDirectory_ Device Logs
 # @pytest.mark.parametrize('url', [""])
-# @pytest.mark.skipif(Execute.test_tc_904_AuditLogs_Android_Device_Logs == 0,
+# @pytest.mark.skipif(Execute.test_tc_904_AuditLogs__CompanyDirectory__Device_Logs == 0,
 #                     reason="This test must run, it is mandatory. Without this test rest of test case execution should stop")
 # @pytest.mark.positivetest
 # @pytest.mark.usualtest
@@ -197,13 +197,13 @@
 # @pytest.mark.sanitytest
 # @pytest.mark.regressiontest
 # @pytest.mark.run(order=10254)
-# def test_tc_0004_Android_Device_Logs(url):
+# def test_tc_0004__CompanyDirectory__Device_Logs(url):
 #     now1 = datetime.now()
 #     if globalvariables.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for android_device_id in globalvariables.Android_DeviceIDs:
-#             print(f"Processing Android devices: {android_device_id}")
+#         for _CompanyDirectory__device_id in globalvariables._CompanyDirectory__DeviceIDs:
+#             print(f"Processing _CompanyDirectory_ devices: {android_device_id}")
 #             apiUrl = globalvariables.BaseURL + AuditLogs(globalvariables.page_1, globalvariables.page_1000)
 #             Headers = {'Authorization': 'Bearer {}'.format(globalvariables.bearerToken)}
 #             Android_payload = {

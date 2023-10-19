@@ -84,13 +84,13 @@
 #
 # # GET -- Clicking on Android Device ID (get details by policyID)
 # @pytest.mark.parametrize('url', [""])
-# @pytest.mark.skipif(Execute.test_tc_5001_GET_Android_Device_By_PolicyID == 0,
+# @pytest.mark.skipif(Execute.test_tc_5001_GET__CompanyDirectory__By_PolicyID == 0,
 #                     reason="GET Android Device by MongoDB ID is skipped")
 # @pytest.mark.positivetest
 # @pytest.mark.devicedetailsview
 # @pytest.mark.regressiontest
 # @pytest.mark.run(order=50001)
-# def test_tc_5001_Android_Device_By_PolicyID_GET(url):
+# def test_tc_5001__CompanyDirectory__By_PolicyID_GET(url):
 #     now1 = datetime.now()
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
@@ -136,13 +136,13 @@
 #
 # # GET -- Clicking on Android Device ID (get details by Mongo DB ID)
 # @pytest.mark.parametrize('url', [""])
-# @pytest.mark.skipif(Execute.test_tc_5002_GET_Android_Device_By_MongoDBID == 0,
+# @pytest.mark.skipif(Execute.test_tc_5002_GET__CompanyDirectory__By_MongoDBID == 0,
 #                     reason="GET Android Device by MongoDB ID is skipped")
 # @pytest.mark.positivetest
 # @pytest.mark.devicedetailsview
 # @pytest.mark.regressiontest
 # @pytest.mark.run(order=50002)
-# def test_tc_5002_Android_Device_By_MongoDBID_GET(url):
+# def test_tc_5002__CompanyDirectory__By_MongoDBID_GET(url):
 #     now1 = datetime.now()
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
@@ -186,22 +186,22 @@
 #
 # # POST -- FCM Update of APK DU
 # @pytest.mark.parametrize('url', [""])
-# @pytest.mark.skipif(Execute.test_tc_5003_POST_Android_Device_FCMUpdate_DU == 0, reason="FCM Update APK DU is skipped")
+# @pytest.mark.skipif(Execute.test_tc_5003_POST__CompanyDirectory__FCMUpdate_DU == 0, reason="FCM Update APK DU is skipped")
 # @pytest.mark.positivetest
 # @pytest.mark.devicedetailsview
 # @pytest.mark.regressiontest
 # @pytest.mark.run(order=50003)
-# def test_tc_5003_Android_Device_APK_DU_FCMUpdate(url):
+# def test_tc_5003__CompanyDirectory__APK_DU_FCMUpdate(url):
 #     now1 = datetime.now()
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
 #     try:
-#         for Android_DeviceID in globalvar.Android_DeviceIDs:
+#         for _CompanyDirectory_ID in globalvar._CompanyDirectory_IDs:
 #             for policyID in globalvar.Android_Policy_IDs:
 #                 apiUrl = globalvar.BaseURL + FCMUpdate
 #                 Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
 #                 APKDUPayload = {
-#                     "topic": Android_DeviceID + "_" + globalvar.activationCode + "_" + globalvar.productActivationCode,
+#                     "topic": _CompanyDirectory_ID + "_" + globalvar.activationCode + "_" + globalvar.productActivationCode,
 #                     "type": "FCM_APK_DU", "isLicenseLevel": False,
 #                     "pId": policyID, "actCode": globalvar.activationCode, "pActCode": globalvar.productActivationCode,
 #                     "priority": "high"}
@@ -242,7 +242,7 @@
 #
 # # GET -- Get Notes for Android Devices
 # @pytest.mark.parametrize('url', [""])
-# @pytest.mark.skipif(Execute.test_tc_5004_GET_Android_Device_Notes == 0,
+# @pytest.mark.skipif(Execute.test_tc_5004_GET__CompanyDirectory__Notes == 0,
 #                     reason="GET Android Device Notes is skipped")
 # @pytest.mark.positivetest
 # @pytest.mark.devicedetailsview

@@ -106,6 +106,7 @@ test_tc_13008_Broadcast_Send_Message_Level_All_Rich_Text = 1
 test_tc_13009_Broadcast_Send_Message_Level_Group_Rich_Text = 1
 test_tc_13010_Broadcast_Send_Message_Level_Device_Rich_Text = 1
 test_tc_13011_Broadcast_FCMUpdate = 1
+test_tc_13013_Broadcast_FCMUpdate = 1
 
 
 # Enterprise App Version

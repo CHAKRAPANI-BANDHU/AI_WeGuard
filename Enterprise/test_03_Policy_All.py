@@ -50,7 +50,7 @@ def store_profiles(platform, policy_type, policy_id, policy_name):
 @pytest.mark.regressiontest
 @pytest.mark.positivetest
 @pytest.mark.run(order=400000)
-def test_tc_4000_Policy_ALL_10000(Page, Size):
+def test_tc_4000_Policy_ALL(Page, Size):
     now1 = datetime.now()
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
