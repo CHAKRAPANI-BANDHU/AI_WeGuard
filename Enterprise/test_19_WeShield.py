@@ -4,6 +4,7 @@ import requests
 import Executor as Execute
 import globalvariables as globalvar
 import test_GETutils as Utils
+from test_08_Reports import test_tc_8003_Reports_Windows_Profiles_GET
 
 
 def Overview(accountId):
@@ -11,7 +12,7 @@ def Overview(accountId):
     return WeShieldOverview
 
 # POST -- WeShield -- Overview
-@pytest.mark.parametrize('url', [])
+@pytest.mark.parametrize('url', [""])
 @pytest.mark.skipif(Execute.test_tc_19001_WeShield_Overview == 0, reason="POST - WeShield Overview is skipped")
 @pytest.mark.usualtest
 @pytest.mark.weshield
@@ -26,7 +27,7 @@ def test_tc_19001_WeShield_Overview_POST(url):
     try:
         apiUrl = globalvar.BaseURL + Overview(globalvar.accountId)
         Headers = {'Authorization': 'Bearer ' + globalvar.bearerToken}
-        Payload = {"startDate": globalvar.start_timestamp, "endDate": globalvar.end_timestamp}
+        Payload = {"endDate": globalvar.end_timestamp, "startDate": globalvar.start_timestamp, }
         res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
         if res.status_code == 200:
             print("\n200 The request was a success!\n")
