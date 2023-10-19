@@ -37,15 +37,16 @@ test_tc_2001_Dashboard = 1
 test_tc_2002_DashboardCalls = 1
 test_tc_2003_DashboardRecentActivity = 1
 
-# Devices Page
-test_tc_3001_All_Devices_Pagination = 1
-test_tc_3002_Devices_States = 1
-test_tc_3003_Search_Policy = 1
-test_tc_3004_Filter_By_GroupNames = 1
-test_tc_3005_View_By_Device_Types = 1
-
 # Policy Groups
-test_tc_4000_Policy_All=1
+test_tc_3000_Policy_All=1
+
+# Devices Page
+test_tc_4001_All_Devices_Pagination = 1
+test_tc_4002_Devices_States = 1
+test_tc_4003_Search_Policy = 1
+test_tc_4004_Filter_By_GroupNames = 1
+test_tc_4005_View_By_Device_Types = 1
+
 
 # Policy Groups -- Android Policy
 test_tc_4001_GET_Android_Policy_By_ID = 1

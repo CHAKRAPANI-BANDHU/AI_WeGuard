@@ -21,7 +21,7 @@ def searchPolicies(page, size, search):
 
 # Devices States and Pagination
 @pytest.mark.parametrize('Page, Size', [(p, s) for p in globalvar.page for s in globalvar.pageSize])
-@pytest.mark.skipif(Execute.test_tc_3001_All_Devices_Pagination == 0, reason="skip test")
+@pytest.mark.skipif(Execute.test_tc_4001_All_Devices_Pagination == 0, reason="skip test")
 @pytest.mark.positivetest
 @pytest.mark.devices
 @pytest.mark.sanitytest
@@ -153,7 +153,8 @@ def test_tc_3001_All_Devices_Paginations(Page, Size):
 #     [(Page, Size, *combo) for Page in globalvar.page for Size in globalvar.pageSize for combo in combinations],
 #     ids=custom_test_name
 # )
-# def test_tc_3002_Device_States(test_params):
+# # @pytest.mark.skipif(Execute.test_tc_4002_Devices_States == 0, reason="skip test")
+# def test_tc_4002_Device_States(test_params):
 #     Page, Size, provisioned, active, replaced, lost, stolen, unEnrolled = test_params
 #     now1 = datetime.now()
 #     if globalvar.bearerToken == '':
@@ -209,12 +210,12 @@ def test_tc_3001_All_Devices_Paginations(Page, Size):
 #
 # # Search Policy
 # @pytest.mark.parametrize('Page, Size', [(p, s) for p in globalvar.page for s in globalvar.pageSize])
-# @pytest.mark.skipif(Execute.test_tc_3003_Search_Policy == 0, reason="skip test")
+# @pytest.mark.skipif(Execute.test_tc_4003_Search_Policy == 0, reason="skip test")
 # @pytest.mark.negativetest
 # @pytest.mark.devices
 # @pytest.mark.regressiontest
-# @pytest.mark.run(order=30003)
-# def test_tc_3003_Search_Policy(Page, Size):
+# @pytest.mark.run(order=40003)
+# def test_tc_4003_Search_Policy(Page, Size):
 #     now1 = datetime.now()
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
@@ -260,12 +261,12 @@ def test_tc_3001_All_Devices_Paginations(Page, Size):
 #
 # # Filter By Group Names
 # @pytest.mark.parametrize('Page, Size', [(p, s) for p in globalvar.page for s in globalvar.pageSize])
-# @pytest.mark.skipif(Execute.test_tc_3004_Filter_By_GroupNames == 0, reason="skip test")
+# @pytest.mark.skipif(Execute.test_tc_4004_Filter_By_GroupNames == 0, reason="skip test")
 # @pytest.mark.negativetest
 # @pytest.mark.devices
 # @pytest.mark.regressiontest
-# @pytest.mark.run(order=30004)
-# def test_tc_3004_Filter_By_GroupNames(Page, Size):
+# @pytest.mark.run(order=40004)
+# def test_tc_4004_Filter_By_GroupNames(Page, Size):
 #     now1 = datetime.now()
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
@@ -315,12 +316,12 @@ def test_tc_3001_All_Devices_Paginations(Page, Size):
 # # Android, iOS, Windows Devices
 # @pytest.mark.parametrize('Page, Size, DeviceType',
 #                          [(p, s, d) for p in globalvar.page for s in globalvar.pageSize for d in DeviceTypes])
-# @pytest.mark.skipif(Execute.test_tc_3005_View_By_Device_Types == 0, reason="skip test")
+# @pytest.mark.skipif(Execute.test_tc_4005_View_By_Device_Types == 0, reason="skip test")
 # @pytest.mark.negativetest
 # @pytest.mark.devices
 # @pytest.mark.regressiontest
-# @pytest.mark.run(order=30005)
-# def test_tc_3005_Devices_Types(Page, Size, DeviceType):
+# @pytest.mark.run(order=40005)
+# def test_tc_4005_Devices_Types(Page, Size, DeviceType):
 #     now1 = datetime.now()
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")

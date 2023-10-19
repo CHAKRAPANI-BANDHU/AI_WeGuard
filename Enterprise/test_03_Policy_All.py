@@ -43,7 +43,7 @@ def store_profiles(platform, policy_type, policy_id, policy_name):
 
 # Define the test function
 @pytest.mark.parametrize('Page, Size', [(p, s) for p in Globalinfo.page for s in Globalinfo.pageSize])
-@pytest.mark.skipif(Execute.test_tc_4000_Policy_All == 0, reason="test skipped")
+@pytest.mark.skipif(Execute.test_tc_3000_Policy_All == 0, reason="test skipped")
 @pytest.mark.usualtest
 @pytest.mark.policygroups
 @pytest.mark.sanitytest
