@@ -50,6 +50,14 @@
 #
 #         presentday_timestamp = int(presentday.timestamp() * 1000)
 #         print("\n" + "Present Day Timestamp: " + str(presentday_timestamp))
+#         # Calculate 7 days ago
+#         Seven_Days_Ago = presentday - timedelta(days=7)
+#         # Print the result
+#         print("\n" + "7 days ago from present day: ", Seven_Days_Ago)
+#         # Convert to timestamp in milliseconds
+#         SevenDaysAgoTimestamp = int(Seven_Days_Ago.timestamp() * 1000)
+#         # Print the result
+#         print("\n" + "7 days ago: ", SevenDaysAgoTimestamp)
 #
 #         # Calculate the start of yesterday
 #         yesterday_start = (presentday - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
@@ -104,7 +112,7 @@
 #         print("\n" + "Month: " + str(month))
 #
 #         month_timestamp = int(round(month.timestamp() * 1000))
-#         print("\n" + "Month Timestamp: " + str(month_timestamp))
+#         print("\n" + "Previous Month Timestamp: " + str(month_timestamp))
 #
 #         isomonth = datetime.utcfromtimestamp(month_timestamp / 1000).strftime('%Y-%m-%dT%H:%M:%S.000Z')
 #         print("\n" + "ISO Month: " + isomonth)

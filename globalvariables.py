@@ -1,7 +1,7 @@
 import os
-import time
+# import time
 from datetime import datetime, timedelta
-import WeGuardLogger as WeGuard
+# import WeGuardLogger as WeGuard
 
 # Time Conversion in different formats
 now_datetime = datetime.now()
@@ -21,6 +21,9 @@ isoend = end_of_day_datetime.strftime('%Y-%m-%dT%H:%M:%S.999Z')
 # Get today's date
 presentday = datetime.today()
 presentday_timestamp = int(presentday.timestamp() * 1000)
+# Calculate 7 days ago
+Seven_Days_Ago = presentday - timedelta(days=7)
+SevenDaysAgoTimestamp = int(Seven_Days_Ago.timestamp() * 1000)
 
 # Calculate the start of yesterday
 yesterday_start = (presentday - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
@@ -209,12 +212,6 @@ iOS_DeviceIDs = []
 # disable apps ids from get api
 disableapps_list = []
 
-
-# Geofence Information
-GEOFENCE_IDS=[]
-GEOFENCE_MONGO_DB_IDS=[]
-GEOFENCE_TYPES=[]
-
 # Company Directory
 AccountLevel_Contacts_IDS = []
 PolicyLevel_Contacts_IDS = []
@@ -260,5 +257,5 @@ AllNonPlayPoliciesBroadcastReqID=[]
 # Play and Non Play
 Broadcast_Play_Non_Play_Message_ReqID=[]
 
-# Geofence
-geofencePolicyConfigId=[]
+# WeShield IDs for Status
+WeShieldStatusIDs=[]

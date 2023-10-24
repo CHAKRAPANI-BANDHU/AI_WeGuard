@@ -275,6 +275,7 @@ PostPolicyLevelAlertConfig = {"accountId": None, "policyId": None,
 GeofenceIDS = []
 Geofence_MongoDB_IDs = []
 GeofenceTypes = []
+geofencePolicyConfigId = []
 # Generate and store random Geofence IDs
 GeofenceIds = [str(random.randint(1000000000000000000, 9999999999999999999)) for _ in range(1)]  # Generate 1 random IDs
 

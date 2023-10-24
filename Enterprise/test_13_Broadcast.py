@@ -168,8 +168,6 @@
 #
 # # Broadcast - POST Message History (Non Play Policies)
 # wcm_values = [True]
-#
-#
 # @pytest.mark.parametrize('Page, Size, WcmValue',
 #                          [(p, s, w) for p in globalvar.page for s in globalvar.pageSize for w in wcm_values])
 # @pytest.mark.skipif(Execute.test_tc_13003_Broadcast_MessageHistory_POST == 0,
@@ -547,7 +545,7 @@
 # @pytest.mark.broadcast
 # @pytest.mark.regressiontest
 # @pytest.mark.run(order=130011)
-# def test_tc_130012_Broadcast_Send_Message_All_Level_Rich_Text_POST_FCMUpdate(url):
+# def test_tc_130011_Broadcast_Send_Message_All_Level_Rich_Text_POST_FCMUpdate(url):
 #     now1 = datetime.now()
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")
@@ -778,13 +776,13 @@
 #
 # # Broadcast - Rich Text --> Message to Device Level = FCM Update
 # @pytest.mark.parametrize('url', [""])
-# @pytest.mark.skipif(Execute.test_tc_13013_Broadcast_FCMUpdate == 0,
+# @pytest.mark.skipif(Execute.test_tc_13012_Broadcast_FCMUpdate == 0,
 #                     reason="Broadcast rich text message to level = Device is skipped")
 # @pytest.mark.positivetest
 # @pytest.mark.broadcast
 # @pytest.mark.regressiontest
-# @pytest.mark.run(order=13013)
-# def test_tc_13013_Broadcast_FCMUpdate_POST(url):
+# @pytest.mark.run(order=13012)
+# def test_tc_13012_Broadcast_FCMUpdate_POST(url):
 #     now1 = datetime.now()
 #     if globalvar.bearerToken == '':
 #         pytest.skip("Empty Bearer token Skipping test")

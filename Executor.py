@@ -107,7 +107,7 @@ test_tc_13008_Broadcast_Send_Message_Level_All_Rich_Text = 1
 test_tc_13009_Broadcast_Send_Message_Level_Group_Rich_Text = 1
 test_tc_13010_Broadcast_Send_Message_Level_Device_Rich_Text = 1
 test_tc_13011_Broadcast_FCMUpdate = 1
-test_tc_13013_Broadcast_FCMUpdate = 1
+test_tc_13012_Broadcast_FCMUpdate = 1
 
 
 # Enterprise App Version
@@ -146,6 +146,10 @@ test_tc_14009_CompanyDirectory_Policy_Level_FCM_UPDATE_POST = 1
 
 # WeShield
 test_tc_19001_WeShield_Overview = 1
+test_tc_19002_Windows_Policies_All=1
+test_tc_19003_WeShield_Status_Account = 1
+test_tc_19004_WeShield_Manual_Scan_for_a_Device = 1
+test_tc_19005_WeShield_History_Account = 1
 
 
 # WeBox

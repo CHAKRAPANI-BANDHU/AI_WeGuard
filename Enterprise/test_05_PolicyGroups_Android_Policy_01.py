@@ -5,6 +5,7 @@
 # import Executor as Execute
 # import globalvariables as Globalinfo
 # import test_GETutils as Utils
+# import general_payload as requestinfo
 #
 #
 # def AndroidPolicy(policyId):
@@ -115,11 +116,11 @@
 #                             geofence_policy_ids.append(geofence_policy_id)
 #
 #                 if geofence_policy_ids:
-#                     Globalinfo.geofencePolicyConfigId.extend(geofence_policy_ids)
+#                     requestinfo.geofencePolicyConfigId.extend(geofence_policy_ids)
 #                     print("Geofence Policy Config IDs: ", geofence_policy_ids, "\n")
 #                 else:
 #                     print("No geofences with 'geofencePolicyId' found in the response." + "\n")
-#                     print("Geofence Policy IDs of all Android Policies: ", Globalinfo.geofencePolicyConfigId, "\n")
+#                     print("Geofence Policy IDs of all Android Policies: ", requestinfo.geofencePolicyConfigId, "\n")
 #
 #                 # Extract and handle timeFencePolicyConfigs if they exist
 #                 time_fence_config = parsed_response.get('entity', {}).get('timeFencePolicyConfigs')
