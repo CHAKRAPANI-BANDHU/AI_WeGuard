@@ -248,15 +248,15 @@ def test_tc_19004_WeShield_Account_History_POST(Page, Size):
 
 # POST -- WeShield -- Threats
 @pytest.mark.parametrize('Page, Size', [(p, s) for p in globalvar.page for s in globalvar.pageSize])
-@pytest.mark.skipif(Execute.test_tc_19005_WeShield_History_Account == 0,
-                    reason="POST - WeShield History Account is skipped")
+@pytest.mark.skipif(Execute.test_tc_19006_WeShield_Threats_Detected_On_Devices == 0,
+                    reason="POST - WeShield Threats detected on devices is skipped")
 @pytest.mark.usualtest
 @pytest.mark.weshield
 @pytest.mark.sanitytest
 @pytest.mark.regressiontest
 @pytest.mark.positivetest
-@pytest.mark.run(order=19005)
-def test_tc_19004_WeShield_Account_History_POST(Page, Size):
+@pytest.mark.run(order=19006)
+def test_tc_19006_WeShield_Threats_GET(Page, Size):
     now1 = datetime.now()
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token. Skipping test.")

@@ -150,6 +150,7 @@ test_tc_19002_Windows_Policies_All=1
 test_tc_19003_WeShield_Status_Account = 1
 test_tc_19004_WeShield_Manual_Scan_for_a_Device = 1
 test_tc_19005_WeShield_History_Account = 1
+test_tc_19006_WeShield_Threats_Detected_On_Devices = 1
 
 
 # WeBox
