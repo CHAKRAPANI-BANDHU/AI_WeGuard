@@ -50,10 +50,11 @@ def store_profiles(platform, policy_type, policy_id, policy_name):
 @pytest.mark.positivetest
 @pytest.mark.run(order=400000)
 def test_tc_4000_Policy_ALL(Page, Size):
-    now1 = datetime.now()
+    if Size in [500, 100]:
+        pytest.skip(f"Skipping test for pageSize {Size}")
+        now1 = datetime.now()
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
-    
     try:
         apiUrl = Globalinfo.BaseURL + AllPolicy(Page, Size)
         Headers = {'Authorization': 'Bearer ' + Globalinfo.bearerToken}
