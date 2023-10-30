@@ -16,44 +16,32 @@ def AllPolicy(page, size):
 def store_profiles(platform, policy_type, policy_id, policy_name):
     policy_info = (policy_type, policy_id, policy_name)
     
-    # Check if the policy_info is already in any of the lists, and if not, add it
-    if policy_info not in Globalinfo.All_Policies:
-        Globalinfo.All_Policies.append(policy_info)
+    # Check if the policy_info is already in any of the sets, and if not, add it
+    Globalinfo.All_Policies.add(policy_info)
     
-    if policy_type in ["ANDROID_KIOSK", "ANDROID_WM", "ANDROID_BYOD"]:
-        if policy_info not in Globalinfo.Android_Policies:
-            Globalinfo.Android_Policies.append(policy_info)
-    elif policy_type in ["ANDROID_NON_PLAY_KIOSK", "ANDROID_NON_PLAY_WM", "ANDROID_NON_PLAY_BYOD"]:
-        if policy_info not in Globalinfo.Android_Non_Play_Policies:
-            Globalinfo.Android_Non_Play_Policies.append(policy_info)
+    if policy_type in {"ANDROID_KIOSK", "ANDROID_WM", "ANDROID_BYOD"}:
+        Globalinfo.Android_Policies.add(policy_info)
+    elif policy_type in {"ANDROID_NON_PLAY_KIOSK", "ANDROID_NON_PLAY_WM", "ANDROID_NON_PLAY_BYOD"}:
+        Globalinfo.Android_Non_Play_Policies.add(policy_info)
     
     if policy_type == "ANDROID_KIOSK":
-        if policy_info not in Globalinfo.Android_Kiosk_Policies:
-            Globalinfo.Android_Kiosk_Policies.append(policy_info)
+        Globalinfo.Android_Kiosk_Policies.add(policy_info)
     elif policy_type == "ANDROID_WM":
-        if policy_info not in Globalinfo.Android_WM_Policies:
-            Globalinfo.Android_WM_Policies.append(policy_info)
+        Globalinfo.Android_WM_Policies.add(policy_info)
     elif policy_type == "ANDROID_BYOD":
-        if policy_info not in Globalinfo.Android_BYOD_Policies:
-            Globalinfo.Android_BYOD_Policies.append(policy_info)
+        Globalinfo.Android_BYOD_Policies.add(policy_info)
     elif policy_type == "ANDROID_NON_PLAY_KIOSK":
-        if policy_info not in Globalinfo.Android_Non_Play_Kiosk_Policies:
-            Globalinfo.Android_Non_Play_Kiosk_Policies.append(policy_info)
+        Globalinfo.Android_Non_Play_Kiosk_Policies.add(policy_info)
     elif policy_type == "ANDROID_NON_PLAY_WM":
-        if policy_info not in Globalinfo.Android_Non_Play_WM_Policies:
-            Globalinfo.Android_Non_Play_WM_Policies.append(policy_info)
+        Globalinfo.Android_Non_Play_WM_Policies.add(policy_info)
     elif policy_type == "ANDROID_NON_PLAY_BYOD":
-        if policy_info not in Globalinfo.Android_Non_Play_BYOD_Policies:
-            Globalinfo.Android_Non_Play_BYOD_Policies.append(policy_info)
+        Globalinfo.Android_Non_Play_BYOD_Policies.add(policy_info)
     elif platform == "IOS":
-        if policy_info not in Globalinfo.iOS_Policies:
-            Globalinfo.iOS_Policies.append(policy_info)
+        Globalinfo.iOS_Policies.add(policy_info)
     elif platform == "WINDOWS":
-        if policy_info not in Globalinfo.Windows_Policies:
-            Globalinfo.Windows_Policies.append(policy_info)
+        Globalinfo.Windows_Policies.add(policy_info)
     else:
         print(f"Invalid platform: {platform}")
-
 
 # Define the test function
 @pytest.mark.parametrize('Page, Size', [(p, s) for p in Globalinfo.page for s in Globalinfo.pageSize])
@@ -69,7 +57,7 @@ def test_tc_4000_Policy_ALL(Page, Size):
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     
-    # Clear the lists before populating them with new data
+    # Initialize the global policy information lists
     Globalinfo.All_Policies = []
     Globalinfo.Android_Policies = []
     Globalinfo.Android_Non_Play_Policies = []
@@ -81,9 +69,12 @@ def test_tc_4000_Policy_ALL(Page, Size):
     Globalinfo.Android_Non_Play_BYOD_Policies = []
     Globalinfo.iOS_Policies = []
     Globalinfo.Windows_Policies = []
-    Globalinfo.All_Policy_IDs=[]
-    Globalinfo.All_Policy_Names=[]
-    Globalinfo.All_Policy_Types=[]
+    Globalinfo.All_Policy_IDs = []
+    Globalinfo.Android_Policy_IDs = []
+    Globalinfo.iOS_Policy_IDs = []
+    Globalinfo.Windows_Policy_IDs = []
+    Globalinfo.All_Policy_Names = []
+    Globalinfo.All_Policy_Types = []
     
     try:
         apiUrl = Globalinfo.BaseURL + AllPolicy(Page, Size)
