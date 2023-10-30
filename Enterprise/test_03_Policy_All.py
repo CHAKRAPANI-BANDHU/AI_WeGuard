@@ -14,34 +14,31 @@ def AllPolicy(page, size):
 
 # Function to store profiles separately based on type
 def store_profiles(platform, policy_type, policy_id, policy_name):
-    policy_info = (policy_type, policy_id, policy_name)
-    
-    # Check if the policy_info is already in any of the sets, and if not, add it
-    Globalinfo.All_Policies.add(policy_info)
-    
-    if policy_type in {"ANDROID_KIOSK", "ANDROID_WM", "ANDROID_BYOD"}:
-        Globalinfo.Android_Policies.add(policy_info)
-    elif policy_type in {"ANDROID_NON_PLAY_KIOSK", "ANDROID_NON_PLAY_WM", "ANDROID_NON_PLAY_BYOD"}:
-        Globalinfo.Android_Non_Play_Policies.add(policy_info)
-    
-    if policy_type == "ANDROID_KIOSK":
-        Globalinfo.Android_Kiosk_Policies.add(policy_info)
-    elif policy_type == "ANDROID_WM":
-        Globalinfo.Android_WM_Policies.add(policy_info)
-    elif policy_type == "ANDROID_BYOD":
-        Globalinfo.Android_BYOD_Policies.add(policy_info)
-    elif policy_type == "ANDROID_NON_PLAY_KIOSK":
-        Globalinfo.Android_Non_Play_Kiosk_Policies.add(policy_info)
-    elif policy_type == "ANDROID_NON_PLAY_WM":
-        Globalinfo.Android_Non_Play_WM_Policies.add(policy_info)
-    elif policy_type == "ANDROID_NON_PLAY_BYOD":
-        Globalinfo.Android_Non_Play_BYOD_Policies.add(policy_info)
+    if platform == "ANDROID":
+        Globalinfo.All_Policies.append((policy_type, policy_id, policy_name))
+        if policy_type in ["ANDROID_KIOSK", "ANDROID_WM", "ANDROID_BYOD"]:
+            Globalinfo.Android_Policies.append((policy_type, policy_id, policy_name))
+        elif policy_type in ["ANDROID_NON_PLAY_KIOSK", "ANDROID_NON_PLAY_WM", "ANDROID_NON_PLAY_BYOD"]:
+            Globalinfo.Android_Non_Play_Policies.append((policy_type, policy_id, policy_name))
+        if policy_type == "ANDROID_KIOSK":
+            Globalinfo.Android_Kiosk_Policies.append((policy_type, policy_id, policy_name))
+        elif policy_type == "ANDROID_WM":
+            Globalinfo.Android_WM_Policies.append((policy_type, policy_id, policy_name))
+        elif policy_type == "ANDROID_BYOD":
+            Globalinfo.Android_BYOD_Policies.append((policy_type, policy_id, policy_name))
+        elif policy_type == "ANDROID_NON_PLAY_KIOSK":
+            Globalinfo.Android_Non_Play_Kiosk_Policies.append((policy_type, policy_id, policy_name))
+        elif policy_type == "ANDROID_NON_PLAY_WM":
+            Globalinfo.Android_Non_Play_WM_Policies.append((policy_type, policy_id, policy_name))
+        elif policy_type == "ANDROID_NON_PLAY_BYOD":
+            Globalinfo.Android_Non_Play_BYOD_Policies.append((policy_type, policy_id, policy_name))
     elif platform == "IOS":
-        Globalinfo.iOS_Policies.add(policy_info)
+        Globalinfo.iOS_Policies.append((policy_type, policy_id, policy_name))
     elif platform == "WINDOWS":
-        Globalinfo.Windows_Policies.add(policy_info)
+        Globalinfo.Windows_Policies.append((policy_type, policy_id, policy_name))
     else:
         print(f"Invalid platform: {platform}")
+
 
 # Define the test function
 @pytest.mark.parametrize('Page, Size', [(p, s) for p in Globalinfo.page for s in Globalinfo.pageSize])
@@ -56,25 +53,6 @@ def test_tc_4000_Policy_ALL(Page, Size):
     now1 = datetime.now()
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
-    
-    # Initialize the global policy information lists
-    Globalinfo.All_Policies = []
-    Globalinfo.Android_Policies = []
-    Globalinfo.Android_Non_Play_Policies = []
-    Globalinfo.Android_Kiosk_Policies = []
-    Globalinfo.Android_WM_Policies = []
-    Globalinfo.Android_BYOD_Policies = []
-    Globalinfo.Android_Non_Play_Kiosk_Policies = []
-    Globalinfo.Android_Non_Play_WM_Policies = []
-    Globalinfo.Android_Non_Play_BYOD_Policies = []
-    Globalinfo.iOS_Policies = []
-    Globalinfo.Windows_Policies = []
-    Globalinfo.All_Policy_IDs = []
-    Globalinfo.Android_Policy_IDs = []
-    Globalinfo.iOS_Policy_IDs = []
-    Globalinfo.Windows_Policy_IDs = []
-    Globalinfo.All_Policy_Names = []
-    Globalinfo.All_Policy_Types = []
     
     try:
         apiUrl = Globalinfo.BaseURL + AllPolicy(Page, Size)
@@ -149,9 +127,9 @@ def test_tc_4000_Policy_ALL(Page, Size):
                     Globalinfo.All_Policy_Types.append(profile[0])
                     Globalinfo.All_Policy_IDs.append(profile[1])
                     Globalinfo.All_Policy_Names.append(profile[2])
-                print(f"All Policy Type: {Globalinfo.All_Policy_Types}\n")
-                print(f"All Policy IDs: {Globalinfo.All_Policy_IDs}\n")
-                print(f"All Policy Name: {Globalinfo.All_Policy_Names}\n")
+                print(f"All Android Policy Types: {Globalinfo.All_Policy_Types}\n")
+                print(f"All Android Policy IDs: {Globalinfo.All_Policy_IDs}\n")
+                print(f"All Android Policy Name: {Globalinfo.All_Policy_Names}\n")
             else:
                 print("No All Policies found.")
             
@@ -203,7 +181,7 @@ def test_tc_4000_Policy_ALL(Page, Size):
                 android_wm_policy_types = [profile[0] for profile in Globalinfo.Android_WM_Policies]
                 android_wm_policy_ids = [profile[1] for profile in Globalinfo.Android_WM_Policies]
                 android_wm_policy_names = [profile[2] for profile in Globalinfo.Android_WM_Policies]
-                print("Android WM Policy IDs: ", android_wm_policy_types)
+                print("Android WM Policy Types: ", android_wm_policy_types)
                 print("Android WM Policy IDs: ", android_wm_policy_ids)
                 print("Android WM Policy Names: ", android_wm_policy_names)
             else:
