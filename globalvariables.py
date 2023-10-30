@@ -132,10 +132,13 @@ UnacknowledgeAlertsIDs = []
 AllPlatformPolicyIDs=[]
 
 # Android All Policies Info
-Android_All_Policies=[]
-Android_All_Policy_IDs = []
-Android_All_Policy_Names = []
-Android_All_Policy_Types = []
+All_Policies=[]
+All_Policy_IDs = []
+All_Policy_Names = []
+All_Policy_Types = []
+
+# Play and Non Play Policy IDs
+AndroidPlayNonPlayPolicyIDs = []
 
 # Android Play Policies Info
 Android_Policies = []
@@ -259,3 +262,7 @@ Broadcast_Play_Non_Play_Message_ReqID=[]
 
 # WeShield IDs for Status
 WeShieldStatusIDs=[]
+
+# Windows Policy Details from GET API
+PolicyWindowsID = []
+PolicyWindowsVersion = ""
