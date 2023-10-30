@@ -262,7 +262,3 @@ Broadcast_Play_Non_Play_Message_ReqID=[]
 
 # WeShield IDs for Status
 WeShieldStatusIDs=[]
-
-# Windows Policy Details from GET API
-PolicyWindowsID = []
-PolicyWindowsVersion = ""

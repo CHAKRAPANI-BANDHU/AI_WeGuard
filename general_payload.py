@@ -340,12 +340,15 @@ messages = [
 random_title = random.choice(titles)
 random_message = random.choice(messages)
 
-# Windows Policy Update (PUT) payload
+# Windows Policy Details from GET API
+PolicyWindowsID = []
+PolicyWindowsVersion = ""
 
+# Windows Policy Update (PUT) payload
 WindowsPolicyUpdate= {
-  "id": globalvariables.PolicyWindowsID,
+  "id": PolicyWindowsID,
   "deleted": False,
-  "version": globalvariables.PolicyWindowsVersion,
+  "version": PolicyWindowsVersion,
   "runGenericCSPAutoFlag": False,
   "runGenericCSPAutoFreq": 24,
   "accountId": "64cb86dd80f4b80b1dc65e73",

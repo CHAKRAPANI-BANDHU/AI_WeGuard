@@ -56,10 +56,10 @@ def test_tc_1100001_Windows_Policy_GET(url):
                     "\n" + "Request Method: " + res.request.method +
                     "\n" + "Status Code: " + str(res.status_code) +
                     "\n" + "Response: " + str(res.content) + "\n")
-                globalvar.PolicyWindowsID = json.loads(res.content)['entity']['id']
-                print("\n" + "ID from GET Policy API: ", globalvar.PolicyWindowsID)
-                globalvar.PolicyWindowsVersion = json.loads(res.content)['entity']['version']
-                print("\n" + "Policy version from GET Policy API: ", globalvar.PolicyWindowsVersion, "\n")
+                GeneralPayload.PolicyWindowsID = json.loads(res.content)['entity']['id']
+                print("\n" + "ID from GET Policy API: ", GeneralPayload.PolicyWindowsID)
+                GeneralPayload.PolicyWindowsVersion = json.loads(res.content)['entity']['version']
+                print("\n" + "Policy version from GET Policy API: ", GeneralPayload.PolicyWindowsVersion, "\n")
             elif res.status_code == 400:
                 print("\n" + "400 Bad Request!" + "\n")
                 # Add your assertions or actions for 400 Bad Request response here
@@ -308,6 +308,8 @@ def test_tc_1100006_Windows_PolicyUpdate_PUT(url):
         policyId = globalvar.Windows_Policy_IDs[0]
         apiUrl = globalvar.BaseURL + WindowsPolicyUpdate(policyId)
         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+        GeneralPayload.WindowsPolicyUpdate['id'] = GeneralPayload.PolicyWindowsID
+        GeneralPayload.WindowsPolicyUpdate['version'] = GeneralPayload.PolicyWindowsVersion
         res = requests.put(url=apiUrl, headers=Headers, json=GeneralPayload.WindowsPolicyUpdate,
                            timeout=globalvar.timeout)
         if res.status_code == 200:
@@ -338,5 +340,5 @@ def test_tc_1100006_Windows_PolicyUpdate_PUT(url):
         print("Exception : " + str(e))
         now2 = datetime.now()
         print("Time taken: " + str(now2 - now1))
-        print("------------- Failed to display the Windows device policy ---------------------------\n\n")
+        print("------------- Failed to update the Windows policy ---------------------------\n\n")
         assert False
