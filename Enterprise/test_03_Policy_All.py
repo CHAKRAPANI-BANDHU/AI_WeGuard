@@ -52,7 +52,7 @@ def store_profiles(platform, policy_type, policy_id, policy_name):
 def test_tc_4000_Policy_ALL(Page, Size):
     if Size in [500, 100]:
         pytest.skip(f"Skipping test for pageSize {Size}")
-        now1 = datetime.now()
+    now1 = datetime.now()
     if Globalinfo.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     try:
