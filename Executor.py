@@ -124,6 +124,7 @@ test_tc_0000006_Windows_Device_Last_Contact_Time_PUT=1
 test_tc_0000007_Windows_DeviceDetailsByPolicyID_GET =1
 test_tc_0000008_Windows_Device_Search_By_PolicyID_GET =1
 test_tc_0000009_Windows_Device_Search_By_All_String_GET=1
+
 # Windows Policy
 test_tc_1100001_Windows_Policy_GET=1
 test_tc_1100002_Windows_Policy_Clone_POST=1
@@ -131,6 +132,8 @@ test_tc_1100003_Windows_Policy_Delete=0
 test_tc_1100004_Windows_Disabled_Apps_GET=1
 test_tc_1100005_Windows_Device_Policy_GET=1
 test_tc_1100006_Windows_Policy_Update_PUT=1
+test_tc_1100007_Windows_Screen_Time_GET=1
+test_tc_1100008_Windows_CSP_History_GET=1
 
 
 # CSPs

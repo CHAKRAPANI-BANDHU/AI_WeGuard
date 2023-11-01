@@ -50,6 +50,7 @@
 #
 #         presentday_timestamp = int(presentday.timestamp() * 1000)
 #         print("\n" + "Present Day Timestamp: " + str(presentday_timestamp))
+#
 #         # Calculate 7 days ago
 #         Seven_Days_Ago = presentday - timedelta(days=7)
 #         # Print the result
@@ -108,7 +109,7 @@
 #         print("\n" + "Custom Nextdate Timestamp: " + str(customnextdate_timestamp))
 #
 #         # Get month
-#         month = presentday.replace(hour=23, minute=59, second=59) - timedelta(30)
+#         month = presentday.replace(hour=23, minute=59, second=59) - timedelta(31)
 #         print("\n" + "Month: " + str(month))
 #
 #         month_timestamp = int(round(month.timestamp() * 1000))

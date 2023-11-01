@@ -33,6 +33,9 @@ def WindowsPolicyUpdate(policyId):
 def GETWindowsScreenTime(policyId, start, end):
     return "windows/rest/screentime/averages/policy/{policyId}?start={start}&end={end}".format(policyId=policyId, start=start, end=end)
 
+def GETCSPHistory(policyId, end, page, size, start):
+    return "windows/rest/csp/search/policy/{policyId}?end={end}&page={page}&size={size}&start={start}".format(policyId=policyId, end=end, page=page, size=size, start=start)
+
 
 # GET method to get the Windows policy
 @pytest.mark.parametrize('url', [""])
@@ -208,8 +211,9 @@ def test_tc_1100004_Windows_DisabledApps_GET(url):
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     try:
-        for policyID in globalvar.Windows_Policy_IDs:
-            apiUrl = globalvar.BaseURL + GETDisabledAppsWindows(policyID)
+        # for policyID in globalvar.Windows_Policy_IDs:
+            policyId = globalvar.Windows_Policy_IDs[0]
+            apiUrl = globalvar.BaseURL + GETDisabledAppsWindows(policyId)
             Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
             res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
             if res.status_code == 200:
@@ -257,8 +261,9 @@ def test_tc_1100005_Windows_DevicePolicy_GET(Page, Size):
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     try:
-        for policyID in globalvar.Windows_Policy_IDs:
-            apiUrl = globalvar.BaseURL + WindowsDevicePolicy(policyID, Size, Page)
+        # for policyID in globalvar.Windows_Policy_IDs:
+            policyId = globalvar.Windows_Policy_IDs[0]
+            apiUrl = globalvar.BaseURL + WindowsDevicePolicy(policyId, Size, Page)
             Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
             res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
             if res.status_code == 200:
@@ -348,25 +353,22 @@ def test_tc_1100006_Windows_PolicyUpdate_PUT(url):
 
 # GET method to get screen time
 @pytest.mark.parametrize('url', [""])
-@pytest.mark.skipif(Execute.test_tc_1100006_Windows_Policy_Update_PUT == 0,
-                    reason="PUT - Windows Policy Update is skipped")
+@pytest.mark.skipif(Execute.test_tc_1100007_Windows_Screen_Time_GET == 0,
+                    reason="GET - Screen Time of a Windows policy is skipped")
 @pytest.mark.positivetest
 @pytest.mark.WindowsPolicy
 @pytest.mark.regressiontest
-@pytest.mark.run(order=1100006)
-def test_tc_1100006_Windows_PolicyUpdate_PUT(url):
+@pytest.mark.run(order=1100007)
+def test_tc_1100007_Windows_Screen_Time_GET(url):
     now1 = datetime.now()
     if globalvar.bearerToken == '':
         pytest.skip("Empty Bearer token Skipping test")
     try:
         # for policyID in globalvar.Windows_Policy_IDs:
         policyId = globalvar.Windows_Policy_IDs[0]
-        apiUrl = globalvar.BaseURL + GETWindowsScreenTime(policyId)
+        apiUrl = globalvar.BaseURL + GETWindowsScreenTime(policyId, globalvar.isomonth, globalvar.isostart)
         Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
-        GeneralPayload.WindowsPolicyUpdate['id'] = GeneralPayload.PolicyWindowsID
-        GeneralPayload.WindowsPolicyUpdate['version'] = GeneralPayload.PolicyWindowsVersion
-        res = requests.put(url=apiUrl, headers=Headers, json=GeneralPayload.WindowsPolicyUpdate,
-                           timeout=globalvar.timeout)
+        res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
         if res.status_code == 200:
             curl_str1 = Utils.getCurlEquivalent(res)
             print(curl_str1)
@@ -395,7 +397,54 @@ def test_tc_1100006_Windows_PolicyUpdate_PUT(url):
         print("Exception : " + str(e))
         now2 = datetime.now()
         print("Time taken: " + str(now2 - now1))
-        print("------------- Failed to update the Windows policy ---------------------------\n\n")
+        print("------------- Failed to get the screen time details of a Windows policy ---------------------------\n\n")
         assert False
 
-
+# GET method to get csp history
+@pytest.mark.parametrize('Page, Size', [(p, s) for p in globalvar.page for s in globalvar.pageSize])
+@pytest.mark.skipif(Execute.test_tc_1100008_Windows_CSP_History_GET == 0,
+                    reason="GET - Screen Time of a Windows policy is skipped")
+@pytest.mark.positivetest
+@pytest.mark.WindowsPolicy
+@pytest.mark.regressiontest
+@pytest.mark.run(order=1100008)
+def test_tc_1100008_Windows_CSP_History_GET(Page, Size):
+    now1 = datetime.now()
+    if globalvar.bearerToken == '':
+        pytest.skip("Empty Bearer token Skipping test")
+    try:
+        # for policyID in globalvar.Windows_Policy_IDs:
+        policyId = globalvar.Windows_Policy_IDs[0]
+        apiUrl = globalvar.BaseURL + GETCSPHistory(policyId, globalvar.isomonth, Page, Size, globalvar.isomonth)
+        Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
+        res = requests.get(url=apiUrl, headers=Headers, timeout=globalvar.timeout)
+        if res.status_code == 200:
+            curl_str1 = Utils.getCurlEquivalent(res)
+            print(curl_str1)
+            print("\n" + "200 The request was a success!")
+            print(  # "\n" + "Header: " + str(res.headers) + "\n"
+                "\n" + "Request URL: " + apiUrl +
+                "\n" + "Request Method: " + res.request.method +
+                "\n" + "Status Code: " + str(res.status_code) +
+                "\n" + "Response: " + str(res.content) + "\n")
+        elif res.status_code == 400:
+            print("\n" + "400 Bad Request!" + "\n")
+            # Add your assertions or actions for 400 Bad Request response here
+            assert False, "Received 400 Bad Request response"
+        elif res.status_code == 404:
+            print("\n" + "404 Result not found!" + "\n")
+            # Add your assertions or actions for 404 Not Found response here
+            assert False, "Received 404 response"
+        elif res.status_code == 500:
+            print("\n" + "500 Internal Server Error!" + "\n")
+            # Add your assertions or actions for 500 Internal Server Error response here
+            assert False, "Received 500 response"
+        else:
+            print("Request did not succeed! Status code:", res.status_code)
+            assert False, "Received {res.status_code} response"
+    except BaseException as e:
+        print("Exception : " + str(e))
+        now2 = datetime.now()
+        print("Time taken: " + str(now2 - now1))
+        print("------------- Failed to get the csp history ---------------------------\n\n")
+        assert False
