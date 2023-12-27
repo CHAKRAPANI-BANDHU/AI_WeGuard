@@ -151,6 +151,11 @@ test_tc_14007_CompanyDirectory_Policy_Level_POST=1
 test_tc_14008_CompanyDirectory_Policy_Level_DELETE=1
 test_tc_14009_CompanyDirectory_Policy_Level_FCM_UPDATE_POST=1
 
+# Screen Time
+test_tc_20001_ScreenTime_DeviceFilters_POST=1
+test_tc_20002_ScreenTime_ApplicationsFilters_GET=1
+test_tc_20003_ScreenTime_AppUsageStats_POST=1
+
 # WeShield
 test_tc_19001_WeShield_Overview=1
 test_tc_19002_Windows_Policies_All=1

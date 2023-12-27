@@ -1,6 +1,7 @@
 import os
 # import time
 from datetime import datetime, timedelta
+
 # import WeGuardLogger as WeGuard
 
 # Time Conversion in different formats
@@ -80,7 +81,6 @@ end_of_month_timestamp = int(start_of_month.timestamp() * 1000)
 end_of_previous_month = start_of_month - timedelta(seconds=1)
 start_of_previous_month = end_of_previous_month.replace(day=1)
 
-
 # Environment Variables
 global userName
 userName = ''
@@ -120,7 +120,7 @@ accountId = ""
 companyName = ""
 name = ""
 enterpriseId = ""
-role=""
+role = ""
 
 # Alerts
 UnacknowledgeAlertsIDs = []
@@ -129,10 +129,10 @@ UnacknowledgeAlertsIDs = []
 # After clicking on policy groups on left navigation bar
 
 # All Platform (Android, iOS, Windows) Policy IDs
-AllPlatformPolicyIDs=[]
+AllPlatformPolicyIDs = []
 
 # Android All Policies Info
-All_Policies=[]
+All_Policies = []
 All_Policy_IDs = []
 All_Policy_Names = []
 All_Policy_Types = []
@@ -148,38 +148,38 @@ Android_Policy_Types = []
 Android_profile_platform = []
 
 # Android Non Play Policies Info
-Android_Non_Play_Policies=[]
-Android_Non_Play_Policy_IDs=[]
-Android_Non_Play_Policy_Names=[]
-Android_Non_Play_Policy_Types=[]
+Android_Non_Play_Policies = []
+Android_Non_Play_Policy_IDs = []
+Android_Non_Play_Policy_Names = []
+Android_Non_Play_Policy_Types = []
 
 # Android Kiosk Policies Info
-Android_Kiosk_Policies=[]
+Android_Kiosk_Policies = []
 Android_Kiosk_Policy_IDs = []
 Android_Kiosk_Policy_Names = []
 
 # Android WM Policies Info
-Android_WM_Policies=[]
+Android_WM_Policies = []
 Android_WM_Policy_IDs = []
 Android_WM_Policy_Names = []
 
 # Android BYOD (Work Profile) Policies Info
-Android_BYOD_Policies=[]
+Android_BYOD_Policies = []
 Android_BYOD_Policy_IDs = []
 Android_BYOD_Policy_Names = []
 
 # Android Non Play Kiosk Policies Info
-Android_Non_Play_Kiosk_Policies=[]
+Android_Non_Play_Kiosk_Policies = []
 Android_Non_Play_Kiosk_Policy_IDs = []
 Android_Non_Play_Kiosk_Policy_Names = []
 
 # Android Non Play WM Policies Info
-Android_Non_Play_WM_Policies=[]
+Android_Non_Play_WM_Policies = []
 Android_Non_Play_WM_Policy_IDs = []
 Android_Non_Play_WM_Policy_Names = []
 
 # Android Non Play BYOD (Work Profile) Policies Info
-Android_Non_Play_BYOD_Policies=[]
+Android_Non_Play_BYOD_Policies = []
 Android_Non_Play_BYOD_Policy_IDs = []
 Android_Non_Play_BYOD_Policy_Names = []
 
@@ -220,9 +220,9 @@ AccountLevel_Contacts_IDS = []
 PolicyLevel_Contacts_IDS = []
 
 # Windows CSPs
-OMA_URIs=[]
-dataType=[]
-Actions=[]
+OMA_URIs = []
+dataType = []
+Actions = []
 
 login_event = {
     "agent": "PORTAL",
@@ -242,23 +242,29 @@ login_event = {
 }
 
 # Policy Groups (GET Policy API is triggered)
-Android_Policy_Name =[]
-APNSettingID=[]
+Android_Policy_Name = []
+APNSettingID = []
 
 # Time Fencing
-timefenceId=[]
+timefenceId = []
 
 # Broadcast
 # Play Policies
-LicensesBroadcastReqID=[]
+LicensesBroadcastReqID = []
 DevicesBroadcastReqID = []
-AllPlayPoliciesBroadcastReqID=[]
+AllPlayPoliciesBroadcastReqID = []
 # Non Play Policies
-LicensesBroadcastReqIDNonPlayPolicies=[]
+LicensesBroadcastReqIDNonPlayPolicies = []
 DevicesBroadcastReqIDNonPlayPolicies = []
-AllNonPlayPoliciesBroadcastReqID=[]
+AllNonPlayPoliciesBroadcastReqID = []
 # Play and Non Play
-Broadcast_Play_Non_Play_Message_ReqID=[]
+Broadcast_Play_Non_Play_Message_ReqID = []
 
 # WeShield IDs for Status
-WeShieldStatusIDs=[]
+WeShieldStatusIDs = []
+
+# Screen Time
+Regions = []
+AllAppUsageStats = {"policyIds": None, "startDate": start_timestamp, "endDate": end_timestamp,
+                 "skip": 0, "limit": 100, "tag6List": None, "tag7List": None, "tag8List": None,
+                 "tag9List": None, "appId": None}
