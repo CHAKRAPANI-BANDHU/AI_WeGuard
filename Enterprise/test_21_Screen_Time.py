@@ -49,6 +49,7 @@ def test_tc_200001_ScreenTime_POST_DeviceFilters(url):
             if 'regions' in json_response and json_response['regions']:
                 globalvar.Regions = json_response['regions']
                 print("Regions are present: " + str(globalvar.Regions))
+                
             else:
                 print("No regions available in the response.")
         elif res.status_code == 400:

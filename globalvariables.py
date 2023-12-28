@@ -61,6 +61,8 @@ customnextdate_timestamp = int(round(customnextdate.timestamp() * 1000))
 month = presentday.replace(hour=23, minute=59, second=59) - timedelta(30)
 month_timestamp = int(round(month.timestamp() * 1000))
 isomonth = datetime.utcfromtimestamp(month_timestamp / 1000).strftime('%Y-%m-%dT%H:%M:%S.000Z')
+previous_month_midday = presentday.replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(30)
+previous_month_midday_timestamp = int(previous_month_midday.timestamp() * 1000)
 
 # Calculate the start of the current month
 start_of_month = presentday.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
@@ -265,6 +267,6 @@ WeShieldStatusIDs = []
 
 # Screen Time
 Regions = []
-AllAppUsageStats = {"policyIds": None, "startDate": start_timestamp, "endDate": end_timestamp,
+AllAppUsageStats = {"policyIds": None, "startDate": previous_month_midday_timestamp, "endDate": end_timestamp,
                  "skip": 0, "limit": 100, "tag6List": None, "tag7List": None, "tag8List": None,
                  "tag9List": None, "appId": None}

@@ -109,8 +109,13 @@
 #         print("\n" + "Custom Nextdate Timestamp: " + str(customnextdate_timestamp))
 #
 #         # Get month
+#         previous_month_midday = presentday.replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(30)
 #         month = presentday.replace(hour=23, minute=59, second=59) - timedelta(31)
 #         print("\n" + "Month: " + str(month))
+#         print("\n" + "Previous Month Mid Day: " + str(previous_month_midday))
+#
+#         previous_month_midday_timestamp = int(previous_month_midday.timestamp() * 1000)
+#         print("\n" + "Previous Month Midday Timestamp: " + str(previous_month_midday_timestamp))
 #
 #         month_timestamp = int(round(month.timestamp() * 1000))
 #         print("\n" + "Previous Month Timestamp: " + str(month_timestamp))
