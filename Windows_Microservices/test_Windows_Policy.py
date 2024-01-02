@@ -110,7 +110,7 @@ def test_tc_1100002_Windows_Policy_Clone_POST(url):
             Headers = {'Authorization': 'Bearer {}'.format(globalvar.bearerToken)}
             # Generate a unique display name by appending a timestamp
             unique_groupDisplayName = f"{GeneralPayload.firstName}_{int(datetime.now().timestamp())}"
-            Payload = {"clonedFrom": policy_id, "clonedFromName": policy_id,
+            Payload = {"clonedFrom": policy_id, "clonedFromName": globalvar.Windows_Policy_Names[0],
                        "description": GeneralPayload.randomName,
                        "groupDisplayName": unique_groupDisplayName, "type": policyType}
             res = requests.post(url=apiUrl, headers=Headers, json=Payload, timeout=globalvar.timeout)
