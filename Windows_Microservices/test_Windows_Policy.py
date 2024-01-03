@@ -9,7 +9,6 @@ import general_payload as GeneralPayload
 
 CloneWindowsPolicy = "windows/rest/policy"
 
-
 def DeleteWindowsPolicy(policyId):
     return "windows/rest/policy/{policyId}".format(policyId=policyId)
 
@@ -25,7 +24,6 @@ def GETDisabledAppsWindows(policyId):
 def WindowsDevicePolicy(policyId, size, page):
     return "windows/rest/device/policy/{policyId}?size={size}&page={page}".format(policyId=policyId, size=size,
                                                                                   page=page)
-
 
 def WindowsPolicyUpdate(policyId):
     return "windows/rest/policy/{policyId}".format(policyId=policyId)
